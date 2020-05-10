@@ -339,9 +339,9 @@
               
                 <li>
 
-                  <a href="/musics " style="margin-left:75px">
+                  <a href="/musics " style="margin-left:50px">
 				  
-				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
 			      
 		          <span>Musics</span>
                   </a>
@@ -349,9 +349,9 @@
               
                 <li>
 
-                  <a href="/movies " style="margin-left:75px">
+                  <a href="/movies " style="margin-left:50px">
 				  
-				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
 			      
 		          <span>Movies</span>
                   </a>
@@ -359,9 +359,9 @@
               
                 <li>
 
-                  <a href="/books " style="margin-left:75px">
+                  <a href="/books " style="margin-left:50px">
 				  
-				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
 			      
 		          <span>Books</span>
                   </a>
@@ -369,9 +369,9 @@
               
                 <li>
 
-                  <a href="/galleries " style="margin-left:75px">
+                  <a href="/galleries " style="margin-left:50px">
 				  
-				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
 			      
 		          <span>Galleries</span>
                   </a>
@@ -506,48 +506,6 @@
 
 <main class="content">
 
-
-<div id="myGallery" class="my-gallery">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-image"></i>&nbsp;&nbsp;相册
-    </div>
-    <div class="row">
-        
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="[object Object]">
-                <img src="/%5Bobject%20Object%5D" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="[object Object]">
-                <img src="/%5Bobject%20Object%5D" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="[object Object]">
-                <img src="/%5Bobject%20Object%5D" class="responsive-img">
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
-    });
-</script>
-
-
 </main>
 
 
@@ -564,7 +522,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73</span>&nbsp;字
+                class="white-color">139</span>&nbsp;字
             
             
             
@@ -658,10 +616,6 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
 </div>
     </div>
 </footer>
@@ -726,20 +680,6 @@ $(function () {
 
     <!-- Baidu Push -->
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
     
     <script src="/libs/others/clicklove.js" async="async"></script>
     
@@ -749,6 +689,25 @@ $(function () {
 
     
 
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "b97f028f"
+        });
+        daovoice('update');
+    </script>
     
 
     

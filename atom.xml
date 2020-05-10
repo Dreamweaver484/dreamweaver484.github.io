@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lewis.qi.tk/"/>
-  <updated>2020-05-09T14:00:48.269Z</updated>
+  <updated>2020-05-10T02:23:46.326Z</updated>
   <id>http://lewis.qi.tk/</id>
   
   <author>
@@ -18,12 +18,19 @@
   
   <entry>
     <title>Linux</title>
-    <link href="http://lewis.qi.tk/2020/05/09/Linux/"/>
-    <id>http://lewis.qi.tk/2020/05/09/Linux/</id>
-    <published>2020-05-09T13:33:18.000Z</published>
-    <updated>2020-05-09T14:00:48.269Z</updated>
+    <link href="http://lewis.qi.tk/2020/05/10/Linux/"/>
+    <id>http://lewis.qi.tk/2020/05/10/Linux/</id>
+    <published>2020-05-10T02:21:09.000Z</published>
+    <updated>2020-05-10T02:23:46.326Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Linux 用户登陆输入密码时，字符是不显示的，防止别人看见你密码的位数<br>Linux预设提供了<strong>六个命令窗口终端机</strong>让我们来登录。</p><ul><li>Liunx系统<ul><li>命令窗口切换的快捷键为 <code>Ctrl + Alt + F1 ~ F6</code></li><li>命令窗口界面返回图形界面,按下Ctrl + Alt + F7 就回来</li></ul></li><li>vm虚拟机的Liunx系统<ul><li>命令窗口切换的快捷键为 <code>Alt + Space + F1 ~ F6</code></li><li>图形界面界面返回命令窗口按 <code>Alt + Shift + Ctrl + F1~F6</code></li></ul></li></ul><p>查看LIunx版本</p><ul><li><code>cat /etc/redhat-release</code></li><li><code>uname -a</code></li></ul>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Linux&quot;&gt;&lt;a href=&quot;#Linux&quot; class=&quot;headerlink&quot; title=&quot;Linux&quot;&gt;&lt;/a&gt;Linux&lt;/h1&gt;&lt;p&gt;Linux 用户登陆输入密码时，字符是不显示的，防止别人看见你密码的位数&lt;br&gt;Linux预设提供了&lt;strong&gt;
+      
     
     </summary>
     
@@ -33,44 +40,7 @@
     
       <category term="Linux" scheme="http://lewis.qi.tk/tags/Linux/"/>
     
-      <category term="npm" scheme="http://lewis.qi.tk/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>article title</title>
-    <link href="http://lewis.qi.tk/2020/05/07/article-title/"/>
-    <id>http://lewis.qi.tk/2020/05/07/article-title/</id>
-    <published>2020-05-07T13:30:02.000Z</published>
-    <updated>2020-05-07T13:30:02.688Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://lewis.qi.tk/2020/05/07/hello-world/"/>
-    <id>http://lewis.qi.tk/2020/05/07/hello-world/</id>
-    <published>2020-05-07T13:21:32.846Z</published>
-    <updated>2020-05-07T13:21:32.847Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
+      <category term="centos" scheme="http://lewis.qi.tk/tags/centos/"/>
     
   </entry>
   
