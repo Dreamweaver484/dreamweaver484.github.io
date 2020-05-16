@@ -1,0 +1,1788 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="sequelize、moudle简单使用, 技术分享 | 生活点滴 | 友人帐">
+    <meta name="description" content="介绍">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166013913-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-166013913-1');
+</script>
+
+
+    <title>sequelize、moudle简单使用 | welcome</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <!-- 增加动态诗词 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="welcome" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">welcome</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友人帐</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>好文收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">welcome</div>
+        <div class="logo-desc">
+            
+            介绍
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友人帐
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			好文收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Dreamweaver484" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #a18cd1;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Dreamweaver484" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">sequelize、moudle简单使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/nodejs/">
+                                <span class="chip bg-color">nodejs</span>
+                            </a>
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/nodejs/" class="post-category">
+                                nodejs
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    592
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/104836214" target="_blank" rel="noopener">sequelize、moudle简单使用</a></p>
+<h1 id="MySQL-Node-js驱动程序"><a href="#MySQL-Node-js驱动程序" class="headerlink" title="MySQL Node.js驱动程序"></a>MySQL Node.js驱动程序</h1><h2 id="1-Node-js程序访问MySQL数据库"><a href="#1-Node-js程序访问MySQL数据库" class="headerlink" title="1.Node.js程序访问MySQL数据库"></a>1.Node.js程序访问MySQL数据库</h2><p>添加依赖包：<br>1.<strong>npm i mysql2</strong><br>2.<strong>npm i sequelize</strong>  </p>
+<p>ORM、ODM区别：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript">ODM对象数据模型、ORM对象关系模型<br>ODM / ORM 能将网站中的数据表示为 JavaScript 对象，然后将它们映射到底层数据库<br><span class="hljs-number">1.</span>ODM 通常慢一些，因为在对象和数据库格式之间存在一层用于映射的翻译代码<br><span class="hljs-number"><code class="language-hljs angelscript">ODM对象数据模型、ORM对象关系模型<br>ODM / ORM 能将网站中的数据表示为 JavaScript 对象，然后将它们映射到底层数据库<br><span class="hljs-number">1.</span>ODM 通常慢一些，因为在对象和数据库格式之间存在一层用于映射的翻译代码<br><span class="hljs-number">2.</span>ORM 可以继续用 JavaScript 对象的思维而不用转向数据库语义的思维。 在（同一个或不同网站）使用不同数据库时尤为明显<br><br>Sequelize是一款基于Nodejs功能强大的异步ORM框架<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs asciidoc">mysql&gt; select * from pets;<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>| id | name   | birth      |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>|  1 | Gaffey | 2007-07-07 |<br>|  2 | Odie   | 2008-08-08 |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>2 rows in set (0.00 sec)<br><br>每一行可以用一个JavaScript对象<br>第一行：JSON表示<br>&#123;<br><span class="hljs-code">    "id": 1,</span><br><span class="hljs-code">    "name": "Gaffey",</span><br><span class="hljs-code">    "birth": "2007-07-07"</span><br>&#125;<br><br>用Sequelize查询pets表：(复杂)<br>Pet.findAll()<br><span class="hljs-code">   .then(function (pets) &#123;</span><br><span class="hljs-code">       for (let pet in pets) &#123;</span><br><span class="hljs-code">           console.log(`$&#123;pet.id&#125;: $&#123;pet.name&#125;`);</span><br><span class="hljs-code">       &#125;</span><br><span class="hljs-code">   &#125;)</span><br><span class="hljs-code">   .catch(function (err) &#123;</span><br><span class="hljs-code">       // error</span><br><span class="hljs-code"><code class="language-hljs asciidoc">mysql&gt; select * from pets;<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>| id | name   | birth      |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>|  1 | Gaffey | 2007-07-07 |<br>|  2 | Odie   | 2008-08-08 |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>2 rows in set (0.00 sec)<br><br>每一行可以用一个JavaScript对象<br>第一行：JSON表示<br>&#123;<br><span class="hljs-code">    "id": 1,</span><br><span class="hljs-code">    "name": "Gaffey",</span><br><span class="hljs-code">    "birth": "2007-07-07"</span><br>&#125;<br><br>用Sequelize查询pets表：(复杂)<br>Pet.findAll()<br><span class="hljs-code">   .then(function (pets) &#123;</span><br><span class="hljs-code">       for (let pet in pets) &#123;</span><br><span class="hljs-code">           console.log(`$&#123;pet.id&#125;: $&#123;pet.name&#125;`);</span><br><span class="hljs-code">       &#125;</span><br><span class="hljs-code">   &#125;)</span><br><span class="hljs-code">   .catch(function (err) &#123;</span><br><span class="hljs-code">       // error</span><br><span class="hljs-code">   &#125;);</span><br><br>注：<br>then()和catch()分别异步响应成功和失败<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>在koa的async异步函数中直接写await访问数据库<br>ES7的await来调用任何一个Promise对象：（简单）</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs clojure">(<span class="hljs-name">async</span> () =&gt; &#123;<br>    var pets = await Pet.findAll()<span class="hljs-comment">;</span><br>&#125;)()<span class="hljs-comment"><code class="language-hljs clojure">(<span class="hljs-name">async</span> () =&gt; &#123;<br>    var pets = await Pet.findAll()<span class="hljs-comment">;</span><br>&#125;)()<span class="hljs-comment">;</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>实例：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs 1c">hnode-MySQL/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- init.txt             &lt;-- 初始化SQL命令<br><span class="hljs-string">|</span><br>+- config.js            &lt;-- MySQL配置文件<br><span class="hljs-string"><code class="language-hljs 1c">hnode-MySQL/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- init.txt             &lt;-- 初始化SQL命令<br><span class="hljs-string">|</span><br>+- config.js            &lt;-- MySQL配置文件<br><span class="hljs-string">|</span><br>+- app.js               <-- 使用koa的js<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>config.js </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs java"><span class="hljs-comment">//数据库连接配置文件</span><br><span class="hljs-keyword">var</span> config = &#123;<br>    database: <span class="hljs-string">'node_test'</span>,<br>    username: <span class="hljs-string">'root'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: <span class="hljs-number">3307</span><br>&#125;;<br><br><span class="hljs-comment">//暴露接口</span><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-comment">//数据库连接配置文件</span><br><span class="hljs-keyword">var</span> config = &#123;<br>    database: <span class="hljs-string">'node_test'</span>,<br>    username: <span class="hljs-string">'root'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: <span class="hljs-number">3307</span><br>&#125;;<br><br><span class="hljs-comment">//暴露接口</span><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>app.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><br><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><br><span class="hljs-comment">//config.js的自定义依赖包</span><br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-comment">//创建一个sequelize对象实例：</span><br><span class="hljs-comment">//单个进程连接到数据库，则应仅创建一个Sequelize实例</span><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    <span class="hljs-comment">//连接数据库语言</span><br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    pool: &#123;<br>        <span class="hljs-comment">//连接池中的最大、小连接数</span><br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        <span class="hljs-comment">//连接释放之前可以空闲的最长时间（以毫秒为单位）</span><br>        idle: <span class="hljs-number">30000</span><br>    &#125;<br>&#125;);<br><span class="hljs-comment">//测试连接是否正常</span><br>sequelize<br>  .authenticate()<br>  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Connection has been established successfully.'</span>);<br>  &#125;)<br>  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Unable to connect to the database:'</span>, err);<br>  &#125;);<br><br>  <br><span class="hljs-comment">//Model模型Pet，告诉Sequelize如何映射数据库表</span><br><span class="hljs-comment">//第一个参数传入默认的表名pets</span><br><span class="hljs-comment">//第二个参数指定(列名:数据类型)，如果是主键，指定true</span><br><span class="hljs-comment">//第三个参数是额外的配置，传入&#123; timestamps: false &#125;</span><br><span class="hljs-comment">//是为了关闭Sequelize的自动添加timestamp的功能。</span><br><br><span class="hljs-comment">//sequelize 连接表的时候，会默认给你传进去的表名加上s, </span><br><span class="hljs-comment">//所以需要手动配置参数 freezeTableName: true</span><br><span class="hljs-keyword">var</span> Pet = sequelize.define(<span class="hljs-string">'pets'</span>, <br>    &#123;<br>    id: &#123;<span class="hljs-attr">type</span>: Sequelize.STRING(<span class="hljs-number">50</span>),<span class="hljs-attr">primaryKey</span>: <span class="hljs-literal">true</span>&#125;,<br>    name: Sequelize.STRING(<span class="hljs-number">100</span>),<br>    gender: Sequelize.BOOLEAN,<br>    birth: Sequelize.STRING(<span class="hljs-number">10</span>),<br>    createdAt: Sequelize.BIGINT,<br>    updatedAt: Sequelize.BIGINT,<br>    version: Sequelize.BIGINT<br>    &#125;, <br>    &#123;<br>        timestamps: <span class="hljs-literal">false</span><br>    &#125;);<br><br><span class="hljs-comment">//日期对象</span><br><span class="hljs-keyword">var</span> now = <span class="hljs-built_in">Date</span>.now();<br><br><span class="hljs-comment">//往数据库添加数据（Promise方式）</span><br><span class="hljs-comment">//then()和catch()分别异步响应成功和失败</span><br>Pet.create(&#123;<br>    id: <span class="hljs-string">'g-'</span> + now,<br>    name: <span class="hljs-string">'cat'</span>,<br>    gender: <span class="hljs-literal">false</span>,<br>    birth: <span class="hljs-string">'2020-01-01'</span>,<br>    createdAt: now,<br>    updatedAt: now,<br>    version: <span class="hljs-number">0</span><br>&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created.'</span> + <span class="hljs-built_in">JSON</span>.stringify(p));<br>&#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'failed: '</span> + err);<br>&#125;);<br><br><span class="hljs-comment">//往数据库添加数据(await方式)</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> dog = <span class="hljs-keyword">await</span> Pet.create(&#123;<br>        id: <span class="hljs-string">'d-'</span> + now,<br>        name: <span class="hljs-string">'dog'</span>,<br>        gender: <span class="hljs-literal">false</span>,<br>        birth: <span class="hljs-string">'2020-01-02'</span>,<br>        createdAt: now,<br>        updatedAt: now,<br>        version: <span class="hljs-number">0</span><br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created: '</span> + <span class="hljs-built_in">JSON</span>.stringify(dog));<br>&#125;)();<br><br><span class="hljs-comment">//查询数据</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> pets = <span class="hljs-keyword">await</span> Pet.findAll(&#123;<br>        where: &#123;<br>            name: <span class="hljs-string">'dog'</span><br>        &#125;<br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`find <span class="hljs-subst">$&#123;pets.length&#125;</span> pets:`</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">of</span> pets) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(p));<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'update pet...'</span>);<br>        <span class="hljs-comment">//更新数据</span><br>        p.gender = <span class="hljs-literal">true</span>;<br>        p.updatedAt = <span class="hljs-built_in">Date</span>.now();<br>        p.version ++;<br>        <span class="hljs-keyword">await</span> p.save();<br>        <span class="hljs-comment">//删除数据</span><br>        <span class="hljs-keyword">if</span> (p.version === <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">await</span> p.destroy();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;p.name&#125;</span> was destroyed.`</span>);<br>        &#125;<br>    &#125;<br>&#125;)();<br><br><br><span class="hljs-comment">// 单独更新数据，await p.save();保存</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     p.gender = true;</span><br><span class="hljs-comment">//     p.updatedAt = Date.now();</span><br><span class="hljs-comment">//     p.version ++;</span><br><span class="hljs-comment">//     await p.save();</span><br><span class="hljs-comment">// &#125;)();</span><br><br><br><br><span class="hljs-comment">// 单独删除数据，await p.destroy();销毁</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     await p.destroy();</span><br><span class="hljs-comment"><code class="language-hljs javascript"><br><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><br><span class="hljs-comment">//config.js的自定义依赖包</span><br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-comment">//创建一个sequelize对象实例：</span><br><span class="hljs-comment">//单个进程连接到数据库，则应仅创建一个Sequelize实例</span><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    <span class="hljs-comment">//连接数据库语言</span><br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    pool: &#123;<br>        <span class="hljs-comment">//连接池中的最大、小连接数</span><br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        <span class="hljs-comment">//连接释放之前可以空闲的最长时间（以毫秒为单位）</span><br>        idle: <span class="hljs-number">30000</span><br>    &#125;<br>&#125;);<br><span class="hljs-comment">//测试连接是否正常</span><br>sequelize<br>  .authenticate()<br>  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Connection has been established successfully.'</span>);<br>  &#125;)<br>  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Unable to connect to the database:'</span>, err);<br>  &#125;);<br><br>  <br><span class="hljs-comment">//Model模型Pet，告诉Sequelize如何映射数据库表</span><br><span class="hljs-comment">//第一个参数传入默认的表名pets</span><br><span class="hljs-comment">//第二个参数指定(列名:数据类型)，如果是主键，指定true</span><br><span class="hljs-comment">//第三个参数是额外的配置，传入&#123; timestamps: false &#125;</span><br><span class="hljs-comment">//是为了关闭Sequelize的自动添加timestamp的功能。</span><br><br><span class="hljs-comment">//sequelize 连接表的时候，会默认给你传进去的表名加上s, </span><br><span class="hljs-comment">//所以需要手动配置参数 freezeTableName: true</span><br><span class="hljs-keyword">var</span> Pet = sequelize.define(<span class="hljs-string">'pets'</span>, <br>    &#123;<br>    id: &#123;<span class="hljs-attr">type</span>: Sequelize.STRING(<span class="hljs-number">50</span>),<span class="hljs-attr">primaryKey</span>: <span class="hljs-literal">true</span>&#125;,<br>    name: Sequelize.STRING(<span class="hljs-number">100</span>),<br>    gender: Sequelize.BOOLEAN,<br>    birth: Sequelize.STRING(<span class="hljs-number">10</span>),<br>    createdAt: Sequelize.BIGINT,<br>    updatedAt: Sequelize.BIGINT,<br>    version: Sequelize.BIGINT<br>    &#125;, <br>    &#123;<br>        timestamps: <span class="hljs-literal">false</span><br>    &#125;);<br><br><span class="hljs-comment">//日期对象</span><br><span class="hljs-keyword">var</span> now = <span class="hljs-built_in">Date</span>.now();<br><br><span class="hljs-comment">//往数据库添加数据（Promise方式）</span><br><span class="hljs-comment">//then()和catch()分别异步响应成功和失败</span><br>Pet.create(&#123;<br>    id: <span class="hljs-string">'g-'</span> + now,<br>    name: <span class="hljs-string">'cat'</span>,<br>    gender: <span class="hljs-literal">false</span>,<br>    birth: <span class="hljs-string">'2020-01-01'</span>,<br>    createdAt: now,<br>    updatedAt: now,<br>    version: <span class="hljs-number">0</span><br>&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created.'</span> + <span class="hljs-built_in">JSON</span>.stringify(p));<br>&#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'failed: '</span> + err);<br>&#125;);<br><br><span class="hljs-comment">//往数据库添加数据(await方式)</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> dog = <span class="hljs-keyword">await</span> Pet.create(&#123;<br>        id: <span class="hljs-string">'d-'</span> + now,<br>        name: <span class="hljs-string">'dog'</span>,<br>        gender: <span class="hljs-literal">false</span>,<br>        birth: <span class="hljs-string">'2020-01-02'</span>,<br>        createdAt: now,<br>        updatedAt: now,<br>        version: <span class="hljs-number">0</span><br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created: '</span> + <span class="hljs-built_in">JSON</span>.stringify(dog));<br>&#125;)();<br><br><span class="hljs-comment">//查询数据</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> pets = <span class="hljs-keyword">await</span> Pet.findAll(&#123;<br>        where: &#123;<br>            name: <span class="hljs-string">'dog'</span><br>        &#125;<br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`find <span class="hljs-subst">$&#123;pets.length&#125;</span> pets:`</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">of</span> pets) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(p));<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'update pet...'</span>);<br>        <span class="hljs-comment">//更新数据</span><br>        p.gender = <span class="hljs-literal">true</span>;<br>        p.updatedAt = <span class="hljs-built_in">Date</span>.now();<br>        p.version ++;<br>        <span class="hljs-keyword">await</span> p.save();<br>        <span class="hljs-comment">//删除数据</span><br>        <span class="hljs-keyword">if</span> (p.version === <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">await</span> p.destroy();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;p.name&#125;</span> was destroyed.`</span>);<br>        &#125;<br>    &#125;<br>&#125;)();<br><br><br><span class="hljs-comment">// 单独更新数据，await p.save();保存</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     p.gender = true;</span><br><span class="hljs-comment">//     p.updatedAt = Date.now();</span><br><span class="hljs-comment">//     p.version ++;</span><br><span class="hljs-comment">//     await p.save();</span><br><span class="hljs-comment">// &#125;)();</span><br><br><br><br><span class="hljs-comment">// 单独删除数据，await p.destroy();销毁</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     await p.destroy();</span><br><span class="hljs-comment">// &#125;)();</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="2-使用module"><a href="#2-使用module" class="headerlink" title="2.使用module"></a>2.使用module</h2><p>一个大型Web App通常都有几十个映射表，一个映射表就是一个Model。<br>Model存放的文件夹必须在models</p>
+<p>每个Model必须遵守一套规范</p>
+<p>1.统一主键，名称必须是id，类型必须是STRING(50)；<br>2.所有字段默认为NOT NULL，除非显式指定；<br>3.统一timestamp机制，每个Model必须有<strong>createdAt、updatedAt和version</strong>，分别记录<strong>创建时间、修改时间和版本号</strong>。  </p>
+<ul>
+<li>createdAt和updatedAt以BIGINT存储时间戳，<strong>无需处理时区</strong>。</li>
+<li>version每次修改时自增。</li>
+</ul>
+<p>目录：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs 1c">model-sequelize/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- models/              &lt;-- 存放所有Model<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- Pet.js            &lt;-- Pet</span><br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- User.js           &lt;-- User</span><br><span class="hljs-string">|</span><br>+- config.js            &lt;-- 配置文件入口<br><span class="hljs-string">|</span><br>+- config-default.js    &lt;-- 默认配置文件<br><span class="hljs-string">|</span><br>+- config-test.js       &lt;-- 测试配置文件<br><span class="hljs-string">|</span><br>+- db.js                &lt;-- 定义Model<br><span class="hljs-string">|</span><br>+- model.js             &lt;-- 导入Model<br><span class="hljs-string">|</span><br>+- init-db.js           &lt;-- 初始化数据库<br><span class="hljs-string"><code class="language-hljs 1c">model-sequelize/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- models/              &lt;-- 存放所有Model<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- Pet.js            &lt;-- Pet</span><br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- User.js           &lt;-- User</span><br><span class="hljs-string">|</span><br>+- config.js            &lt;-- 配置文件入口<br><span class="hljs-string">|</span><br>+- config-default.js    &lt;-- 默认配置文件<br><span class="hljs-string">|</span><br>+- config-test.js       &lt;-- 测试配置文件<br><span class="hljs-string">|</span><br>+- db.js                &lt;-- 定义Model<br><span class="hljs-string">|</span><br>+- model.js             &lt;-- 导入Model<br><span class="hljs-string">|</span><br>+- init-db.js           &lt;-- 初始化数据库<br><span class="hljs-string">|</span><br>+- app.js               <-- 业务代码<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>注：<br>1.<strong>npm i fs</strong><br>2.<strong>npm i sequelize</strong><br>3.<strong>npm i node-uuid</strong>(db.js中定义model使用)<br>4.<strong>npm i mysql2</strong></p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>实现不同环境读取不同的配置文件</p>
+<ul>
+<li>先读取config-default.js；</li>
+<li>如果不是测试环境，就读取config-override.js，如果文件不存在，就忽略。</li>
+<li>如果是测试环境，就读取config-test.js</li>
+</ul>
+<p>1.开发环境下，团队统一使用默认的配置config-default.js；<br>2.生产环境下，部署到服务器时，配置好config-override.js；<br>3.测试环境下，统一使用config-test.js，测试数据库可以反复清空，不会影响开发。  </p>
+<p>config-default.js(第一步，$\color{red}连接数据库$)<br>1.开发环境下默认的配置</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'default'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'default'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>config-override.js（第二步，$\color{red}连接数据库$）<br>2.生产环境下，部署到服务器配置</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    database: <span class="hljs-string">'override'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    database: <span class="hljs-string">'override'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'192.168.1.199'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>config-test.js（第三步，$\color{red}连接数据库$）<br>3.应用测试环境的配置：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'nodetest'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'nodetest'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>config.js（判断环境）<br>实现不同环境读取不同的配置文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">// 配置文件导入集合</span><br><span class="hljs-keyword">const</span> defaultConfig = <span class="hljs-string">'./config-default.js'</span>;<br><span class="hljs-keyword">const</span> overrideConfig = <span class="hljs-string">'./config-override.js'</span>;<br><span class="hljs-keyword">const</span> testConfig = <span class="hljs-string">'./config-test.js'</span>;<br><br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> config = <span class="hljs-literal">null</span>;<br><br><span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">'test'</span>) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;testConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(testConfig);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;defaultConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(defaultConfig);<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">if</span> (fs.statSync(overrideConfig).isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>...`</span>);<br>            config = <span class="hljs-built_in">Object</span>.assign(config, <span class="hljs-built_in">require</span>(overrideConfig));<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Cannot load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>.`</span>);<br>    &#125;<br>&#125;<br><span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-comment">// 配置文件导入集合</span><br><span class="hljs-keyword">const</span> defaultConfig = <span class="hljs-string">'./config-default.js'</span>;<br><span class="hljs-keyword">const</span> overrideConfig = <span class="hljs-string">'./config-override.js'</span>;<br><span class="hljs-keyword">const</span> testConfig = <span class="hljs-string">'./config-test.js'</span>;<br><br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> config = <span class="hljs-literal">null</span>;<br><br><span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">'test'</span>) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;testConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(testConfig);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;defaultConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(defaultConfig);<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">if</span> (fs.statSync(overrideConfig).isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>...`</span>);<br>            config = <span class="hljs-built_in">Object</span>.assign(config, <span class="hljs-built_in">require</span>(overrideConfig));<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Cannot load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>.`</span>);<br>    &#125;<br>&#125;<br><span class="hljs-built_in">module</span>.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="第二步（定义Model、写Model、判断环境使用Model）"><a href="#第二步（定义Model、写Model、判断环境使用Model）" class="headerlink" title="第二步（定义Model、写Model、判断环境使用Model）"></a>第二步（定义Model、写Model、判断环境使用Model）</h3><p>db.js(定义Model，数据库连接池)</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs typescript"><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><span class="hljs-keyword">const</span> uuid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-uuid'</span>);<br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateId</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> uuid.v4();<br>&#125;<br><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    dialect: config.dialect,<br>    pool: &#123;<br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        idle: <span class="hljs-number">10000</span><br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">const</span> ID_TYPE = Sequelize.STRING(<span class="hljs-number">50</span>);<br><br><span class="hljs-comment">//defineModel强制实现上述规则</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineModel</span>(<span class="hljs-params">name, attributes</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> attrs = &#123;&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> attributes) &#123;<br>        <span class="hljs-keyword">let</span> value = attributes[key];<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">'object'</span> &amp;&amp; value[<span class="hljs-string">'type'</span>]) &#123;<br>            value.allowNull = value.allowNull || <span class="hljs-literal">false</span>;<br>            attrs[key] = value;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            attrs[key] = &#123;<br>                <span class="hljs-keyword">type</span>: value,<br>                allowNull: <span class="hljs-literal">false</span><br>            &#125;;<br>        &#125;<br>    &#125;<br>    attrs.id = &#123;<br>        <span class="hljs-keyword">type</span>: ID_TYPE,<br>        primaryKey: <span class="hljs-literal">true</span><br>    &#125;;<br>    attrs.createdAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.updatedAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.version = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'model defined for table: '</span> + name + <span class="hljs-string">'\n'</span> + <span class="hljs-built_in">JSON</span>.stringify(attrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">k, v</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (k === <span class="hljs-string">'type'</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> Sequelize) &#123;<br>                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'ABSTRACT'</span> || key === <span class="hljs-string">'NUMBER'</span>) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-keyword">let</span> dbType = Sequelize[key];<br>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> dbType === <span class="hljs-string">'function'</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> dbType) &#123;<br>                        <span class="hljs-keyword">if</span> (v._length) &#123;<br>                            <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;dbType.key&#125;</span>(<span class="hljs-subst">$&#123;v._length&#125;</span>)`</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                    <span class="hljs-keyword">if</span> (v === dbType) &#123;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> v;<br>    &#125;, <span class="hljs-string">'  '</span>));<br>    <span class="hljs-keyword">return</span> sequelize.define(name, attrs, &#123;<br>        tableName: name,<br>        timestamps: <span class="hljs-literal">false</span>,<br>        hooks: &#123;<br>            beforeValidate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();<br>                <span class="hljs-keyword">if</span> (obj.isNewRecord) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will create entity...'</span> + obj);<br>                    <span class="hljs-keyword">if</span> (!obj.id) &#123;<br>                        obj.id = generateId();<br>                    &#125;<br>                    obj.createdAt = now;<br>                    obj.updatedAt = now;<br>                    obj.version = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will update entity...'</span>);<br>                    obj.updatedAt = now;<br>                    obj.version++;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;);<br>&#125;<br><br><span class="hljs-keyword">const</span> TYPES = [<span class="hljs-string">'STRING'</span>, <span class="hljs-string">'INTEGER'</span>, <span class="hljs-string">'BIGINT'</span>, <span class="hljs-string">'TEXT'</span>, <span class="hljs-string">'DOUBLE'</span>, <span class="hljs-string">'DATEONLY'</span>, <span class="hljs-string">'BOOLEAN'</span>];<br><br><span class="hljs-keyword">var</span> exp = &#123;<br>    defineModel: defineModel,<br>    sync: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// only allow create ddl in non-production environment:</span><br>        <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'production'</span>) &#123;<br>            sequelize.sync(&#123; force: <span class="hljs-literal">true</span> &#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Cannot sync() when NODE_ENV is set to \'production\'.'</span>);<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">type</span> of TYPES) &#123;<br>    exp[<span class="hljs-keyword">type</span>] = Sequelize[<span class="hljs-keyword">type</span>];<br>&#125;<br><br>exp.ID = ID_TYPE;<br>exp.generateId = generateId;<br><br><span class="hljs-built_in"><code class="language-hljs typescript"><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><span class="hljs-keyword">const</span> uuid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-uuid'</span>);<br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateId</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> uuid.v4();<br>&#125;<br><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    dialect: config.dialect,<br>    pool: &#123;<br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        idle: <span class="hljs-number">10000</span><br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">const</span> ID_TYPE = Sequelize.STRING(<span class="hljs-number">50</span>);<br><br><span class="hljs-comment">//defineModel强制实现上述规则</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineModel</span>(<span class="hljs-params">name, attributes</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> attrs = &#123;&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> attributes) &#123;<br>        <span class="hljs-keyword">let</span> value = attributes[key];<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">'object'</span> &amp;&amp; value[<span class="hljs-string">'type'</span>]) &#123;<br>            value.allowNull = value.allowNull || <span class="hljs-literal">false</span>;<br>            attrs[key] = value;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            attrs[key] = &#123;<br>                <span class="hljs-keyword">type</span>: value,<br>                allowNull: <span class="hljs-literal">false</span><br>            &#125;;<br>        &#125;<br>    &#125;<br>    attrs.id = &#123;<br>        <span class="hljs-keyword">type</span>: ID_TYPE,<br>        primaryKey: <span class="hljs-literal">true</span><br>    &#125;;<br>    attrs.createdAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.updatedAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.version = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'model defined for table: '</span> + name + <span class="hljs-string">'\n'</span> + <span class="hljs-built_in">JSON</span>.stringify(attrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">k, v</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (k === <span class="hljs-string">'type'</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> Sequelize) &#123;<br>                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'ABSTRACT'</span> || key === <span class="hljs-string">'NUMBER'</span>) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-keyword">let</span> dbType = Sequelize[key];<br>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> dbType === <span class="hljs-string">'function'</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> dbType) &#123;<br>                        <span class="hljs-keyword">if</span> (v._length) &#123;<br>                            <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;dbType.key&#125;</span>(<span class="hljs-subst">$&#123;v._length&#125;</span>)`</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                    <span class="hljs-keyword">if</span> (v === dbType) &#123;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> v;<br>    &#125;, <span class="hljs-string">'  '</span>));<br>    <span class="hljs-keyword">return</span> sequelize.define(name, attrs, &#123;<br>        tableName: name,<br>        timestamps: <span class="hljs-literal">false</span>,<br>        hooks: &#123;<br>            beforeValidate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();<br>                <span class="hljs-keyword">if</span> (obj.isNewRecord) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will create entity...'</span> + obj);<br>                    <span class="hljs-keyword">if</span> (!obj.id) &#123;<br>                        obj.id = generateId();<br>                    &#125;<br>                    obj.createdAt = now;<br>                    obj.updatedAt = now;<br>                    obj.version = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will update entity...'</span>);<br>                    obj.updatedAt = now;<br>                    obj.version++;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;);<br>&#125;<br><br><span class="hljs-keyword">const</span> TYPES = [<span class="hljs-string">'STRING'</span>, <span class="hljs-string">'INTEGER'</span>, <span class="hljs-string">'BIGINT'</span>, <span class="hljs-string">'TEXT'</span>, <span class="hljs-string">'DOUBLE'</span>, <span class="hljs-string">'DATEONLY'</span>, <span class="hljs-string">'BOOLEAN'</span>];<br><br><span class="hljs-keyword">var</span> exp = &#123;<br>    defineModel: defineModel,<br>    sync: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// only allow create ddl in non-production environment:</span><br>        <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'production'</span>) &#123;<br>            sequelize.sync(&#123; force: <span class="hljs-literal">true</span> &#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Cannot sync() when NODE_ENV is set to \'production\'.'</span>);<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">type</span> of TYPES) &#123;<br>    exp[<span class="hljs-keyword">type</span>] = Sequelize[<span class="hljs-keyword">type</span>];<br>&#125;<br><br>exp.ID = ID_TYPE;<br>exp.generateId = generateId;<br><br><span class="hljs-built_in">module</span>.exports = exp;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>models/Pet.js（Model文件1,创建数据表结构，$\color{red}表名必须多一个s$）</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('pets', &#123;<br>    ownerId: <span class="hljs-keyword">db</span>.ID,<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN,<br>    birth: <span class="hljs-keyword">db</span>.<span class="hljs-built_in"><code class="language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('pets', &#123;<br>    ownerId: <span class="hljs-keyword">db</span>.ID,<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN,<br>    birth: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(10),<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>models/User.js（Model文件2，创建数据表结构,$\color{red}表名必须多一个s$）</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br><span class="hljs-comment">//User具有email、passwd、name和gender这4个业务字段</span><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('users', &#123;<br>    email: &#123;<br>        <span class="hljs-keyword">type</span>: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>        unique: true<br>    &#125;,<br>    passwd: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword"><code class="language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br><span class="hljs-comment">//User具有email、passwd、name和gender这4个业务字段</span><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('users', &#123;<br>    email: &#123;<br>        <span class="hljs-keyword">type</span>: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>        unique: true<br>    &#125;,<br>    passwd: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>model.js（合并，自动扫描并导入所有Model）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">//导入当前文件夹中的db.js</span><br><span class="hljs-keyword">const</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./db'</span>);<br><br><span class="hljs-keyword">let</span> files = fs.readdirSync(__dirname + <span class="hljs-string">'/models'</span>);<br><br><span class="hljs-keyword">let</span> js_files = files.filter(<span class="hljs-function">(<span class="hljs-params">f</span>)=&gt;</span>&#123;<br>    <span class="hljs-keyword">return</span> f.endsWith(<span class="hljs-string">'.js'</span>);<br>&#125;, files);<br><br><span class="hljs-built_in">module</span>.exports = &#123;&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> f <span class="hljs-keyword">of</span> js_files) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`import model from file <span class="hljs-subst">$&#123;f&#125;</span>...`</span>);<br>    <span class="hljs-keyword">let</span> name = f.substring(<span class="hljs-number">0</span>, f.length - <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">module</span>.exports[name] = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">'/models/'</span> + f);<br>&#125;<br><br><span class="hljs-built_in">module</span>.exports.sync = <span class="hljs-function"><span class="hljs-params"><code class="language-hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">//导入当前文件夹中的db.js</span><br><span class="hljs-keyword">const</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./db'</span>);<br><br><span class="hljs-keyword">let</span> files = fs.readdirSync(__dirname + <span class="hljs-string">'/models'</span>);<br><br><span class="hljs-keyword">let</span> js_files = files.filter(<span class="hljs-function">(<span class="hljs-params">f</span>)=&gt;</span>&#123;<br>    <span class="hljs-keyword">return</span> f.endsWith(<span class="hljs-string">'.js'</span>);<br>&#125;, files);<br><br><span class="hljs-built_in">module</span>.exports = &#123;&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> f <span class="hljs-keyword">of</span> js_files) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`import model from file <span class="hljs-subst">$&#123;f&#125;</span>...`</span>);<br>    <span class="hljs-keyword">let</span> name = f.substring(<span class="hljs-number">0</span>, f.length - <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">module</span>.exports[name] = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">'/models/'</span> + f);<br>&#125;<br><br><span class="hljs-built_in">module</span>.exports.sync = <span class="hljs-function"><span class="hljs-params">()</span> =></span> &#123;<br>    db.sync();<br>&#125;;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>init-db.js（测试时，用model.sync();方法自动创建出表结构）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs awk">require(<span class="hljs-string">'babel-core/register'</span>)(&#123;<br>    presets: [<span class="hljs-string">'stage-3'</span>]<br>&#125;);<br><span class="hljs-regexp">//</span>导入当前文件夹中的model.js导入所有Modelde<br>const model = require(<span class="hljs-string">'./model.js'</span>);<br><br>model.sync();<br><br>console.log(<span class="hljs-string">'init db ok.'</span>);<br><span class="hljs-regexp">//</span>process.<span class="hljs-keyword">exit</span>(<span class="hljs-number"><code class="language-hljs awk">require(<span class="hljs-string">'babel-core/register'</span>)(&#123;<br>    presets: [<span class="hljs-string">'stage-3'</span>]<br>&#125;);<br><span class="hljs-regexp">//</span>导入当前文件夹中的model.js导入所有Modelde<br>const model = require(<span class="hljs-string">'./model.js'</span>);<br><br>model.sync();<br><br>console.log(<span class="hljs-string">'init db ok.'</span>);<br><span class="hljs-regexp">//</span>process.<span class="hljs-keyword">exit</span>(<span class="hljs-number">0</span>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="最后一步：数据库数据表更改插入数据"><a href="#最后一步：数据库数据表更改插入数据" class="headerlink" title="最后一步：数据库数据表更改插入数据"></a>最后一步：数据库数据表更改插入数据</h3><p>app.js</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">const model = require(<span class="hljs-string">'./model'</span>);<br><br>let<br>    Pet = model.Pet,<br>    <span class="hljs-keyword">User</span> = model.<span class="hljs-keyword">User</span>;<br><br>(async () =&gt; &#123;<br>    var <span class="hljs-keyword">user</span> = await <span class="hljs-keyword">User</span>.<span class="hljs-keyword">create</span>(&#123;<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'John'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        email: <span class="hljs-string">'john-'</span> + <span class="hljs-type">Date</span>.now() + <span class="hljs-string">'@garfield.pet'</span>,<br>        passwd: <span class="hljs-string">'hahaha'</span><br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(<span class="hljs-keyword">user</span>));<br><br>    var cat = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Garfield'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2007-07-07'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(cat));<br><br>    var dog = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Odie'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2008-08-08'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type"><code class="language-hljs pgsql">const model = require(<span class="hljs-string">'./model'</span>);<br><br>let<br>    Pet = model.Pet,<br>    <span class="hljs-keyword">User</span> = model.<span class="hljs-keyword">User</span>;<br><br>(async () =&gt; &#123;<br>    var <span class="hljs-keyword">user</span> = await <span class="hljs-keyword">User</span>.<span class="hljs-keyword">create</span>(&#123;<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'John'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        email: <span class="hljs-string">'john-'</span> + <span class="hljs-type">Date</span>.now() + <span class="hljs-string">'@garfield.pet'</span>,<br>        passwd: <span class="hljs-string">'hahaha'</span><br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(<span class="hljs-keyword">user</span>));<br><br>    var cat = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Garfield'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2007-07-07'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(cat));<br><br>    var dog = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Odie'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2008-08-08'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(dog));<br>&#125;)();<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>注：<br>学习廖大文章，小改<br>我第一步就没有实现，mysql连不上node，心态崩了~~</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lewis-qi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lewis.qi.tk/2020/05/16/sequelize%E3%80%81moudle%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">http://lewis.qi.tk/2020/05/16/sequelize%E3%80%81moudle%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lewis-qi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/nodejs/">
+                                    <span class="chip bg-color">nodejs</span>
+                                </a>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">感谢相遇，感恩有你</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Sat May 16 2020 19:34:59 GMT+0800',
+    owner: '',
+    repo: 'git@github.com:Dreamweaver484/CDN.git',
+    oauth: {
+        client_id: '56eaf3018501f1940bf3',
+        client_secret: '916dcc70d973d6679fd1da0473853f640b75a13e'
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'f6UDg5eEQhtP1zF8NrFJd3WU-gzGzoHsz',
+        appKey: 'LmooemmEGNO71aC5BJhwYVXH',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！just go go!'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/16/cookie%E5%92%8Csession/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="cookie和session">
+                        
+                        <span class="card-title">cookie和session</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            cookie和session
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cookies%E3%80%81session/" class="post-category">
+                                    cookies、session
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cookies/">
+                        <span class="chip bg-color">cookies</span>
+                    </a>
+                    
+                    <a href="/tags/session/">
+                        <span class="chip bg-color">session</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/16/mysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E4%BB%A5%E5%8F%8AAccess-denied-for-user-root-localhost-using-password-YES-%E9%94%99%E8%AF%AF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="mysql远程访问以及Access denied for user root@localhost (using password: YES)错误">
+                        
+                        <span class="card-title">mysql远程访问以及Access denied for user root@localhost (using password: YES)错误</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            mysql远程访问错误
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: welcome<br />'
+            + '文章作者: Lewis-qi<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Lewis-qi所有，任何形式的转载都请注明出处Thanks♪(･ω･)ﾉ。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+
+    <!-- 灯笼2 -->
+<div class="deng-box1">
+    <div class="deng">
+      <div class="xian">
+      </div>
+      <div class="deng-a">
+        <div class="deng-b">
+          <div class="deng-t">
+            navie
+          </div>
+        </div>
+      </div>
+      <div class="shui shui-a">
+        <div class="shui-c">
+        </div>
+       <div class="shui-b">
+       </div>
+     </div>
+    </div>
+  </div>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Lewis-qi</a>
+            |&nbsp;Powered by&nbsp;<a href="#" target="_blank">not me</a>
+            |&nbsp;Theme&nbsp;<a href="#" target="_blank">not me</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">96.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv" style='display:none'>
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+            
+            
+                <span id="busuanzi_container_site_uv" style='display:none'>
+                    人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Dreamweaver484" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2324385133@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2324385133" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2324385133" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 在线聊天室--闲聊么 -->
+<!-- <script>
+    var xlm_wid='16166';
+    var xlm_url='https://www.xianliao.me/';
+</script>
+<script type='text/javascript' charset='UTF-8' src='https://www.xianliao.me/embed.js'></script> -->
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "b97f028f"
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+    <!-- 网站的url栏标题 -->
+    <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(st)):(document.title="(๑•̀ㅂ•́) ✧被发现了～",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
+    <!-- 天气插件 -->
+    <script type="text/javascript">
+        WIDGET = {FID: 'md6ykOMZ1E'}
+    </script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+</body>
+</html>

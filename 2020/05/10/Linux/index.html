@@ -40,8 +40,12 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
+    <!-- 增加动态诗词 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="welcome" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -422,7 +426,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #a18cd1;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -1215,52 +1219,46 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/10/Linux/">
+                <a href="/2020/05/16/MVC%E5%92%8CMVVM/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MVC和MVVM">
                         
-                        <span class="card-title">Linux</span>
+                        <span class="card-title">MVC和MVVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一篇Linux博文
+                            设计模式浅谈
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                    <a href="/tags/centos/">
-                        <span class="chip bg-color">centos</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -1489,6 +1487,28 @@ gitment.render('gitment-content');
 
 
     <footer class="page-footer bg-color">
+
+    <!-- 灯笼2 -->
+<div class="deng-box1">
+    <div class="deng">
+      <div class="xian">
+      </div>
+      <div class="deng-a">
+        <div class="deng-b">
+          <div class="deng-t">
+            navie
+          </div>
+        </div>
+      </div>
+      <div class="shui shui-a">
+        <div class="shui-c">
+        </div>
+       <div class="shui-b">
+       </div>
+     </div>
+    </div>
+  </div>
+
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
@@ -1500,7 +1520,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139</span>&nbsp;字
+                class="white-color">96.7k</span>&nbsp;字
             
             
             
@@ -1604,8 +1624,8 @@ gitment.render('gitment-content');
     $(document).ready(function () {
 
         var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-        var pvcountOffset = 80000;  // 初始化首次数据
-        var uvcountOffset = 20000;
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
 
         function fixCount() {
             if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
@@ -1619,6 +1639,14 @@ gitment.render('gitment-content');
         }
     });
 </script>
+
+<!-- 在线聊天室--闲聊么 -->
+<!-- <script>
+    var xlm_wid='16166';
+    var xlm_url='https://www.xianliao.me/';
+</script>
+<script type='text/javascript' charset='UTF-8' src='https://www.xianliao.me/embed.js'></script> -->
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1698,6 +1726,14 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
 
+    <!-- 网站的url栏标题 -->
+    <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(st)):(document.title="(๑•̀ㅂ•́) ✧被发现了～",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
+    <!-- 天气插件 -->
+    <script type="text/javascript">
+        WIDGET = {FID: 'md6ykOMZ1E'}
+    </script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+</body>
 </html>

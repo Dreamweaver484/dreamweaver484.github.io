@@ -1,0 +1,2261 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="vue常用特性--day02, 技术分享 | 生活点滴 | 友人帐">
+    <meta name="description" content="介绍">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166013913-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-166013913-1');
+</script>
+
+
+    <title>vue常用特性--day02 | welcome</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <!-- 增加动态诗词 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="welcome" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">welcome</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友人帐</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>好文收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">welcome</div>
+        <div class="logo-desc">
+            
+            介绍
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友人帐
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			好文收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Dreamweaver484" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #a18cd1;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Dreamweaver484" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '564382267519ae7fa9d8eb1a87497058287cd1cd1a32f232ef27c4dff8259a19';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">vue常用特性--day02</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/vue/" class="post-category">
+                                vue
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    36 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/105184465" target="_blank" rel="noopener">vue常用特性–day02</a></p>
+<h3 id="表单基本操作"><a href="#表单基本操作" class="headerlink" title="表单基本操作"></a>表单基本操作</h3><p>1.获取单选框中的值（一个默认值）<br>每一个单选框必须要有value属性，且value 值不能一样</p>
+<ul>
+<li>$\color{red}通过v-model双向绑定,类似input的name属性$<ul>
+<li>v-model=’gender’</li>
+</ul>
+</li>
+<li>data中，与v-model联动，是默认值<ul>
+<li>data: {gender: 2}</li>
+</ul>
+</li>
+</ul>
+<p>2.获取复选框中的值（一个数组）<br>每一个复选框必须要有value属性，且value 值不能一样</p>
+<ul>
+<li>data 中的 xxx 我们要定义成数组，否则无法实现多选<ul>
+<li>v-model=’hobby’</li>
+</ul>
+</li>
+<li>data中，与v-model联动，是默认值<ul>
+<li>hobby: [‘2’, ‘3’]</li>
+</ul>
+</li>
+</ul>
+<p>3.获取下拉框和文本框中的值<br>每一个 option 必须要有value属性，且value 值不能一样</p>
+<ul>
+<li>需要给 select 通过 v-model 双向绑定一个值，<strong>multiple  多选</strong><ul>
+<li><code>&lt;select v-model=&#39;occupation&#39; multiple&gt;</code></li>
+</ul>
+</li>
+<li>当某一个option 选中的时候 v-model  会将当前的 value值 改变 data 中的 数据,使用实时监控occupation的值，有默认值<ul>
+<li>occupation: [‘2’, ‘3’]</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"#"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>姓名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'uname'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 单选 --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>性别：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"male"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'gender'</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"male"</span>&gt;</span>男<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"female"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'gender'</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"female"</span>&gt;</span>女<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 复选 --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>爱好：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ball"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"ball"</span>&gt;</span>篮球<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sing"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"sing"</span>&gt;</span>唱歌<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"code"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"code"</span>&gt;</span>写代码<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 下拉列表 --&gt;</span><br>       <span class="hljs-comment">&lt;!-- multiple  多选 --&gt;</span><br>       <span class="hljs-comment">&lt;!-- textarea 是 一个双标签，不需要绑定value 属性的  --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>职业：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>请选择职业...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>教师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span>软件工程师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span>&gt;</span>律师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>个人简介：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'desc'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">'handle'</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">      <span class="hljs-keyword">new</span> Vue(&#123;</span><br>           data: &#123;<br><span class="actionscript">               <span class="hljs-comment">// 默认会让当前的 value 值为 2 的单选框选中</span></span><br>                  gender: 2,<br><span class="actionscript">                  hobby: [<span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>],  </span><br><span class="actionscript">                  occupation: [<span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>],</span><br><span class="actionscript">                  desc: <span class="hljs-string">'nihao'</span></span><br>              &#125;,<br>      &#125;)<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"#"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>姓名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'uname'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 单选 --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>性别：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"male"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'gender'</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"male"</span>&gt;</span>男<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"female"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'gender'</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"female"</span>&gt;</span>女<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 复选 --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>爱好：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ball"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"ball"</span>&gt;</span>篮球<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sing"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"sing"</span>&gt;</span>唱歌<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"code"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'hobby'</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"code"</span>&gt;</span>写代码<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-comment">&lt;!-- 下拉列表 --&gt;</span><br>       <span class="hljs-comment">&lt;!-- multiple  多选 --&gt;</span><br>       <span class="hljs-comment">&lt;!-- textarea 是 一个双标签，不需要绑定value 属性的  --&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>职业：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>请选择职业...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>教师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span>软件工程师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span>&gt;</span>律师<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>个人简介：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'desc'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">'handle'</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">      <span class="hljs-keyword">new</span> Vue(&#123;</span><br>           data: &#123;<br><span class="actionscript">               <span class="hljs-comment">// 默认会让当前的 value 值为 2 的单选框选中</span></span><br>                  gender: 2,<br><span class="actionscript">                  hobby: [<span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>],  </span><br><span class="actionscript">                  occupation: [<span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>],</span><br><span class="actionscript">                  desc: <span class="hljs-string">'nihao'</span></span><br>              &#125;,<br>      &#125;)<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="v-model表单修饰符"><a href="#v-model表单修饰符" class="headerlink" title="v-model表单修饰符"></a>v-model表单修饰符</h3><ul>
+<li>$\color{red}Vue无法将字符串转换成数值$<ul>
+<li>当开始输入非数字的字符串时，属性值将实时更新成相同的字符串。</li>
+<li>即使后面输入数字，也将被视作字符串。</li>
+</ul>
+</li>
+<li>.number 【转换为数值】<ul>
+<li>字符串转数值</li>
+</ul>
+</li>
+<li>.trim  【自动过滤用户输入的首尾空白字符，算长度可理解】<ul>
+<li>只能去掉首尾的空格</li>
+</ul>
+</li>
+<li>.lazy   【将input事件切换成change事件】<ul>
+<li>延迟了同步更新属性值的时机。</li>
+<li>将原本绑定在 input 事件的同步逻辑转变为绑定在 change 事件上</li>
+</ul>
+</li>
+</ul>
+<p>.lazy注意点：</p>
+<ul>
+<li><strong>change事件是 在 失去焦点 或者 按下回车键 才触发</strong></li>
+<li>input事件是 每次输入内容 都触发</li>
+</ul>
+<p>.lazy使用场景：</p>
+<ul>
+<li><p>在用户输入信息，离开焦点时，立即做一个信息有无在数据库中注册的验证</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-comment">&lt;!-- 自动将用户的输入值转为数值类型 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><br>console.log(this.age + 13)此时输入1，输出14<br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><br>console.log(this.age + 13)此时输入1，输出113（字符串）<br><br><span class="hljs-comment">&lt;!--自动过滤用户输入的首尾空白字符   --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.trim</span>=<span class="hljs-string">"msg"</span>&gt;</span><br>console.log(this.info.length) 输入a，输出1<br>console.log(this.info.length) 输入a ，输出1<br>console.log(this.info.length) 输入 a ，输出1<br>console.log(this.info.length) 输入a a，输出3<br><br><br><span class="hljs-comment">&lt;!-- 在“change”时而非“input”时更新 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">'msg'</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-comment">&lt;!-- 自动将用户的输入值转为数值类型 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><br>console.log(this.age + 13)此时输入1，输出14<br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span><br>console.log(this.age + 13)此时输入1，输出113（字符串）<br><br><span class="hljs-comment">&lt;!--自动过滤用户输入的首尾空白字符   --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.trim</span>=<span class="hljs-string">"msg"</span>&gt;</span><br>console.log(this.info.length) 输入a，输出1<br>console.log(this.info.length) 输入a ，输出1<br>console.log(this.info.length) 输入 a ，输出1<br>console.log(this.info.length) 输入a a，输出3<br><br><br><span class="hljs-comment">&lt;!-- 在“change”时而非“input”时更新 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">'msg'</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h3><p>注意：</p>
+<ul>
+<li>使用自定义的指令，在对用到的元素中，加上’v-‘的前缀</li>
+<li>在自定义指令中  若$\color{red}用普通方式定义$，如：<ul>
+<li>Vue.directive(‘focus’,function(){})</li>
+<li>则通过 v-focus 来使用</li>
+</ul>
+</li>
+<li>在自定义指令中  若$\color{red}用驼峰命名的方式定义$，如：<ul>
+<li>Vue.directive(‘focusA’,function(){})</li>
+<li>则只能通过 v-focus-a 来使用</li>
+</ul>
+</li>
+</ul>
+<p>涉及指令钩子函数</p>
+<ul>
+<li><code>bind</code>：只调用一次<ul>
+<li>指令第一次绑定到元素时调用。可以进行一次性的初始化设置。</li>
+</ul>
+</li>
+<li><code>inserted</code><ul>
+<li>被绑定元素插入父节点时调用(仅保证父节点存在，但不一定已被插入文档中)</li>
+</ul>
+</li>
+<li><code>update</code><ul>
+<li>所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有</li>
+</ul>
+</li>
+<li><code>componentUpdated</code><ul>
+<li>指令所在组件的 VNode 及其子 VNode 全部更新后调用。</li>
+</ul>
+</li>
+<li><code>unbind</code>：只调用一次<ul>
+<li>指令与元素解绑时调用</li>
+</ul>
+</li>
+</ul>
+<p>指令钩子函数【directive】传入参数</p>
+<ul>
+<li><code>el</code>：指令所绑定的元素，可以用来直接操作 DOM。</li>
+<li><code>binding</code>：一个对象<ul>
+<li><code>name</code>：指令名，不包括 v- 前缀。</li>
+<li><code>value</code>：指令的绑定值<ul>
+<li>例如：v-my-directive=”1 + 1” 中，绑定值为 2。</li>
+</ul>
+</li>
+<li><code>oldValue</code>：指令绑定的前一个值，<ul>
+<li>仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</li>
+</ul>
+</li>
+<li><code>expression</code>：字符串形式的指令表达式。<ul>
+<li>例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</li>
+</ul>
+</li>
+<li><code>arg</code>：传给指令的参数，可选。<ul>
+<li>例如 v-my-directive:foo 中，参数为 “foo”。</li>
+</ul>
+</li>
+<li><code>modifiers</code>：一个包含修饰符的对象。<ul>
+<li>例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>vnode</code>：Vue 编译生成的虚拟节点。</li>
+<li><code>oldVnode</code>：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用</li>
+</ul>
+<p>1.Vue.directive  全局</p>
+<ul>
+<li>注册全局指令（使用时不带参数）<ul>
+<li>Vue.directive(‘focus’, {…}<ul>
+<li>注册一个全局自定义指令 v-focus</li>
+</ul>
+</li>
+<li>inserted: function (el){}<ul>
+<li>钩子函数inserted</li>
+<li>当绑定元素插入到 DOM 中。 其中 el为dom元素</li>
+</ul>
+</li>
+<li>el.focus();<ul>
+<li>聚焦元素</li>
+</ul>
+</li>
+<li><code>&lt;input type=&quot;text&quot; v-focus&gt;</code><ul>
+<li>使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注册全局指令（使用时带参数）<ul>
+<li>bind :声明周期, 只调用一次，指令第一次绑定到元素时调用。<ul>
+<li>el :当前自定义指令的DOM元素  </li>
+<li>binding :通过自定义属性传递过来的值,存到 binding.value 里面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html">默认定位<br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-focus</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">Vue.directive(<span class="hljs-string">'focus'</span>, &#123;</span><br><span class="actionscript">    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(el)</span> </span>&#123;</span><br>      el.focus();<br>    &#125;<br>&#125;);<br><span class="actionscript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">　　el:<span class="hljs-string">'#app'</span></span><br>&#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html">默认定位<br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-focus</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">Vue.directive(<span class="hljs-string">'focus'</span>, &#123;</span><br><span class="actionscript">    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(el)</span> </span>&#123;</span><br>      el.focus();<br>    &#125;<br>&#125;);<br><span class="actionscript"><span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">　　el:<span class="hljs-string">'#app'</span></span><br>&#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html">改变元素背景颜色<br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-color</span>=<span class="hljs-string">'msg'</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    Vue.directive(<span class="hljs-string">'color'</span>, &#123;</span><br><span class="actionscript">      bind: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el, binding)</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-comment">// 根据指令的参数设置背景色</span></span><br>        el.style.backgroundColor = binding.value.color;<br>      &#125;<br>    &#125;);<br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br>        msg: &#123;<br><span class="actionscript">          color: <span class="hljs-string">'blue'</span></span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html">改变元素背景颜色<br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-color</span>=<span class="hljs-string">'msg'</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    Vue.directive(<span class="hljs-string">'color'</span>, &#123;</span><br><span class="actionscript">      bind: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el, binding)</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-comment">// 根据指令的参数设置背景色</span></span><br>        el.style.backgroundColor = binding.value.color;<br>      &#125;<br>    &#125;);<br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br>        msg: &#123;<br><span class="actionscript">          color: <span class="hljs-string">'blue'</span></span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>2.new Vue({.. directives:{..} ..}) 局部指令</p>
+<ul>
+<li>定义在 directives 的选项中</li>
+<li>$\color{red}局部指令只能在当前组件里面使用$</li>
+<li>$\color{red}当全局指令和局部指令同名时以局部指令为准$</li>
+<li>使用方法同全局指令</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-color</span>=<span class="hljs-string">'msg'</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-focus</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br>        msg: &#123;<br><span class="actionscript">          color: <span class="hljs-string">'red'</span></span><br>        &#125;<br>      &#125;,<br><span class="actionscript">     <span class="hljs-comment">//局部指令，需要定义在  directives 的选项</span></span><br>      directives: &#123;<br>        color: &#123;<br><span class="actionscript">          bind: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el, binding)</span></span>&#123;</span><br>            el.style.backgroundColor = binding.value.color;<br>          &#125;<br>        &#125;,<br>        focus: &#123;<br><span class="actionscript">          inserted: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> </span>&#123;</span><br>            el.focus();<br>          &#125;<br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-color</span>=<span class="hljs-string">'msg'</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-focus</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br>        msg: &#123;<br><span class="actionscript">          color: <span class="hljs-string">'red'</span></span><br>        &#125;<br>      &#125;,<br><span class="actionscript">     <span class="hljs-comment">//局部指令，需要定义在  directives 的选项</span></span><br>      directives: &#123;<br>        color: &#123;<br><span class="actionscript">          bind: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el, binding)</span></span>&#123;</span><br>            el.style.backgroundColor = binding.value.color;<br>          &#125;<br>        &#125;,<br>        focus: &#123;<br><span class="actionscript">          inserted: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> </span>&#123;</span><br>            el.focus();<br>          &#125;<br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性  computed"></a>计算属性  computed</h3><p>介绍</p>
+<ul>
+<li>computed 适合对多个变量或者对象进行处理后返回一个结果值<ul>
+<li>多个变量中的某一个值发生了变化，则监控的这个值也就会发生变化</li>
+</ul>
+</li>
+<li><strong>watch 中的属性定义 和 methods 中的属性定义 平级</strong></li>
+</ul>
+<p>计算属性与方法的区别</p>
+<ul>
+<li>computed中计算属性的方法是 <strong>基于响应式依赖进行缓存</strong><ul>
+<li>当多次调用 <code>reverseString</code>  的时候，只要里面 num 值不改变，就可以返回之前已经计算过的结果，</li>
+<li>直到data 中的 num 值改变 计算属性才会重新发生计算</li>
+</ul>
+</li>
+<li>methods中方法 <strong>不缓存</strong><ul>
+<li>调用methods中的方法 <code>reverseMessage()</code> 的时候，他每次会重新调用计算</li>
+</ul>
+</li>
+</ul>
+<p>使用</p>
+<ul>
+<li>computed: {…}<ul>
+<li>split(‘’)分割</li>
+<li>reverse()翻转</li>
+<li>join(‘’)连接</li>
+</ul>
+</li>
+<li>一定要有return 否则调用 reverseString 的时候无法拿到结果</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- methods中的方法 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseMessage()&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseMessage()&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- computed中的方法 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseString&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseString&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">  <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">    el: <span class="hljs-string">'#app'</span>,</span><br>    data: &#123;<br><span class="actionscript">      msg: <span class="hljs-string">'Nihao'</span>,</span><br>      num: 100<br>    &#125;,<br>    methods: &#123;<br><span class="actionscript">      reverseMessage: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'methods'</span>)</span><br><span class="actionscript">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.msg.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br>      &#125;<br>    &#125;,<br>    computed: &#123;<br><span class="actionscript">      reverseString: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'computed'</span>)</span><br><span class="actionscript">        <span class="hljs-keyword">var</span> total = <span class="hljs-number">0</span>;</span><br><span class="actionscript">        <span class="hljs-comment">//  当data 中的 num 的值改变的时候  reverseString  会自动发生计算  </span></span><br><span class="actionscript">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-keyword">this</span>.num;i++)&#123;</span><br>          total += i;<br>        &#125;<br><span class="actionscript">        <span class="hljs-keyword">return</span> total;</span><br>      &#125;<br>    &#125;<br>  &#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- methods中的方法 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseMessage()&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseMessage()&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- computed中的方法 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseString&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;reverseString&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">  <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">    el: <span class="hljs-string">'#app'</span>,</span><br>    data: &#123;<br><span class="actionscript">      msg: <span class="hljs-string">'Nihao'</span>,</span><br>      num: 100<br>    &#125;,<br>    methods: &#123;<br><span class="actionscript">      reverseMessage: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'methods'</span>)</span><br><span class="actionscript">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.msg.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br>      &#125;<br>    &#125;,<br>    computed: &#123;<br><span class="actionscript">      reverseString: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'computed'</span>)</span><br><span class="actionscript">        <span class="hljs-keyword">var</span> total = <span class="hljs-number">0</span>;</span><br><span class="actionscript">        <span class="hljs-comment">//  当data 中的 num 的值改变的时候  reverseString  会自动发生计算  </span></span><br><span class="actionscript">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-keyword">this</span>.num;i++)&#123;</span><br>          total += i;<br>        &#125;<br><span class="actionscript">        <span class="hljs-keyword">return</span> total;</span><br>      &#125;<br>    &#125;<br>  &#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="侦听器-watch"><a href="#侦听器-watch" class="headerlink" title="侦听器  watch"></a>侦听器  watch</h3><ul>
+<li>响应数据变化，用于<strong>异步或者开销较大</strong>的操作</li>
+<li>$\color{red}watch 中的属性 一定是data 中 已经存在的数据$<ul>
+<li><strong>watch 中的属性定义 和 methods 中的属性定义 平级</strong></li>
+<li>watch 中的属性名（函数名）与 data 的数据名 一致</li>
+</ul>
+</li>
+<li><strong>当需要监听一个对象的改变时，普通的watch方法无法监听到对象内部属性的改变，只有data中的数据才能够监听到变化，此时就需要deep属性对对象进行深度监听</strong></li>
+</ul>
+<p>简单使用：</p>
+<ul>
+<li>watch中的 firstName  对应着data 中的 firstName</li>
+<li>watch中的 lastName  对应着data 中的 lastName</li>
+<li>当 firstName 值 改变的时候  会自动触发 watch</li>
+<li>当 firstName 值 改变的时候  会自动触发 watch</li>
+</ul>
+<p>以下这个例子，计算属性computed和侦听器watch，效果一样（因为没有异步）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'firstName'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>姓：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'lastName'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;fullName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">       <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">           el: <span class="hljs-string">'#app'</span>,</span><br>           data: &#123;<br><span class="actionscript">               firstName: <span class="hljs-string">'Jim'</span>,</span><br><span class="actionscript">               lastName: <span class="hljs-string">'Green'</span>,</span><br>           &#125;,<br>           computed: &#123;<br><span class="actionscript">               fullName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;</span><br>               &#125;<br>           &#125;,<br>           watch: &#123;<br><span class="actionscript">               firstName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">this</span>.fullName = val + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;</span><br>               &#125;,<br><span class="actionscript">               lastName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">this</span>.fullName = <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + val;</span><br>               &#125;<br>           &#125;<br>       &#125;);<br>   <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'firstName'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>姓：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'lastName'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;fullName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">       <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">           el: <span class="hljs-string">'#app'</span>,</span><br>           data: &#123;<br><span class="actionscript">               firstName: <span class="hljs-string">'Jim'</span>,</span><br><span class="actionscript">               lastName: <span class="hljs-string">'Green'</span>,</span><br>           &#125;,<br>           computed: &#123;<br><span class="actionscript">               fullName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;</span><br>               &#125;<br>           &#125;,<br>           watch: &#123;<br><span class="actionscript">               firstName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">this</span>.fullName = val + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;</span><br>               &#125;,<br><span class="actionscript">               lastName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">                   <span class="hljs-keyword">this</span>.fullName = <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + val;</span><br>               &#125;<br>           &#125;<br>       &#125;);<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<p>体现watch动态更新的例子</p>
+<ul>
+<li>当我们输入firstName后，wacth监听每次修改变化的新值，然后计算输出fullName。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>FullName: &#123;&#123;fullName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>FirstName: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"firstName"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>FullName: &#123;&#123;fullName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>FirstName: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"firstName"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>></span><br> <br>new Vue(&#123;<br>  el: '#root',<br>  data: &#123;<br>    firstName: 'Dawei',<br>    lastName: 'Lou',<br>    fullName: ''<br>  &#125;,<br>  watch: &#123;<br>    firstName(newName, oldName) &#123;<br>      this.fullName = newName + ' ' + this.lastName;<br>    &#125;<br>  &#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<h3 id="1-watch的deep属性"><a href="#1-watch的deep属性" class="headerlink" title="1.watch的deep属性"></a>1.watch的deep属性</h3><ul>
+<li><strong>Vue 深度监听对象或者对象指定属性</strong></li>
+<li>监听器会一层层的往下遍历，给对象的所有属性都加上这个监听器，但是这样性能开销就会非常大了，任何修改obj里面任何一个属性都会触发这个监听器里的 handler</li>
+<li>evlist是一个对象，val监听到变化后的值，oldVal是变化前的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js">watch: &#123;<br>      evlist: &#123;<br>        handler(val, oldVal) &#123;<br>          <span class="hljs-keyword">this</span>.isTeam = val.projectParty;<br>          <span class="hljs-keyword">this</span>.pjtid = val.pjtid;<br>          <span class="hljs-keyword">this</span>.isFinish = val.projectSelfValue;<br>        &#125;,<br>        deep: <span class="hljs-literal"><code class="language-hljs js">watch: &#123;<br>      evlist: &#123;<br>        handler(val, oldVal) &#123;<br>          <span class="hljs-keyword">this</span>.isTeam = val.projectParty;<br>          <span class="hljs-keyword">this</span>.pjtid = val.pjtid;<br>          <span class="hljs-keyword">this</span>.isFinish = val.projectSelfValue;<br>        &#125;,<br>        deep: <span class="hljs-literal">true</span><br>      &#125;<br>    &#125;,<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<h3 id="2-watch的handler方法和immediate属性"><a href="#2-watch的handler方法和immediate属性" class="headerlink" title="2.watch的handler方法和immediate属性"></a>2.watch的handler方法和immediate属性</h3><ul>
+<li>最初绑定的时候是不会执行的，要等到 <strong>绑定值</strong> 改变时才执行监听计算</li>
+<li><strong>handle 方法</strong> 就是让最初绑定的时候就执行改变【绑定后是否会立即执行监听计算handle】</li>
+<li>immediate:true<ul>
+<li>如果在 wacth 里声明了 firstName 之后，就会立即先去执行里面的handler方法</li>
+</ul>
+</li>
+<li>immediate:false<ul>
+<li>false就跟我们以前的效果一样，不会在绑定的时候就执行。</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js">watch: &#123;<br>  firstName: &#123;<br>    handler(newName, oldName) &#123;<br>      <span class="hljs-keyword">this</span>.fullName = newName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;<br>    &#125;,<br>    <span class="hljs-comment">// 代表在wacth里声明了firstName这个方法之后立即先去执行handler方法</span><br>    immediate: <span class="hljs-literal"><code class="language-hljs js">watch: &#123;<br>  firstName: &#123;<br>    handler(newName, oldName) &#123;<br>      <span class="hljs-keyword">this</span>.fullName = newName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName;<br>    &#125;,<br>    <span class="hljs-comment">// 代表在wacth里声明了firstName这个方法之后立即先去执行handler方法</span><br>    immediate: <span class="hljs-literal">true</span><br>  &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<h3 id="3-注销watch"><a href="#3-注销watch" class="headerlink" title="3.注销watch"></a>3.注销watch</h3></li>
+</ul>
+</li>
+</ul>
+<p>现在还不会。。。</p>
+<h3 id="4-watch用于表单验证："><a href="#4-watch用于表单验证：" class="headerlink" title="4.watch用于表单验证："></a>4.watch用于表单验证：</h3><ul>
+<li>通过v-model数据绑定【v-model.lazy】<ul>
+<li>uname 输入用户名</li>
+<li>.lazy改成change事件</li>
+<li><strong>change事件是 在 失去焦点 或者 按下回车键 才触发</strong></li>
+</ul>
+</li>
+<li>tip 是提示信息<ul>
+<li>先在methods调用接口，定义函数</li>
+</ul>
+</li>
+<li>用侦听器监听输入信息变化<ul>
+<li>再在watch调用methods中定义的函数<ul>
+<li>1.监听用户名的变化</li>
+<li>2、调用后台接口进行验证</li>
+<li>3、根据验证的结果调整提示信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>在setTimeout函数中的对象参数是window，不能在函数里面用this，</li>
+<li>所以在外层延时函数中把this（即tip）赋给中间值<ul>
+<li>var that = this;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html">&lt;  &lt;div id="app"&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">'uname'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;tip&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        uname: <span class="hljs-string">''</span>,</span><br><span class="actionscript">        tip: <span class="hljs-string">''</span></span><br>      &#125;,<br>      methods: &#123;<br><span class="actionscript">        checkName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(uname)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-comment">// 调用接口，但是可以使用定时任务的方式模拟接口调用</span></span><br><span class="actionscript">          <span class="hljs-comment">//注意：在setTimeout函数中的对象参数是window，不能在函数里面用this，</span></span><br><span class="actionscript">          <span class="hljs-comment">//所以在外层延时函数中把this（即tip）赋给中间值</span></span><br><span class="actionscript">          <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="actionscript">          setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">            <span class="hljs-comment">// 模拟接口调用</span></span><br><span class="actionscript">            <span class="hljs-keyword">if</span>(uname == <span class="hljs-string">'admin'</span>) &#123;</span><br><span class="actionscript">              that.tip = <span class="hljs-string">'用户名已经存在，请更换一个'</span>;</span><br><span class="actionscript">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="actionscript">              that.tip = <span class="hljs-string">'用户名可以使用'</span>;</span><br>            &#125;<br>          &#125;, 2000);<br>        &#125;<br>      &#125;,<br>      watch: &#123;<br><span class="actionscript">        uname: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>&#123;</span><br><span class="actionscript">          <span class="hljs-comment">// 调用后台接口验证用户名的合法性</span></span><br><span class="actionscript">          <span class="hljs-comment">//在侦听器中调用methods的checkName方法</span></span><br><span class="actionscript">          <span class="hljs-keyword">this</span>.checkName(val);</span><br><span class="actionscript">          <span class="hljs-comment">// 修改提示信息</span></span><br><span class="actionscript">          <span class="hljs-keyword">this</span>.tip = <span class="hljs-string">'正在验证...'</span>;</span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html">&lt;  &lt;div id="app"&gt;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>用户名：<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">'uname'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;tip&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        uname: <span class="hljs-string">''</span>,</span><br><span class="actionscript">        tip: <span class="hljs-string">''</span></span><br>      &#125;,<br>      methods: &#123;<br><span class="actionscript">        checkName: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(uname)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-comment">// 调用接口，但是可以使用定时任务的方式模拟接口调用</span></span><br><span class="actionscript">          <span class="hljs-comment">//注意：在setTimeout函数中的对象参数是window，不能在函数里面用this，</span></span><br><span class="actionscript">          <span class="hljs-comment">//所以在外层延时函数中把this（即tip）赋给中间值</span></span><br><span class="actionscript">          <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="actionscript">          setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">            <span class="hljs-comment">// 模拟接口调用</span></span><br><span class="actionscript">            <span class="hljs-keyword">if</span>(uname == <span class="hljs-string">'admin'</span>) &#123;</span><br><span class="actionscript">              that.tip = <span class="hljs-string">'用户名已经存在，请更换一个'</span>;</span><br><span class="actionscript">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="actionscript">              that.tip = <span class="hljs-string">'用户名可以使用'</span>;</span><br>            &#125;<br>          &#125;, 2000);<br>        &#125;<br>      &#125;,<br>      watch: &#123;<br><span class="actionscript">        uname: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>&#123;</span><br><span class="actionscript">          <span class="hljs-comment">// 调用后台接口验证用户名的合法性</span></span><br><span class="actionscript">          <span class="hljs-comment">//在侦听器中调用methods的checkName方法</span></span><br><span class="actionscript">          <span class="hljs-keyword">this</span>.checkName(val);</span><br><span class="actionscript">          <span class="hljs-comment">// 修改提示信息</span></span><br><span class="actionscript">          <span class="hljs-keyword">this</span>.tip = <span class="hljs-string">'正在验证...'</span>;</span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="过滤器-filter-s"><a href="#过滤器-filter-s" class="headerlink" title="过滤器  filter(s)"></a>过滤器  filter(s)</h3><ul>
+<li><strong>filters  属性定义和 methods 平级</strong></li>
+<li>filters支持级联操作<ul>
+<li>用‘|’管道符，同时调用多个filter函数</li>
+</ul>
+</li>
+<li>filters不改变真正的<code>data</code>，只改变渲染的结果，并返回过滤后的版本</li>
+<li>$\color{red}过滤器中一定要有返回值$</li>
+<li><strong>局部过滤器是filters，有s</strong><ul>
+<li>只有在本组件中使用</li>
+</ul>
+</li>
+<li><strong>全局过滤器是filter，没有s</strong><ul>
+<li>所有组件都可以使用</li>
+</ul>
+</li>
+</ul>
+<p>使用场景：</p>
+<ul>
+<li>1.双花括号插值</li>
+<li>2.v-bind表达式</li>
+<li>3.可自定义过滤器，用于文本格式化</li>
+</ul>
+<p>调用方法：</p>
+<ul>
+<li>{{msg | upper | lower}}
+<ul>
+<li>第一个必须是：绑定值名</li>
+<li>第二个及以后是：过滤器函数名</li>
+<li>从左到右调用</li>
+</ul>
+</li>
+<li>upper 为局部过滤器（在data中的filters中）</li>
+<li>lower 为全局过滤器（在Vue.filter(‘lower’, function(val) {..}中）</li>
+</ul>
+<p>以下：</p>
+<ul>
+<li>upper  定义为接收单个参数的过滤器函数<ul>
+<li>表达式msg 的值将作为参数传入到函数中。</li>
+</ul>
+</li>
+<li>然后继续调用，定义为接收单个参数的过滤器 lower<ul>
+<li>将upper 的结果传递到lower中</li>
+</ul>
+</li>
+<li>charAt(0)<ul>
+<li>拿到一个字符</li>
+</ul>
+</li>
+<li>toUpperCase()、toLowerCase()<ul>
+<li>转换大写、小写</li>
+</ul>
+</li>
+<li>slice(1)<ul>
+<li>从第二个字符截取到最后</li>
+</ul>
+</li>
+</ul>
+<p>一、过滤器未传递参数</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'msg'</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg | upper&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg | upper | lower&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:abc</span>=<span class="hljs-string">'msg | upper'</span>&gt;</span>测试数据<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-comment">//全局过滤器</span></span><br><span class="actionscript">   Vue.filter(<span class="hljs-string">'lower'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">      <span class="hljs-keyword">return</span> val.charAt(<span class="hljs-number">0</span>).toLowerCase() + val.slice(<span class="hljs-number">1</span>);</span><br>    &#125;);<br><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        msg: <span class="hljs-string">''</span></span><br>      &#125;,<br>      filters: &#123;<br><span class="actionscript">        upper: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-keyword">return</span> val.charAt(<span class="hljs-number">0</span>).toUpperCase() + val.slice(<span class="hljs-number">1</span>);</span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'msg'</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg | upper&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;msg | upper | lower&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:abc</span>=<span class="hljs-string">'msg | upper'</span>&gt;</span>测试数据<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-comment">//全局过滤器</span></span><br><span class="actionscript">   Vue.filter(<span class="hljs-string">'lower'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">      <span class="hljs-keyword">return</span> val.charAt(<span class="hljs-number">0</span>).toLowerCase() + val.slice(<span class="hljs-number">1</span>);</span><br>    &#125;);<br><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        msg: <span class="hljs-string">''</span></span><br>      &#125;,<br>      filters: &#123;<br><span class="actionscript">        upper: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-keyword">return</span> val.charAt(<span class="hljs-number">0</span>).toUpperCase() + val.slice(<span class="hljs-number">1</span>);</span><br>        &#125;<br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>二、过滤器中传递参数(定义的function中加参数)</p>
+<ul>
+<li><p>第一个参数不是传递的，对应管道符前的值</p>
+</li>
+<li><p>第二个及以后的参数用来传递，对应管道符后函数的参数</p>
+</li>
+<li><p>filterA 被定义为接收三个参数的过滤器函数</p>
+<ul>
+<li>第一个参数:message 的值</li>
+<li>第二个参数:普通字符串 ‘arg1’</li>
+<li>第三个参数:表达式 arg2 的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"box"</span>&gt;</span><br>    &#123;&#123; message | filterA('arg1', 'arg2') &#125;&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">    Vue.filter(<span class="hljs-string">'filterA'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n,a,b)</span></span>&#123;</span><br>        if(n&lt;10)&#123;<br><span class="actionscript">            <span class="hljs-keyword">return</span> n+a;</span><br><span class="actionscript">        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="actionscript">            <span class="hljs-keyword">return</span> n+b;</span><br>        &#125;<br>    &#125;);<br><span class="actionscript">    <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">        el:<span class="hljs-string">"#box"</span>,</span><br>        data:&#123;<br><span class="actionscript">            message: <span class="hljs-string">"哈哈哈"</span></span><br>        &#125;<br>    &#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"box"</span>&gt;</span><br>    &#123;&#123; message | filterA('arg1', 'arg2') &#125;&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="actionscript">    Vue.filter(<span class="hljs-string">'filterA'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n,a,b)</span></span>&#123;</span><br>        if(n&lt;10)&#123;<br><span class="actionscript">            <span class="hljs-keyword">return</span> n+a;</span><br><span class="actionscript">        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="actionscript">            <span class="hljs-keyword">return</span> n+b;</span><br>        &#125;<br>    &#125;);<br><span class="actionscript">    <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">        el:<span class="hljs-string">"#box"</span>,</span><br>        data:&#123;<br><span class="actionscript">            message: <span class="hljs-string">"哈哈哈"</span></span><br>        &#125;<br>    &#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>三、过滤器案例：格式化日期</p>
+<p>转换为yyyy-MM-dd的形式</p>
+<ul>
+<li>必须有返回值<ul>
+<li>return value;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js">Vue.filter(<span class="hljs-string">'format'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, arg</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span>(arg == <span class="hljs-string">'yyyy-MM-dd'</span>) &#123;<br>    <span class="hljs-keyword">var</span> ret = <span class="hljs-string">''</span>;<br>    ret += value.getFullYear() + <span class="hljs-string">'-'</span> + (value.getMonth() + <span class="hljs-number">1</span>) + <span class="hljs-string">'-'</span> + value.getDate();<br>    <span class="hljs-keyword">return</span> ret;<br>  &#125;<br>  <span class="hljs-keyword"><code class="language-hljs js">Vue.filter(<span class="hljs-string">'format'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, arg</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span>(arg == <span class="hljs-string">'yyyy-MM-dd'</span>) &#123;<br>    <span class="hljs-keyword">var</span> ret = <span class="hljs-string">''</span>;<br>    ret += value.getFullYear() + <span class="hljs-string">'-'</span> + (value.getMonth() + <span class="hljs-number">1</span>) + <span class="hljs-string">'-'</span> + value.getDate();<br>    <span class="hljs-keyword">return</span> ret;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>转换为yyyy-MM-dd hh:mm:ss的形式(正则匹配)</p>
+<ul>
+<li>必须有返回值（这里是返回函数）<ul>
+<li>return dateFormat(value, arg);</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;date | format('yyyy-MM-dd hh:mm:ss')&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-comment">//全局过滤器</span></span><br><span class="actionscript">    Vue.filter(<span class="hljs-string">'format'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value, arg)</span> </span>&#123;</span><br><span class="actionscript">      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dateFormat</span><span class="hljs-params">(date, format)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> date === <span class="hljs-string">"string"</span>) &#123;</span><br><span class="javascript">              <span class="hljs-keyword">var</span> mts = date.match(<span class="hljs-regexp">/(\/Date\((\d+)\)\/)/</span>);</span><br>              if (mts &amp;&amp; mts.length &gt;= 3) &#123;<br><span class="javascript">                  date = <span class="hljs-built_in">parseInt</span>(mts[<span class="hljs-number">2</span>]);</span><br>              &#125;<br>          &#125;<br><span class="javascript">          date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(date);</span><br><span class="actionscript">          <span class="hljs-keyword">if</span> (!date || date.toUTCString() == <span class="hljs-string">"Invalid Date"</span>) &#123;</span><br><span class="actionscript">              <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;</span><br>          &#125;<br><span class="actionscript">          <span class="hljs-keyword">var</span> map = &#123;</span><br><span class="actionscript">              <span class="hljs-string">"M"</span>: date.getMonth() + <span class="hljs-number">1</span>,</span><br><span class="actionscript">              <span class="hljs-string">"d"</span>: date.getDate(),</span><br><span class="actionscript">              <span class="hljs-string">"h"</span>: date.getHours(),</span><br><span class="actionscript">              <span class="hljs-string">"m"</span>: date.getMinutes(),</span><br><span class="actionscript">              <span class="hljs-string">"s"</span>: date.getSeconds(),</span><br><span class="javascript">              <span class="hljs-string">"q"</span>: <span class="hljs-built_in">Math</span>.floor((date.getMonth() + <span class="hljs-number">3</span>) / <span class="hljs-number">3</span>),</span><br><span class="actionscript">              <span class="hljs-string">"S"</span>: date.getMilliseconds()</span><br>          &#125;;<br><span class="javascript">          format = format.replace(<span class="hljs-regexp">/([yMdhmsqS])+/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">all, t</span>) </span>&#123;</span><br><span class="actionscript">              <span class="hljs-keyword">var</span> v = map[t];</span><br><span class="actionscript">              <span class="hljs-keyword">if</span> (v !== <span class="hljs-literal">undefined</span>) &#123;</span><br>                  if (all.length &gt; 1) &#123;<br><span class="actionscript">                      v = <span class="hljs-string">'0'</span> + v;</span><br>                      v = v.substr(v.length - 2);<br>                  &#125;<br><span class="actionscript">                  <span class="hljs-keyword">return</span> v;</span><br><span class="actionscript">              &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t === <span class="hljs-string">'y'</span>) &#123;</span><br><span class="actionscript">                  <span class="hljs-keyword">return</span> (date.getFullYear() + <span class="hljs-string">''</span>).substr(<span class="hljs-number">4</span> - all.length);</span><br>              &#125;<br><span class="actionscript">              <span class="hljs-keyword">return</span> all;</span><br>          &#125;);<br><span class="actionscript">          <span class="hljs-keyword">return</span> format;</span><br>      &#125;<br><span class="actionscript">      <span class="hljs-keyword">return</span> dateFormat(value, arg);</span><br>    &#125;)<br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="javascript">        date: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()</span><br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;date | format('yyyy-MM-dd hh:mm:ss')&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-comment">//全局过滤器</span></span><br><span class="actionscript">    Vue.filter(<span class="hljs-string">'format'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value, arg)</span> </span>&#123;</span><br><span class="actionscript">      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dateFormat</span><span class="hljs-params">(date, format)</span> </span>&#123;</span><br><span class="actionscript">          <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> date === <span class="hljs-string">"string"</span>) &#123;</span><br><span class="javascript">              <span class="hljs-keyword">var</span> mts = date.match(<span class="hljs-regexp">/(\/Date\((\d+)\)\/)/</span>);</span><br>              if (mts &amp;&amp; mts.length &gt;= 3) &#123;<br><span class="javascript">                  date = <span class="hljs-built_in">parseInt</span>(mts[<span class="hljs-number">2</span>]);</span><br>              &#125;<br>          &#125;<br><span class="javascript">          date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(date);</span><br><span class="actionscript">          <span class="hljs-keyword">if</span> (!date || date.toUTCString() == <span class="hljs-string">"Invalid Date"</span>) &#123;</span><br><span class="actionscript">              <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;</span><br>          &#125;<br><span class="actionscript">          <span class="hljs-keyword">var</span> map = &#123;</span><br><span class="actionscript">              <span class="hljs-string">"M"</span>: date.getMonth() + <span class="hljs-number">1</span>,</span><br><span class="actionscript">              <span class="hljs-string">"d"</span>: date.getDate(),</span><br><span class="actionscript">              <span class="hljs-string">"h"</span>: date.getHours(),</span><br><span class="actionscript">              <span class="hljs-string">"m"</span>: date.getMinutes(),</span><br><span class="actionscript">              <span class="hljs-string">"s"</span>: date.getSeconds(),</span><br><span class="javascript">              <span class="hljs-string">"q"</span>: <span class="hljs-built_in">Math</span>.floor((date.getMonth() + <span class="hljs-number">3</span>) / <span class="hljs-number">3</span>),</span><br><span class="actionscript">              <span class="hljs-string">"S"</span>: date.getMilliseconds()</span><br>          &#125;;<br><span class="javascript">          format = format.replace(<span class="hljs-regexp">/([yMdhmsqS])+/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">all, t</span>) </span>&#123;</span><br><span class="actionscript">              <span class="hljs-keyword">var</span> v = map[t];</span><br><span class="actionscript">              <span class="hljs-keyword">if</span> (v !== <span class="hljs-literal">undefined</span>) &#123;</span><br>                  if (all.length &gt; 1) &#123;<br><span class="actionscript">                      v = <span class="hljs-string">'0'</span> + v;</span><br>                      v = v.substr(v.length - 2);<br>                  &#125;<br><span class="actionscript">                  <span class="hljs-keyword">return</span> v;</span><br><span class="actionscript">              &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t === <span class="hljs-string">'y'</span>) &#123;</span><br><span class="actionscript">                  <span class="hljs-keyword">return</span> (date.getFullYear() + <span class="hljs-string">''</span>).substr(<span class="hljs-number">4</span> - all.length);</span><br>              &#125;<br><span class="actionscript">              <span class="hljs-keyword">return</span> all;</span><br>          &#125;);<br><span class="actionscript">          <span class="hljs-keyword">return</span> format;</span><br>      &#125;<br><span class="actionscript">      <span class="hljs-keyword">return</span> dateFormat(value, arg);</span><br>    &#125;)<br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="javascript">        date: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()</span><br>      &#125;<br>    &#125;);<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><ul>
+<li>事物从出生到死亡的过程</li>
+<li>Vue实例从创建 到销毁的过程伴随一些函数的自调用。<ul>
+<li>这些函数为钩子函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h4><table>
+<thead>
+<tr>
+<th>beforeCreate</th>
+<th>在实例初始化之后，数据观测和事件配置之前被调用 此时data 和 methods 以及页面的DOM结构都没有初始化   什么都做不了</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>created</td>
+<td>在实例创建完成后被立即调用此时data 和 methods已经可以使用  但是页面还没有渲染出来</td>
+</tr>
+<tr>
+<td>beforeMount</td>
+<td>在挂载开始之前被调用   此时页面上还看不到真实数据 只是一个模板页面而已</td>
+</tr>
+<tr>
+<td>mounted</td>
+<td>el被新创建的vm.$el替换，并挂载到实例上去之后调用该钩子。  数据已经真实渲染到页面上  在这个钩子函数里面我们可以使用一些第三方的插件</td>
+</tr>
+<tr>
+<td>beforeUpdate</td>
+<td>数据更新时调用，发生在虚拟DOM打补丁之前。   页面上数据还是旧的</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>由于数据更改导致的虚拟DOM重新渲染和打补丁，在这之后会调用该钩子。 页面上数据已经替换成最新的</td>
+</tr>
+<tr>
+<td>beforeDestroy</td>
+<td>实例销毁之前调用</td>
+</tr>
+<tr>
+<td>destroyed</td>
+<td>实例销毁后调用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>挂载（初始化相关属性）<ul>
+<li>beforeCreate</li>
+<li>created</li>
+<li>beforeMount</li>
+<li>mounted</li>
+</ul>
+</li>
+<li>更新（元素或组件的变更操作）<ul>
+<li>beforeUpdate</li>
+<li>updated</li>
+</ul>
+</li>
+<li>销毁（销毁相关属性）<ul>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+</li>
+</ul>
+<h3 id="数组变异方法（修改原有数据，会影响到原始数据）"><a href="#数组变异方法（修改原有数据，会影响到原始数据）" class="headerlink" title="数组变异方法（修改原有数据，会影响到原始数据）"></a>数组变异方法（<strong>修改原有数据，会影响到原始数据</strong>）</h3><ul>
+<li>直接修改对象属性的值无法触发响应式。<ul>
+<li>直接修改对象属性的值，只有数据改变，但是页面内容不变</li>
+</ul>
+</li>
+<li>变异：原有功能不变的前提下对其进行功能拓展</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><code>push()</code></th>
+<th>往数组最后面添加一个元素，成功返回当前数组的长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pop()</code></td>
+<td>删除数组的最后一个元素，成功返回删除元素的值</td>
+</tr>
+<tr>
+<td><code>shift()</code></td>
+<td>删除数组的第一个元素，成功返回删除元素的值</td>
+</tr>
+<tr>
+<td><code>unshift()</code></td>
+<td>往数组最前面添加一个元素，成功返回当前数组的长度</td>
+</tr>
+<tr>
+<td><code>splice()</code></td>
+<td>有三个参数，第一个是想要删除的元素的下标（必选），第二个是想要删除的个数（必选），第三个是删除 后想要在原位置替换的值</td>
+</tr>
+<tr>
+<td><code>sort()</code></td>
+<td>sort()  使数组按照字符编码默认从小到大排序,成功返回排序后的数组</td>
+</tr>
+<tr>
+<td><code>reverse()</code></td>
+<td>reverse()  将数组倒序，成功返回倒序后的数组</td>
+</tr>
+</tbody></table>
+<h3 id="替换数组（生成新数组，不会影响原始数据）"><a href="#替换数组（生成新数组，不会影响原始数据）" class="headerlink" title="替换数组（生成新数组，不会影响原始数据）"></a>替换数组（<strong>生成新数组，不会影响原始数据</strong>）</h3><table>
+<thead>
+<tr>
+<th>filter</th>
+<th>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>concat</td>
+<td>concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>slice() 方法可从已有的数组中返回选定的元素。该方法并不会修改数组，而是返回一个子数组</td>
+</tr>
+</tbody></table>
+<ul>
+<li>变异方法：会影响数组的原始数据的变化。</li>
+<li>替换数组：不会影响原始的数组数据，而是形成一个新的数组（$\color{red}所以需要重新赋值$）。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'fname'</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'add'</span>&gt;</span>添加<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'del'</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'change'</span>&gt;</span>替换<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">'index'</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">'(item,index) in list'</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">  <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">    el: <span class="hljs-string">'#app'</span>,</span><br>    data: &#123;<br><span class="actionscript">      fname: <span class="hljs-string">''</span>,</span><br><span class="actionscript">      list: [<span class="hljs-string">'apple'</span>,<span class="hljs-string">'orange'</span>,<span class="hljs-string">'banana'</span>]</span><br>    &#125;,<br>    methods: &#123;<br><span class="actionscript">      add: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list.push(<span class="hljs-keyword">this</span>.fname);</span><br>      &#125;,<br><span class="actionscript">      del: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list.pop();</span><br>      &#125;,<br><span class="actionscript">      change: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-comment">//需要重新赋值</span></span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list = <span class="hljs-keyword">this</span>.list.slice(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>);</span><br>      &#125;<br>    &#125;<br>  &#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">'fname'</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'add'</span>&gt;</span>添加<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'del'</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">'change'</span>&gt;</span>替换<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">'index'</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">'(item,index) in list'</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">  <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">    el: <span class="hljs-string">'#app'</span>,</span><br>    data: &#123;<br><span class="actionscript">      fname: <span class="hljs-string">''</span>,</span><br><span class="actionscript">      list: [<span class="hljs-string">'apple'</span>,<span class="hljs-string">'orange'</span>,<span class="hljs-string">'banana'</span>]</span><br>    &#125;,<br>    methods: &#123;<br><span class="actionscript">      add: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list.push(<span class="hljs-keyword">this</span>.fname);</span><br>      &#125;,<br><span class="actionscript">      del: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list.pop();</span><br>      &#125;,<br><span class="actionscript">      change: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">        <span class="hljs-comment">//需要重新赋值</span></span><br><span class="actionscript">        <span class="hljs-keyword">this</span>.list = <span class="hljs-keyword">this</span>.list.slice(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>);</span><br>      &#125;<br>    &#125;<br>  &#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="动态数组响应式数据（应对索引操作没有响应式）"><a href="#动态数组响应式数据（应对索引操作没有响应式）" class="headerlink" title="动态数组响应式数据（应对索引操作没有响应式）"></a>动态数组响应式数据（应对索引操作没有响应式）</h3><p>全局(让触发视图重新更新一遍，数据动态起来)</p>
+<ul>
+<li>Vue.set(a,b,c)<ul>
+<li>a是要更改的数据(数组名称)</li>
+<li>b是数据的第几项(数组索引)</li>
+<li>c是更改后的数据(数组值)</li>
+</ul>
+</li>
+</ul>
+<p>局部(vm是组件)</p>
+<ul>
+<li>vm.$set(a,b,c)<ul>
+<li>a是要更改的数据(数组名称)</li>
+<li>b是数据的第几项(数组索引)</li>
+<li>c是更改后的数据(数组值)</li>
+</ul>
+</li>
+</ul>
+<p>对比</p>
+<p>1.处理数组索引：</p>
+<ul>
+<li><code>vm.list[1] = &#39;lemon&#39;;</code><ul>
+<li>直接更改，页面不会改变</li>
+</ul>
+</li>
+<li>Vue.set(vm.list, 1, ‘lemon’);<ul>
+<li>全局</li>
+</ul>
+</li>
+<li>vm.$set(vm.list, 1, ‘lemon’);<ul>
+<li>局部</li>
+</ul>
+</li>
+</ul>
+<p>2.处理对象属性（例子中添加了一个属性）</p>
+<ul>
+<li>Vue.set(vm.info, ‘gender’, ‘female’);<ul>
+<li>全局</li>
+</ul>
+</li>
+<li>vm.$set(vm.info, ‘gender’, ‘female’);<ul>
+<li>局部</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">'item in list'</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.age&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.gender&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        list: [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'orange'</span>, <span class="hljs-string">'banana'</span>],</span><br>        info: &#123;<br><span class="actionscript">          name: <span class="hljs-string">'lisi'</span>,</span><br>          age: 12<br>        &#125;<br>      &#125;,<br>    &#125;);<br><span class="actionscript">    <span class="hljs-comment">// vm.list[1] = 'lemon';</span></span><br><span class="actionscript">    <span class="hljs-comment">// Vue.set(vm.list, 1, 'lemon');</span></span><br><span class="actionscript">    vm.$<span class="hljs-keyword">set</span>(vm.list, <span class="hljs-number">1</span>, <span class="hljs-string">'lemon'</span>);</span><br><br><span class="actionscript">    <span class="hljs-comment">// vm.info.gender = 'male';</span></span><br><span class="actionscript">    vm.$<span class="hljs-keyword">set</span>(vm.info, <span class="hljs-string">'gender'</span>, <span class="hljs-string">'female'</span>);</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">'item in list'</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.age&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.gender&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="actionscript">    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="actionscript">      el: <span class="hljs-string">'#app'</span>,</span><br>      data: &#123;<br><span class="actionscript">        list: [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'orange'</span>, <span class="hljs-string">'banana'</span>],</span><br>        info: &#123;<br><span class="actionscript">          name: <span class="hljs-string">'lisi'</span>,</span><br>          age: 12<br>        &#125;<br>      &#125;,<br>    &#125;);<br><span class="actionscript">    <span class="hljs-comment">// vm.list[1] = 'lemon';</span></span><br><span class="actionscript">    <span class="hljs-comment">// Vue.set(vm.list, 1, 'lemon');</span></span><br><span class="actionscript">    vm.$<span class="hljs-keyword">set</span>(vm.list, <span class="hljs-number">1</span>, <span class="hljs-string">'lemon'</span>);</span><br><br><span class="actionscript">    <span class="hljs-comment">// vm.info.gender = 'male';</span></span><br><span class="actionscript">    vm.$<span class="hljs-keyword">set</span>(vm.info, <span class="hljs-string">'gender'</span>, <span class="hljs-string">'female'</span>);</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lewis-qi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lewis.qi.tk/2020/05/16/vue%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7-day02/">http://lewis.qi.tk/2020/05/16/vue%E5%B8%B8%E7%94%A8%E7%89%B9%E6%80%A7-day02/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lewis-qi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">感谢相遇，感恩有你</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Sat May 16 2020 18:08:57 GMT+0800',
+    owner: '',
+    repo: 'git@github.com:Dreamweaver484/CDN.git',
+    oauth: {
+        client_id: '56eaf3018501f1940bf3',
+        client_secret: '916dcc70d973d6679fd1da0473853f640b75a13e'
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'f6UDg5eEQhtP1zF8NrFJd3WU-gzGzoHsz',
+        appKey: 'LmooemmEGNO71aC5BJhwYVXH',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！just go go!'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/16/vue%E7%BB%84%E4%BB%B6%E5%8C%96-day03/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="vue组件化--day03">
+                        
+                        <span class="card-title">vue组件化--day03</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            vue组件化
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue/" class="post-category">
+                                    vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/16/vue%E6%8C%87%E4%BB%A4-day01/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="vue指令--day01">
+                        
+                        <span class="card-title">vue指令--day01</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            常用指令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vue/" class="post-category">
+                                    vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: welcome<br />'
+            + '文章作者: Lewis-qi<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Lewis-qi所有，任何形式的转载都请注明出处Thanks♪(･ω･)ﾉ。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+
+    <!-- 灯笼2 -->
+<div class="deng-box1">
+    <div class="deng">
+      <div class="xian">
+      </div>
+      <div class="deng-a">
+        <div class="deng-b">
+          <div class="deng-t">
+            navie
+          </div>
+        </div>
+      </div>
+      <div class="shui shui-a">
+        <div class="shui-c">
+        </div>
+       <div class="shui-b">
+       </div>
+     </div>
+    </div>
+  </div>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Lewis-qi</a>
+            |&nbsp;Powered by&nbsp;<a href="#" target="_blank">not me</a>
+            |&nbsp;Theme&nbsp;<a href="#" target="_blank">not me</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">96.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv" style='display:none'>
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+            
+            
+                <span id="busuanzi_container_site_uv" style='display:none'>
+                    人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Dreamweaver484" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2324385133@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2324385133" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2324385133" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 在线聊天室--闲聊么 -->
+<!-- <script>
+    var xlm_wid='16166';
+    var xlm_url='https://www.xianliao.me/';
+</script>
+<script type='text/javascript' charset='UTF-8' src='https://www.xianliao.me/embed.js'></script> -->
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "b97f028f"
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+    <!-- 网站的url栏标题 -->
+    <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(st)):(document.title="(๑•̀ㅂ•́) ✧被发现了～",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
+    <!-- 天气插件 -->
+    <script type="text/javascript">
+        WIDGET = {FID: 'md6ykOMZ1E'}
+    </script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+</body>
+</html>

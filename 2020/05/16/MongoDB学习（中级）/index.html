@@ -1,0 +1,1997 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MongoDB学习（中级）, 技术分享 | 生活点滴 | 友人帐">
+    <meta name="description" content="介绍">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166013913-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-166013913-1');
+</script>
+
+
+    <title>MongoDB学习（中级） | welcome</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+    <!-- 增加动态诗词 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="welcome" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">welcome</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友人帐</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>好文收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">welcome</div>
+        <div class="logo-desc">
+            
+            介绍
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友人帐
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			好文收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Dreamweaver484" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #a18cd1;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Dreamweaver484" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MongoDB学习（中级）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MongoDB/">
+                                <span class="chip bg-color">MongoDB</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MongoDB/" class="post-category">
+                                MongoDB
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-05-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    35 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/105012851" target="_blank" rel="noopener">MongoDB学习（中级）</a></p>
+<h2 id="10-mongoose"><a href="#10-mongoose" class="headerlink" title="10.mongoose"></a>10.mongoose</h2><ul>
+<li>nodejs用对象的形式表示MongoDB的文档，即数据把文档转换为对象<ul>
+<li>用中间件和应用逻辑挂钩</li>
+<li>创建schema的文档结构约束</li>
+<li>Model对象是集合中的所有文档的表示，相当于MongoDB数据库中的集合</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-comment">//连接数据库(端口号默认27017，可以省略不写)</span><br><span class="hljs-comment">//因为没有事务操作，所以只需要连接一次</span><br><span class="hljs-comment">//mongoose.connect('mongodb://数据库的ip地址：端口号/数据库名',&#123;useMongoClient:true&#125;);</span><br><span class="hljs-comment">// mongoose.connect('mongodb://localhost:27017/test',&#123;useMongoClient:true&#125;);</span><br><br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        type:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-comment">//通过Scheme来创建Model模型，就是来映射数据库的集合</span><br><span class="hljs-comment">//mongoose.model(modelName,Schema);</span><br><span class="hljs-comment">//modelName是数据库的集合名（表）</span><br><span class="hljs-comment">//注意：自动将集合名添加s（复数）</span><br><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment">//向数据库插入文档</span><br>StuModel.create([<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span>,<br>        age:<span class="hljs-number">20</span>,<br>        gender:<span class="hljs-string">"famale"</span>,<br>        address:<span class="hljs-string">"HangZhou"</span><br>    &#125;,<br>    &#123;<br>        name:<span class="hljs-string">"lisi"</span>,<br>        age:<span class="hljs-number">22</span>,<br>        gender:<span class="hljs-string">"male"</span>,<br>        address:<span class="hljs-string">"ShangHai"</span> <br>    &#125;<br>],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>    <span class="hljs-keyword">if</span>(!err)&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"插入成功"</span>);<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"插入失败"</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">//监听数据库的连接状态</span><br>mongoose.connection.once(<span class="hljs-string">'open'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接成功"</span>);<br>    <span class="hljs-comment">//在node控制台显示</span><br>    <span class="hljs-comment">//console.log(arguments);</span><br>&#125;);<br><br>mongoose.connection.once(<span class="hljs-string">'close'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接断开"</span>);<br>&#125;);<br><br><span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-comment">//连接数据库(端口号默认27017，可以省略不写)</span><br><span class="hljs-comment">//因为没有事务操作，所以只需要连接一次</span><br><span class="hljs-comment">//mongoose.connect('mongodb://数据库的ip地址：端口号/数据库名',&#123;useMongoClient:true&#125;);</span><br><span class="hljs-comment">// mongoose.connect('mongodb://localhost:27017/test',&#123;useMongoClient:true&#125;);</span><br><br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        type:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-comment">//通过Scheme来创建Model模型，就是来映射数据库的集合</span><br><span class="hljs-comment">//mongoose.model(modelName,Schema);</span><br><span class="hljs-comment">//modelName是数据库的集合名（表）</span><br><span class="hljs-comment">//注意：自动将集合名添加s（复数）</span><br><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment">//向数据库插入文档</span><br>StuModel.create([<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span>,<br>        age:<span class="hljs-number">20</span>,<br>        gender:<span class="hljs-string">"famale"</span>,<br>        address:<span class="hljs-string">"HangZhou"</span><br>    &#125;,<br>    &#123;<br>        name:<span class="hljs-string">"lisi"</span>,<br>        age:<span class="hljs-number">22</span>,<br>        gender:<span class="hljs-string">"male"</span>,<br>        address:<span class="hljs-string">"ShangHai"</span> <br>    &#125;<br>],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>    <span class="hljs-keyword">if</span>(!err)&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"插入成功"</span>);<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"插入失败"</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">//监听数据库的连接状态</span><br>mongoose.connection.once(<span class="hljs-string">'open'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接成功"</span>);<br>    <span class="hljs-comment">//在node控制台显示</span><br>    <span class="hljs-comment">//console.log(arguments);</span><br>&#125;);<br><br>mongoose.connection.once(<span class="hljs-string">'close'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接断开"</span>);<br>&#125;);<br><br><span class="hljs-comment">// //断开数据库连接（不常用）</span><br>mongoose.disconnect();<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="注：node中Model用法"><a href="#注：node中Model用法" class="headerlink" title="注：node中Model用法"></a>注：node中Model用法</h3><p> $\color{red}10.1创建、查询$</p>
+<ul>
+<li>1.向数据库插入文档<ul>
+<li>Model名.create(doc,function(err){});</li>
+</ul>
+</li>
+<li>2.查询符合条件的第一个文档<ul>
+<li>Model名.findOne(conditions,projection,options,callback)</li>
+</ul>
+</li>
+<li>3.查询所有符合条件的文档<ul>
+<li>Model名.find(conditions,projection,options,callback)</li>
+</ul>
+</li>
+<li>4.根据文档的id属性查询文档<ul>
+<li>Model名.findById(id,projection,options,callback)<ul>
+<li>doc是要插入的文档,function(err){}是回调函数</li>
+<li>conditions查询条件</li>
+<li>projection投影</li>
+<li>options查询选项（skip、limit）</li>
+<li>callback查询结果通过回调函数返回</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5.还可以在Navicat中用db.students.find();查询，</li>
+<li>$\color{red}查询结果都是文档对象，是Model的实例$</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">//查询符合条件的第一个文档</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br>StuModel.find(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//查询所有符合条件的文档</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第二个参数，投影：是否显示（用数字表示）</span><br>StuModel.find(<br>    &#123;&#125;,<br>    &#123;<br>        name:<span class="hljs-number">1</span>,<br>        _id:<span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第二个参数，投影：是否显示（用字符串表示，加-为不显示）</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-string">'name age -_id'</span>,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第三个参数，skip、limit</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-string">'name age -_id'</span>,<br>    &#123;<br>        skip:<span class="hljs-number">1</span>,<span class="hljs-attr">limit</span>:<span class="hljs-number">1</span><br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//根据文档的id属性查询文档</span><br><span class="hljs-comment">//第一个参数id</span><br>StuModel.findById(<br>    <span class="hljs-string">"5e7434c09a64954b6077c4a1"</span>,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-comment">//查询符合条件的第一个文档</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br>StuModel.find(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//查询所有符合条件的文档</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第二个参数，投影：是否显示（用数字表示）</span><br>StuModel.find(<br>    &#123;&#125;,<br>    &#123;<br>        name:<span class="hljs-number">1</span>,<br>        _id:<span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第二个参数，投影：是否显示（用字符串表示，加-为不显示）</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-string">'name age -_id'</span>,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span class="hljs-comment">//查询所有符合条件的文档</span><br><span class="hljs-comment">//第三个参数，skip、limit</span><br>StuModel.find(<br>    &#123;&#125;,<br>    <span class="hljs-string">'name age -_id'</span>,<br>    &#123;<br>        skip:<span class="hljs-number">1</span>,<span class="hljs-attr">limit</span>:<span class="hljs-number">1</span><br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><br><span class="hljs-comment">//根据文档的id属性查询文档</span><br><span class="hljs-comment">//第一个参数id</span><br>StuModel.findById(<br>    <span class="hljs-string">"5e7434c09a64954b6077c4a1"</span>,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>$\color{red}10.2更新$</p>
+<ul>
+<li>1.修改一个或多个文档<ul>
+<li>Model名.update(conditions,doc,options,callback);</li>
+</ul>
+</li>
+<li>2.修改一个文档<ul>
+<li>Model名.updateOne(conditions,doc,options,callback);</li>
+</ul>
+</li>
+<li>3.修改多个文档<ul>
+<li>Model名.updateMany(conditions,doc,options,callback);</li>
+</ul>
+</li>
+<li>4.替换一个文档<ul>
+<li>Model名.replaceOne(conditions,doc,options,callback);<ul>
+<li>conditions修改条件</li>
+<li>doc是修改后的文档对象</li>
+<li>options修改选项（oldEnough、ferret、multi）</li>
+<li>callback修改结果通过回调函数返回</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs less"><span class="hljs-comment">//更新操作</span><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.update</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,<br>    &#123;<br>        <span class="hljs-comment">//更新所有文档</span><br>        <span class="hljs-attribute">multi</span>:true<br>        <span class="hljs-comment">//更新一个文档</span><br>        <span class="hljs-comment">//multi:false</span><br>    &#125;,<br>    <span class="hljs-selector-tag">function</span>(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.updateOne</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,function(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.updateMany</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,function(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string"><code class="language-hljs less"><span class="hljs-comment">//更新操作</span><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.update</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,<br>    &#123;<br>        <span class="hljs-comment">//更新所有文档</span><br>        <span class="hljs-attribute">multi</span>:true<br>        <span class="hljs-comment">//更新一个文档</span><br>        <span class="hljs-comment">//multi:false</span><br>    &#125;,<br>    <span class="hljs-selector-tag">function</span>(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.updateOne</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,function(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-selector-tag">StuModel</span><span class="hljs-selector-class">.updateMany</span>(<br>    &#123;<br>        <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<br>    &#123;<br>        $<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">22</span>&#125;<br>    &#125;,function(err)&#123;<br>        <span class="hljs-selector-tag">if</span>(!err)&#123;<br>            <span class="hljs-selector-tag">console</span><span class="hljs-selector-class">.log</span>(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>$\color{red}10.3删除、计数$</p>
+<ul>
+<li>1.删除一个或多个文档（包括文档结构）<ul>
+<li>Model名.remove(conditions,callback);</li>
+</ul>
+</li>
+<li>2.删除一个文档<ul>
+<li>Model名.deleteOne(conditions,callback);</li>
+</ul>
+</li>
+<li>3.删除多个文档<ul>
+<li>Model名.deleteMany(conditions,callback);</li>
+</ul>
+</li>
+<li>4.统计文档数量<ul>
+<li>Model名.count(conditions,callback);<ul>
+<li>conditions修改条件</li>
+<li>callback修改结果通过回调函数返回</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">//删除操作</span><br>StuModel.remove(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br>StuModel.deleteOne(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br>StuModel.deleteMany(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-comment">//统计文档数量</span><br>StuModel.count(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-comment">//删除操作</span><br>StuModel.remove(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br>StuModel.deleteOne(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br>StuModel.deleteMany(<br>    &#123;<br>        name:<span class="hljs-string">"zhangsan"</span><br>    &#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-comment">//统计文档数量</span><br>StuModel.count(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(count);<br>        &#125;<br>    &#125;<br>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="color-red-10-4-document和集合中的文档一一对应，document是Model的实例"><a href="#color-red-10-4-document和集合中的文档一一对应，document是Model的实例" class="headerlink" title="$\color{red}10.4 document和集合中的文档一一对应，document是Model的实例$"></a>$\color{red}10.4 document和集合中的文档一一对应，document是Model的实例$</h2><ul>
+<li>1.var doc = new StuModel({…});</li>
+<li>doc.save(options,fn)</li>
+<li>doc.updata(updata,options,callback)</li>
+<li>doc.get(“age”);</li>
+<li>doc.set(“age”,”123”);doc.save();</li>
+<li>doc._id;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是来文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        type:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment">//document(doc)的方法</span><br><span class="hljs-comment">//创建一个document</span><br><span class="hljs-comment">//方式1</span><br><span class="hljs-keyword">var</span> stu = <span class="hljs-keyword">new</span> StuModel(&#123;<br>    name:<span class="hljs-string">"lisi"</span>,<br>    age:<span class="hljs-string">"30"</span>,<br>    gender:<span class="hljs-string">"male"</span>,<br>    address:<span class="hljs-string">"HangZhou"</span><br>&#125;);<br><br><br><span class="hljs-comment">//doc.save(options,fn)</span><br>stu.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>    <span class="hljs-keyword">if</span>(!err)&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"保存成功"</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">//方式2</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-comment">//doc.updata(updata,options,callback)</span><br>        doc.update(&#123;<span class="hljs-attr">$set</span>:&#123;<span class="hljs-attr">age</span>:<span class="hljs-number">28</span>&#125;&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>            <span class="hljs-keyword">if</span>(!err)&#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"修改成功"</span>);<br>            &#125;<br>        &#125;)<br>        <span class="hljs-comment">//doc.remove(callback)</span><br>        doc.remove(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>            <span class="hljs-keyword">if</span>(!err)&#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>            &#125;<br>        &#125;)<br>    &#125;<br>);<br><br><span class="hljs-comment">//方式3(方式2的化简，直接调用属性)</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            doc.age = <span class="hljs-number">28</span>;<br>            doc.save();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-comment">//doc.get("age");</span><br><span class="hljs-comment">//doc.set("age","123");doc.save();</span><br><span class="hljs-comment">//doc.id;</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-comment">//doc.get("age");</span><br>            <span class="hljs-comment">//等价于doc.age；</span><br>            <span class="hljs-comment">//doc.set("age","123");doc.save();</span><br>            <span class="hljs-comment">//等价于doc.age = 28;doc.save();</span><br>            <span class="hljs-comment">//console.log(doc._id);</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是来文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        type:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment">//document(doc)的方法</span><br><span class="hljs-comment">//创建一个document</span><br><span class="hljs-comment">//方式1</span><br><span class="hljs-keyword">var</span> stu = <span class="hljs-keyword">new</span> StuModel(&#123;<br>    name:<span class="hljs-string">"lisi"</span>,<br>    age:<span class="hljs-string">"30"</span>,<br>    gender:<span class="hljs-string">"male"</span>,<br>    address:<span class="hljs-string">"HangZhou"</span><br>&#125;);<br><br><br><span class="hljs-comment">//doc.save(options,fn)</span><br>stu.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>    <span class="hljs-keyword">if</span>(!err)&#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"保存成功"</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">//方式2</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-comment">//doc.updata(updata,options,callback)</span><br>        doc.update(&#123;<span class="hljs-attr">$set</span>:&#123;<span class="hljs-attr">age</span>:<span class="hljs-number">28</span>&#125;&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>            <span class="hljs-keyword">if</span>(!err)&#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"修改成功"</span>);<br>            &#125;<br>        &#125;)<br>        <span class="hljs-comment">//doc.remove(callback)</span><br>        doc.remove(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>&#123;<br>            <span class="hljs-keyword">if</span>(!err)&#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"删除成功"</span>);<br>            &#125;<br>        &#125;)<br>    &#125;<br>);<br><br><span class="hljs-comment">//方式3(方式2的化简，直接调用属性)</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            doc.age = <span class="hljs-number">28</span>;<br>            doc.save();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><br><span class="hljs-comment">//doc.get("age");</span><br><span class="hljs-comment">//doc.set("age","123");doc.save();</span><br><span class="hljs-comment">//doc.id;</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-comment">//doc.get("age");</span><br>            <span class="hljs-comment">//等价于doc.age；</span><br>            <span class="hljs-comment">//doc.set("age","123");doc.save();</span><br>            <span class="hljs-comment">//等价于doc.age = 28;doc.save();</span><br>            <span class="hljs-comment">//console.log(doc._id);</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"修改成功"</span>);<br>        &#125;<br>    &#125;<br>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="color-red-10-5mongoose模块化"><a href="#color-red-10-5mongoose模块化" class="headerlink" title="$\color{red}10.5mongoose模块化$"></a>$\color{red}10.5mongoose模块化$</h2><p>把连接数据库、创建model模型约束、增删查改分成三个js文件</p>
+<p>连接数据库tools/connect-mongoose.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-comment">//连接数据库(端口号默认27017，可以省略不写)</span><br><span class="hljs-comment">//mongoose.connect('mongodb://数据库的ip地址：端口号/数据库名',&#123;useMongoClient:true&#125;);</span><br><span class="hljs-comment">// mongoose.connect('mongodb://localhost:27017/test',&#123;useMongoClient:true&#125;);</span><br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><span class="hljs-comment">//监听数据库的连接状态</span><br>mongoose.connection.once(<span class="hljs-string">'open'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接成功"</span>);<br>    <span class="hljs-comment">//在node控制台显示</span><br>    <span class="hljs-comment">//console.log(arguments);</span><br>&#125;);<br><br><br><span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-comment">//连接数据库(端口号默认27017，可以省略不写)</span><br><span class="hljs-comment">//mongoose.connect('mongodb://数据库的ip地址：端口号/数据库名',&#123;useMongoClient:true&#125;);</span><br><span class="hljs-comment">// mongoose.connect('mongodb://localhost:27017/test',&#123;useMongoClient:true&#125;);</span><br>mongoose.connect(<span class="hljs-string">'mongodb://localhost:27017/test'</span>);<br><span class="hljs-comment">//监听数据库的连接状态</span><br>mongoose.connection.once(<span class="hljs-string">'open'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"数据库连接成功"</span>);<br>    <span class="hljs-comment">//在node控制台显示</span><br>    <span class="hljs-comment">//console.log(arguments);</span><br>&#125;);<br><br><br><span class="hljs-comment">//没有暴露变量</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>创建model模型约束models/student-model.js</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs typescript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是来文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        <span class="hljs-keyword">type</span>:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-comment">//通过Scheme来创建Model模型，就是来映射数据库的集合</span><br><span class="hljs-comment">//注意：自动将集合名添加s（复数）</span><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment"><code class="language-hljs typescript"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">"mongoose"</span>);<br><br><span class="hljs-keyword">var</span> Schema = mongoose.Schema;<br><br><span class="hljs-comment">//创建Scheme（模式）对象，就是来文档结构约束</span><br><span class="hljs-keyword">var</span> stuSchema = <span class="hljs-keyword">new</span> Schema(&#123;<br>    name:<span class="hljs-built_in">String</span>,<br>    age:<span class="hljs-built_in">Number</span>,<br>    gender:&#123;<br>        <span class="hljs-keyword">type</span>:<span class="hljs-built_in">String</span>,<br>        <span class="hljs-keyword">default</span>:<span class="hljs-string">"male"</span><br>    &#125;,<br>    address:<span class="hljs-built_in">String</span><br>&#125;);<br><br><span class="hljs-comment">//通过Scheme来创建Model模型，就是来映射数据库的集合</span><br><span class="hljs-comment">//注意：自动将集合名添加s（复数）</span><br><span class="hljs-keyword">var</span> StuModel = mongoose.model(<span class="hljs-string">"student"</span>,stuSchema);<br><br><br><span class="hljs-comment">//暴露</span><br>model.exports = StuModel;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>增删查改student.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">//引入连接</span><br><span class="hljs-built_in">require</span>(<span class="hljs-string">"./static/tools/connect-mongoose"</span>);<br><span class="hljs-comment">//引入模型（文档约束）</span><br><span class="hljs-keyword">var</span> StuModel = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./static/models/student-model"</span>);<br><br><span class="hljs-comment">//查询符合条件的第一个文档</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-comment">//引入连接</span><br><span class="hljs-built_in">require</span>(<span class="hljs-string">"./static/tools/connect-mongoose"</span>);<br><span class="hljs-comment">//引入模型（文档约束）</span><br><span class="hljs-keyword">var</span> StuModel = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./static/models/student-model"</span>);<br><br><span class="hljs-comment">//查询符合条件的第一个文档</span><br>StuModel.findOne(<br>    &#123;&#125;,<br>    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(!err)&#123;<br>            <span class="hljs-built_in">console</span>.log(doc);<br>        &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="11-用户"><a href="#11-用户" class="headerlink" title="11.用户"></a>11.用户</h2><p>1.默认情况下，MongoDB 不会进行身份验证，也没有账号<br>2.超级用户和数据库用户。用户信息保存在 db.system.users<br>3.一个数据库可以包含多个用户，$\color{red}一个用户只能在一个数据库下，不同数据库中的用户可以同名$<br>4.特定数据库比如 test1 下的用户 test_user1，不能够访问其他数据库 test2，但是可以访问本数据库下其他用户创建的数据  </p>
+<p>一、添加用户<br>$\color{red}用户在哪个库创建，就要在哪个库auth认证，并在mongo登录时也要先连接认证库$</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vim">&gt;use admin<br>&gt;db.createUser(&#123;<br>  user:<span class="hljs-string">'test_user'</span>,<br>  <span class="hljs-keyword">pwd</span>:<span class="hljs-string">'123456'</span>,<br>  customDat<span class="hljs-variable">a:</span>&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"这是介绍"</span>&#125;，<br>  role<span class="hljs-variable">s:</span>[&#123;role:<span class="hljs-string">'userAdminAnyDatabase'</span>,d<span class="hljs-variable">b:</span><span class="hljs-string">'admin'</span>&#125; | <span class="hljs-string">"&lt;role&gt;"</span> ]<br> &#125;)<br>//验证是否存在对应用户<br>&gt; db.auth(<span class="hljs-string">"test_user"</span>,<span class="hljs-string"><code class="language-hljs vim">&gt;use admin<br>&gt;db.createUser(&#123;<br>  user:<span class="hljs-string">'test_user'</span>,<br>  <span class="hljs-keyword">pwd</span>:<span class="hljs-string">'123456'</span>,<br>  customDat<span class="hljs-variable">a:</span>&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"这是介绍"</span>&#125;，<br>  role<span class="hljs-variable">s:</span>[&#123;role:<span class="hljs-string">'userAdminAnyDatabase'</span>,d<span class="hljs-variable">b:</span><span class="hljs-string">'admin'</span>&#125; | <span class="hljs-string">"&lt;role&gt;"</span> ]<br> &#125;)<br>//验证是否存在对应用户<br>&gt; db.auth(<span class="hljs-string">"test_user"</span>,<span class="hljs-string">"password"</span>)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<ul>
+<li>user用户名</li>
+<li>pwd密码</li>
+<li>customData介绍</li>
+<li>roles<ul>
+<li>role用户的角色</li>
+<li>db数据库</li>
+<li>roles字段，指定内置角色和用户定义的角色</li>
+</ul>
+</li>
+</ul>
+<p>注：用户的角色:</p>
+<ul>
+<li><ol>
+<li>数据库用户角色</li>
+</ol>
+<ul>
+<li>read;允许用户读取指定数据库</li>
+<li>readWrite;  允许用户读写指定数据库</li>
+</ul>
+</li>
+<li><ol start="2">
+<li>数据库管理角色</li>
+</ol>
+<ul>
+<li>dbAdmin:允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</li>
+<li>dbOwner</li>
+<li>userAdmin:允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>集群管理角色(只在admin数据库中可用)</li>
+</ol>
+<ul>
+<li>clusterAdmin:赋予用户所有分片和复制集相关函数的管理权限</li>
+<li>clusterManager</li>
+<li>clusterMonitor</li>
+<li>hostManager；  </li>
+</ul>
+</li>
+<li><ol start="4">
+<li>备份恢复角色</li>
+</ol>
+<ul>
+<li>backup</li>
+<li>restore</li>
+</ul>
+</li>
+<li><ol start="5">
+<li>所有数据库角色(只在admin数据库中可用)</li>
+</ol>
+<ul>
+<li>readAnyDatabase:赋予用户所有数据库的读权限</li>
+<li>readWriteAnyDatabase:赋予用户所有数据库的读写权限</li>
+<li>userAdminAnyDatabase:赋予用户所有数据库的userAdmin权限</li>
+<li>dbAdminAnyDatabase  :赋予用户所有数据库的dbAdmin权限</li>
+</ul>
+</li>
+<li><ol start="6">
+<li>超级用户角色(只在admin数据库中可用)</li>
+</ol>
+<ul>
+<li>root:赋予用户所有数据库的dbAdmin权限</li>
+</ul>
+</li>
+<li><ol start="7">
+<li>内部角色</li>
+</ol>
+<ul>
+<li>__system  </li>
+</ul>
+</li>
+</ul>
+<p>二、修改用户</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs groovy">db.updateUser(<br>  <span class="hljs-string">"&lt;username&gt;"</span>,<br>  &#123;<br>    <span class="hljs-string">customData :</span> &#123; 这是介绍 &#125;,<br>    <span class="hljs-string">roles :</span> [<br>              &#123; <span class="hljs-string">role:</span> <span class="hljs-string">"readWriteAnyDatabase"</span>, <span class="hljs-string">db:</span> <span class="hljs-string">"admin"</span> &#125; | <span class="hljs-string">"&lt;role&gt;"</span>,<br>              ...<br>            ],<br><span class="hljs-symbol">    pwd:</span> <span class="hljs-string">"123456"</span><br>    &#125;,<br><span class="hljs-symbol">    writeConcern:</span> &#123;<span class="hljs-string"><code class="language-hljs groovy">db.updateUser(<br>  <span class="hljs-string">"&lt;username&gt;"</span>,<br>  &#123;<br>    <span class="hljs-string">customData :</span> &#123; 这是介绍 &#125;,<br>    <span class="hljs-string">roles :</span> [<br>              &#123; <span class="hljs-string">role:</span> <span class="hljs-string">"readWriteAnyDatabase"</span>, <span class="hljs-string">db:</span> <span class="hljs-string">"admin"</span> &#125; | <span class="hljs-string">"&lt;role&gt;"</span>,<br>              ...<br>            ],<br><span class="hljs-symbol">    pwd:</span> <span class="hljs-string">"123456"</span><br>    &#125;,<br><span class="hljs-symbol">    writeConcern:</span> &#123;<span class="hljs-string">"xxx"</span>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<ul>
+<li>username用户名</li>
+<li>customData介绍</li>
+<li>roles修改的角色们<ul>
+<li>role用户的角色</li>
+<li>db数据库</li>
+</ul>
+</li>
+<li>pwd密码</li>
+<li>writeConcern：用来指定mongod对写操作的回执行为</li>
+</ul>
+<p>三、修改用户权限，不会覆盖原权限信息，只新增权限</p>
+<ul>
+<li>db.grantRolesToUser(<br>  “jianlong”,<br>  [<pre><code>{
+    role:&apos;readWrite&apos;,
+    db:&apos;test&apos;
+}</code></pre>  ]<br>);</li>
+</ul>
+<p>四、修改用户密码</p>
+<ul>
+<li>db.changeUserPassword(“username”,”newPasswd”)</li>
+</ul>
+<p>五、删除用户</p>
+<ul>
+<li>db.dropUser(“username”)</li>
+</ul>
+<p>六、查看角色的具体privilege（权限）</p>
+<ul>
+<li>db.getRole(“SenderHis_Read”,{showPrivileges:true})</li>
+</ul>
+<p>测试：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata">1.查看数据库<br>&gt; show dbs<br>2.转到 <span class="hljs-keyword">test</span> 数据库，查看 admin 数据库中的用户信息<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br>3.转到 <span class="hljs-keyword">test</span> 数据库，查看 admin 数据库中的用户信息<br>&gt; <span class="hljs-keyword">use</span> <span class="hljs-keyword">test</span><br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br>4.在 <span class="hljs-keyword">test</span> 数据库，插入test_data 集合，测试数据<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.find();<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b23efc2d5603a1090b4c"</span>), <span class="hljs-string">"id"</span> : 1, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b247fc2d5603a1090b4d"</span>), <span class="hljs-string">"id"</span> : 2, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b24dfc2d5603a1090b4e"</span>), <span class="hljs-string">"id"</span> : 3, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br><br>5.在 <span class="hljs-keyword">test</span> 数据库创建用户<br>&gt;<span class="hljs-keyword">db</span>.createUser(&#123;<br>  user:'test_user',<br>  <span class="hljs-keyword">pwd</span>:'123456',<br>  customData:&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"测试testuser用户"</span>&#125;,<br>  roles:[&#123;role:'readWrite',<span class="hljs-keyword">db</span>:'<span class="hljs-keyword">test</span>'&#125;]<br> &#125;)<br><br>6.验证数据库中是否存在对应的用户<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br><br>7.以认证的方式启动数据库（在<span class="hljs-keyword">test</span>中实现）<br>&gt; <span class="hljs-keyword">use</span> <span class="hljs-keyword">test</span><br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.auth(<span class="hljs-string">"test_user"</span>,<span class="hljs-string">"123456"</span>)<br><br><br>8.再创建 test1 数据库，创建对象 test1_data，插入数据<br>&gt; <span class="hljs-keyword">use</span> test1<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.find()<br><br><br>9.再创建 test2 数据库，创建对象 test2_data，插入数据<br>&gt; <span class="hljs-keyword">use</span> test2<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.find()<br><br><br>10.重新以认证的方式启动数据库，启动时添加 –auth 参数<br>mongod --dbpath=<span class="hljs-keyword">D</span>:\mongoDB\data\<span class="hljs-keyword">db</span> --logpath=<span class="hljs-keyword">D</span>:\mongoDB\data\<span class="hljs-keyword">log</span>\mongod.<span class="hljs-keyword">log</span> --auth<br><br>11.先登录<br>   再 admin.system.users 中添加super用户，使认证授权服务生效<br>   再 admin 数据库中创建用户 supper，密码为 123456<br>&gt; mongo<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.createUser(&#123;<br>  user:'super',<br>  <span class="hljs-keyword">pwd</span>:'123456',<br>  customData:&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"测试super用户"</span>&#125;,<br>  roles:[&#123;role:'readWriteAnyDatabase',<span class="hljs-keyword">db</span>:'admin'&#125;]<br> &#125;)<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.auth(<span class="hljs-string">"super"</span>,<span class="hljs-string">"123456"</span>)<br><br><br>12.总结<br><br>以默认方式登录，即以无认证用户登录，查询的时候会显示无权限<br>&gt; mongo<br>&gt; show dbs<br><br>使用 <span class="hljs-keyword">test</span> 数据库中的用户可以查询 <span class="hljs-keyword">test</span> 的数据，但是不能查看其他的数据库的数据(已经在<span class="hljs-keyword">test</span>数据库中认证的)<br>&gt; mongo 127.0.0.1/<span class="hljs-keyword">test</span> -<span class="hljs-keyword">u</span> test_user -p 123456<br>&gt; show dbs<br><br>使用 supper 用户登录，可以对 MongoDB 系统内的所有数据库进行操作(已经在admin数据库中认证的)<br>&gt; mongo 127.0.0.1/admin -<span class="hljs-keyword"><code class="language-hljs stata">1.查看数据库<br>&gt; show dbs<br>2.转到 <span class="hljs-keyword">test</span> 数据库，查看 admin 数据库中的用户信息<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br>3.转到 <span class="hljs-keyword">test</span> 数据库，查看 admin 数据库中的用户信息<br>&gt; <span class="hljs-keyword">use</span> <span class="hljs-keyword">test</span><br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br>4.在 <span class="hljs-keyword">test</span> 数据库，插入test_data 集合，测试数据<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am a test"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test_data.find();<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b23efc2d5603a1090b4c"</span>), <span class="hljs-string">"id"</span> : 1, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b247fc2d5603a1090b4d"</span>), <span class="hljs-string">"id"</span> : 2, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br>输出：&#123; <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"5e75b24dfc2d5603a1090b4e"</span>), <span class="hljs-string">"id"</span> : 3, <span class="hljs-string">"info"</span> : <span class="hljs-string">"I am a test"</span> &#125;<br><br>5.在 <span class="hljs-keyword">test</span> 数据库创建用户<br>&gt;<span class="hljs-keyword">db</span>.createUser(&#123;<br>  user:'test_user',<br>  <span class="hljs-keyword">pwd</span>:'123456',<br>  customData:&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"测试testuser用户"</span>&#125;,<br>  roles:[&#123;role:'readWrite',<span class="hljs-keyword">db</span>:'<span class="hljs-keyword">test</span>'&#125;]<br> &#125;)<br><br>6.验证数据库中是否存在对应的用户<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.system.users.find()<br><br><br>7.以认证的方式启动数据库（在<span class="hljs-keyword">test</span>中实现）<br>&gt; <span class="hljs-keyword">use</span> <span class="hljs-keyword">test</span><br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.auth(<span class="hljs-string">"test_user"</span>,<span class="hljs-string">"123456"</span>)<br><br><br>8.再创建 test1 数据库，创建对象 test1_data，插入数据<br>&gt; <span class="hljs-keyword">use</span> test1<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test1"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test1_data.find()<br><br><br>9.再创建 test2 数据库，创建对象 test2_data，插入数据<br>&gt; <span class="hljs-keyword">use</span> test2<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:1,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:2,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.insert(&#123;<span class="hljs-string">"id"</span>:3,<span class="hljs-string">"info"</span>:<span class="hljs-string">"I am in test2"</span>&#125;)<br>&gt; <span class="hljs-keyword">db</span>.test2_data.find()<br><br><br>10.重新以认证的方式启动数据库，启动时添加 –auth 参数<br>mongod --dbpath=<span class="hljs-keyword">D</span>:\mongoDB\data\<span class="hljs-keyword">db</span> --logpath=<span class="hljs-keyword">D</span>:\mongoDB\data\<span class="hljs-keyword">log</span>\mongod.<span class="hljs-keyword">log</span> --auth<br><br>11.先登录<br>   再 admin.system.users 中添加super用户，使认证授权服务生效<br>   再 admin 数据库中创建用户 supper，密码为 123456<br>&gt; mongo<br>&gt; <span class="hljs-keyword">use</span> admin<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.createUser(&#123;<br>  user:'super',<br>  <span class="hljs-keyword">pwd</span>:'123456',<br>  customData:&#123;<span class="hljs-string">"desc"</span>:<span class="hljs-string">"测试super用户"</span>&#125;,<br>  roles:[&#123;role:'readWriteAnyDatabase',<span class="hljs-keyword">db</span>:'admin'&#125;]<br> &#125;)<br>&gt; <span class="hljs-keyword">db</span>.getUsers()<br>&gt; <span class="hljs-keyword">db</span>.auth(<span class="hljs-string">"super"</span>,<span class="hljs-string">"123456"</span>)<br><br><br>12.总结<br><br>以默认方式登录，即以无认证用户登录，查询的时候会显示无权限<br>&gt; mongo<br>&gt; show dbs<br><br>使用 <span class="hljs-keyword">test</span> 数据库中的用户可以查询 <span class="hljs-keyword">test</span> 的数据，但是不能查看其他的数据库的数据(已经在<span class="hljs-keyword">test</span>数据库中认证的)<br>&gt; mongo 127.0.0.1/<span class="hljs-keyword">test</span> -<span class="hljs-keyword">u</span> test_user -p 123456<br>&gt; show dbs<br><br>使用 supper 用户登录，可以对 MongoDB 系统内的所有数据库进行操作(已经在admin数据库中认证的)<br>&gt; mongo 127.0.0.1/admin -<span class="hljs-keyword">u</span> super -p 123456<br>> show dbs<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="12-复制（最好使用逻辑DNS主机名而不是IP地址）"><a href="#12-复制（最好使用逻辑DNS主机名而不是IP地址）" class="headerlink" title="12.复制（最好使用逻辑DNS主机名而不是IP地址）"></a>12.复制（最好使用逻辑DNS主机名而不是IP地址）</h2><ul>
+<li>mongodb的复制至少需要两个节点。</li>
+<li>各个节点常见的搭配方式为：一主一从、一主多从。<ul>
+<li>主节点，负责处理客户端请求，同步主节点的数据；</li>
+<li>其余的都是从节点，负责复制主节点上的数据</li>
+</ul>
+</li>
+<li>副本集<ul>
+<li>N 个节点的集群</li>
+<li>任何节点可作为主节点</li>
+<li>所有写入操作都在主节点上</li>
+</ul>
+</li>
+</ul>
+<p>1.副本集各节点IP如下：</p>
+<ul>
+<li>172.16.250.238  </li>
+<li>172.16.250.239  </li>
+<li>172.16.250.240  </li>
+</ul>
+<p>2.依次修改各个节点的 $\color{red}mongodb.conf$ 配置文件，增加副本集相关配置:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs ini"><span class="hljs-attr">dbpath</span>=D:\mongoDB\data\db<br><span class="hljs-attr">logpath</span>=D:\mongoDB\data\log<br><span class="hljs-attr">fork</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">logappend</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">bind_ip</span>=<span class="hljs-number">172.16</span>.<span class="hljs-number">250.238</span>   <span class="hljs-comment"># 此处填写服务器的IP(三个不同的写三次)</span><br><span class="hljs-attr">port</span>=<span class="hljs-number">27017</span><br><span class="hljs-attr">replSet</span>=rs0             <span class="hljs-comment"><code class="language-hljs ini"><span class="hljs-attr">dbpath</span>=D:\mongoDB\data\db<br><span class="hljs-attr">logpath</span>=D:\mongoDB\data\log<br><span class="hljs-attr">fork</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">logappend</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">bind_ip</span>=<span class="hljs-number">172.16</span>.<span class="hljs-number">250.238</span>   <span class="hljs-comment"># 此处填写服务器的IP(三个不同的写三次)</span><br><span class="hljs-attr">port</span>=<span class="hljs-number">27017</span><br><span class="hljs-attr">replSet</span>=rs0             <span class="hljs-comment"># 设置副本集名称，在各个配置文件中，其值必须相同</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>3.在三个节点上执行,加载文件配置,启动MongoDB服务:<br>mongod -config D:\mongoDB\mongodb.conf</p>
+<p>4.副本集初始化(连接到任意一个MongoDB实例，对副本集进行初始化)<br>出现rs0:SECONDARY&gt;即可</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs arcade">&gt; mongo <span class="hljs-number">172.16</span><span class="hljs-number">.250</span><span class="hljs-number">.238</span>:<span class="hljs-number">27017</span><br>&gt; conf=&#123;<br>    <span class="hljs-string">"_id"</span> : <span class="hljs-string">"rs0"</span>,<br>    <span class="hljs-string">"members"</span> : [<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">0</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.234:27017"</span> &#125;,<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">1</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.239:27017"</span> &#125;,<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">2</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.240:27017"</span> &#125;<br>        ]<br>  &#125;<br>&gt; rs.initiate(conf)<br>输出：&#123;<br>    <span class="hljs-string">"ok"</span> : <span class="hljs-number">1</span>,<br>    <span class="hljs-string">"operationTime"</span> : <span class="hljs-built_in">Timestamp</span>(<span class="hljs-number">1542247326</span>, <span class="hljs-number">1</span>),<br>    <span class="hljs-string">"$clusterTime"</span> : &#123;<br>        <span class="hljs-string">"clusterTime"</span> : <span class="hljs-built_in">Timestamp</span>(<span class="hljs-number">1542247326</span>, <span class="hljs-number">1</span>),<br>        <span class="hljs-string">"signature"</span> : &#123;<br>            <span class="hljs-string">"hash"</span> : BinData(<span class="hljs-number">0</span>,<span class="hljs-string">"AAAAAAAAAAAAAAAAAAAAAAAAAAA="</span>),<br>            <span class="hljs-string">"keyId"</span> : NumberLong(<span class="hljs-number"><code class="language-hljs arcade">&gt; mongo <span class="hljs-number">172.16</span><span class="hljs-number">.250</span><span class="hljs-number">.238</span>:<span class="hljs-number">27017</span><br>&gt; conf=&#123;<br>    <span class="hljs-string">"_id"</span> : <span class="hljs-string">"rs0"</span>,<br>    <span class="hljs-string">"members"</span> : [<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">0</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.234:27017"</span> &#125;,<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">1</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.239:27017"</span> &#125;,<br>        &#123; <span class="hljs-string">"_id"</span> : <span class="hljs-number">2</span>, <span class="hljs-string">"host"</span> : <span class="hljs-string">"172.16.250.240:27017"</span> &#125;<br>        ]<br>  &#125;<br>&gt; rs.initiate(conf)<br>输出：&#123;<br>    <span class="hljs-string">"ok"</span> : <span class="hljs-number">1</span>,<br>    <span class="hljs-string">"operationTime"</span> : <span class="hljs-built_in">Timestamp</span>(<span class="hljs-number">1542247326</span>, <span class="hljs-number">1</span>),<br>    <span class="hljs-string">"$clusterTime"</span> : &#123;<br>        <span class="hljs-string">"clusterTime"</span> : <span class="hljs-built_in">Timestamp</span>(<span class="hljs-number">1542247326</span>, <span class="hljs-number">1</span>),<br>        <span class="hljs-string">"signature"</span> : &#123;<br>            <span class="hljs-string">"hash"</span> : BinData(<span class="hljs-number">0</span>,<span class="hljs-string">"AAAAAAAAAAAAAAAAAAAAAAAAAAA="</span>),<br>            <span class="hljs-string">"keyId"</span> : NumberLong(<span class="hljs-number">0</span>)<br>        &#125;<br>    &#125;<br>&#125;<br>rs0:SECONDARY><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>5.副本集更新</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros"><span class="hljs-comment"># 1.向副本集中添加成员</span><br>&gt; rs.<span class="hljs-builtin-name">add</span>(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 2.从副本集中删除成员</span><br>&gt; rs.<span class="hljs-builtin-name">remove</span>(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 3.向副本集中添加仲裁</span><br>&gt; rs.addArb(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 4.向副本集中添加备份节点</span><br>&gt; rs.<span class="hljs-builtin-name">add</span>(&#123;<span class="hljs-string">"_id"</span>:3,<span class="hljs-string">"host"</span>:<span class="hljs-string">"172.16.250.239:27017"</span>,<span class="hljs-string">"priority"</span>:0,<span class="hljs-string"><code class="language-hljs routeros"><span class="hljs-comment"># 1.向副本集中添加成员</span><br>&gt; rs.<span class="hljs-builtin-name">add</span>(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 2.从副本集中删除成员</span><br>&gt; rs.<span class="hljs-builtin-name">remove</span>(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 3.向副本集中添加仲裁</span><br>&gt; rs.addArb(<span class="hljs-string">"172.16.250.239:27017"</span>)<br> <br><span class="hljs-comment"># 4.向副本集中添加备份节点</span><br>&gt; rs.<span class="hljs-builtin-name">add</span>(&#123;<span class="hljs-string">"_id"</span>:3,<span class="hljs-string">"host"</span>:<span class="hljs-string">"172.16.250.239:27017"</span>,<span class="hljs-string">"priority"</span>:0,<span class="hljs-string">"hidden"</span>:true&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>6.强制让一个从节点成为Primary主节点<br>$\color{red}优先级越高，级别越高，，在主节点崩溃时，按顺位继承主节点$</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs avrasm"><span class="hljs-meta"># 更改副本集主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; var conf=rs.conf()<br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">2</span>   <span class="hljs-meta"># 原来的主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">3</span>   <span class="hljs-meta"># 现在的主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">1</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.reconfig(cfg)               <span class="hljs-meta"><code class="language-hljs avrasm"><span class="hljs-meta"># 更改副本集主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; var conf=rs.conf()<br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">2</span>   <span class="hljs-meta"># 原来的主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">3</span>   <span class="hljs-meta"># 现在的主节点</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; conf.members[<span class="hljs-number">0</span>].priority = <span class="hljs-number">1</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.reconfig(cfg)               <span class="hljs-meta"># 刷新配置</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>7.副本集监控  </p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs avrasm"><span class="hljs-meta"># 1.查看副本集的配置信息</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.conf()<br><br><span class="hljs-meta"># 2.查看副本集运行状态</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.status()<br><br><span class="hljs-meta"># 3.查看主从关系</span><br><span class="hljs-symbol"><code class="language-hljs avrasm"><span class="hljs-meta"># 1.查看副本集的配置信息</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.conf()<br><br><span class="hljs-meta"># 2.查看副本集运行状态</span><br><span class="hljs-symbol">rs0:</span>PRIMARY&gt; rs.status()<br><br><span class="hljs-meta"># 3.查看主从关系</span><br><span class="hljs-symbol">rs0:</span>PRIMARY> rs.isMaster()<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>8.副本集复制测试</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">步骤一：在 <span class="hljs-keyword">Primary</span> 主节点上插入一万条客户数据<br>rs0:<span class="hljs-keyword">PRIMARY</span>&gt; <span class="hljs-keyword">for</span>(var i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10000</span>;i++)&#123;db.customer.<span class="hljs-keyword">insert</span>(&#123;"name":"user"+i&#125;)&#125;<br>输出：WriteResult(&#123; "nInserted" : <span class="hljs-number">1</span> &#125;)<br>rs0:<span class="hljs-keyword">PRIMARY</span>&gt; db.customer.count()<br>输出：<span class="hljs-number">10000</span><br><br><br>步骤二：在 Secondary 从节点上查看客户数据是否已经同步<br>rs0:SECONDARY&gt; rs.slaveOk()<br>rs0:SECONDARY&gt; db.customer.count()<br>输出：<span class="hljs-number"><code class="language-hljs pgsql">步骤一：在 <span class="hljs-keyword">Primary</span> 主节点上插入一万条客户数据<br>rs0:<span class="hljs-keyword">PRIMARY</span>&gt; <span class="hljs-keyword">for</span>(var i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">10000</span>;i++)&#123;db.customer.<span class="hljs-keyword">insert</span>(&#123;"name":"user"+i&#125;)&#125;<br>输出：WriteResult(&#123; "nInserted" : <span class="hljs-number">1</span> &#125;)<br>rs0:<span class="hljs-keyword">PRIMARY</span>&gt; db.customer.count()<br>输出：<span class="hljs-number">10000</span><br><br><br>步骤二：在 Secondary 从节点上查看客户数据是否已经同步<br>rs0:SECONDARY&gt; rs.slaveOk()<br>rs0:SECONDARY&gt; db.customer.count()<br>输出：<span class="hljs-number">10000</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>9.副本集故障转移测试</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs css">步骤一：关闭<span class="hljs-selector-tag">Primar</span>主节点的数据库<br><span class="hljs-selector-tag">mongod</span> <span class="hljs-selector-tag">--shutdown</span> <span class="hljs-selector-tag">--dbpath</span> <span class="hljs-selector-tag">D</span>:\<span class="hljs-selector-tag">mongoDB</span>\<span class="hljs-selector-tag">data</span><br><br>步骤二：查看<span class="hljs-selector-tag">Primary</span>节点关闭之前的状态<br><span class="hljs-selector-tag">rs0</span><span class="hljs-selector-pseudo">:PRIMARY</span>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br><span class="hljs-selector-tag">rs0</span><span class="hljs-selector-pseudo">:PRIMARY</span>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.status</span>()<br><br>步骤三：登录任意其他节点上查看<span class="hljs-selector-tag">Primary</span>节点关闭之后的状态<br>&gt; <span class="hljs-selector-tag">mongo</span> 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.239</span><span class="hljs-selector-pseudo">:27017</span><br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.status</span>()<br><br>步骤四：再次启动 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.238</span><span class="hljs-selector-pseudo">:27017</span> 节点，由于其选举优先级最高，自动被选举为<span class="hljs-selector-tag">Primary</span><br>&gt; <span class="hljs-selector-tag">mongo</span> 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.238</span><span class="hljs-selector-pseudo">:27017</span><br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class"><code class="language-hljs css">步骤一：关闭<span class="hljs-selector-tag">Primar</span>主节点的数据库<br><span class="hljs-selector-tag">mongod</span> <span class="hljs-selector-tag">--shutdown</span> <span class="hljs-selector-tag">--dbpath</span> <span class="hljs-selector-tag">D</span>:\<span class="hljs-selector-tag">mongoDB</span>\<span class="hljs-selector-tag">data</span><br><br>步骤二：查看<span class="hljs-selector-tag">Primary</span>节点关闭之前的状态<br><span class="hljs-selector-tag">rs0</span><span class="hljs-selector-pseudo">:PRIMARY</span>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br><span class="hljs-selector-tag">rs0</span><span class="hljs-selector-pseudo">:PRIMARY</span>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.status</span>()<br><br>步骤三：登录任意其他节点上查看<span class="hljs-selector-tag">Primary</span>节点关闭之后的状态<br>&gt; <span class="hljs-selector-tag">mongo</span> 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.239</span><span class="hljs-selector-pseudo">:27017</span><br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.status</span>()<br><br>步骤四：再次启动 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.238</span><span class="hljs-selector-pseudo">:27017</span> 节点，由于其选举优先级最高，自动被选举为<span class="hljs-selector-tag">Primary</span><br>&gt; <span class="hljs-selector-tag">mongo</span> 172<span class="hljs-selector-class">.16</span><span class="hljs-selector-class">.250</span><span class="hljs-selector-class">.238</span><span class="hljs-selector-pseudo">:27017</span><br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.isMaster</span>()<br>&gt; <span class="hljs-selector-tag">rs</span><span class="hljs-selector-class">.status</span>()<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="13-MongoDB分片"><a href="#13-MongoDB分片" class="headerlink" title="13.MongoDB分片"></a>13.MongoDB分片</h2><ul>
+<li><p>Shard:(Shard Server)<br>用于存储实际的数据块。一个shard server角色可由几台机器组个一个replica set承担，防止主机单点故障</p>
+</li>
+<li><p>Config Server:<br>mongod实例。存储了整个 ClusterMetadata，其中包括 chunk信息。</p>
+</li>
+<li><p>Query Routers:（Route Process）<br>前端路由。客户端由此接入，且让整个集群看上去像单一数据库，前端应用可以透明使用。</p>
+</li>
+</ul>
+<p>1.分片结构端口分布</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">Shard<span class="hljs-built_in"> Server </span>1：27020<br>Shard<span class="hljs-built_in"> Server </span>2：27021<br>Shard<span class="hljs-built_in"> Server </span>3：27022<br>Config<span class="hljs-built_in"><code class="language-hljs routeros">Shard<span class="hljs-built_in"> Server </span>1：27020<br>Shard<span class="hljs-built_in"> Server </span>2：27021<br>Shard<span class="hljs-built_in"> Server </span>3：27022<br>Config<span class="hljs-built_in"> Server </span>：27100<br>Route Process：40000<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs dsconfig">步骤一：启动<span class="hljs-string">Shard </span><span class="hljs-string">Server</span><br><span class="hljs-string">新</span>建D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared（</span>在里面新建<span class="hljs-string">s0、</span><span class="hljs-string">s1、</span><span class="hljs-string">s2、</span><span class="hljs-string">log文</span>件夹）<br><span class="hljs-string">bin目</span>录下运行下列命令：<br>&gt; <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27020 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s0"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s0.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in">&gt;</span> <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27021 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s1"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s1.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in">&gt;</span> <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27022 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s2"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s2.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in"></span><br><span class="hljs-built_in">步骤二：</span> 启动<span class="hljs-string">Config </span><span class="hljs-string">Server</span><br><span class="hljs-string">新</span>建D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared（</span>在里面新建<span class="hljs-string">config文</span>件夹）<br><span class="hljs-string">bin目</span>录下运行下列命令：<br>&gt; <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27100 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\sconfig"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\config.log --logappend --fork</span><br><span class="hljs-string"></span><br><span class="hljs-string">步骤三： 启动Route Process</span><br><span class="hljs-string">【chunkSize这一项是用来指定chunk的大小的，单位是MB，默认大小为200MB】</span><br><span class="hljs-string">&gt; mongos --port 40000 --configdb localhost:27100 --fork --logpath "</span>D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared\</span><span class="hljs-string">log\</span><span class="hljs-string">route.</span><span class="hljs-string">log"</span> <span class="hljs-built_in">--chunkSize</span> <span class="hljs-string">500</span><br><span class="hljs-string"></span><br><span class="hljs-string">步</span>骤四： 配置<span class="hljs-string">Sharding</span><br><span class="hljs-string">登</span>录到<span class="hljs-string">mongos，</span>添加<span class="hljs-string">Shard节</span>点<br>&gt; <span class="hljs-string">mongo </span><span class="hljs-string">admin </span><span class="hljs-built_in">--port</span> <span class="hljs-string">40000</span><br><span class="hljs-string"></span><br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">addshard:</span><span class="hljs-string">"localhost:27020"</span> &#125;)<br>输出：&#123; <span class="hljs-string">"shardAdded"</span> : <span class="hljs-string">"shard0000"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br>...(一共添加<span class="hljs-string">10个</span>)<br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">addshard:</span><span class="hljs-string">"localhost:27029"</span> &#125;)<br>输出：&#123; <span class="hljs-string">"shardAdded"</span> : <span class="hljs-string">"shard0009"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br><br><br><span class="hljs-comment">#设置分片存储的数据库</span><br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">enablesharding:</span><span class="hljs-string">"test"</span> &#125;)<br>输出&#123; <span class="hljs-string">"ok"</span> : 1 &#125;<br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">shardcollection:</span> <span class="hljs-string">"test.log"</span>, <span class="hljs-string">key:</span> &#123; <span class="hljs-string">id:1,</span><span class="hljs-string">time:1&#125;</span>&#125;)<br>输出：&#123; <span class="hljs-string">"collectionsharded"</span> : <span class="hljs-string">"test.log"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br><br><br>步骤五：将数据库连接接入接口<span class="hljs-string"><code class="language-hljs dsconfig">步骤一：启动<span class="hljs-string">Shard </span><span class="hljs-string">Server</span><br><span class="hljs-string">新</span>建D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared（</span>在里面新建<span class="hljs-string">s0、</span><span class="hljs-string">s1、</span><span class="hljs-string">s2、</span><span class="hljs-string">log文</span>件夹）<br><span class="hljs-string">bin目</span>录下运行下列命令：<br>&gt; <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27020 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s0"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s0.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in">&gt;</span> <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27021 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s1"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s1.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in">&gt;</span> <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27022 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\s2"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\s2.log"</span> <span class="hljs-built_in">--logappend</span> <span class="hljs-built_in">--fork</span><br><span class="hljs-built_in"></span><br><span class="hljs-built_in">步骤二：</span> 启动<span class="hljs-string">Config </span><span class="hljs-string">Server</span><br><span class="hljs-string">新</span>建D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared（</span>在里面新建<span class="hljs-string">config文</span>件夹）<br><span class="hljs-string">bin目</span>录下运行下列命令：<br>&gt; <span class="hljs-string">mongod </span><span class="hljs-built_in">--port</span> <span class="hljs-string">27100 </span><span class="hljs-built_in">--dbpath</span> <span class="hljs-string">"D:\mongoDB\shared\sconfig"</span> <span class="hljs-built_in">--logpath</span> <span class="hljs-string">"D:\mongoDB\shared\log\config.log --logappend --fork</span><br><span class="hljs-string"></span><br><span class="hljs-string">步骤三： 启动Route Process</span><br><span class="hljs-string">【chunkSize这一项是用来指定chunk的大小的，单位是MB，默认大小为200MB】</span><br><span class="hljs-string">&gt; mongos --port 40000 --configdb localhost:27100 --fork --logpath "</span>D:\<span class="hljs-string">mongoDB\</span><span class="hljs-string">shared\</span><span class="hljs-string">log\</span><span class="hljs-string">route.</span><span class="hljs-string">log"</span> <span class="hljs-built_in">--chunkSize</span> <span class="hljs-string">500</span><br><span class="hljs-string"></span><br><span class="hljs-string">步</span>骤四： 配置<span class="hljs-string">Sharding</span><br><span class="hljs-string">登</span>录到<span class="hljs-string">mongos，</span>添加<span class="hljs-string">Shard节</span>点<br>&gt; <span class="hljs-string">mongo </span><span class="hljs-string">admin </span><span class="hljs-built_in">--port</span> <span class="hljs-string">40000</span><br><span class="hljs-string"></span><br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">addshard:</span><span class="hljs-string">"localhost:27020"</span> &#125;)<br>输出：&#123; <span class="hljs-string">"shardAdded"</span> : <span class="hljs-string">"shard0000"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br>...(一共添加<span class="hljs-string">10个</span>)<br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">addshard:</span><span class="hljs-string">"localhost:27029"</span> &#125;)<br>输出：&#123; <span class="hljs-string">"shardAdded"</span> : <span class="hljs-string">"shard0009"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br><br><br><span class="hljs-comment">#设置分片存储的数据库</span><br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">enablesharding:</span><span class="hljs-string">"test"</span> &#125;)<br>输出&#123; <span class="hljs-string">"ok"</span> : 1 &#125;<br><span class="hljs-string">mongos&gt;</span> <span class="hljs-string">db.</span><span class="hljs-string">runCommand(</span>&#123; <span class="hljs-string">shardcollection:</span> <span class="hljs-string">"test.log"</span>, <span class="hljs-string">key:</span> &#123; <span class="hljs-string">id:1,</span><span class="hljs-string">time:1&#125;</span>&#125;)<br>输出：&#123; <span class="hljs-string">"collectionsharded"</span> : <span class="hljs-string">"test.log"</span>, <span class="hljs-string">"ok"</span> : 1 &#125;<br><br><br>步骤五：将数据库连接接入接口<span class="hljs-string">40000</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="14-数据库的备份-恢复-监控"><a href="#14-数据库的备份-恢复-监控" class="headerlink" title="14.数据库的备份\恢复\监控"></a>14.数据库的备份\恢复\监控</h2><p>数据备份</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript">&gt;mongodump -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number"><code class="language-hljs angelscript">&gt;mongodump -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">27017</span> -d test -o D:\mongoDB\data\dump<br>-h：MongDB所在服务器地址:端口号<br>-d：需要备份的数据库<br>-o：备份的数据存放位置<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>数据恢复</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript">&gt;mongorestore -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number"><code class="language-hljs angelscript">&gt;mongorestore -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">27017</span> -d test<br>-h：MongDB所在服务器地址:端口号<br>-d：需要备份的数据库<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<p>数据监控</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs shell">间隔固定时间获取mongodb的当前运行状态<br><span class="hljs-meta">&gt;</span><span class="bash">mongostat</span><br>跟踪一个MongoDB的实例，查看哪些大量的时间花费在读取和写入数据<br>(后跟参数，默认情况下，mongotop返回值的每一秒)<br><span class="hljs-meta">&gt;</span><span class="bash">mongotop</span><br><span class="hljs-meta">&gt;</span><span class="bash"><code class="language-hljs shell">间隔固定时间获取mongodb的当前运行状态<br><span class="hljs-meta">&gt;</span><span class="bash">mongostat</span><br>跟踪一个MongoDB的实例，查看哪些大量的时间花费在读取和写入数据<br>(后跟参数，默认情况下，mongotop返回值的每一秒)<br><span class="hljs-meta">&gt;</span><span class="bash">mongotop</span><br><span class="hljs-meta">&gt;</span><span class="bash">mongotop 10</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+
+<h2 id="15-DBRefs数据库引用"><a href="#15-DBRefs数据库引用" class="headerlink" title="15.DBRefs数据库引用"></a>15.DBRefs数据库引用</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">&#123; <span class="hljs-variable">$ref</span> : , <span class="hljs-variable">$id</span> : , <span class="hljs-variable">$db</span> :  &#125;<br><span class="hljs-variable">$ref</span>：  集合名称<br><span class="hljs-variable">$id</span>：   引用的id<br><span class="hljs-variable">$db</span>:    数据库名称，可选参数<br><br>实例：（3.0版本）<br>&gt;var<span class="hljs-built_in"> user </span>= db.users.findOne(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"Tom Benzamin"</span>&#125;)<br>&gt;var dbRef = user.address<br>&gt;db[dbRef.<span class="hljs-variable">$ref</span>].findOne(&#123;<span class="hljs-string">"_id"</span>:(dbRef.<span class="hljs-variable">$id</span>)&#125;)<br><br><br>实例：（4.0版本）<br>&gt;var<span class="hljs-built_in"> user </span>= db.users.findOne(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"Tom Benzamin"</span>&#125;)<br>&gt;var dbRef = user.address<br>&gt;db[dbRef.<span class="hljs-variable">$ref</span>].findOne(&#123;<span class="hljs-string">"_id"</span>:ObjectId(dbRef.<span class="hljs-variable"><code class="language-hljs routeros">&#123; <span class="hljs-variable">$ref</span> : , <span class="hljs-variable">$id</span> : , <span class="hljs-variable">$db</span> :  &#125;<br><span class="hljs-variable">$ref</span>：  集合名称<br><span class="hljs-variable">$id</span>：   引用的id<br><span class="hljs-variable">$db</span>:    数据库名称，可选参数<br><br>实例：（3.0版本）<br>&gt;var<span class="hljs-built_in"> user </span>= db.users.findOne(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"Tom Benzamin"</span>&#125;)<br>&gt;var dbRef = user.address<br>&gt;db[dbRef.<span class="hljs-variable">$ref</span>].findOne(&#123;<span class="hljs-string">"_id"</span>:(dbRef.<span class="hljs-variable">$id</span>)&#125;)<br><br><br>实例：（4.0版本）<br>&gt;var<span class="hljs-built_in"> user </span>= db.users.findOne(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"Tom Benzamin"</span>&#125;)<br>&gt;var dbRef = user.address<br>&gt;db[dbRef.<span class="hljs-variable">$ref</span>].findOne(&#123;<span class="hljs-string">"_id"</span>:ObjectId(dbRef.<span class="hljs-variable">$id</span>)&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Lewis-qi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lewis.qi.tk/2020/05/16/MongoDB%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/">http://lewis.qi.tk/2020/05/16/MongoDB%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%AD%E7%BA%A7%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Lewis-qi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/MongoDB/">
+                                    <span class="chip bg-color">MongoDB</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">感谢相遇，感恩有你</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Sat May 16 2020 19:56:04 GMT+0800',
+    owner: '',
+    repo: 'git@github.com:Dreamweaver484/CDN.git',
+    oauth: {
+        client_id: '56eaf3018501f1940bf3',
+        client_secret: '916dcc70d973d6679fd1da0473853f640b75a13e'
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'f6UDg5eEQhtP1zF8NrFJd3WU-gzGzoHsz',
+        appKey: 'LmooemmEGNO71aC5BJhwYVXH',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！just go go!'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/05/16/js%E4%B8%ADlet%E3%80%81const%E3%80%81var%E5%8C%BA%E5%88%AB-%E6%B5%85%E8%B0%88/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="js中let、const、var区别-浅谈">
+                        
+                        <span class="card-title">js中let、const、var区别-浅谈</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            let、const、var
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/es6/" class="post-category">
+                                    es6
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/es6/">
+                        <span class="chip bg-color">es6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/16/MongoDB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MongoDB简单学习（初级）">
+                        
+                        <span class="card-title">MongoDB简单学习（初级）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            MongoDB学习1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MongoDB/" class="post-category">
+                                    MongoDB
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MongoDB/">
+                        <span class="chip bg-color">MongoDB</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('50')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: welcome<br />'
+            + '文章作者: Lewis-qi<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归Lewis-qi所有，任何形式的转载都请注明出处Thanks♪(･ω･)ﾉ。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+
+    <!-- 灯笼2 -->
+<div class="deng-box1">
+    <div class="deng">
+      <div class="xian">
+      </div>
+      <div class="deng-a">
+        <div class="deng-b">
+          <div class="deng-t">
+            navie
+          </div>
+        </div>
+      </div>
+      <div class="shui shui-a">
+        <div class="shui-c">
+        </div>
+       <div class="shui-b">
+       </div>
+     </div>
+    </div>
+  </div>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Lewis-qi</a>
+            |&nbsp;Powered by&nbsp;<a href="#" target="_blank">not me</a>
+            |&nbsp;Theme&nbsp;<a href="#" target="_blank">not me</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">96.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv" style='display:none'>
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+            
+            
+                <span id="busuanzi_container_site_uv" style='display:none'>
+                    人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "1";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Dreamweaver484" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2324385133@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2324385133" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2324385133" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+<!-- 在线聊天室--闲聊么 -->
+<!-- <script>
+    var xlm_wid='16166';
+    var xlm_url='https://www.xianliao.me/';
+</script>
+<script type='text/javascript' charset='UTF-8' src='https://www.xianliao.me/embed.js'></script> -->
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "b97f028f"
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+    <!-- 网站的url栏标题 -->
+    <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(st)):(document.title="(๑•̀ㅂ•́) ✧被发现了～",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
+    <!-- 天气插件 -->
+    <script type="text/javascript">
+        WIDGET = {FID: 'md6ykOMZ1E'}
+    </script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+</body>
+</html>
