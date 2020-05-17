@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    5 分
                 </div>
                 
 
@@ -674,32 +674,113 @@
                 <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/104836144" target="_blank" rel="noopener">mysql远程访问以及Access denied for user root@localhost (using password: YES)错误</a></p>
 <p>mysql8.0.18版本</p>
 <h2 id="配置远程访问1"><a href="#配置远程访问1" class="headerlink" title="配置远程访问1"></a>配置远程访问1</h2><p>1.<strong>E:\WAMP\bin\mysql\mysql8.0.18\my.ini</strong></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">找到<br>[mysqld]<br><span class="hljs-attribute">default_authentication_plugin</span>=mysql_native_password<br>port = 3307<br>方法一：(如果有这行，就添加#注释，或者改成skip-name-resolve)<br><span class="hljs-comment"><code class="language-hljs routeros">找到<br>[mysqld]<br><span class="hljs-attribute">default_authentication_plugin</span>=mysql_native_password<br>port = 3307<br>方法一：(如果有这行，就添加#注释，或者改成skip-name-resolve)<br><span class="hljs-comment">#bind-address = 127.0.0.1</span><br>方法二：（添加bind-address = 0.0.0.0）<br>bind-address = 0.0.0.0<br>skip-grant-tables<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>bind-address 服务监听在127.0.0.1和0.0.0.0上的区别:<br>0.0.0.0在服务器的环境中，指的就是服务器上所有的ipv4地址</p>
+<pre><code>找到
+[mysqld]
+default_authentication_plugin=mysql_native_password
+port = 3307
+方法一：(如果有这行，就添加#注释，或者改成skip-name-resolve)
+#bind-address = 127.0.0.1
+方法二：（添加bind-address = 0.0.0.0）
+bind-address = 0.0.0.0
+skip-grant-tables</code></pre><p>bind-address 服务监听在127.0.0.1和0.0.0.0上的区别:<br>0.0.0.0在服务器的环境中，指的就是服务器上所有的ipv4地址</p>
 <ul>
 <li>3307端口监听在127.0.0.1，只有本机客户端可以访问，其他服务器无法访问</li>
 <li>3307端口监听在0.0.0.0上，如果没有端口限制，那么其他服务器则可以连接该服务器的该端口</li>
 </ul>
 <p>2.<strong>E:\WAMP\apps\phpmyadmin4.9.2\config.inc.php</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs markdown">if($wampConf['SupportMySQL'] == 'on') &#123;<br>/<span class="hljs-emphasis">* Server: localhost [1] *</span>/<br>$i++;<br>if($mariaFirst) $i++;<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'verbose'</span>] = 'MySQL';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'host'</span>] = '127.0.0.1';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'port'</span>] = $wampConf['mysqlPortUsed'];<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'extension'</span>] = 'mysqli';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'auth_type'</span>] = 'cookie';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'user'</span>] = '';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'password'</span>] = '';<br><br><br>把$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string"><code class="language-hljs markdown">if($wampConf['SupportMySQL'] == 'on') &#123;<br>/<span class="hljs-emphasis">* Server: localhost [1] *</span>/<br>$i++;<br>if($mariaFirst) $i++;<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'verbose'</span>] = 'MySQL';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'host'</span>] = '127.0.0.1';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'port'</span>] = $wampConf['mysqlPortUsed'];<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'extension'</span>] = 'mysqli';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'auth_type'</span>] = 'cookie';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'user'</span>] = '';<br>$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'password'</span>] = '';<br><br><br>把$cfg[<span class="hljs-string">'Servers'</span>][<span class="hljs-symbol">$i</span>][<span class="hljs-string">'host'</span>] = '127.0.0.1';<br>将127.0.0.1更改为0.0.0.0<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>3.配置防火墙以允许通过默认的Apache和MySQL端口进行连接</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript"><span class="hljs-number">1.</span>控制面板-&gt; Windows防火墙 - &gt;高级设置<br><span class="hljs-number">2.</span>在左侧窗格中，选择“入站规则”，选择“新建规则,选择“端口”并“下一步”<br><span class="hljs-number">3.</span>选择“TCP”并在“特定本地端口”旁边的文本框中输入Apache和MySQL的端口（<span class="hljs-number">80</span>,<span class="hljs-number">3307</span>）并点击下一步<br><span class="hljs-number">4.</span>选择“允许连接”并点击“下一步”<br><span class="hljs-number">5.</span>检查你何时应用规则? ( 勾选 : 域 , 专用 , 公用 )<br><span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-number">1.</span>控制面板-&gt; Windows防火墙 - &gt;高级设置<br><span class="hljs-number">2.</span>在左侧窗格中，选择“入站规则”，选择“新建规则,选择“端口”并“下一步”<br><span class="hljs-number">3.</span>选择“TCP”并在“特定本地端口”旁边的文本框中输入Apache和MySQL的端口（<span class="hljs-number">80</span>,<span class="hljs-number">3307</span>）并点击下一步<br><span class="hljs-number">4.</span>选择“允许连接”并点击“下一步”<br><span class="hljs-number">5.</span>检查你何时应用规则? ( 勾选 : 域 , 专用 , 公用 )<br><span class="hljs-number">6.</span>为此规则指定一个名称，然后单击“完成”<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>4.重新启动所有服务，现在可以远程连接数据库进行测试<br>service mysql restart</p>
-<h2 id="配置远程访问2"><a href="#配置远程访问2" class="headerlink" title="配置远程访问2"></a>配置远程访问2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sql">先开启wamp（mysql服务开启）<br>再打开Navicat进行操作<br><br>//1.创建node_test库<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> node_test;<br><br>//2.新建用户Lewis<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'Lewis'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span>  <span class="hljs-string">'123456'</span><br><br>//<span class="hljs-number">3.</span>远程访问mysql(@<span class="hljs-string">"%"</span>),只能访问数据库node-<span class="hljs-keyword">test</span>的所有表<br>//<span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>这个选项表示该用户可以将自己拥有的权限授权给别人<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> node_test.* <span class="hljs-keyword">to</span> <span class="hljs-string">'Lewis'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span><br><br>//再授权权限<br><br><br>//<span class="hljs-number">4.</span>刷新权限<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br>//5.把当前数据库切换为node-test<br><span class="hljs-keyword">use</span> node_test;<br><br>//6.建表<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> pets (<br>    <span class="hljs-keyword">id</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    gender <span class="hljs-built_in">bool</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    birth <span class="hljs-built_in">varchar</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    createdAt <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    updatedAt <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    <span class="hljs-keyword">version</span> <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    primary <span class="hljs-keyword">key</span> (<span class="hljs-keyword">id</span>)<br>) <span class="hljs-keyword">engine</span>=<span class="hljs-keyword"><code class="language-hljs sql">先开启wamp（mysql服务开启）<br>再打开Navicat进行操作<br><br>//1.创建node_test库<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> node_test;<br><br>//2.新建用户Lewis<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'Lewis'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span>  <span class="hljs-string">'123456'</span><br><br>//<span class="hljs-number">3.</span>远程访问mysql(@<span class="hljs-string">"%"</span>),只能访问数据库node-<span class="hljs-keyword">test</span>的所有表<br>//<span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span>这个选项表示该用户可以将自己拥有的权限授权给别人<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> node_test.* <span class="hljs-keyword">to</span> <span class="hljs-string">'Lewis'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">grant</span> <span class="hljs-keyword">option</span><br><br>//再授权权限<br><br><br>//<span class="hljs-number">4.</span>刷新权限<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br>//5.把当前数据库切换为node-test<br><span class="hljs-keyword">use</span> node_test;<br><br>//6.建表<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> pets (<br>    <span class="hljs-keyword">id</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    gender <span class="hljs-built_in">bool</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    birth <span class="hljs-built_in">varchar</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    createdAt <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    updatedAt <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    <span class="hljs-keyword">version</span> <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,<br>    primary <span class="hljs-keyword">key</span> (<span class="hljs-keyword">id</span>)<br>) <span class="hljs-keyword">engine</span>=<span class="hljs-keyword">innodb</span>;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-
-<h2 id="1、创建新用户"><a href="#1、创建新用户" class="headerlink" title="1、创建新用户"></a>1、创建新用户</h2><p>通过root用户登录之后创建<br>create user ‘Lewis’@’%’ identified by ‘123456’</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">//设置用户testuser，本地访问mysql(@localhost)<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;<br><br>//设置用户testuser，远程访问mysql(@"%")<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@"%";<br><br>//设置用户testuser，只能在客户端IP为<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>上才能远程访问mysql (@“<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>”)<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@“<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>”;<br><br>//禁止testuser用户在远程机器上访问mysql<br>&gt;&gt; <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>="testuser" <span class="hljs-keyword">and</span> host="%";<br><br>//设置用户root，远程访问mysql(@"%")<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> root@"%" ;<br><br>//禁止root用户在远程机器上访问mysql<br>&gt;&gt; <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>="root" <span class="hljs-keyword">and</span> host="%";<br><br>//查询mysql中所有用户权限<br>&gt;&gt; <span class="hljs-keyword">select</span> host,<span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br><br>//刷新MySQL的系统权限相关表，否则会出现拒绝访问，<br>&gt;&gt; flush <span class="hljs-keyword"><code class="language-hljs pgsql">//设置用户testuser，本地访问mysql(@localhost)<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;<br><br>//设置用户testuser，远程访问mysql(@"%")<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@"%";<br><br>//设置用户testuser，只能在客户端IP为<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>上才能远程访问mysql (@“<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>”)<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@“<span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.100</span>”;<br><br>//禁止testuser用户在远程机器上访问mysql<br>&gt;&gt; <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>="testuser" <span class="hljs-keyword">and</span> host="%";<br><br>//设置用户root，远程访问mysql(@"%")<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> root@"%" ;<br><br>//禁止root用户在远程机器上访问mysql<br>&gt;&gt; <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>="root" <span class="hljs-keyword">and</span> host="%";<br><br>//查询mysql中所有用户权限<br>&gt;&gt; <span class="hljs-keyword">select</span> host,<span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br><br>//刷新MySQL的系统权限相关表，否则会出现拒绝访问，<br>&gt;&gt; flush <span class="hljs-keyword">privileges</span>;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>　　</p>
-<h2 id="2、设置用户访问数据库权限"><a href="#2、设置用户访问数据库权限" class="headerlink" title="2、设置用户访问数据库权限"></a>2、设置用户访问数据库权限</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">//设置用户testuser，只能访问数据库test_db<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> test_db.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//设置用户testuser，可以访问mysql上的所有数据库<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//设置用户testuser，只能访问数据库test_db的表user_infor<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> test_db.user_infor <span class="hljs-keyword"><code class="language-hljs pgsql">//设置用户testuser，只能访问数据库test_db<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> test_db.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//设置用户testuser，可以访问mysql上的所有数据库<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//设置用户testuser，只能访问数据库test_db的表user_infor<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> test_db.user_infor <span class="hljs-keyword">to</span> testuser@localhost;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h2 id="3、设置用户操作权限"><a href="#3、设置用户操作权限" class="headerlink" title="3、设置用户操作权限"></a>3、设置用户操作权限</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">//设置用户testuser，拥有所有的操作权限,授权给其他人<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost  <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;　　<br><br>//设置用户testuser，只拥有【查询\插入】操作权限<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//取消用户testuser的【查询\插入】操作权限 ；<br>&gt;&gt; <span class="hljs-keyword">REVOKE</span> <span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span> <span class="hljs-keyword">ON</span> what <span class="hljs-keyword"><code class="language-hljs pgsql">//设置用户testuser，拥有所有的操作权限,授权给其他人<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost  <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;　　<br><br>//设置用户testuser，只拥有【查询\插入】操作权限<br>&gt;&gt; <span class="hljs-keyword">grant</span> <span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span> <span class="hljs-keyword">on</span> *.* <span class="hljs-keyword">to</span> testuser@localhost;　　<br><br>//取消用户testuser的【查询\插入】操作权限 ；<br>&gt;&gt; <span class="hljs-keyword">REVOKE</span> <span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span> <span class="hljs-keyword">ON</span> what <span class="hljs-keyword">FROM</span> testuser;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>if($wampConf[&#39;SupportMySQL&#39;] == &#39;on&#39;) {
+/* Server: localhost [1] */
+$i++;
+if($mariaFirst) $i++;
+$cfg[&#39;Servers&#39;][$i][&#39;verbose&#39;] = &#39;MySQL&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = &#39;127.0.0.1&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;port&#39;] = $wampConf[&#39;mysqlPortUsed&#39;];
+$cfg[&#39;Servers&#39;][$i][&#39;extension&#39;] = &#39;mysqli&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookie&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;user&#39;] = &#39;&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;password&#39;] = &#39;&#39;;
 
 
+把$cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = &#39;127.0.0.1&#39;;
+将127.0.0.1更改为0.0.0.0</code></pre><p>3.配置防火墙以允许通过默认的Apache和MySQL端口进行连接</p>
+<pre><code>1.控制面板-&gt; Windows防火墙 - &gt;高级设置
+2.在左侧窗格中，选择“入站规则”，选择“新建规则,选择“端口”并“下一步”
+3.选择“TCP”并在“特定本地端口”旁边的文本框中输入Apache和MySQL的端口（80,3307）并点击下一步
+4.选择“允许连接”并点击“下一步”
+5.检查你何时应用规则? ( 勾选 : 域 , 专用 , 公用 )
+6.为此规则指定一个名称，然后单击“完成”</code></pre><p>4.重新启动所有服务，现在可以远程连接数据库进行测试<br>service mysql restart</p>
+<h2 id="配置远程访问2"><a href="#配置远程访问2" class="headerlink" title="配置远程访问2"></a>配置远程访问2</h2><pre><code>先开启wamp（mysql服务开启）
+再打开Navicat进行操作
 
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>当然了，我搞鼓了一天愣是出现以下错误：  （输入密码，但拒绝访问）<br>Access denied for user ‘root’@’localhost’ (using password: YES)<br>我心态崩了，Navicat可以连上，可以进行增删查改，就是node连不上······<br><img src="https://img-blog.csdnimg.cn/2020031310524249.gif" alt="在这里插入图片描述"><br>哪位大神指导下</p>
+//1.创建node_test库
+create database node_test;
+
+//2.新建用户Lewis
+create user &#39;Lewis&#39;@&#39;%&#39; identified by  &#39;123456&#39;
+
+//3.远程访问mysql(@&quot;%&quot;),只能访问数据库node-test的所有表
+//with grant option这个选项表示该用户可以将自己拥有的权限授权给别人
+grant all privileges on node_test.* to &#39;Lewis&#39;@&#39;%&#39; with grant option
+
+//再授权权限
+
+
+//4.刷新权限
+flush privileges;
+
+//5.把当前数据库切换为node-test
+use node_test;
+
+//6.建表
+create table pets (
+    id varchar(50) not null,
+    name varchar(100) not null,
+    gender bool not null,
+    birth varchar(10) not null,
+    createdAt bigint not null,
+    updatedAt bigint not null,
+    version bigint not null,
+    primary key (id)
+) engine=innodb;
+</code></pre><h2 id="1、创建新用户"><a href="#1、创建新用户" class="headerlink" title="1、创建新用户"></a>1、创建新用户</h2><p>通过root用户登录之后创建<br>create user ‘Lewis’@’%’ identified by ‘123456’</p>
+<pre><code>//设置用户testuser，本地访问mysql(@localhost)
+&gt;&gt; grant all privileges on *.* to testuser@localhost;
+
+//设置用户testuser，远程访问mysql(@&quot;%&quot;)
+&gt;&gt; grant all privileges on *.* to testuser@&quot;%&quot;;
+
+//设置用户testuser，只能在客户端IP为192.168.1.100上才能远程访问mysql (@“192.168.1.100”)
+&gt;&gt; grant all privileges on *.* to testuser@“192.168.1.100”;
+
+//禁止testuser用户在远程机器上访问mysql
+&gt;&gt; delete from user where user=&quot;testuser&quot; and host=&quot;%&quot;;
+
+//设置用户root，远程访问mysql(@&quot;%&quot;)
+&gt;&gt; grant all privileges on *.* to root@&quot;%&quot; ;
+
+//禁止root用户在远程机器上访问mysql
+&gt;&gt; delete from user where user=&quot;root&quot; and host=&quot;%&quot;;
+
+//查询mysql中所有用户权限
+&gt;&gt; select host,user from user;
+
+//刷新MySQL的系统权限相关表，否则会出现拒绝访问，
+&gt;&gt; flush privileges;　　</code></pre><p>　　</p>
+<h2 id="2、设置用户访问数据库权限"><a href="#2、设置用户访问数据库权限" class="headerlink" title="2、设置用户访问数据库权限"></a>2、设置用户访问数据库权限</h2><pre><code>//设置用户testuser，只能访问数据库test_db
+&gt;&gt; grant all privileges on test_db.* to testuser@localhost;　　
+
+//设置用户testuser，可以访问mysql上的所有数据库
+&gt;&gt; grant all privileges on *.* to testuser@localhost;　　
+
+//设置用户testuser，只能访问数据库test_db的表user_infor
+&gt;&gt; grant all privileges on test_db.user_infor to testuser@localhost;　　</code></pre><h2 id="3、设置用户操作权限"><a href="#3、设置用户操作权限" class="headerlink" title="3、设置用户操作权限"></a>3、设置用户操作权限</h2><pre><code>//设置用户testuser，拥有所有的操作权限,授权给其他人
+&gt;&gt; grant all privileges on *.* to testuser@localhost  WITH GRANT OPTION;　　
+
+//设置用户testuser，只拥有【查询\插入】操作权限
+&gt;&gt; grant select,insert on *.* to testuser@localhost;　　
+
+//取消用户testuser的【查询\插入】操作权限 ；
+&gt;&gt; REVOKE select,insert ON what FROM testuser;</code></pre><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>当然了，我搞鼓了一天愣是出现以下错误：  （输入密码，但拒绝访问）<br>Access denied for user ‘root’@’localhost’ (using password: YES)<br>我心态崩了，Navicat可以连上，可以进行增删查改，就是node连不上······<br><img src="https://img-blog.csdnimg.cn/2020031310524249.gif" alt="在这里插入图片描述"><br>哪位大神指导下</p>
 
             </div>
             <hr/>
@@ -1522,7 +1603,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

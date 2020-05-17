@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -704,8 +704,18 @@
 <li>2.创建 <code>babel.config.js</code></li>
 </ul>
 <p>babel.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">const</span> presets = [<br>    [<span class="hljs-string">"@babel/env"</span>,&#123;<br>        targets:&#123;<br>            edge:<span class="hljs-string">"17"</span>,<br>            firefox:<span class="hljs-string">"60"</span>,<br>            chrome:<span class="hljs-string">"67"</span>,<br>            safari:<span class="hljs-string">"11.1"</span><br>        &#125;<br>    &#125;]<br>]<br><span class="hljs-comment">//暴露</span><br><span class="hljs-built_in"><code class="language-hljs js"><span class="hljs-keyword">const</span> presets = [<br>    [<span class="hljs-string">"@babel/env"</span>,&#123;<br>        targets:&#123;<br>            edge:<span class="hljs-string">"17"</span>,<br>            firefox:<span class="hljs-string">"60"</span>,<br>            chrome:<span class="hljs-string">"67"</span>,<br>            safari:<span class="hljs-string">"11.1"</span><br>        &#125;<br>    &#125;]<br>]<br><span class="hljs-comment">//暴露</span><br><span class="hljs-built_in">module</span>.exports = &#123; presets &#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> presets <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">"@babel/env"</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        targets<span class="token punctuation">:</span><span class="token punctuation">{</span>
+            edge<span class="token punctuation">:</span><span class="token string">"17"</span><span class="token punctuation">,</span>
+            firefox<span class="token punctuation">:</span><span class="token string">"60"</span><span class="token punctuation">,</span>
+            chrome<span class="token punctuation">:</span><span class="token string">"67"</span><span class="token punctuation">,</span>
+            safari<span class="token punctuation">:</span><span class="token string">"11.1"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">//暴露</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span> presets <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>3.创建index.js文件作为入口文件</p>
 <ul>
@@ -720,38 +730,65 @@
 </ul>
 <h2 id="3-babel设置导入-导出"><a href="#3-babel设置导入-导出" class="headerlink" title="3.babel设置导入/导出"></a>3.babel设置导入/导出</h2><p>A.默认导出</p>
 <p>test1.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-comment">//格式</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    变量,<br>    函数,<br>    .......<br>&#125;,<br><span class="hljs-comment">//例子</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword"><code class="language-hljs js"><span class="hljs-comment">//格式</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    变量,<br>    函数,<br>    .......<br>&#125;,<br><span class="hljs-comment">//例子</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;<br>    num,<br>    show<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//格式</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    变量<span class="token punctuation">,</span>
+    函数<span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">//例子</span>
+<span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    num<span class="token punctuation">,</span>
+    show
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>B.默认导入</p>
 <ul>
 <li>一个文件不要写多个 <code>export default</code></li>
 </ul>
 <p>test2.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-comment">//格式</span><br><span class="hljs-keyword">import</span> 接收文件名称 <span class="hljs-keyword">from</span> <span class="hljs-string">"模块标识符"</span><br><span class="hljs-comment">//例子</span><br><span class="hljs-keyword">import</span> test1 <span class="hljs-keyword">from</span> <span class="hljs-string"><code class="language-hljs js"><span class="hljs-comment">//格式</span><br><span class="hljs-keyword">import</span> 接收文件名称 <span class="hljs-keyword">from</span> <span class="hljs-string">"模块标识符"</span><br><span class="hljs-comment">//例子</span><br><span class="hljs-keyword">import</span> test1 <span class="hljs-keyword">from</span> <span class="hljs-string">"./test1.js"</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//格式</span>
+<span class="token keyword">import</span> 接收文件名称 <span class="token keyword">from</span> <span class="token string">"模块标识符"</span>
+<span class="token comment" spellcheck="true">//例子</span>
+<span class="token keyword">import</span> test1 <span class="token keyword">from</span> <span class="token string">"./test1.js"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>C.按需导出</p>
 <p>test3.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> myName = <span class="hljs-string">"jack"</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> myName = <span class="hljs-string">"jack"</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">let</span> myName <span class="token operator">=</span> <span class="token string">"jack"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>D.按需导入</p>
 <ul>
 <li>as 是函数的别名</li>
 </ul>
 <p>test4.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">import</span> &#123; num, myName , show <span class="hljs-keyword">as</span> s &#125; <span class="hljs-keyword">from</span> <span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">import</span> &#123; num, myName , show <span class="hljs-keyword">as</span> s &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./test3.js"</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> num<span class="token punctuation">,</span> myName <span class="token punctuation">,</span> show <span class="token keyword">as</span> s <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./test3.js"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>E.同时导出（按需和默认）</p>
 <p>test5.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;<br>    num,<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">let</span> num = <span class="hljs-number">100</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span>&#123;<br>    num,<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'1'</span>)<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    num<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>F.同时导入（按需和默认）</p>
 <p>test6.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">import</span> test5,&#123; show <span class="hljs-keyword">as</span> s &#125; <span class="hljs-keyword">from</span> <span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">import</span> test5,&#123; show <span class="hljs-keyword">as</span> s &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./test5.js"</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> test5<span class="token punctuation">,</span><span class="token punctuation">{</span> show <span class="token keyword">as</span> s <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./test5.js"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>G.可以直接导入并执行代码，<strong>原文件没有暴露</strong></p>
 <p>如原文件a.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br>  <span class="hljs-built_in"><code class="language-hljs js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br>  <span class="hljs-built_in">console</span>.log(i)<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>文件b.js 直接执行：<code>import &quot;./a.js&quot;;</code></li>
 </ul>
@@ -780,8 +817,15 @@
 <ul>
 <li><code>style scoped</code> 防止样式冲突</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vue"><code class="language-hljs vue"><template><br>    组件代码区域<br><&#x2F;template><br><script><br>    js代码区域<br><&#x2F;script><br><style scoped><br>    样式代码区域<br><&#x2F;style><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-vue"><code class="language-vue"><template>
+    组件代码区域
+</template>
+<script>
+    js代码区域
+</script>
+<style scoped>
+    样式代码区域
+</style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-vue-webpack【配置-vue文件的加载器】"><a href="#6-vue-webpack【配置-vue文件的加载器】" class="headerlink" title="6.vue-webpack【配置.vue文件的加载器】"></a>6.vue-webpack【配置.vue文件的加载器】</h2><ul>
 <li>1.安装vue<ul>
 <li><code>npm install vue -S</code></li>
@@ -794,8 +838,33 @@
 <li>3.配置规则</li>
 </ul>
 <p>webpack.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-comment">//导入包</span><br><span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"html-webpack-plugin"</span>);<br><span class="hljs-comment">//创建对象</span><br><span class="hljs-keyword">const</span> htmlPlugin = <span class="hljs-keyword">new</span> HtmlWebpackPlugin(&#123;<br>    <span class="hljs-comment">//设置生成预览页面的模板文件</span><br>    template:<span class="hljs-string">"./src/index.html"</span>,<br>    <span class="hljs-comment">//设置生成的预览页面名称</span><br>    filename:<span class="hljs-string">"index.html"</span><br>&#125;)<br><br><span class="hljs-comment">//导入包</span><br><span class="hljs-keyword">const</span> VueLoaderPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"vue-loader/lib/plugin"</span>);<br><span class="hljs-keyword">const</span> vuePlugin = <span class="hljs-keyword">new</span> VueLoaderPlugin();<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>    ......<br>    <span class="hljs-built_in">module</span> : &#123;<br>        rules:[<br>            ...<span class="hljs-comment">//其他规则</span><br>            &#123;<br>                test:<span class="hljs-regexp">/\.vue$/</span>,<br>                loader:<span class="hljs-string"><code class="language-hljs js"><span class="hljs-comment">//导入包</span><br><span class="hljs-keyword">const</span> HtmlWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"html-webpack-plugin"</span>);<br><span class="hljs-comment">//创建对象</span><br><span class="hljs-keyword">const</span> htmlPlugin = <span class="hljs-keyword">new</span> HtmlWebpackPlugin(&#123;<br>    <span class="hljs-comment">//设置生成预览页面的模板文件</span><br>    template:<span class="hljs-string">"./src/index.html"</span>,<br>    <span class="hljs-comment">//设置生成的预览页面名称</span><br>    filename:<span class="hljs-string">"index.html"</span><br>&#125;)<br><br><span class="hljs-comment">//导入包</span><br><span class="hljs-keyword">const</span> VueLoaderPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"vue-loader/lib/plugin"</span>);<br><span class="hljs-keyword">const</span> vuePlugin = <span class="hljs-keyword">new</span> VueLoaderPlugin();<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>    ......<br>    <span class="hljs-built_in">module</span> : &#123;<br>        rules:[<br>            ...<span class="hljs-comment">//其他规则</span><br>            &#123;<br>                test:<span class="hljs-regexp">/\.vue$/</span>,<br>                loader:<span class="hljs-string">"vue-loader"</span>,<br>            &#125;<br>        ]<br>    &#125;,<br>    plugins:[ htmlPlugin, vuePlugin ],<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"html-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//创建对象</span>
+<span class="token keyword">const</span> htmlPlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//设置生成预览页面的模板文件</span>
+    template<span class="token punctuation">:</span><span class="token string">"./src/index.html"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">//设置生成的预览页面名称</span>
+    filename<span class="token punctuation">:</span><span class="token string">"index.html"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
+<span class="token comment" spellcheck="true">//导入包</span>
+<span class="token keyword">const</span> VueLoaderPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vue-loader/lib/plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> vuePlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueLoaderPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token operator">...</span>
+    module <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        rules<span class="token punctuation">:</span><span class="token punctuation">[</span>
+            <span class="token operator">...</span><span class="token comment" spellcheck="true">//其他规则</span>
+            <span class="token punctuation">{</span>
+                test<span class="token punctuation">:</span><span class="token regex">/\.vue$/</span><span class="token punctuation">,</span>
+                loader<span class="token punctuation">:</span><span class="token string">"vue-loader"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span> htmlPlugin<span class="token punctuation">,</span> vuePlugin <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>4.在index.js中引入vue<ul>
 <li><code>import Vue from &quot;vue&quot;</code></li>
@@ -807,19 +876,56 @@
 <ul>
 <li><code>render</code> 渲染App.vue组件</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-comment">// 导入单文件组件</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/App.vue'</span><br><br><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  el: <span class="hljs-string">'#app'</span>,<br>  render: <span class="hljs-function"><span class="hljs-params"><code class="language-hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-comment">// 导入单文件组件</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/App.vue'</span><br><br><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>  el: <span class="hljs-string">'#app'</span>,<br>  render: <span class="hljs-function"><span class="hljs-params">h</span> =></span> h(App)<br>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token comment" spellcheck="true">// 导入单文件组件</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./components/App.vue'</span>
 
+<span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  render<span class="token punctuation">:</span> h <span class="token operator">=</span><span class="token operator">></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>src/components/App.vue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vue"><code class="language-hljs vue"><template><br>  <div><br>    <h1>这是 App 根组件<&#x2F;h1><br>  <&#x2F;div><br><&#x2F;template><br><br><script><br>export default &#123;<br>  data() &#123;<br>    return &#123;&#125;;<br>  &#125;,<br>  methods: &#123;&#125;<br>&#125;;<br><&#x2F;script><br><br><style scoped><br>h1 &#123;<br>  color: red;<br>&#125;<br><&#x2F;style><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue"><code class="language-vue"><template>
+  <div>
+    <h1>这是 App 根组件</h1>
+  </div>
+</template>
 
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {}
+};
+</script>
+
+<style scoped>
+h1 {
+  color: red;
+}
+</style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>src/index.html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>     ···<br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 将来要被 vue 控制的区域 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>     ···<br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 将来要被 vue 控制的区域 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+     ···
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/index.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 将来要被 vue 控制的区域 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-使用webpack打包发布项目并发布"><a href="#7-使用webpack打包发布项目并发布" class="headerlink" title="7.使用webpack打包发布项目并发布"></a>7.使用webpack打包发布项目并发布</h2><ul>
 <li>1.配置package.json</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs json">"scripts":&#123;<br>    <span class="hljs-comment">//用于开发调试命令</span><br>     "dev": "webpack-dev-server --open --host localhost --port 3000",<br>     <span class="hljs-comment"><code class="language-hljs json">"scripts":&#123;<br>    <span class="hljs-comment">//用于开发调试命令</span><br>     "dev": "webpack-dev-server --open --host localhost --port 3000",<br>     <span class="hljs-comment">//用于打包命令</span><br>    "build":"webpack -p"<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-json"><code class="language-json">    <span class="token property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        //用于开发调试命令
+         <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --open --host localhost --port 3000"</span><span class="token punctuation">,</span>
+         //用于打包命令
+        <span class="token property">"build"</span><span class="token operator">:</span><span class="token string">"webpack -p"</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>2.在项目打包之前，可以将dist目录删除，生成全新的dist目录</p>
 </li>
@@ -918,8 +1024,40 @@
 </ul>
 </li>
 </ul>
-<h2 id="9-Vue脚手架生成的项目结构"><a href="#9-Vue脚手架生成的项目结构" class="headerlink" title="9.Vue脚手架生成的项目结构"></a>9.Vue脚手架生成的项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">my-project&#x2F;<br>|<br>+- node_modules&#x2F;            <-- 所有依赖包<br>|<br>+- public&#x2F;                  <-- 静态资源目录<br>   |<br>   +- favicon.ico           <-- ico<br>   |<br>   +- index.html            <-- 首页<br>|<br>+- src&#x2F;                     <-- 源码目录<br>   |<br>   +- assets&#x2F;               <-- 资源目录<br>      |<br>      +- logo.png<br>   |<br>   +- components&#x2F;           <-- vue组件目录<br>      |<br>      +- HelloWorld.vue<br>   |<br>   +- views&#x2F;                <-- vue视图组件目录<br>      |<br>      +- About.vue<br>      |<br>      +- Home.vue<br>   +- router&#x2F;               <-- 路由目录<br>      |<br>      +- index.js<br>   |<br>   +- App.vue               <-- 项目的根组件<br>   |<br>   +- main.js               <-- 项目的包入口文件<br>|<br>+- 其他配置文件、忽略文件、README<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<h2 id="9-Vue脚手架生成的项目结构"><a href="#9-Vue脚手架生成的项目结构" class="headerlink" title="9.Vue脚手架生成的项目结构"></a>9.Vue脚手架生成的项目结构</h2><pre class="line-numbers language-txt"><code class="language-txt">my-project/
+|
++- node_modules/            <-- 所有依赖包
+|
++- public/                  <-- 静态资源目录
+   |
+   +- favicon.ico           <-- ico
+   |
+   +- index.html            <-- 首页
+|
++- src/                     <-- 源码目录
+   |
+   +- assets/               <-- 资源目录
+      |
+      +- logo.png
+   |
+   +- components/           <-- vue组件目录
+      |
+      +- HelloWorld.vue
+   |
+   +- views/                <-- vue视图组件目录
+      |
+      +- About.vue
+      |
+      +- Home.vue
+   +- router/               <-- 路由目录
+      |
+      +- index.js
+   |
+   +- App.vue               <-- 项目的根组件
+   |
+   +- main.js               <-- 项目的包入口文件
+|
++- 其他配置文件、忽略文件、README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="10-Vue脚手架的自定义配置"><a href="#10-Vue脚手架的自定义配置" class="headerlink" title="10.Vue脚手架的自定义配置"></a>10.Vue脚手架的自定义配置</h2><ul>
 <li>通过单独的配置文件进行配置，创建 <code>vue.config.js</code><ul>
 <li>open:true  自动打开浏览器</li>
@@ -928,8 +1066,12 @@
 </li>
 </ul>
 <p>vue.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-built_in">module</span>.exports = &#123;<br>    devServer:&#123;<br>        port:<span class="hljs-number">3000</span>,<br>        open:<span class="hljs-literal"><code class="language-hljs js"><span class="hljs-built_in">module</span>.exports = &#123;<br>    devServer:&#123;<br>        port:<span class="hljs-number">3000</span>,<br>        open:<span class="hljs-literal">true</span><br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        port<span class="token punctuation">:</span><span class="token number">3000</span><span class="token punctuation">,</span>
+        open<span class="token punctuation">:</span><span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="11-Element-UI的基本使用"><a href="#11-Element-UI的基本使用" class="headerlink" title="11.Element-UI的基本使用"></a>11.Element-UI的基本使用</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><ul>
 <li>1.安装：<ul>
 <li><code>npm install element-ui -S</code></li>
@@ -942,11 +1084,64 @@
 </li>
 </ul>
 <p>main.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span><br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">'./router'</span><br><br><span class="hljs-comment">// 手动配置 element-ui</span><br><span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">'element-ui'</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">'element-ui/lib/theme-chalk/index.css'</span><br>Vue.use(ElementUI)<br><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  router,<br>  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App)<br>&#125;).$mount(<span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span><br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">'./router'</span><br><br><span class="hljs-comment">// 手动配置 element-ui</span><br><span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">'element-ui'</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">'element-ui/lib/theme-chalk/index.css'</span><br>Vue.use(ElementUI)<br><br>Vue.config.productionTip = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">new</span> Vue(&#123;<br>  router,<br>  render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App)<br>&#125;).$mount(<span class="hljs-string">'#app'</span>)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span>
 
+<span class="token comment" spellcheck="true">// 手动配置 element-ui</span>
+<span class="token keyword">import</span> ElementUI <span class="token keyword">from</span> <span class="token string">'element-ui'</span>
+<span class="token keyword">import</span> <span class="token string">'element-ui/lib/theme-chalk/index.css'</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementUI<span class="token punctuation">)</span>
+
+Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>productionTip <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  router<span class="token punctuation">,</span>
+  render<span class="token punctuation">:</span> h <span class="token operator">=</span><span class="token operator">></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>App.vue</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js">&lt;template&gt;<br>  &lt;div id=<span class="hljs-string">"app"</span>&gt;<br>     &lt;!--element-ui--&gt;<br>    &lt;el-row&gt;<br>      &lt;el-button&gt;默认按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="primary"&gt;主要按钮&lt;/</span>el-button&gt;<br>      &lt;el-button type=<span class="hljs-string">"success"</span>&gt;成功按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="info"&gt;信息按钮&lt;/</span>el-button&gt;<br>      &lt;el-button type=<span class="hljs-string">"warning"</span>&gt;警告按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="danger"&gt;危险按钮&lt;/</span>el-button&gt;<br>    &lt;<span class="hljs-regexp">/el-row&gt;</span><br><span class="hljs-regexp"></span><br><span class="hljs-regexp">    &lt;div id="nav"&gt;</span><br><span class="hljs-regexp">      &lt;router-link to="/</span><span class="hljs-string">"&gt;Home&lt;/router-link&gt; |</span><br><span class="hljs-string">      &lt;router-link to="</span>/about<span class="hljs-string">"&gt;About&lt;/router-link&gt;</span><br><span class="hljs-string">    &lt;/div&gt;</span><br><span class="hljs-string">    &lt;router-view/&gt;</span><br><span class="hljs-string">  &lt;/div&gt;</span><br><span class="hljs-string">&lt;/template&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;style&gt;</span><br><span class="hljs-string">#app &#123;</span><br><span class="hljs-string">  font-family: 'Avenir', Helvetica, Arial, sans-serif;</span><br><span class="hljs-string">  -webkit-font-smoothing: antialiased;</span><br><span class="hljs-string">  -moz-osx-font-smoothing: grayscale;</span><br><span class="hljs-string">  text-align: center;</span><br><span class="hljs-string">  color: #2c3e50;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">#nav &#123;</span><br><span class="hljs-string">  padding: 30px;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">#nav a &#123;</span><br><span class="hljs-string">  font-weight: bold;</span><br><span class="hljs-string">  color: #2c3e50;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">#nav a.router-link-exact-active &#123;</span><br><span class="hljs-string">  color: #42b983;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"><code class="language-hljs js">&lt;template&gt;<br>  &lt;div id=<span class="hljs-string">"app"</span>&gt;<br>     &lt;!--element-ui--&gt;<br>    &lt;el-row&gt;<br>      &lt;el-button&gt;默认按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="primary"&gt;主要按钮&lt;/</span>el-button&gt;<br>      &lt;el-button type=<span class="hljs-string">"success"</span>&gt;成功按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="info"&gt;信息按钮&lt;/</span>el-button&gt;<br>      &lt;el-button type=<span class="hljs-string">"warning"</span>&gt;警告按钮&lt;<span class="hljs-regexp">/el-button&gt;</span><br><span class="hljs-regexp">      &lt;el-button type="danger"&gt;危险按钮&lt;/</span>el-button&gt;<br>    &lt;<span class="hljs-regexp">/el-row&gt;</span><br><span class="hljs-regexp"></span><br><span class="hljs-regexp">    &lt;div id="nav"&gt;</span><br><span class="hljs-regexp">      &lt;router-link to="/</span><span class="hljs-string">"&gt;Home&lt;/router-link&gt; |</span><br><span class="hljs-string">      &lt;router-link to="</span>/about<span class="hljs-string">"&gt;About&lt;/router-link&gt;</span><br><span class="hljs-string">    &lt;/div&gt;</span><br><span class="hljs-string">    &lt;router-view/&gt;</span><br><span class="hljs-string">  &lt;/div&gt;</span><br><span class="hljs-string">&lt;/template&gt;</span><br><span class="hljs-string"></span><br><span class="hljs-string">&lt;style&gt;</span><br><span class="hljs-string">#app &#123;</span><br><span class="hljs-string">  font-family: 'Avenir', Helvetica, Arial, sans-serif;</span><br><span class="hljs-string">  -webkit-font-smoothing: antialiased;</span><br><span class="hljs-string">  -moz-osx-font-smoothing: grayscale;</span><br><span class="hljs-string">  text-align: center;</span><br><span class="hljs-string">  color: #2c3e50;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">#nav &#123;</span><br><span class="hljs-string">  padding: 30px;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">#nav a &#123;</span><br><span class="hljs-string">  font-weight: bold;</span><br><span class="hljs-string">  color: #2c3e50;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">#nav a.router-link-exact-active &#123;</span><br><span class="hljs-string">  color: #42b983;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string"></style></span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>element<span class="token operator">-</span>ui<span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>row<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button<span class="token operator">></span>默认按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span><span class="token operator">></span>主要按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"success"</span><span class="token operator">></span>成功按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"info"</span><span class="token operator">></span>信息按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"warning"</span><span class="token operator">></span>警告按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span><span class="token operator">></span>危险按钮<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>row<span class="token operator">></span>
 
+    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"nav"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/"</span><span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span> <span class="token operator">|</span>
+      <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>style<span class="token operator">></span>
+#app <span class="token punctuation">{</span>
+  font<span class="token operator">-</span>family<span class="token punctuation">:</span> <span class="token string">'Avenir'</span><span class="token punctuation">,</span> Helvetica<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans<span class="token operator">-</span>serif<span class="token punctuation">;</span>
+  <span class="token operator">-</span>webkit<span class="token operator">-</span>font<span class="token operator">-</span>smoothing<span class="token punctuation">:</span> antialiased<span class="token punctuation">;</span>
+  <span class="token operator">-</span>moz<span class="token operator">-</span>osx<span class="token operator">-</span>font<span class="token operator">-</span>smoothing<span class="token punctuation">:</span> grayscale<span class="token punctuation">;</span>
+  text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  color<span class="token punctuation">:</span> #2c3e50<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+#nav <span class="token punctuation">{</span>
+  padding<span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+#nav a <span class="token punctuation">{</span>
+  font<span class="token operator">-</span>weight<span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  color<span class="token punctuation">:</span> #2c3e50<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+#nav a<span class="token punctuation">.</span>router<span class="token operator">-</span>link<span class="token operator">-</span>exact<span class="token operator">-</span>active <span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> #42b983<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>$\color{red}注意出错：$</p>
 <ul>
 <li><code>Newline required at end of file but not found</code></li>
@@ -1790,7 +1985,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

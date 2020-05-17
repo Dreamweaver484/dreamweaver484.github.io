@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    15 分
                 </div>
                 
 
@@ -714,14 +714,243 @@
 </ul>
 <hr>
 <h2 id="nginx-conf核心配置文件"><a href="#nginx-conf核心配置文件" class="headerlink" title="nginx.conf核心配置文件"></a>nginx.conf核心配置文件</h2><p>nginx.conf【简介】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">... #全局块<br>events &#123; #events块<br>...<br>&#125;<br><br>http #http块<br>&#123;<br>    ... #http全局块<br><br>    server #server块<br>    &#123;<br>        ... #server全局块<br>        location [PATTERN] #location块<br>        &#123;<br>            ...<br>        &#125;<br>        location [PATTERN]#location块<br>        &#123;<br>            ...<br>        &#125;<br>     &#125;<br><br>    server #server块<br>    &#123;<br>        ...<br>    &#125;<br><br>    ... #http全局块<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">... #全局块
+events { #events块
+...
+}
 
+http #http块
+{
+    ... #http全局块
+
+    server #server块
+    {
+        ... #server全局块
+        location [PATTERN] #location块
+        {
+            ...
+        }
+        location [PATTERN]#location块
+        {
+            ...
+        }
+     }
+
+    server #server块
+    {
+        ...
+    }
+
+    ... #http全局块
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>nginx.conf【Windows完整】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"><br>#user  nobody;<br>worker_processes  1;<br><br>#error_log  logs&#x2F;error.log;<br>#error_log  logs&#x2F;error.log  notice;<br>#error_log  logs&#x2F;error.log  info;<br><br>#pid        logs&#x2F;nginx.pid;<br><br><br>events &#123;<br>    worker_connections  1024;<br>&#125;<br><br><br>http &#123;<br>    include       mime.types;<br>    default_type  application&#x2F;octet-stream;<br><br>    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '<br>    #                  '$status $body_bytes_sent "$http_referer" '<br>    #                  '"$http_user_agent" "$http_x_forwarded_for"';<br><br>    #access_log  logs&#x2F;access.log  main;<br><br>    sendfile        on;<br>    #tcp_nopush     on;<br><br>    #keepalive_timeout  0;<br>    keepalive_timeout  65;<br><br>    #gzip  on;<br><br>    server &#123;<br>        listen       80;<br>        server_name  localhost;<br><br>        #charset koi8-r;<br><br>        #access_log  logs&#x2F;host.access.log  main;<br><br>        location &#x2F; &#123;<br>            root   html;<br>            index  index.html index.htm;<br>        &#125;<br><br>        #error_page  404              &#x2F;404.html;<br><br>        # redirect server error pages to the static page &#x2F;50x.html<br>        #<br>        error_page   500 502 503 504  &#x2F;50x.html;<br>        location &#x3D; &#x2F;50x.html &#123;<br>            root   html;<br>        &#125;<br><br>        # proxy the PHP scripts to Apache listening on 127.0.0.1:80<br>        #<br>        #location ~ \.php$ &#123;<br>        #    proxy_pass   http:&#x2F;&#x2F;127.0.0.1;<br>        #&#125;<br><br>        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000<br>        #<br>        #location ~ \.php$ &#123;<br>        #    root           html;<br>        #    fastcgi_pass   127.0.0.1:9000;<br>        #    fastcgi_index  index.php;<br>        #    fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;<br>        #    include        fastcgi_params;<br>        #&#125;<br><br>        # deny access to .htaccess files, if Apache's document root<br>        # concurs with nginx's one<br>        #<br>        #location ~ &#x2F;\.ht &#123;<br>        #    deny  all;<br>        #&#125;<br>    &#125;<br><br><br>    # another virtual host using mix of IP-, name-, and port-based configuration<br>    #<br>    #server &#123;<br>    #    listen       8000;<br>    #    listen       somename:8080;<br>    #    server_name  somename  alias  another.alias;<br><br>    #    location &#x2F; &#123;<br>    #        root   html;<br>    #        index  index.html index.htm;<br>    #    &#125;<br>    #&#125;<br><br><br>    # HTTPS server<br>    #<br>    #server &#123;<br>    #    listen       443 ssl;<br>    #    server_name  localhost;<br><br>    #    ssl_certificate      cert.pem;<br>    #    ssl_certificate_key  cert.key;<br><br>    #    ssl_session_cache    shared:SSL:1m;<br>    #    ssl_session_timeout  5m;<br><br>    #    ssl_ciphers  HIGH:!aNULL:!MD5;<br>    #    ssl_prefer_server_ciphers  on;<br><br>    #    location &#x2F; &#123;<br>    #        root   html;<br>    #        index  index.html index.htm;<br>    #    &#125;<br>    #&#125;<br><br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">
+#user  nobody;
+worker_processes  1;
 
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>nginx.conf【Linux完整】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"># For more information on configuration, see:<br>#   * Official English Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;<br>#   * Official Russian Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;ru&#x2F;docs&#x2F;<br><br>user nginx;<br>worker_processes auto;<br>error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;<br>pid &#x2F;run&#x2F;nginx.pid;<br><br># Load dynamic modules. See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;nginx&#x2F;README.dynamic.<br>include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;<br><br>events &#123;<br>    worker_connections 1024;<br>&#125;<br><br>http &#123;<br>    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '<br>                      '$status $body_bytes_sent "$http_referer" '<br>                      '"$http_user_agent" "$http_x_forwarded_for"';<br><br>    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;<br><br>    sendfile            on;<br>    tcp_nopush          on;<br>    tcp_nodelay         on;<br>    keepalive_timeout   65;<br>    types_hash_max_size 2048;<br><br>    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;<br>    default_type        application&#x2F;octet-stream;<br><br>    # Load modular configuration files from the &#x2F;etc&#x2F;nginx&#x2F;conf.d directory.<br>    # See http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;ngx_core_module.html#include<br>    # for more information.<br>    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;<br><br>    server &#123;<br>        listen       80 default_server;<br>        listen       [::]:80 default_server;<br>        server_name  _;<br>        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;<br><br>        # Load configuration files for the default server block.<br>        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;<br><br>        location &#x2F; &#123;<br>        &#125;<br><br>        error_page 404 &#x2F;404.html;<br>            location &#x3D; &#x2F;40x.html &#123;<br>        &#125;<br><br>        error_page 500 502 503 504 &#x2F;50x.html;<br>            location &#x3D; &#x2F;50x.html &#123;<br>        &#125;<br>    &#125;<br><br># Settings for a TLS enabled server.<br>#<br>#    server &#123;<br>#        listen       443 ssl http2 default_server;<br>#        listen       [::]:443 ssl http2 default_server;<br>#        server_name  _;<br>#        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;<br>#<br>#        ssl_certificate "&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;server.crt";<br>#        ssl_certificate_key "&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;private&#x2F;server.key";<br>#        ssl_session_cache shared:SSL:1m;<br>#        ssl_session_timeout  10m;<br>#        ssl_ciphers PROFILE&#x3D;SYSTEM;<br>#        ssl_prefer_server_ciphers on;<br>#<br>#        # Load configuration files for the default server block.<br>#        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;<br>#<br>#        location &#x2F; &#123;<br>#        &#125;<br>#<br>#        error_page 404 &#x2F;404.html;<br>#            location &#x3D; &#x2F;40x.html &#123;<br>#        &#125;<br>#<br>#        error_page 500 502 503 504 &#x2F;50x.html;<br>#            location &#x3D; &#x2F;50x.html &#123;<br>#        &#125;<br>#    &#125;<br><br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf"># For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
 
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+
+# Settings for a TLS enabled server.
+#
+#    server {
+#        listen       443 ssl http2 default_server;
+#        listen       [::]:443 ssl http2 default_server;
+#        server_name  _;
+#        root         /usr/share/nginx/html;
+#
+#        ssl_certificate "/etc/pki/nginx/server.crt";
+#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
+#        ssl_session_cache shared:SSL:1m;
+#        ssl_session_timeout  10m;
+#        ssl_ciphers PROFILE=SYSTEM;
+#        ssl_prefer_server_ciphers on;
+#
+#        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        location / {
+#        }
+#
+#        error_page 404 /404.html;
+#            location = /40x.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#            location = /50x.html {
+#        }
+#    }
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="分析nginx-conf核心配置"><a href="#分析nginx-conf核心配置" class="headerlink" title="分析nginx.conf核心配置"></a>分析nginx.conf核心配置</h2><h3 id="全局块配置"><a href="#全局块配置" class="headerlink" title="全局块配置"></a>全局块配置</h3><ul>
 <li>影响nginx全局的指令<ul>
 <li>有运行nginx服务器的用户组</li>
@@ -733,8 +962,16 @@
 </li>
 </ul>
 <p>nginx.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">#user  nobody;                      #配置用户或组，默认nobody<br>#user www www;                      #定义Nginx运行的用户和用户组<br>worker_processes  1;                #允许生成的进程数，默认1<br><br>#error_log  logs&#x2F;error.log;         #制定日志路径和级别<br>                                    # http块，server块，级别为：debug|info|notice|warn|error|crit|alert|emerg<br>#error_log  logs&#x2F;error.log  notice;<br>#error_log  logs&#x2F;error.log  info;<br><br>#pid        logs&#x2F;nginx.pid;         #指定nginx进程运行文件存放地址<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">#user  nobody;                      #配置用户或组，默认nobody
+#user www www;                      #定义Nginx运行的用户和用户组
+worker_processes  1;                #允许生成的进程数，默认1
 
+#error_log  logs/error.log;         #制定日志路径和级别
+                                    # http块，server块，级别为：debug|info|notice|warn|error|crit|alert|emerg
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;         #指定nginx进程运行文件存放地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="events块配置【工作模式及连接数上限】"><a href="#events块配置【工作模式及连接数上限】" class="headerlink" title="events块配置【工作模式及连接数上限】"></a>events块配置【工作模式及连接数上限】</h2><ul>
 <li><p>影响nginx服务器或与用户的网络连接</p>
 <ul>
@@ -788,11 +1025,24 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">注意:<br>计算最大客户端连接数:&#96;max_clients&#96;<br>全局中当前工作的进程数:&#96;worker_process&#96;<br>每个进程的最大连接数:&#96;worker_connections&#96;<br><br>- 当nginx作为http服务器时<br>  - &#96;max_clients &#x3D; worker_process * worker_connections&#96;<br>- 当nginx作为反向代理服务器时<br>  - 浏览器默认开启2个连接到server服务器，同时nginx还会使用fds从同一个连接池建立连接到外网的后端服务器，所以除以4<br>  - &#96;max_clients &#x3D; worker_process * worker_connections &#x2F; 4&#96;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">注意:
+计算最大客户端连接数:`max_clients`
+全局中当前工作的进程数:`worker_process`
+每个进程的最大连接数:`worker_connections`
 
+- 当nginx作为http服务器时
+  - `max_clients = worker_process * worker_connections`
+- 当nginx作为反向代理服务器时
+  - 浏览器默认开启2个连接到server服务器，同时nginx还会使用fds从同一个连接池建立连接到外网的后端服务器，所以除以4
+  - `max_clients = worker_process * worker_connections / 4`<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>nginx.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">events &#123;<br>    accept_mutex on;            #设置网络连接序列化，防止惊群现象发生，默认on<br>    multi_accept on;            #设置 一个进程是否允许同时接受多个网络连接<br>    #use epoll                  #有select|poll|kqueue|epoll|resig|&#x2F;dev&#x2F;poll|eventport事件模型<br>    worker_connections  1024;   #每个进程的最大连接数,默认1024<br>    #keepalive_timeout 60;      #keepalive超时时间。<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-conf"><code class="language-conf">events {
+    accept_mutex on;            #设置网络连接序列化，防止惊群现象发生，默认on
+    multi_accept on;            #设置 一个进程是否允许同时接受多个网络连接
+    #use epoll                  #有select|poll|kqueue|epoll|resig|/dev/poll|eventport事件模型
+    worker_connections  1024;   #每个进程的最大连接数,默认1024
+    #keepalive_timeout 60;      #keepalive超时时间。
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="http块配置【自身，http服务器】"><a href="#http块配置【自身，http服务器】" class="headerlink" title="http块配置【自身，http服务器】"></a>http块配置【自身，http服务器】</h2><ul>
 <li>可以嵌套多个server<ul>
 <li>配置代理、缓存、日志定义和第三方配置</li>
@@ -839,11 +1089,165 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"><br>    1、轮询weight（默认）<br>    #每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。<br>    #指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。<br>    upstream bakend &#123;<br>        server 192.xxx weight&#x3D;10;<br>        server 192.xxx weight&#x3D;10;<br>    &#125;<br><br>    2、ip_hash<br>    #每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。<br>    upstream bakend &#123;<br>        ip_hash;<br>        server 192.xxx:88;<br>        server 192.xxx:80;<br>    &#125;<br><br>    3、fair（第三方）<br>    #按后端服务器的响应时间来分配请求，响应时间短的优先分配。<br>    upstream backend &#123;<br>        server server1;<br>        server server2;<br>        fair;<br>    &#125;<br>  <br>    4、url_hash（第三方）<br>    #按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。<br>    #例：在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法<br>    upstream backend &#123;<br>        server squid1:3128;<br>        server squid2:3128;<br>        hash $request_uri;<br>        hash_method crc32;<br>    &#125;<br><br>    #tips:<br>    upstream bakend&#123;#定义负载均衡设备的Ip及设备状态&#125;&#123;<br>        ip_hash;<br>        server 127.0.0.1:9090 down;<br>        server 127.0.0.1:8080 weight&#x3D;2;<br>        server 127.0.0.1:6060;<br>        server 127.0.0.1:7070 backup;<br>    &#125;<br>    #在需要使用负载均衡的server中增加 proxy_pass http:&#x2F;&#x2F;bakend&#x2F;;<br><br>    #nginx支持同时设置多组的负载均衡，用来给不用的server来使用。<br>    #client_body_in_file_only设置为On 可以讲client post过来的数据记录到文件中用来做debug<br>    #client_body_temp_path设置记录文件的目录 可以设置最多3层目录<br>    #location对URL进行匹配.可以进行重定向或者进行新的代理 负载均衡<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">
+    1、轮询weight（默认）
+    #每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。
+    #指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。
+    upstream bakend {
+        server 192.xxx weight=10;
+        server 192.xxx weight=10;
+    }
 
+    2、ip_hash
+    #每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。
+    upstream bakend {
+        ip_hash;
+        server 192.xxx:88;
+        server 192.xxx:80;
+    }
+
+    3、fair（第三方）
+    #按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+    upstream backend {
+        server server1;
+        server server2;
+        fair;
+    }
+
+    4、url_hash（第三方）
+    #按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。
+    #例：在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法
+    upstream backend {
+        server squid1:3128;
+        server squid2:3128;
+        hash $request_uri;
+        hash_method crc32;
+    }
+
+    #tips:
+    upstream bakend{#定义负载均衡设备的Ip及设备状态}{
+        ip_hash;
+        server 127.0.0.1:9090 down;
+        server 127.0.0.1:8080 weight=2;
+        server 127.0.0.1:6060;
+        server 127.0.0.1:7070 backup;
+    }
+    #在需要使用负载均衡的server中增加 proxy_pass http://bakend/;
+
+    #nginx支持同时设置多组的负载均衡，用来给不用的server来使用。
+    #client_body_in_file_only设置为On 可以讲client post过来的数据记录到文件中用来做debug
+    #client_body_temp_path设置记录文件的目录 可以设置最多3层目录
+    #location对URL进行匹配.可以进行重定向或者进行新的代理 负载均衡
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>nginx.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">http &#123;<br>    #配置支持哪些文件扩展名与文件类型映射表，在conf&#x2F;mime.confs中查看【不支持jsp】<br>    include       mime.types;<br><br>    #默认的文件流类型<br>    default_type  application&#x2F;octet-stream;<br><br>    #默认编码<br>    #charset utf-8;<br><br>    #取消服务访问日志<br>    #access_log off;  <br><br>    #自定义打印日志的格式<br>    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '<br>    #                  '$status $body_bytes_sent "$http_referer" '<br>    #                  '"$http_user_agent" "$http_x_forwarded_for"';<br><br>    #打印日志的名字<br>    #access_log  logs&#x2F;access.log  main;<br><br>    #自己添加部分--1【开始】#<br><br>    #服务器名字的hash表大小<br>    server_names_hash_bucket_size 128;<br>    #客户端请求头部的缓冲区大小<br>    client_header_buffer_size 32k;<br>    #客户请求头缓冲大小<br>    large_client_header_buffers 4 64k;<br><br>    #设定通过nginx上传文件的大小<br>    client_max_body_size 8m;<br><br>    #自己添加部分--1【结束】#<br><br>    #允许sendfile方式传输文件，开启高效传输模式默认为off【可以在http块，server块，location块。】<br>    # sendfile系统调用不需要将数据拷贝或者映射到应用程序地址空间中去<br>    sendfile        on;<br>    # 每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。<br>    # sendfile_max_chunk  100k;<br>    #防止网络阻塞【此选项仅在使用sendfile的时候使用】<br>    #tcp_nopush     on;<br><br>    #长连接超时时间（秒）【可以在http，server，location块】<br>    #keepalive_timeout  0;<br>    keepalive_timeout  65;<br><br>    #开启限制IP连接数的时候需要使用<br>    #limit_zone crawler $binary_remote_addr 10m;<br><br>    #自己添加部分（gzip压缩）---2【开始】#<br><br>    #开启gzip压缩输出<br>    gzip on;<br>    #最小压缩文件大小<br>    gzip_min_length 1k;<br>    #压缩缓冲区<br>    gzip_buffers 4 16k;<br>    #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）<br>    gzip_http_version 1.0;  <br>    #压缩等级  <br>    gzip_comp_level 2;<br>    #压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。<br>    gzip_types text&#x2F;plain application&#x2F;x-javascript text&#x2F;css application&#x2F;xml;<br>    gzip_vary on;<br><br>    #自己添加部分（gzip压缩）---2【结束】#<br><br><br><br>    #自己添加部分（FastCGI）---3【开始】#<br><br>    #改善网站的性能：减少资源占用，提高访问速度。<br>    fastcgi_connect_timeout 300;<br>    fastcgi_send_timeout 300;<br>    fastcgi_read_timeout 300;<br>    fastcgi_buffer_size 64k;<br>    fastcgi_buffers 4 64k;<br>    fastcgi_busy_buffers_size 128k;<br>    fastcgi_temp_file_write_size 128k;<br>    #自己添加部分（FastCGI）---3【结束】#<br><br><br>    #自己添加部分（负载均衡）---4【开始】#<br><br>    #设定实际的服务器列表<br>   upstream mysvr1 &#123;<br>    # 热备(其它所有的非backup机器down或者忙的时候，请求backup机器))<br>     server 127.0.0.1:7878;<br>     server 192.xxx:3333 backup;<br>   &#125;<br>   upstream mysvr2 &#123;<br>    # weigth参数表示权值，权值越高被分配到的几率越大<br>     server 192.xxx:80 weight&#x3D;5;<br>     server 192.xxx:80 weight&#x3D;1;<br>     server 192.xxx:80 weight&#x3D;6;<br>   &#125;<br>   upstream https-svr &#123;<br>    # 每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题<br>     ip_hash;<br>     server 192.xxx:90;<br>     server 192.xxx:90;<br>   &#125;<br>    # 错误页<br>    error_page 404 https:&#x2F;&#x2F;www.baidu.com;<br><br>    #自己添加部分（负载均衡）---4【结束】#<br>    ···<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">http {
+    #配置支持哪些文件扩展名与文件类型映射表，在conf/mime.confs中查看【不支持jsp】
+    include       mime.types;
 
+    #默认的文件流类型
+    default_type  application/octet-stream;
+
+    #默认编码
+    #charset utf-8;
+
+    #取消服务访问日志
+    #access_log off;  
+
+    #自定义打印日志的格式
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #打印日志的名字
+    #access_log  logs/access.log  main;
+
+    #自己添加部分--1【开始】#
+
+    #服务器名字的hash表大小
+    server_names_hash_bucket_size 128;
+    #客户端请求头部的缓冲区大小
+    client_header_buffer_size 32k;
+    #客户请求头缓冲大小
+    large_client_header_buffers 4 64k;
+
+    #设定通过nginx上传文件的大小
+    client_max_body_size 8m;
+
+    #自己添加部分--1【结束】#
+
+    #允许sendfile方式传输文件，开启高效传输模式默认为off【可以在http块，server块，location块。】
+    # sendfile系统调用不需要将数据拷贝或者映射到应用程序地址空间中去
+    sendfile        on;
+    # 每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
+    # sendfile_max_chunk  100k;
+    #防止网络阻塞【此选项仅在使用sendfile的时候使用】
+    #tcp_nopush     on;
+
+    #长连接超时时间（秒）【可以在http，server，location块】
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #开启限制IP连接数的时候需要使用
+    #limit_zone crawler $binary_remote_addr 10m;
+
+    #自己添加部分（gzip压缩）---2【开始】#
+
+    #开启gzip压缩输出
+    gzip on;
+    #最小压缩文件大小
+    gzip_min_length 1k;
+    #压缩缓冲区
+    gzip_buffers 4 16k;
+    #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+    gzip_http_version 1.0;  
+    #压缩等级  
+    gzip_comp_level 2;
+    #压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+    gzip_types text/plain application/x-javascript text/css application/xml;
+    gzip_vary on;
+
+    #自己添加部分（gzip压缩）---2【结束】#
+
+
+
+    #自己添加部分（FastCGI）---3【开始】#
+
+    #改善网站的性能：减少资源占用，提高访问速度。
+    fastcgi_connect_timeout 300;
+    fastcgi_send_timeout 300;
+    fastcgi_read_timeout 300;
+    fastcgi_buffer_size 64k;
+    fastcgi_buffers 4 64k;
+    fastcgi_busy_buffers_size 128k;
+    fastcgi_temp_file_write_size 128k;
+    #自己添加部分（FastCGI）---3【结束】#
+
+
+    #自己添加部分（负载均衡）---4【开始】#
+
+    #设定实际的服务器列表
+   upstream mysvr1 {
+    # 热备(其它所有的非backup机器down或者忙的时候，请求backup机器))
+     server 127.0.0.1:7878;
+     server 192.xxx:3333 backup;
+   }
+   upstream mysvr2 {
+    # weigth参数表示权值，权值越高被分配到的几率越大
+     server 192.xxx:80 weight=5;
+     server 192.xxx:80 weight=1;
+     server 192.xxx:80 weight=6;
+   }
+   upstream https-svr {
+    # 每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题
+     ip_hash;
+     server 192.xxx:90;
+     server 192.xxx:90;
+   }
+    # 错误页
+    error_page 404 https://www.baidu.com;
+
+    #自己添加部分（负载均衡）---4【结束】#
+    ···<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="http块配置中的server块配置1【自身】"><a href="#http块配置中的server块配置1【自身】" class="headerlink" title="http块配置中的server块配置1【自身】"></a>http块配置中的server块配置1【自身】</h2><ul>
 <li>每个http块可以包括多个server块</li>
 <li>每个server块相当于一个$\color{red}虚拟主机$，可以包括全局server块和多个location块</li>
@@ -855,8 +1259,9 @@
 </ul>
 <p>$\color{red}注意location块的规则$</p>
 <p>用于匹配URL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">location[&#x3D; | ~ | ~* | ^~] uri &#123;<br>  ···<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-conf"><code class="language-conf">location[= | ~ | ~* | ^~] uri {
+  ···
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>1、<code>=</code> :<ul>
 <li>用于不含正则表达式的uri前，要求请求字符串与uri严格匹配。</li>
@@ -880,11 +1285,77 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">server &#123;<br>        # 本虚拟机主机的监听配置 # 监听HTTP端口<br>        listen       80;<br>        # 本虚拟机主机的名称&#x2F;IP配置 # 监听地址, 域名可以有多个，用空格隔开<br>        server_name  localhost;<br><br>        #charset koi8-r;<br><br>        #access_log  logs&#x2F;host.access.log  main;<br><br>        location &#x2F; &#123;<br>            root   html;<br>            index  index.html index.htm;<br>        &#125;<br><br>        # 将服务器错误页重定向到静态页 &#x2F;50x.html<br>        #error_page  404              &#x2F;404.html;<br>        error_page   500 502 503 504  &#x2F;50x.html;<br>        location &#x3D; &#x2F;50x.html &#123;<br>            root   html;<br>        &#125;<br><br>        # 将PHP脚本代理给Apache监听127.0.0.1:80<br>        location ~ \.php$ &#123;<br>            proxy_pass   http:&#x2F;&#x2F;127.0.0.1;<br>        &#125;<br><br>        # 将PHP脚本传递给正在侦听的FastCGI服务器127.0.0.1:9000<br>        location ~ \.php$ &#123;<br>            root           html;<br>            fastcgi_pass   127.0.0.1:9000;<br>            fastcgi_index  index.php;<br>            fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;<br>            include        fastcgi_params;<br>        &#125;<br><br>        # 如果Apache的文档根目录与nginx的文档根目录一致，则拒绝对.htaccess文件的访问<br>        location ~ &#x2F;\.ht &#123;<br>            deny  all;<br>        &#125;<br>    &#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">server {
+        # 本虚拟机主机的监听配置 # 监听HTTP端口
+        listen       80;
+        # 本虚拟机主机的名称/IP配置 # 监听地址, 域名可以有多个，用空格隔开
+        server_name  localhost;
 
-<h2 id="http块配置中的server块配置2【自身】"><a href="#http块配置中的server块配置2【自身】" class="headerlink" title="http块配置中的server块配置2【自身】"></a>http块配置中的server块配置2【自身】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"># 另一个虚拟主机混合使用基于IP、name、端口的配置<br>server &#123;<br>    listen       8000;<br>    listen       somename:8080;<br>    server_name  somename  alias  another.alias;<br><br>    location &#x2F; &#123;<br>        root   html;<br>        index  index.html index.htm;<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+        #charset koi8-r;
 
-<h2 id="http块配置中的server块配置3【自身】"><a href="#http块配置中的server块配置3【自身】" class="headerlink" title="http块配置中的server块配置3【自身】"></a>http块配置中的server块配置3【自身】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"># HTTPS服务<br>server &#123;<br>    listen       443 ssl;<br>    server_name  localhost;<br><br>    ssl_certificate      cert.pem;<br>    ssl_certificate_key  cert.key;<br><br>    ssl_session_cache    shared:SSL:1m;<br>    ssl_session_timeout  5m;<br><br>    ssl_ciphers  HIGH:!aNULL:!MD5;<br>    ssl_prefer_server_ciphers  on;<br><br>    location &#x2F; &#123;<br>        root   html;<br>        index  index.html index.htm;<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        # 将服务器错误页重定向到静态页 /50x.html
+        #error_page  404              /404.html;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # 将PHP脚本代理给Apache监听127.0.0.1:80
+        location ~ \.php$ {
+            proxy_pass   http://127.0.0.1;
+        }
+
+        # 将PHP脚本传递给正在侦听的FastCGI服务器127.0.0.1:9000
+        location ~ \.php$ {
+            root           html;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        # 如果Apache的文档根目录与nginx的文档根目录一致，则拒绝对.htaccess文件的访问
+        location ~ /\.ht {
+            deny  all;
+        }
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="http块配置中的server块配置2【自身】"><a href="#http块配置中的server块配置2【自身】" class="headerlink" title="http块配置中的server块配置2【自身】"></a>http块配置中的server块配置2【自身】</h2><pre class="line-numbers language-conf"><code class="language-conf">    # 另一个虚拟主机混合使用基于IP、name、端口的配置
+    server {
+        listen       8000;
+        listen       somename:8080;
+        server_name  somename  alias  another.alias;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="http块配置中的server块配置3【自身】"><a href="#http块配置中的server块配置3【自身】" class="headerlink" title="http块配置中的server块配置3【自身】"></a>http块配置中的server块配置3【自身】</h2><pre class="line-numbers language-conf"><code class="language-conf">    # HTTPS服务
+    server {
+        listen       443 ssl;
+        server_name  localhost;
+
+        ssl_certificate      cert.pem;
+        ssl_certificate_key  cert.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1711,7 +2182,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

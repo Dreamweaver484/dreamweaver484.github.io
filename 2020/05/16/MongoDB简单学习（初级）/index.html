@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.8k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    39 分
+                    25 分
                 </div>
                 
 
@@ -674,12 +674,35 @@
                 <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/104993090" target="_blank" rel="noopener">MongoDB简单学习（初级）</a></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>1.NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。非关系型的数据存储库<br>2.分布式系统是建立在网络之上的软件系统，是一个基于分布式文件存储的开源数据库系统。<br>3.文档存储一般用类似json的格式存储，存储的内容是文档型的.这样也就有机会对某些字段建立索引，实现关系数据库的某些功能。  </p>
 <p>4.MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。<br>2.MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。  </p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">&#123;<br>    <span class="hljs-type">name</span>:"Lewis",               &lt;<span class="hljs-comment">--fields:value</span><br>    age:<span class="hljs-number">20</span>,                     &lt;<span class="hljs-comment">--fields:value</span><br>    <span class="hljs-keyword">group</span>:["news","sports"]     &lt;<span class="hljs-comment"><code class="language-hljs pgsql">&#123;<br>    <span class="hljs-type">name</span>:"Lewis",               &lt;<span class="hljs-comment">--fields:value</span><br>    age:<span class="hljs-number">20</span>,                     &lt;<span class="hljs-comment">--fields:value</span><br>    <span class="hljs-keyword">group</span>:["news","sports"]     &lt;<span class="hljs-comment">--fields:value</span><br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>{
+    name:&quot;Lewis&quot;,               &lt;--fields:value
+    age:20,                     &lt;--fields:value
+    group:[&quot;news&quot;,&quot;sports&quot;]     &lt;--fields:value
+}</code></pre><p>配置：</p>
+<pre><code>1.创建数据目录
+D:\mongoDB\data\db
+2.运行 MongoDB 服务器
+D:\mongoDB\bin
+mongod.exe --dbpath &quot;D:\MongoDB\data\db&quot;
+3.在浏览器输入http://localhost:27017 （27017是mongodb的端口号）查看，若显示如下，则表示连接成功。如果不成功，可以查看端口是否被占用。
+4.添加你安装MongoDB的bin目录到环境变量中的path
+D:\MongoDB\bin
+5.一定不要关闭，保持MongoDB开启连接MongoDB
+D:\mongoDB\bin&gt;
+mongo
 
-<p>配置：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs taggerscript">1.创建数据目录<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b<br>2.运行 MongoDB 服务器<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in<br>mongod.exe --dbpath "D:<span class="hljs-symbol">\M</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b"<br>3.在浏览器输入http://localhost:27017 （27017是mongodb的端口号）查看，若显示如下，则表示连接成功。如果不成功，可以查看端口是否被占用。<br>4.添加你安装MongoDB的bin目录到环境变量中的path<br>D:<span class="hljs-symbol">\M</span>ongoDB<span class="hljs-symbol">\b</span>in<br>5.一定不要关闭，保持MongoDB开启连接MongoDB<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in&gt;<br>mongo<br><br>将MongoDB设置为系统服务，可以自动在后台启动<br>1.创建D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\l</span>og<br>2.创建D:<span class="hljs-symbol">\m</span>ongoDB，添加配置文件mongod.cfg<br><br>systemLog:<br>    destination: file<br>    path: D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\l</span>og<span class="hljs-symbol">\m</span>ongod.log<br>storage:<br>    dbPath: D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b<br><br>3.管理员打开cmd<br>sc.exe create MongoDB binPath= "<span class="hljs-symbol">\"</span>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in<span class="hljs-symbol">\m</span>ongod.exe<span class="hljs-symbol">\"</span> --service --config=<span class="hljs-symbol">\"</span>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\m</span>ongod.cfg<span class="hljs-symbol"><code class="language-hljs taggerscript">1.创建数据目录<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b<br>2.运行 MongoDB 服务器<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in<br>mongod.exe --dbpath "D:<span class="hljs-symbol">\M</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b"<br>3.在浏览器输入http://localhost:27017 （27017是mongodb的端口号）查看，若显示如下，则表示连接成功。如果不成功，可以查看端口是否被占用。<br>4.添加你安装MongoDB的bin目录到环境变量中的path<br>D:<span class="hljs-symbol">\M</span>ongoDB<span class="hljs-symbol">\b</span>in<br>5.一定不要关闭，保持MongoDB开启连接MongoDB<br>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in&gt;<br>mongo<br><br>将MongoDB设置为系统服务，可以自动在后台启动<br>1.创建D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\l</span>og<br>2.创建D:<span class="hljs-symbol">\m</span>ongoDB，添加配置文件mongod.cfg<br><br>systemLog:<br>    destination: file<br>    path: D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\l</span>og<span class="hljs-symbol">\m</span>ongod.log<br>storage:<br>    dbPath: D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\d</span>ata<span class="hljs-symbol">\d</span>b<br><br>3.管理员打开cmd<br>sc.exe create MongoDB binPath= "<span class="hljs-symbol">\"</span>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\b</span>in<span class="hljs-symbol">\m</span>ongod.exe<span class="hljs-symbol">\"</span> --service --config=<span class="hljs-symbol">\"</span>D:<span class="hljs-symbol">\m</span>ongoDB<span class="hljs-symbol">\m</span>ongod.cfg<span class="hljs-symbol">\"</span>" DisplayName= "MongoDB" start= "auto"<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+将MongoDB设置为系统服务，可以自动在后台启动
+1.创建D:\mongoDB\data\log
+2.创建D:\mongoDB，添加配置文件mongod.cfg
 
-<p>$\color{red}介绍$</p>
+systemLog:
+    destination: file
+    path: D:\mongoDB\data\log\mongod.log
+storage:
+    dbPath: D:\mongoDB\data\db
+
+3.管理员打开cmd
+sc.exe create MongoDB binPath= &quot;\&quot;D:\mongoDB\bin\mongod.exe\&quot; --service --config=\&quot;D:\mongoDB\mongod.cfg\&quot;&quot; DisplayName= &quot;MongoDB&quot; start= &quot;auto&quot;</code></pre><p>$\color{red}介绍$</p>
 <ul>
 <li>数据库的服务器<ul>
 <li>用来保存数据</li>
@@ -693,38 +716,153 @@
 </li>
 </ul>
 <p>$\color{red}设置系统服务前的打开方式$</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs dockerfile"><span class="hljs-number">1</span>.在一个<span class="hljs-keyword">cmd</span><span class="bash">中打开：D:\mongoDB\bin</span><br>指定数据库路径和其使用的端口号<br>输入：mongod.exe --dbpath <span class="hljs-string">"D:\MongoDB\data\db"</span> --port <span class="hljs-number">27017</span><br><span class="hljs-number">2</span>.在另一个<span class="hljs-keyword">cmd</span><span class="bash"><code class="language-hljs dockerfile"><span class="hljs-number">1</span>.在一个<span class="hljs-keyword">cmd</span><span class="bash">中打开：D:\mongoDB\bin</span><br>指定数据库路径和其使用的端口号<br>输入：mongod.exe --dbpath <span class="hljs-string">"D:\MongoDB\data\db"</span> --port <span class="hljs-number">27017</span><br><span class="hljs-number">2</span>.在另一个<span class="hljs-keyword">cmd</span><span class="bash">中打开</span><br>输入：mongo<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>1.在一个cmd中打开：D:\mongoDB\bin
+指定数据库路径和其使用的端口号
+输入：mongod.exe --dbpath &quot;D:\MongoDB\data\db&quot; --port 27017
+2.在另一个cmd中打开
+输入：mongo</code></pre><p>$\color{red}设置系统服务后的打开方式$</p>
+<pre><code>1.启动MongoDB服务(管理员身份cmd)
+net start MongoDB  
+2.关闭MongoDB服务  
+net stop MongoDB  
+3.移除 MongoDB 服务  
+C:\mongodb\bin\mongod.exe --remove 
 
-<p>$\color{red}设置系统服务后的打开方式$</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript"><span class="hljs-number">1.</span>启动MongoDB服务(管理员身份cmd)<br>net start MongoDB  <br><span class="hljs-number">2.</span>关闭MongoDB服务  <br>net stop MongoDB  <br><span class="hljs-number">3.</span>移除 MongoDB 服务  <br>C:\mongodb\bin\mongod.exe --remove <br><br><span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-number">1.</span>启动MongoDB服务(管理员身份cmd)<br>net start MongoDB  <br><span class="hljs-number">2.</span>关闭MongoDB服务  <br>net stop MongoDB  <br><span class="hljs-number">3.</span>移除 MongoDB 服务  <br>C:\mongodb\bin\mongod.exe --remove <br><br><span class="hljs-number">4.</span>在另一个cmd中打开<br>输入：mongo<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>$\color{red}基本概念$<br>数据库（database），不需要手动创建，数据库中包含集合<br>集合（collection），不需要手动创建，集合中包含文档<br>文档（document）  </p>
+4.在另一个cmd中打开
+输入：mongo</code></pre><p>$\color{red}基本概念$<br>数据库（database），不需要手动创建，数据库中包含集合<br>集合（collection），不需要手动创建，集合中包含文档<br>文档（document）  </p>
 <p>$\color{red}navicat for MongoDB$</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs bash">F6            打开一个mongodb命令行窗口<br>ctrl+r        运行查询窗口的mongodb语句<br>ctrl+/        注释sql语句<br>ctrl+<span class="hljs-built_in"><code class="language-hljs bash">F6            打开一个mongodb命令行窗口<br>ctrl+r        运行查询窗口的mongodb语句<br>ctrl+/        注释sql语句<br>ctrl+<span class="hljs-built_in">shift</span> +/ 解除注释<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>F6            打开一个mongodb命令行窗口
+ctrl+r        运行查询窗口的mongodb语句
+ctrl+/        注释sql语句
+ctrl+shift +/ 解除注释</code></pre><p>$\color{red}连接$</p>
+<pre><code>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]
 
-<p>$\color{red}连接$</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs markdown">mongodb://[<span class="hljs-string">username:password@</span>]host1[<span class="hljs-string">:port1</span>][<span class="hljs-symbol">,host2[:port2</span>],...[<span class="hljs-string">,hostN[:portN</span>]]][<span class="hljs-string">/[database</span>][<span class="hljs-symbol"><code class="language-hljs markdown">mongodb://[<span class="hljs-string">username:password@</span>]host1[<span class="hljs-string">:port1</span>][<span class="hljs-symbol">,host2[:port2</span>],...[<span class="hljs-string">,hostN[:portN</span>]]][<span class="hljs-string">/[database</span>][<span class="hljs-symbol">?options</span>]<br><br>mongodb://<br>固定格式<br><br>username:password@<br>可选登录用户名密码<br><br>host<br>连接服务器的地址。<br>如果要连接复制集，请指定多个主机地址。<br><br>portX<br>可选端口，如果不填，默认为27017<br><br>/database<br>如果指定username:password@，连接并验证登陆指定数据库。<br>若不指定，默认打开 test 数据库。<br><br>?options<br>是连接选项。如果不使用/database，则前面需要加上/。<br>所有连接选项都是键值对name=value，键值对之间通过&或;（分号）隔开<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+mongodb://
+固定格式
 
-<p>举例：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript"><span class="hljs-number">1.</span>使用用户名和密码连接登陆到本地指定数据库服务器<br>mongodb:<span class="hljs-comment">//admin:123456@localhost/test</span><br><span class="hljs-number">2.</span>连接 replica pair, 服务器<span class="hljs-number">1</span>为example1.com服务器<span class="hljs-number">2</span>为example2。<br>mongodb:<span class="hljs-comment">//example1.com:27017,example2.com:27017</span><br><span class="hljs-number">3.</span>连接 replica <span class="hljs-keyword">set</span> 三台服务器, 写入操作应用在主服务器 并且分布查询到从服务器。<br>mongodb:<span class="hljs-comment">//host1,host2,host3/?slaveOk=true</span><br><span class="hljs-number">4.</span>直接连接第一个服务器，无论是replica <span class="hljs-keyword">set</span>一部分或者主服务器或者从服务器。<br>mongodb:<span class="hljs-comment">//host1,host2,host3/?connect=direct;slaveOk=true</span><br><span class="hljs-number">5.</span>安全模式连接到localhost:<br>mongodb:<span class="hljs-comment">//localhost/?safe=true</span><br>以安全模式连接到replica <span class="hljs-keyword">set</span>，并且等待至少两个复制服务器成功写入，超时时间设置为<span class="hljs-number">2</span>秒。<br>mongodb:<span class="hljs-comment"><code class="language-hljs angelscript"><span class="hljs-number">1.</span>使用用户名和密码连接登陆到本地指定数据库服务器<br>mongodb:<span class="hljs-comment">//admin:123456@localhost/test</span><br><span class="hljs-number">2.</span>连接 replica pair, 服务器<span class="hljs-number">1</span>为example1.com服务器<span class="hljs-number">2</span>为example2。<br>mongodb:<span class="hljs-comment">//example1.com:27017,example2.com:27017</span><br><span class="hljs-number">3.</span>连接 replica <span class="hljs-keyword">set</span> 三台服务器, 写入操作应用在主服务器 并且分布查询到从服务器。<br>mongodb:<span class="hljs-comment">//host1,host2,host3/?slaveOk=true</span><br><span class="hljs-number">4.</span>直接连接第一个服务器，无论是replica <span class="hljs-keyword">set</span>一部分或者主服务器或者从服务器。<br>mongodb:<span class="hljs-comment">//host1,host2,host3/?connect=direct;slaveOk=true</span><br><span class="hljs-number">5.</span>安全模式连接到localhost:<br>mongodb:<span class="hljs-comment">//localhost/?safe=true</span><br>以安全模式连接到replica <span class="hljs-keyword">set</span>，并且等待至少两个复制服务器成功写入，超时时间设置为<span class="hljs-number">2</span>秒。<br>mongodb:<span class="hljs-comment">//host1,host2,host3/?safe=true;w=2;wtimeoutMS=2000</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+username:password@
+可选登录用户名密码
 
-<p>$\color{red}使用数据库$</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros"><code class="language-hljs routeros">1.显示当前的数据库名称<br>> db<br>test<br><br>2.显示当前服务器下所有数据库database<br>> show dbs<br>admin   0.000GB<br>config  0.000GB<br>local   0.000GB<br><br>3.如果test数据库不存在，则创建test数据库;<br>  如果test已存在，则切换到test数据库。<br>> use test<br><br>4.删除当前数据库<br>>db.dropDatabase()<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+host
+连接服务器的地址。
+如果要连接复制集，请指定多个主机地址。
 
-<p>$\color{red}使用集合$</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript"><span class="hljs-number">1.</span>显示当前数据库下集合collections<br>&gt; show collections<br><br><br><span class="hljs-number">2.</span>当前数据库自动创建stu集合<br>db.stu.insert(&#123;<span class="hljs-string">"name"</span> : <span class="hljs-string">"菜鸟教程"</span>&#125;)<br><br><span class="hljs-number">3.</span>当前数据库手动创建stu集合<br>&gt; db.createCollection(<span class="hljs-string">"stu"</span>)     # 先创建集合，类似数据库中的表<br><br><span class="hljs-number">4.</span>当前数据库创建固定stu集合，整个集合空间大小 <span class="hljs-number">6142800</span> KB, 文档最大个数为 <span class="hljs-number">10000</span> 个<br>&gt; db.createCollection(<span class="hljs-string">"stu"</span>, &#123; capped:<span class="hljs-literal">true</span>, <span class="hljs-built_in">auto</span>IndexId:<span class="hljs-literal">true</span>, size:<span class="hljs-number">6142800</span>, max:<span class="hljs-number">10000</span> &#125; )<br><br><span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-number">1.</span>显示当前数据库下集合collections<br>&gt; show collections<br><br><br><span class="hljs-number">2.</span>当前数据库自动创建stu集合<br>db.stu.insert(&#123;<span class="hljs-string">"name"</span> : <span class="hljs-string">"菜鸟教程"</span>&#125;)<br><br><span class="hljs-number">3.</span>当前数据库手动创建stu集合<br>&gt; db.createCollection(<span class="hljs-string">"stu"</span>)     # 先创建集合，类似数据库中的表<br><br><span class="hljs-number">4.</span>当前数据库创建固定stu集合，整个集合空间大小 <span class="hljs-number">6142800</span> KB, 文档最大个数为 <span class="hljs-number">10000</span> 个<br>&gt; db.createCollection(<span class="hljs-string">"stu"</span>, &#123; capped:<span class="hljs-literal">true</span>, <span class="hljs-built_in">auto</span>IndexId:<span class="hljs-literal">true</span>, size:<span class="hljs-number">6142800</span>, max:<span class="hljs-number">10000</span> &#125; )<br><br><span class="hljs-number">5.</span>删除当前数据库指定的stu集合<br>>db.stu.drop()<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+portX
+可选端口，如果不填，默认为27017
 
-<p>$\color{red}CRUD使用$</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata">先明确使用数据库<br><span class="hljs-keyword">db</span>    (加入返回<span class="hljs-keyword">test</span>，则当前在<span class="hljs-keyword"><code class="language-hljs stata">先明确使用数据库<br><span class="hljs-keyword">db</span>    (加入返回<span class="hljs-keyword">test</span>，则当前在<span class="hljs-keyword">test</span>数据库)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+/database
+如果指定username:password@，连接并验证登陆指定数据库。
+若不指定，默认打开 test 数据库。
 
-<h2 id="1-插入文档"><a href="#1-插入文档" class="headerlink" title="1.插入文档"></a>1.插入文档</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs objectivec">注：<br>向集合中添加文档，如果文档没有指定_<span class="hljs-keyword">id</span>属性，会自动添加  <br>&#123;<span class="hljs-string">"_id"</span>:objectId(xxxxxx),···&#125;，作为文档的唯一标识  <br>根据时间戳和机器码来生成  <br>自己指定<span class="hljs-keyword">id</span>：<br>db.stu.insert(&#123;_<span class="hljs-keyword">id</span>:<span class="hljs-string">"id123"</span>,name:<span class="hljs-string">"zhangsan"</span>&#125;);<br>查询<span class="hljs-keyword"><code class="language-hljs objectivec">注：<br>向集合中添加文档，如果文档没有指定_<span class="hljs-keyword">id</span>属性，会自动添加  <br>&#123;<span class="hljs-string">"_id"</span>:objectId(xxxxxx),···&#125;，作为文档的唯一标识  <br>根据时间戳和机器码来生成  <br>自己指定<span class="hljs-keyword">id</span>：<br>db.stu.insert(&#123;_<span class="hljs-keyword">id</span>:<span class="hljs-string">"id123"</span>,name:<span class="hljs-string">"zhangsan"</span>&#125;);<br>查询<span class="hljs-keyword">id</span>：<br>ObjectId();<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+?options
+是连接选项。如果不使用/database，则前面需要加上/。
+所有连接选项都是键值对name=value，键值对之间通过&amp;或;（分号）隔开</code></pre><p>举例：</p>
+<pre><code>1.使用用户名和密码连接登陆到本地指定数据库服务器
+mongodb://admin:123456@localhost/test
+2.连接 replica pair, 服务器1为example1.com服务器2为example2。
+mongodb://example1.com:27017,example2.com:27017
+3.连接 replica set 三台服务器, 写入操作应用在主服务器 并且分布查询到从服务器。
+mongodb://host1,host2,host3/?slaveOk=true
+4.直接连接第一个服务器，无论是replica set一部分或者主服务器或者从服务器。
+mongodb://host1,host2,host3/?connect=direct;slaveOk=true
+5.安全模式连接到localhost:
+mongodb://localhost/?safe=true
+以安全模式连接到replica set，并且等待至少两个复制服务器成功写入，超时时间设置为2秒。
+mongodb://host1,host2,host3/?safe=true;w=2;wtimeoutMS=2000</code></pre><p>$\color{red}使用数据库$</p>
+<pre><code>1.显示当前的数据库名称
+&gt; db
+test
 
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs livescript"><span class="hljs-number">1.</span>插入json格式文档<br>&gt;db.stu.insert(&#123;<br>  title: <span class="hljs-string">'MongoDB'</span>,<br>    description: <span class="hljs-string">'MongoDB 是一个 Nosql 数据库'</span>,<br>    by: <span class="hljs-string">'教程'</span>,<br>    url: <span class="hljs-string">'https://www.baidu.com'</span>,<br>    tags: [<span class="hljs-string">'mongodb'</span>, <span class="hljs-string">'database'</span>, <span class="hljs-string">'NoSQL'</span>],<br>    likes: <span class="hljs-number">100</span><br>&#125;)<br><br><br><span class="hljs-number">2.</span>插入的文档定义为变量<br>&gt; <span class="hljs-built_in">document</span>=(&#123;title: <span class="hljs-string">'MongoDB 教程'</span>, <br>    description: <span class="hljs-string">'MongoDB 是一个 Nosql 数据库'</span>,<br>    by: <span class="hljs-string">'菜鸟教程'</span>,<br>    url: <span class="hljs-string">'http://www.runoob.com'</span>,<br>    tags: [<span class="hljs-string">'mongodb'</span>, <span class="hljs-string">'database'</span>, <span class="hljs-string">'NoSQL'</span>],<br>    likes: <span class="hljs-number">100</span><br>&#125;);<br>db.stu.insert(<span class="hljs-built_in">document</span>);<br><br><br><span class="hljs-number">3.</span>插入方法<br> db.collection.insertOne():		向指定集合中插入一条文档数据<br> db.collection.insertMany():	向指定集合中插入多条文档数据<br><br><span class="hljs-comment">#  插入单条数据</span><br>&gt; <span class="hljs-keyword">var</span> <span class="hljs-built_in">document</span> = db.collection.insertOne(&#123;<span class="hljs-string">"a"</span>: <span class="hljs-number">3</span>&#125;)<br>返回：<span class="hljs-built_in">document</span><br>&#123;<br>        <span class="hljs-string">"acknowledged"</span> : <span class="hljs-literal">true</span>,<br>        <span class="hljs-string">"insertedId"</span> : ObjectId(<span class="hljs-string">"571a218011a82a1d94c02333"</span>)<br>&#125;<br><br><span class="hljs-comment">#  插入多条数据</span><br>&gt; <span class="hljs-keyword">var</span> res = db.collection.insertMany([&#123;<span class="hljs-string">"b"</span>: <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">'c'</span>: <span class="hljs-number">4</span>&#125;])<br>返回：res<br>&#123;<br>        <span class="hljs-string">"acknowledged"</span> : <span class="hljs-literal">true</span>,<br>        <span class="hljs-string">"insertedIds"</span> : [<br>                ObjectId(<span class="hljs-string">"571a22a911a82a1d94c02337"</span>),<br>                ObjectId(<span class="hljs-string"><code class="language-hljs livescript"><span class="hljs-number">1.</span>插入json格式文档<br>&gt;db.stu.insert(&#123;<br>  title: <span class="hljs-string">'MongoDB'</span>,<br>    description: <span class="hljs-string">'MongoDB 是一个 Nosql 数据库'</span>,<br>    by: <span class="hljs-string">'教程'</span>,<br>    url: <span class="hljs-string">'https://www.baidu.com'</span>,<br>    tags: [<span class="hljs-string">'mongodb'</span>, <span class="hljs-string">'database'</span>, <span class="hljs-string">'NoSQL'</span>],<br>    likes: <span class="hljs-number">100</span><br>&#125;)<br><br><br><span class="hljs-number">2.</span>插入的文档定义为变量<br>&gt; <span class="hljs-built_in">document</span>=(&#123;title: <span class="hljs-string">'MongoDB 教程'</span>, <br>    description: <span class="hljs-string">'MongoDB 是一个 Nosql 数据库'</span>,<br>    by: <span class="hljs-string">'菜鸟教程'</span>,<br>    url: <span class="hljs-string">'http://www.runoob.com'</span>,<br>    tags: [<span class="hljs-string">'mongodb'</span>, <span class="hljs-string">'database'</span>, <span class="hljs-string">'NoSQL'</span>],<br>    likes: <span class="hljs-number">100</span><br>&#125;);<br>db.stu.insert(<span class="hljs-built_in">document</span>);<br><br><br><span class="hljs-number">3.</span>插入方法<br> db.collection.insertOne():		向指定集合中插入一条文档数据<br> db.collection.insertMany():	向指定集合中插入多条文档数据<br><br><span class="hljs-comment">#  插入单条数据</span><br>&gt; <span class="hljs-keyword">var</span> <span class="hljs-built_in">document</span> = db.collection.insertOne(&#123;<span class="hljs-string">"a"</span>: <span class="hljs-number">3</span>&#125;)<br>返回：<span class="hljs-built_in">document</span><br>&#123;<br>        <span class="hljs-string">"acknowledged"</span> : <span class="hljs-literal">true</span>,<br>        <span class="hljs-string">"insertedId"</span> : ObjectId(<span class="hljs-string">"571a218011a82a1d94c02333"</span>)<br>&#125;<br><br><span class="hljs-comment">#  插入多条数据</span><br>&gt; <span class="hljs-keyword">var</span> res = db.collection.insertMany([&#123;<span class="hljs-string">"b"</span>: <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-string">'c'</span>: <span class="hljs-number">4</span>&#125;])<br>返回：res<br>&#123;<br>        <span class="hljs-string">"acknowledged"</span> : <span class="hljs-literal">true</span>,<br>        <span class="hljs-string">"insertedIds"</span> : [<br>                ObjectId(<span class="hljs-string">"571a22a911a82a1d94c02337"</span>),<br>                ObjectId(<span class="hljs-string">"571a22a911a82a1d94c02338"</span>)<br>        ]<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+2.显示当前服务器下所有数据库database
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
 
-<p>$\color{red}极重要的实例$<br>插入20000条记录</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript"><span class="hljs-number">1.</span>（执行<span class="hljs-number">20000</span>次）该方法<span class="hljs-number">7.2</span>s<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;<span class="hljs-number">1</span>&lt;=<span class="hljs-number">20000</span>;i++)&#123;<br>  db.stu.insert(&#123;num:i&#125;);<br>&#125;<br><br><span class="hljs-number">2.</span>（执行一次，添加到数组）该方法<span class="hljs-number">0.4</span>s<br>var arr = [];<br><span class="hljs-keyword">for</span>(var i=<span class="hljs-number">1</span> ; i&lt;=<span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-number">1.</span>（执行<span class="hljs-number">20000</span>次）该方法<span class="hljs-number">7.2</span>s<br><span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;<span class="hljs-number">1</span>&lt;=<span class="hljs-number">20000</span>;i++)&#123;<br>  db.stu.insert(&#123;num:i&#125;);<br>&#125;<br><br><span class="hljs-number">2.</span>（执行一次，添加到数组）该方法<span class="hljs-number">0.4</span>s<br>var arr = [];<br><span class="hljs-keyword">for</span>(var i=<span class="hljs-number">1</span> ; i&lt;=<span class="hljs-number">20000</span> ; i++)&#123;<br>    arr.push(&#123;num:i&#125;);<br>&#125;<br>db.numbers.insert(arr);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+3.如果test数据库不存在，则创建test数据库;
+  如果test已存在，则切换到test数据库。
+&gt; use test
 
-<h2 id="2-查询"><a href="#2-查询" class="headerlink" title="2.查询"></a>2.查询</h2><h3 id="find查询函数的属性"><a href="#find查询函数的属性" class="headerlink" title="find查询函数的属性"></a>find查询函数的属性</h3><p>注：<br>find（）        返回的是一个数组<br>findOne（）        返回的是第一个文档对象<br>findMany（）</p>
+4.删除当前数据库
+&gt;db.dropDatabase()</code></pre><p>$\color{red}使用集合$</p>
+<pre><code>1.显示当前数据库下集合collections
+&gt; show collections
+
+
+2.当前数据库自动创建stu集合
+db.stu.insert({&quot;name&quot; : &quot;菜鸟教程&quot;})
+
+3.当前数据库手动创建stu集合
+&gt; db.createCollection(&quot;stu&quot;)     # 先创建集合，类似数据库中的表
+
+4.当前数据库创建固定stu集合，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个
+&gt; db.createCollection(&quot;stu&quot;, { capped:true, autoIndexId:true, size:6142800, max:10000 } )
+
+5.删除当前数据库指定的stu集合
+&gt;db.stu.drop()</code></pre><p>$\color{red}CRUD使用$</p>
+<pre><code>先明确使用数据库
+db    (加入返回test，则当前在test数据库)</code></pre><h2 id="1-插入文档"><a href="#1-插入文档" class="headerlink" title="1.插入文档"></a>1.插入文档</h2><pre><code>注：
+向集合中添加文档，如果文档没有指定_id属性，会自动添加  
+{&quot;_id&quot;:objectId(xxxxxx),···}，作为文档的唯一标识  
+根据时间戳和机器码来生成  
+自己指定id：
+db.stu.insert({_id:&quot;id123&quot;,name:&quot;zhangsan&quot;});
+查询id：
+ObjectId();</code></pre><pre><code>1.插入json格式文档
+&gt;db.stu.insert({
+  title: &#39;MongoDB&#39;,
+    description: &#39;MongoDB 是一个 Nosql 数据库&#39;,
+    by: &#39;教程&#39;,
+    url: &#39;https://www.baidu.com&#39;,
+    tags: [&#39;mongodb&#39;, &#39;database&#39;, &#39;NoSQL&#39;],
+    likes: 100
+})
+
+
+2.插入的文档定义为变量
+&gt; document=({title: &#39;MongoDB 教程&#39;, 
+    description: &#39;MongoDB 是一个 Nosql 数据库&#39;,
+    by: &#39;菜鸟教程&#39;,
+    url: &#39;http://www.runoob.com&#39;,
+    tags: [&#39;mongodb&#39;, &#39;database&#39;, &#39;NoSQL&#39;],
+    likes: 100
+});
+db.stu.insert(document);
+
+
+3.插入方法
+ db.collection.insertOne():        向指定集合中插入一条文档数据
+ db.collection.insertMany():    向指定集合中插入多条文档数据
+
+#  插入单条数据
+&gt; var document = db.collection.insertOne({&quot;a&quot;: 3})
+返回：document
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedId&quot; : ObjectId(&quot;571a218011a82a1d94c02333&quot;)
+}
+
+#  插入多条数据
+&gt; var res = db.collection.insertMany([{&quot;b&quot;: 3}, {&#39;c&#39;: 4}])
+返回：res
+{
+        &quot;acknowledged&quot; : true,
+        &quot;insertedIds&quot; : [
+                ObjectId(&quot;571a22a911a82a1d94c02337&quot;),
+                ObjectId(&quot;571a22a911a82a1d94c02338&quot;)
+        ]
+}</code></pre><p>$\color{red}极重要的实例$<br>插入20000条记录</p>
+<pre><code>1.（执行20000次）该方法7.2s
+for(i=1;1&lt;=20000;i++){
+  db.stu.insert({num:i});
+}
+
+2.（执行一次，添加到数组）该方法0.4s
+var arr = [];
+for(var i=1 ; i&lt;=20000 ; i++){
+    arr.push({num:i});
+}
+db.numbers.insert(arr);</code></pre><h2 id="2-查询"><a href="#2-查询" class="headerlink" title="2.查询"></a>2.查询</h2><h3 id="find查询函数的属性"><a href="#find查询函数的属性" class="headerlink" title="find查询函数的属性"></a>find查询函数的属性</h3><p>注：<br>find（）        返回的是一个数组<br>findOne（）        返回的是第一个文档对象<br>findMany（）</p>
 <p>所以</p>
 <ul>
 <li><p>1.返回所有文档对象</p>
@@ -801,9 +939,15 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams">格式：&#123; field: &#123;符号: value&#125;&#125;<br><span class="hljs-meta"><span class="hljs-meta-keyword">$eq</span>   等号        equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$gt</span>   大于        great  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$gte</span>  大于等于    great equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$lt</span>   小于        less than  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$lte</span>  小于等于    less than equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$ne</span>   不等于      not equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$in</span>   在范围内  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword"><code class="language-hljs gams">格式：&#123; field: &#123;符号: value&#125;&#125;<br><span class="hljs-meta"><span class="hljs-meta-keyword">$eq</span>   等号        equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$gt</span>   大于        great  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$gte</span>  大于等于    great equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$lt</span>   小于        less than  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$lte</span>  小于等于    less than equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$ne</span>   不等于      not equal  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$in</span>   在范围内  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$nin</span>  不在范围内</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>格式：{ field: {符号: value}}
+$eq   等号        equal  
+$gt   大于        great  
+$gte  大于等于    great equal  
+$lt   小于        less than  
+$lte  小于等于    less than equal  
+$ne   不等于      not equal  
+$in   在范围内  
+$nin  不在范围内  </code></pre><ul>
 <li><p>5.查找stu集合中name域中以“华为”字符的开头的数据</p>
 <ul>
 <li>db.stu.find({name:/^华为/})</li>
@@ -815,9 +959,9 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams">格式：&#123; field:&#123;符号:[value1,value2,....]&#125;&#125;<br><span class="hljs-meta"><span class="hljs-meta-keyword">$in</span>		在范围内</span><br><span class="hljs-meta"><span class="hljs-meta-keyword"><code class="language-hljs gams">格式：&#123; field:&#123;符号:[value1,value2,....]&#125;&#125;<br><span class="hljs-meta"><span class="hljs-meta-keyword">$in</span>		在范围内</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$nin</span>	不在范围内</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>格式：{ field:{符号:[value1,value2,....]}}
+$in        在范围内
+$nin    不在范围内</code></pre><ul>
 <li><p>7.查找name=”华为手机”并且price:800的数据</p>
 <ul>
 <li>db.stu.find({name:”华为手机”,price:800})</li>
@@ -839,9 +983,11 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams">格式：<span class="hljs-symbol">$</span><span class="hljs-keyword">or</span>:[&#123;&#125;,&#123;&#125;,....]<br><span class="hljs-meta"><span class="hljs-meta-keyword">$or</span>		或者  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$and</span>	并且  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$nor</span>	与$or相反 </span><br><span class="hljs-meta"><span class="hljs-meta-keyword"><code class="language-hljs gams">格式：<span class="hljs-symbol">$</span><span class="hljs-keyword">or</span>:[&#123;&#125;,&#123;&#125;,....]<br><span class="hljs-meta"><span class="hljs-meta-keyword">$or</span>		或者  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$and</span>	并且  </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$nor</span>	与$or相反 </span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$not</span>	取反</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>格式：$or:[{},{},....]
+$or        或者  
+$and    并且  
+$nor    与$or相反 
+$not    取反 </code></pre><ul>
 <li>11.查询stu集合中包含域名称为price的数据<ul>
 <li>db.stu.find({price:{$exists: true}})</li>
 </ul>
@@ -851,31 +997,57 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs fsharp">格式：<br>$exists: <span class="hljs-keyword">true</span><br>$<span class="hljs-class"><span class="hljs-keyword">type</span>:2       </span>(<span class="hljs-class"><span class="hljs-keyword"><code class="language-hljs fsharp">格式：<br>$exists: <span class="hljs-keyword">true</span><br>$<span class="hljs-class"><span class="hljs-keyword">type</span>:2       </span>(<span class="hljs-class"><span class="hljs-keyword">type</span>操作符不细讲)</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>格式：
+$exists: true
+$type:2       (type操作符不细讲)</code></pre><ul>
 <li>13.查询products集合中name=’华为手机’的数据</li>
 </ul>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs actionscript">db.products.find(&#123;<br>  $where: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name == <span class="hljs-string"><code class="language-hljs actionscript">db.products.find(&#123;<br>  $where: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name == <span class="hljs-string">'华为手机'</span><br>  &#125;<br>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>db.products.find({
+  $where: function(){
+    return this.name == &#39;华为手机&#39;
+  }
+})</code></pre><ul>
 <li>14.查询products集合中name域中包含“华为手机”字符的数据</li>
 </ul>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs actionscript">db.products.find(&#123;<br>  $where: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span>  <span class="hljs-keyword">this</span>.name.indexOf(<span class="hljs-string">'华为手机'</span>) &gt; <span class="hljs-number"><code class="language-hljs actionscript">db.products.find(&#123;<br>  $where: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span>  <span class="hljs-keyword">this</span>.name.indexOf(<span class="hljs-string">'华为手机'</span>) &gt; <span class="hljs-number">-1</span>;<br>  &#125;<br>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs arcade">格式：<br><span class="hljs-symbol">$w</span>here: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword"><code class="language-hljs arcade">格式：<br><span class="hljs-symbol">$w</span>here: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span>  xxx;<br>  &#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>db.products.find({
+  $where: function(){
+    return  this.name.indexOf(&#39;华为手机&#39;) &gt; -1;
+  }
+})</code></pre><pre><code>格式：
+$where: function(){
+    return  xxx;
+  }</code></pre><ul>
 <li>15.$\color{red}修改内嵌文档的属性$（外文档的内文档的属性）  </li>
 </ul>
 <p>$\color{red}极重要的实例$</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs less">&#123;<br>  <span class="hljs-attribute">_id</span>:xxxxxxxx,<br>  <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>,<br>  <span class="hljs-attribute">hobby</span>:&#123;<br>    <span class="hljs-attribute">citys</span>:[<br>      <span class="hljs-string">"hangzhou"</span>,<span class="hljs-string">"BeiJing"</span>,<span class="hljs-string">"shanghai"</span><br>    ],<br>    <span class="hljs-attribute">movie</span>:[<br>      <span class="hljs-string">"movie-a"</span>,<span class="hljs-string">"movie-b"</span><br>    ]<br>  &#125;<br>&#125;<br><br>向<span class="hljs-attribute">name</span>:zhangsan的文档中添加一个<span class="hljs-attribute">age</span>:<span class="hljs-number">20</span><br>db.stu.update(&#123;<span class="hljs-attribute">name</span>:zhangsan&#125;,&#123;$<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">20</span>&#125;&#125;)<br><br><br><span class="hljs-comment">//通过内嵌文档来对文档查询，必须其属性名要加引号“”和'.'号连接</span><br>查询喜欢电影movie-a的文档<br>db.stu.find(&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string">"movie-a"</span>&#125;)<br><br><span class="hljs-comment">//push在数组中添加,如果数组中已存在，还继续添加</span><br>向<span class="hljs-attribute">name</span>:zhangsan中添加一个新的元素movie-c<br>db.ustu.updata(&#123;<span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>&#125;,&#123;$<span class="hljs-attribute">push</span>:&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string">"movie-c"</span>&#125;&#125;)<br><br><span class="hljs-comment">//addToSet在数组中添加,如果数组中已存在，不添加</span><br>向<span class="hljs-attribute">name</span>:zhangsan中添加一个新的元素movie-c<br>db.ustu.updata(&#123;<span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>&#125;,&#123;$<span class="hljs-attribute">addToSet</span>:&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string"><code class="language-hljs less">&#123;<br>  <span class="hljs-attribute">_id</span>:xxxxxxxx,<br>  <span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>,<br>  <span class="hljs-attribute">hobby</span>:&#123;<br>    <span class="hljs-attribute">citys</span>:[<br>      <span class="hljs-string">"hangzhou"</span>,<span class="hljs-string">"BeiJing"</span>,<span class="hljs-string">"shanghai"</span><br>    ],<br>    <span class="hljs-attribute">movie</span>:[<br>      <span class="hljs-string">"movie-a"</span>,<span class="hljs-string">"movie-b"</span><br>    ]<br>  &#125;<br>&#125;<br><br>向<span class="hljs-attribute">name</span>:zhangsan的文档中添加一个<span class="hljs-attribute">age</span>:<span class="hljs-number">20</span><br>db.stu.update(&#123;<span class="hljs-attribute">name</span>:zhangsan&#125;,&#123;$<span class="hljs-attribute">set</span>:&#123;<span class="hljs-attribute">age</span>:<span class="hljs-number">20</span>&#125;&#125;)<br><br><br><span class="hljs-comment">//通过内嵌文档来对文档查询，必须其属性名要加引号“”和'.'号连接</span><br>查询喜欢电影movie-a的文档<br>db.stu.find(&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string">"movie-a"</span>&#125;)<br><br><span class="hljs-comment">//push在数组中添加,如果数组中已存在，还继续添加</span><br>向<span class="hljs-attribute">name</span>:zhangsan中添加一个新的元素movie-c<br>db.ustu.updata(&#123;<span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>&#125;,&#123;$<span class="hljs-attribute">push</span>:&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string">"movie-c"</span>&#125;&#125;)<br><br><span class="hljs-comment">//addToSet在数组中添加,如果数组中已存在，不添加</span><br>向<span class="hljs-attribute">name</span>:zhangsan中添加一个新的元素movie-c<br>db.ustu.updata(&#123;<span class="hljs-attribute">name</span>:<span class="hljs-string">"zhangsan"</span>&#125;,&#123;$<span class="hljs-attribute">addToSet</span>:&#123;<span class="hljs-string">"hobby.movie"</span>:<span class="hljs-string">"movie-c"</span>&#125;&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>{
+  _id:xxxxxxxx,
+  name:&quot;zhangsan&quot;,
+  hobby:{
+    citys:[
+      &quot;hangzhou&quot;,&quot;BeiJing&quot;,&quot;shanghai&quot;
+    ],
+    movie:[
+      &quot;movie-a&quot;,&quot;movie-b&quot;
+    ]
+  }
+}
+
+向name:zhangsan的文档中添加一个age:20
+db.stu.update({name:zhangsan},{$set:{age:20}})
 
 
+//通过内嵌文档来对文档查询，必须其属性名要加引号“”和&#39;.&#39;号连接
+查询喜欢电影movie-a的文档
+db.stu.find({&quot;hobby.movie&quot;:&quot;movie-a&quot;})
 
+//push在数组中添加,如果数组中已存在，还继续添加
+向name:zhangsan中添加一个新的元素movie-c
+db.ustu.updata({name:&quot;zhangsan&quot;},{$push:{&quot;hobby.movie&quot;:&quot;movie-c&quot;}})
 
-
-<h3 id="集合查询函数"><a href="#集合查询函数" class="headerlink" title="集合查询函数"></a>集合查询函数</h3><ul>
+//addToSet在数组中添加,如果数组中已存在，不添加
+向name:zhangsan中添加一个新的元素movie-c
+db.ustu.updata({name:&quot;zhangsan&quot;},{$addToSet:{&quot;hobby.movie&quot;:&quot;movie-c&quot;}})</code></pre><h3 id="集合查询函数"><a href="#集合查询函数" class="headerlink" title="集合查询函数"></a>集合查询函数</h3><ul>
 <li><p>14.查询users集合中不重复的name属性，返回的是数组</p>
 <ul>
 <li>db.stu.distinct(‘name’)</li>
@@ -895,29 +1067,69 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sql">db.collection.update(<br>   &lt;<span class="hljs-keyword">query</span>&gt;,<br>   &lt;<span class="hljs-keyword">update</span>&gt;,<br>   &#123;<br>     <span class="hljs-keyword">upsert</span>: &lt;<span class="hljs-built_in">boolean</span>&gt;,<br>     multi: &lt;<span class="hljs-built_in">boolean</span>&gt;,<br>     writeConcern: &lt;<span class="hljs-keyword">document</span>&gt;<br>   &#125;<br>)<br><span class="hljs-keyword">query</span>         查询条件，类似<span class="hljs-keyword">sql</span>内<span class="hljs-keyword">where</span>后面的<br><br><span class="hljs-keyword">update</span>        类似<span class="hljs-keyword">sql</span>内<span class="hljs-keyword">set</span>后面的<br><br><span class="hljs-keyword">upsert</span>        可选，如果不存在，是否插入,<br>              <span class="hljs-literal">true</span>为插入，默认是<span class="hljs-literal">false</span>，不插入。<br><br>multi         可选，默认是<span class="hljs-literal">false</span>,只更新找到的第一条记录，<br>              <span class="hljs-literal"><code class="language-hljs sql">db.collection.update(<br>   &lt;<span class="hljs-keyword">query</span>&gt;,<br>   &lt;<span class="hljs-keyword">update</span>&gt;,<br>   &#123;<br>     <span class="hljs-keyword">upsert</span>: &lt;<span class="hljs-built_in">boolean</span>&gt;,<br>     multi: &lt;<span class="hljs-built_in">boolean</span>&gt;,<br>     writeConcern: &lt;<span class="hljs-keyword">document</span>&gt;<br>   &#125;<br>)<br><span class="hljs-keyword">query</span>         查询条件，类似<span class="hljs-keyword">sql</span>内<span class="hljs-keyword">where</span>后面的<br><br><span class="hljs-keyword">update</span>        类似<span class="hljs-keyword">sql</span>内<span class="hljs-keyword">set</span>后面的<br><br><span class="hljs-keyword">upsert</span>        可选，如果不存在，是否插入,<br>              <span class="hljs-literal">true</span>为插入，默认是<span class="hljs-literal">false</span>，不插入。<br><br>multi         可选，默认是<span class="hljs-literal">false</span>,只更新找到的第一条记录，<br>              <span class="hljs-literal">true</span>,就把按条件查出来多条记录全部更新。<br><br>writeConcern  可选，抛出异常的级别。<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>db.collection.update(
+   &lt;query&gt;,
+   &lt;update&gt;,
+   {
+     upsert: &lt;boolean&gt;,
+     multi: &lt;boolean&gt;,
+     writeConcern: &lt;document&gt;
+   }
+)
+query         查询条件，类似sql内where后面的
+
+update        类似sql内set后面的
+
+upsert        可选，如果不存在，是否插入,
+              true为插入，默认是false，不插入。
+
+multi         可选，默认是false,只更新找到的第一条记录，
+              true,就把按条件查出来多条记录全部更新。
+
+writeConcern  可选，抛出异常的级别。</code></pre><p>例子：</p>
+<pre><code>只会修改第一条发现的文档
+&gt;db.stu.update({&#39;title&#39;:&#39;MongoDB 教程&#39;},{$set:{&#39;title&#39;:&#39;MongoDB&#39;}})
+
+修改多条相同的文档
+&gt;db.stu.update({&#39;title&#39;:&#39;MongoDB 教程&#39;},{$set:{&#39;title&#39;:&#39;MongoDB&#39;}},{multi:true})
 
 
 
-<p>例子：</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs xquery">只会修改第一条发现的文档<br>&gt;db.stu.<span class="hljs-keyword">update</span>(&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB 教程'</span>&#125;,&#123;<span class="hljs-variable">$set:</span>&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB'</span>&#125;&#125;)<br><br>修改多条相同的文档<br>&gt;db.stu.<span class="hljs-keyword">update</span>(&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB 教程'</span>&#125;,&#123;<span class="hljs-variable">$set:</span>&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB'</span>&#125;&#125;,&#123;multi:true&#125;)<br><br><br><br><span class="hljs-variable">$set</span>用来在原有属性上，添加指定属性<br><span class="hljs-variable">$unset</span>用来删除指定属性，其他属性不变<br><br>不存在-只添加第一条：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">4</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test5"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,true</span><span class="hljs-built_in">,false</span> );<br>不存在-全部添加进去:<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">5</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test5"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,true</span><span class="hljs-built_in">,true</span> );<br><br>已存在-只更新第一条记录：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">10</span> &#125; &#125; , &#123; <span class="hljs-variable">$inc</span> : &#123; <span class="hljs-string">"count"</span> : <span class="hljs-number">1</span>&#125; &#125;<span class="hljs-built_in">,false</span><span class="hljs-built_in">,false</span> );<br>已存在-全部更新：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">3</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test2"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,false</span><span class="hljs-built_in"><code class="language-hljs xquery">只会修改第一条发现的文档<br>&gt;db.stu.<span class="hljs-keyword">update</span>(&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB 教程'</span>&#125;,&#123;<span class="hljs-variable">$set:</span>&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB'</span>&#125;&#125;)<br><br>修改多条相同的文档<br>&gt;db.stu.<span class="hljs-keyword">update</span>(&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB 教程'</span>&#125;,&#123;<span class="hljs-variable">$set:</span>&#123;<span class="hljs-string">'title'</span>:<span class="hljs-string">'MongoDB'</span>&#125;&#125;,&#123;multi:true&#125;)<br><br><br><br><span class="hljs-variable">$set</span>用来在原有属性上，添加指定属性<br><span class="hljs-variable">$unset</span>用来删除指定属性，其他属性不变<br><br>不存在-只添加第一条：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">4</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test5"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,true</span><span class="hljs-built_in">,false</span> );<br>不存在-全部添加进去:<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">5</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test5"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,true</span><span class="hljs-built_in">,true</span> );<br><br>已存在-只更新第一条记录：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">10</span> &#125; &#125; , &#123; <span class="hljs-variable">$inc</span> : &#123; <span class="hljs-string">"count"</span> : <span class="hljs-number">1</span>&#125; &#125;<span class="hljs-built_in">,false</span><span class="hljs-built_in">,false</span> );<br>已存在-全部更新：<br>db.col.<span class="hljs-keyword">update</span>( &#123; <span class="hljs-string">"count"</span> : &#123; <span class="hljs-variable">$gt</span> : <span class="hljs-number">3</span> &#125; &#125; , &#123; <span class="hljs-variable">$set</span> : &#123; <span class="hljs-string">"test2"</span> : <span class="hljs-string">"OK"</span>&#125; &#125;<span class="hljs-built_in">,false</span><span class="hljs-built_in">,true</span> );<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+$set用来在原有属性上，添加指定属性
+$unset用来删除指定属性，其他属性不变
 
-<ul>
+不存在-只添加第一条：
+db.col.update( { &quot;count&quot; : { $gt : 4 } } , { $set : { &quot;test5&quot; : &quot;OK&quot;} },true,false );
+不存在-全部添加进去:
+db.col.update( { &quot;count&quot; : { $gt : 5 } } , { $set : { &quot;test5&quot; : &quot;OK&quot;} },true,true );
+
+已存在-只更新第一条记录：
+db.col.update( { &quot;count&quot; : { $gt : 10 } } , { $inc : { &quot;count&quot; : 1} },false,false );
+已存在-全部更新：
+db.col.update( { &quot;count&quot; : { $gt : 3 } } , { $set : { &quot;test2&quot; : &quot;OK&quot;} },false,true );</code></pre><ul>
 <li>2.save()$\color{red}传入的文档来替换已有文档$</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs css"><span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.collection</span><span class="hljs-selector-class">.save</span>(<br>   &lt;<span class="hljs-selector-tag">document</span>&gt;,<br>   &#123;<br>     <span class="hljs-attribute">writeConcern</span>: &lt;document&gt;<br>   &#125;<br>)<br><span class="hljs-selector-tag">document</span>      文档数据。<br><span class="hljs-selector-tag"><code class="language-hljs css"><span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.collection</span><span class="hljs-selector-class">.save</span>(<br>   &lt;<span class="hljs-selector-tag">document</span>&gt;,<br>   &#123;<br>     <span class="hljs-attribute">writeConcern</span>: &lt;document&gt;<br>   &#125;<br>)<br><span class="hljs-selector-tag">document</span>      文档数据。<br><span class="hljs-selector-tag">writeConcern</span>  可选，抛出异常的级别。<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>例子：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs maxima">替换了 _id 为 56064f89ade2f21f36b03136 的已存在的文档数据<br>&gt;db.<span class="hljs-built_in">col</span>.<span class="hljs-built_in">save</span>(&#123;<br>    <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"56064f89ade2f21f36b03136"</span>),<br>    <span class="hljs-string">"title"</span> : <span class="hljs-string"><code class="language-hljs maxima">替换了 _id 为 56064f89ade2f21f36b03136 的已存在的文档数据<br>&gt;db.<span class="hljs-built_in">col</span>.<span class="hljs-built_in">save</span>(&#123;<br>    <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"56064f89ade2f21f36b03136"</span>),<br>    <span class="hljs-string">"title"</span> : <span class="hljs-string">"MongoDB"</span><br>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>db.collection.save(
+   &lt;document&gt;,
+   {
+     writeConcern: &lt;document&gt;
+   }
+)
+document      文档数据。
+writeConcern  可选，抛出异常的级别。</code></pre><p>例子：</p>
+<pre><code>替换了 _id 为 56064f89ade2f21f36b03136 的已存在的文档数据
+&gt;db.col.save({
+    &quot;_id&quot; : ObjectId(&quot;56064f89ade2f21f36b03136&quot;),
+    &quot;title&quot; : &quot;MongoDB&quot;
+})</code></pre><ul>
 <li>3.updateOne()$\color{red}向指定集合更新单个文档$</li>
 <li>4.updateMany()$\color{red}向指定集合更新多个文档$</li>
 </ul>
 <p>例子：</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs reasonml">更新单个文档<br>&gt; db.stu.update<span class="hljs-constructor">One(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"abc"</span>&#125;,&#123;$<span class="hljs-params">set</span>:&#123;<span class="hljs-string">"age"</span>:<span class="hljs-string">"28"</span>&#125;&#125;)</span><br>更新多个文档<br>&gt; db.stu.update<span class="hljs-constructor">Many(&#123;<span class="hljs-string">"age"</span>:&#123;$<span class="hljs-params">gt</span>:<span class="hljs-string">"10"</span>&#125;&#125;,&#123;$<span class="hljs-params">set</span>:&#123;<span class="hljs-string">"status"</span>:<span class="hljs-string"><code class="language-hljs reasonml">更新单个文档<br>&gt; db.stu.update<span class="hljs-constructor">One(&#123;<span class="hljs-string">"name"</span>:<span class="hljs-string">"abc"</span>&#125;,&#123;$<span class="hljs-params">set</span>:&#123;<span class="hljs-string">"age"</span>:<span class="hljs-string">"28"</span>&#125;&#125;)</span><br>更新多个文档<br>&gt; db.stu.update<span class="hljs-constructor">Many(&#123;<span class="hljs-string">"age"</span>:&#123;$<span class="hljs-params">gt</span>:<span class="hljs-string">"10"</span>&#125;&#125;,&#123;$<span class="hljs-params">set</span>:&#123;<span class="hljs-string">"status"</span>:<span class="hljs-string">"xyz"</span>&#125;&#125;)</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<ul>
+<pre><code>更新单个文档
+&gt; db.stu.updateOne({&quot;name&quot;:&quot;abc&quot;},{$set:{&quot;age&quot;:&quot;28&quot;}})
+更新多个文档
+&gt; db.stu.updateMany({&quot;age&quot;:{$gt:&quot;10&quot;}},{$set:{&quot;status&quot;:&quot;xyz&quot;}})</code></pre><ul>
 <li>5.replaceOne()$\color{red}替换单个文档$</li>
 </ul>
 <h2 id="4-删除"><a href="#4-删除" class="headerlink" title="4.删除"></a>4.删除</h2><ul>
@@ -933,23 +1145,65 @@
 <li><p>4.deleteMany()</p>
 </li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs yaml"><span class="hljs-string">db.collection.remove(</span><br>   <span class="hljs-string">&lt;query&gt;,</span><br>   <span class="hljs-string">&lt;justOne&gt;</span><br><span class="hljs-string">)</span><br><br><span class="hljs-string">query</span>           <span class="hljs-string">可选,删除文档的条件。</span><br><br><span class="hljs-string">justOne</span>         <span class="hljs-string">可选,如果设为</span> <span class="hljs-literal">true</span> <span class="hljs-string">或</span> <span class="hljs-number">1</span><span class="hljs-string">，则只删除一个文档，</span><br>                <span class="hljs-string">如果不设置，或默认值</span> <span class="hljs-literal">false</span><span class="hljs-string">，则删除所有匹配条件的文档。</span><br><br><span class="hljs-string">writeConcern</span>    <span class="hljs-string"><code class="language-hljs yaml"><span class="hljs-string">db.collection.remove(</span><br>   <span class="hljs-string">&lt;query&gt;,</span><br>   <span class="hljs-string">&lt;justOne&gt;</span><br><span class="hljs-string">)</span><br><br><span class="hljs-string">query</span>           <span class="hljs-string">可选,删除文档的条件。</span><br><br><span class="hljs-string">justOne</span>         <span class="hljs-string">可选,如果设为</span> <span class="hljs-literal">true</span> <span class="hljs-string">或</span> <span class="hljs-number">1</span><span class="hljs-string">，则只删除一个文档，</span><br>                <span class="hljs-string">如果不设置，或默认值</span> <span class="hljs-literal">false</span><span class="hljs-string">，则删除所有匹配条件的文档。</span><br><br><span class="hljs-string">writeConcern</span>    <span class="hljs-string">可选,抛出异常的级别。</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>db.collection.remove(
+   &lt;query&gt;,
+   &lt;justOne&gt;
+)
 
-<p>例子：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">1.<br>删除stu集合中<span class="hljs-attribute">name</span>=<span class="hljs-string">'abc'</span>的文档(所有)<br>db.stu.<span class="hljs-builtin-name">remove</span>(&#123;name:<span class="hljs-string">'abc'</span>&#125;)<br>删除stu集合中<span class="hljs-attribute">name</span>=<span class="hljs-string">'abc'</span>的文档(一个)<br>db.stu.<span class="hljs-builtin-name">remove</span>(&#123;name:<span class="hljs-string">'abc'</span>&#125;，<span class="hljs-literal">true</span>)<br><br>2.删除 status 等于 A 的一个文档<br>db.stu.deleteOne( &#123; status: <span class="hljs-string">"A"</span> &#125; )<br>3.删除 status 等于 A 的全部文档<br>db.stu.deleteMany(&#123; status : <span class="hljs-string">"A"</span> &#125;)<br><br>4.清空集合stu文档,保留数据【性能差】<br>db.stu.<span class="hljs-builtin-name"><code class="language-hljs routeros">1.<br>删除stu集合中<span class="hljs-attribute">name</span>=<span class="hljs-string">'abc'</span>的文档(所有)<br>db.stu.<span class="hljs-builtin-name">remove</span>(&#123;name:<span class="hljs-string">'abc'</span>&#125;)<br>删除stu集合中<span class="hljs-attribute">name</span>=<span class="hljs-string">'abc'</span>的文档(一个)<br>db.stu.<span class="hljs-builtin-name">remove</span>(&#123;name:<span class="hljs-string">'abc'</span>&#125;，<span class="hljs-literal">true</span>)<br><br>2.删除 status 等于 A 的一个文档<br>db.stu.deleteOne( &#123; status: <span class="hljs-string">"A"</span> &#125; )<br>3.删除 status 等于 A 的全部文档<br>db.stu.deleteMany(&#123; status : <span class="hljs-string">"A"</span> &#125;)<br><br>4.清空集合stu文档,保留数据【性能差】<br>db.stu.<span class="hljs-builtin-name">remove</span>(&#123;&#125;)<br>5.清空集合stu文档,不保留数据【性能好】<br>db.stu.drop()<br>6.删除集合下全部文档<br>db.stu.deleteMany(&#123;&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+query           可选,删除文档的条件。
 
-<p>$\color{red}极重要的实例：（现实中不能真的删除数据）$</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs dts">设置isDel为已经删除的意思：<span class="hljs-number">0</span>=未删除，<span class="hljs-number">1</span>=删除<br>db.stu.insert(&#123;<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"zhangsan"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"lisi"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"wangwu"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>&#125;)<br><br><span class="hljs-comment">//更新name:zhangsan，将isDel:0改为1，即表示删除了，但实际并没有删</span><br>db.stu.updataOne(&#123;name:zhangsan&#125;,&#123;$set:&#123;isDel:<span class="hljs-number">1</span>&#125;&#125;);<br><br><span class="hljs-comment">//给用户看的显示数据只需调用isDel:0的数据即可</span><br>db.stu.finf(&#123;isDel:<span class="hljs-number"><code class="language-hljs dts">设置isDel为已经删除的意思：<span class="hljs-number">0</span>=未删除，<span class="hljs-number">1</span>=删除<br>db.stu.insert(&#123;<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"zhangsan"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"lisi"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    name:</span><span class="hljs-string">"wangwu"</span>,<br><span class="hljs-symbol">    idDel:</span><span class="hljs-number">0</span><br>  &#125;,<br>&#125;)<br><br><span class="hljs-comment">//更新name:zhangsan，将isDel:0改为1，即表示删除了，但实际并没有删</span><br>db.stu.updataOne(&#123;name:zhangsan&#125;,&#123;$set:&#123;isDel:<span class="hljs-number">1</span>&#125;&#125;);<br><br><span class="hljs-comment">//给用户看的显示数据只需调用isDel:0的数据即可</span><br>db.stu.finf(&#123;isDel:<span class="hljs-number">0</span>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+justOne         可选,如果设为 true 或 1，则只删除一个文档，
+                如果不设置，或默认值 false，则删除所有匹配条件的文档。
 
-<h2 id="5-排序"><a href="#5-排序" class="headerlink" title="5.排序"></a>5.排序</h2><ul>
+writeConcern    可选,抛出异常的级别。</code></pre><p>例子：</p>
+<pre><code>1.
+删除stu集合中name=&#39;abc&#39;的文档(所有)
+db.stu.remove({name:&#39;abc&#39;})
+删除stu集合中name=&#39;abc&#39;的文档(一个)
+db.stu.remove({name:&#39;abc&#39;}，true)
+
+2.删除 status 等于 A 的一个文档
+db.stu.deleteOne( { status: &quot;A&quot; } )
+3.删除 status 等于 A 的全部文档
+db.stu.deleteMany({ status : &quot;A&quot; })
+
+4.清空集合stu文档,保留数据【性能差】
+db.stu.remove({})
+5.清空集合stu文档,不保留数据【性能好】
+db.stu.drop()
+6.删除集合下全部文档
+db.stu.deleteMany({})</code></pre><p>$\color{red}极重要的实例：（现实中不能真的删除数据）$</p>
+<pre><code>设置isDel为已经删除的意思：0=未删除，1=删除
+db.stu.insert({
+  {
+    name:&quot;zhangsan&quot;,
+    idDel:0
+  },
+  {
+    name:&quot;lisi&quot;,
+    idDel:0
+  },
+  {
+    name:&quot;wangwu&quot;,
+    idDel:0
+  },
+})
+
+//更新name:zhangsan，将isDel:0改为1，即表示删除了，但实际并没有删
+db.stu.updataOne({name:zhangsan},{$set:{isDel:1}});
+
+//给用户看的显示数据只需调用isDel:0的数据即可
+db.stu.finf({isDel:0});</code></pre><h2 id="5-排序"><a href="#5-排序" class="headerlink" title="5.排序"></a>5.排序</h2><ul>
 <li>sort(keys)<ul>
 <li>Keys 为要创建的索引字段：1 为升序排列，-1 是降序排列</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sqf">按字段 key 的升序排列<br>&gt;db.COLLECTION_NAME.<span class="hljs-built_in">find</span>().<span class="hljs-built_in">sort</span>(&#123;KEY:<span class="hljs-number">1</span>&#125;)<br><br>按字段 likes 的降序排列,且显示title，不显示<span class="hljs-variable">_id</span>字段<br>&gt;db.col.<span class="hljs-built_in">find</span>(&#123;&#125;,&#123;<span class="hljs-string">"title"</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).<span class="hljs-built_in">sort</span>(&#123;<span class="hljs-string">"likes"</span>:-<span class="hljs-number"><code class="language-hljs sqf">按字段 key 的升序排列<br>&gt;db.COLLECTION_NAME.<span class="hljs-built_in">find</span>().<span class="hljs-built_in">sort</span>(&#123;KEY:<span class="hljs-number">1</span>&#125;)<br><br>按字段 likes 的降序排列,且显示title，不显示<span class="hljs-variable">_id</span>字段<br>&gt;db.col.<span class="hljs-built_in">find</span>(&#123;&#125;,&#123;<span class="hljs-string">"title"</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).<span class="hljs-built_in">sort</span>(&#123;<span class="hljs-string">"likes"</span>:-<span class="hljs-number">1</span>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>按字段 key 的升序排列
+&gt;db.COLLECTION_NAME.find().sort({KEY:1})
 
-<p>注：<br>skip(), limilt(), sort()三个放在一起执行的时候，执行的顺序是<br>先 sort(), 然后 skip()，最后 limit()。</p>
+按字段 likes 的降序排列,且显示title，不显示_id字段
+&gt;db.col.find({},{&quot;title&quot;:1,_id:0}).sort({&quot;likes&quot;:-1})</code></pre><p>注：<br>skip(), limilt(), sort()三个放在一起执行的时候，执行的顺序是<br>先 sort(), 然后 skip()，最后 limit()。</p>
 <h2 id="6-1索引"><a href="#6-1索引" class="headerlink" title="6.1索引"></a>6.1索引</h2><ul>
 <li>createIndex(keys, options)<ul>
 <li>Keys 为要创建的索引字段：1 为升序排列，-1 是降序排列</li>
@@ -957,28 +1211,136 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs reasonml"><span class="hljs-number">1.</span>对title字段按升序索引<br>&gt;db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"title"</span>:1&#125;)</span><br><br><span class="hljs-number">2.</span>多个字段创建索引<br>&gt;db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"title"</span>:1,<span class="hljs-string">"description"</span>:-1&#125;)</span><br><br><span class="hljs-number">3.</span>后台创建索引<br>db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-params">open</span>: 1, <span class="hljs-params">close</span>: 1&#125;, &#123;<span class="hljs-params">background</span>: <span class="hljs-params">true</span>&#125;)</span><br><br><span class="hljs-number">4.</span>查看集合索引<br>db.stu.get<span class="hljs-constructor">Indexes()</span><br><br><span class="hljs-number">5.</span>查看集合索引大小<br>db.stu.total<span class="hljs-constructor">IndexSize()</span><br><br><span class="hljs-number">6.</span>删除集合所有索引<br>db.stu.drop<span class="hljs-constructor">Indexes()</span><br><br><span class="hljs-number">7.</span>删除集合指定索引<br>db.stu.drop<span class="hljs-constructor">Index(<span class="hljs-string">"索引名称"</span>)</span><br><br><br>另：<br>数据记录中有日期类型，可以设置定时自动删除任务（单字段索引，混合索引不支持）<br>&#123;expireAfterSeconds: <span class="hljs-number">180</span>&#125;设置为<span class="hljs-number">180</span>秒后删除索引<br>db.col.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"createDate"</span>: 1&#125;,&#123;<span class="hljs-params"><code class="language-hljs reasonml"><span class="hljs-number">1.</span>对title字段按升序索引<br>&gt;db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"title"</span>:1&#125;)</span><br><br><span class="hljs-number">2.</span>多个字段创建索引<br>&gt;db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"title"</span>:1,<span class="hljs-string">"description"</span>:-1&#125;)</span><br><br><span class="hljs-number">3.</span>后台创建索引<br>db.stu.create<span class="hljs-constructor">Index(&#123;<span class="hljs-params">open</span>: 1, <span class="hljs-params">close</span>: 1&#125;, &#123;<span class="hljs-params">background</span>: <span class="hljs-params">true</span>&#125;)</span><br><br><span class="hljs-number">4.</span>查看集合索引<br>db.stu.get<span class="hljs-constructor">Indexes()</span><br><br><span class="hljs-number">5.</span>查看集合索引大小<br>db.stu.total<span class="hljs-constructor">IndexSize()</span><br><br><span class="hljs-number">6.</span>删除集合所有索引<br>db.stu.drop<span class="hljs-constructor">Indexes()</span><br><br><span class="hljs-number">7.</span>删除集合指定索引<br>db.stu.drop<span class="hljs-constructor">Index(<span class="hljs-string">"索引名称"</span>)</span><br><br><br>另：<br>数据记录中有日期类型，可以设置定时自动删除任务（单字段索引，混合索引不支持）<br>&#123;expireAfterSeconds: <span class="hljs-number">180</span>&#125;设置为<span class="hljs-number">180</span>秒后删除索引<br>db.col.create<span class="hljs-constructor">Index(&#123;<span class="hljs-string">"createDate"</span>: 1&#125;,&#123;<span class="hljs-params">expireAfterSeconds</span>: 180&#125;)</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>1.对title字段按升序索引
+&gt;db.stu.createIndex({&quot;title&quot;:1})
 
-<h2 id="6-2覆盖索引查询、查询分析、查询限制、全文检索"><a href="#6-2覆盖索引查询、查询分析、查询限制、全文检索" class="headerlink" title="6.2覆盖索引查询、查询分析、查询限制、全文检索"></a>6.2覆盖索引查询、查询分析、查询限制、全文检索</h2><p>1.索引存在于RAM中，从索引中获取数据比通过扫描文档读取数据要快得多<br>很少对集合进行读取操作，建议不使用索引<br>2.$\color{red}所有索引字段是一个子文档$<br>3.db.xxx.ensureIndex()<br>4.db.xxx.ensureIndex().explain()<br>5.db.xxx.ensureIndex().hint()<br>6.$search</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sqf">现有例子<br>&#123;<br>   <span class="hljs-string">"_id"</span>: ObjectId(<span class="hljs-string">"53402597d852426020000002"</span>),<br>   <span class="hljs-string">"gender"</span>: <span class="hljs-string">"male"</span>,<br>   <span class="hljs-string">"name"</span>: <span class="hljs-string">"zhangsan"</span>,<br>   <span class="hljs-string">"tags"</span>: [<br>      <span class="hljs-string">"music"</span>,<br>      <span class="hljs-string">"cricket"</span>,<br>      <span class="hljs-string">"blogs"</span><br>   ],<br>   <span class="hljs-string">"address"</span>: &#123;<br>      <span class="hljs-string">"city"</span>: <span class="hljs-string">"Los Angeles"</span>,<br>      <span class="hljs-string">"state"</span>: <span class="hljs-string">"California"</span>,<br>      <span class="hljs-string">"pincode"</span>: <span class="hljs-string">"123"</span><br>   &#125;,<br>   <span class="hljs-string">"commit"</span>:<span class="hljs-string">"This ia a commint"</span><br>&#125;<br><br><br><span class="hljs-number">1</span>.创建索引（<span class="hljs-number">0</span>不显示，<span class="hljs-number">1</span>显示）<br>&gt;db.users.ensureIndex(&#123;gender:<span class="hljs-number">1</span>,<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;)<br><span class="hljs-number">3</span>.查询分析<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).explain()<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).<span class="hljs-built_in">hint</span>()  <br><br><br><span class="hljs-number">1</span>.索引数组字段，加引号（tags是数组）<br>&gt;db.users.ensureIndex(&#123;<span class="hljs-string">"tags"</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找包含的字段的文档<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;tags:<span class="hljs-string">"cricket"</span>&#125;)<br><br><br><span class="hljs-number">1</span>.索引子文档字段，加引号（address是子文档对象）<br>&gt;db.users.ensureIndex(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"address.state"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"address.pincode"</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-string">"Los Angeles"</span>&#125;)  <br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-string">"Los Angeles"</span>,<span class="hljs-string">"address.state"</span>:<span class="hljs-string">"California"</span>,<span class="hljs-string">"address.pincode"</span>:<span class="hljs-string"><code class="language-hljs sqf">现有例子<br>&#123;<br>   <span class="hljs-string">"_id"</span>: ObjectId(<span class="hljs-string">"53402597d852426020000002"</span>),<br>   <span class="hljs-string">"gender"</span>: <span class="hljs-string">"male"</span>,<br>   <span class="hljs-string">"name"</span>: <span class="hljs-string">"zhangsan"</span>,<br>   <span class="hljs-string">"tags"</span>: [<br>      <span class="hljs-string">"music"</span>,<br>      <span class="hljs-string">"cricket"</span>,<br>      <span class="hljs-string">"blogs"</span><br>   ],<br>   <span class="hljs-string">"address"</span>: &#123;<br>      <span class="hljs-string">"city"</span>: <span class="hljs-string">"Los Angeles"</span>,<br>      <span class="hljs-string">"state"</span>: <span class="hljs-string">"California"</span>,<br>      <span class="hljs-string">"pincode"</span>: <span class="hljs-string">"123"</span><br>   &#125;,<br>   <span class="hljs-string">"commit"</span>:<span class="hljs-string">"This ia a commint"</span><br>&#125;<br><br><br><span class="hljs-number">1</span>.创建索引（<span class="hljs-number">0</span>不显示，<span class="hljs-number">1</span>显示）<br>&gt;db.users.ensureIndex(&#123;gender:<span class="hljs-number">1</span>,<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;)<br><span class="hljs-number">3</span>.查询分析<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).explain()<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;gender:<span class="hljs-string">"male"</span>&#125;,&#123;<span class="hljs-built_in">name</span>:<span class="hljs-number">1</span>,<span class="hljs-variable">_id</span>:<span class="hljs-number">0</span>&#125;).<span class="hljs-built_in">hint</span>()  <br><br><br><span class="hljs-number">1</span>.索引数组字段，加引号（tags是数组）<br>&gt;db.users.ensureIndex(&#123;<span class="hljs-string">"tags"</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找包含的字段的文档<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;tags:<span class="hljs-string">"cricket"</span>&#125;)<br><br><br><span class="hljs-number">1</span>.索引子文档字段，加引号（address是子文档对象）<br>&gt;db.users.ensureIndex(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"address.state"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"address.pincode"</span>:<span class="hljs-number">1</span>&#125;)<br><span class="hljs-number">2</span>.通过索引查找<br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-string">"Los Angeles"</span>&#125;)  <br>&gt;db.users.<span class="hljs-built_in">find</span>(&#123;<span class="hljs-string">"address.city"</span>:<span class="hljs-string">"Los Angeles"</span>,<span class="hljs-string">"address.state"</span>:<span class="hljs-string">"California"</span>,<span class="hljs-string">"address.pincode"</span>:<span class="hljs-string">"123"</span>&#125;)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+2.多个字段创建索引
+&gt;db.stu.createIndex({&quot;title&quot;:1,&quot;description&quot;:-1})
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs shell">1.全文检索，加引号（a是commit的自定义别名,加引号）<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.ensureIndex(&#123;<span class="hljs-string">"commit"</span>:<span class="hljs-string">"a"</span>&#125;)</span><br>2.查找包含特定的内容<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.find(&#123;<span class="hljs-variable">$a</span>:&#123;<span class="hljs-variable">$search</span>:<span class="hljs-string">"This"</span>&#125;&#125;)</span><br>3.删除全文索引(先查找全文索引名，再删除)<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.getIndexes()</span><br><span class="hljs-meta">&gt;</span><span class="bash">db.posts.dropIndex(<span class="hljs-string"><code class="language-hljs shell">1.全文检索，加引号（a是commit的自定义别名,加引号）<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.ensureIndex(&#123;<span class="hljs-string">"commit"</span>:<span class="hljs-string">"a"</span>&#125;)</span><br>2.查找包含特定的内容<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.find(&#123;<span class="hljs-variable">$a</span>:&#123;<span class="hljs-variable">$search</span>:<span class="hljs-string">"This"</span>&#125;&#125;)</span><br>3.删除全文索引(先查找全文索引名，再删除)<br><span class="hljs-meta">&gt;</span><span class="bash">db.users.getIndexes()</span><br><span class="hljs-meta">&gt;</span><span class="bash">db.posts.dropIndex(<span class="hljs-string">"a"</span>)</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+3.后台创建索引
+db.stu.createIndex({open: 1, close: 1}, {background: true})
 
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams">查询限制<br><span class="hljs-number">1.</span>正则表达式及非操作符，如 <span class="hljs-symbol">$</span>nin, <span class="hljs-symbol">$</span><span class="hljs-keyword">not</span>, 等。<br><span class="hljs-number">2.</span>算术运算符，如 <span class="hljs-symbol">$</span><span class="hljs-built-in">mod</span>等。<br><span class="hljs-number">3.</span><span class="hljs-symbol"><code class="language-hljs gams">查询限制<br><span class="hljs-number">1.</span>正则表达式及非操作符，如 <span class="hljs-symbol">$</span>nin, <span class="hljs-symbol">$</span><span class="hljs-keyword">not</span>, 等。<br><span class="hljs-number">2.</span>算术运算符，如 <span class="hljs-symbol">$</span><span class="hljs-built-in">mod</span>等。<br><span class="hljs-number">3.</span><span class="hljs-symbol">$</span>where 子句<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+4.查看集合索引
+db.stu.getIndexes()
 
-<h2 id="7-聚合"><a href="#7-聚合" class="headerlink" title="7.聚合"></a>7.聚合</h2><p>用于处理数据(诸如统计平均值,求和等)，并返回计算后的数据结果</p>
+5.查看集合索引大小
+db.stu.totalIndexSize()
+
+6.删除集合所有索引
+db.stu.dropIndexes()
+
+7.删除集合指定索引
+db.stu.dropIndex(&quot;索引名称&quot;)
+
+
+另：
+数据记录中有日期类型，可以设置定时自动删除任务（单字段索引，混合索引不支持）
+{expireAfterSeconds: 180}设置为180秒后删除索引
+db.col.createIndex({&quot;createDate&quot;: 1},{expireAfterSeconds: 180})
+</code></pre><h2 id="6-2覆盖索引查询、查询分析、查询限制、全文检索"><a href="#6-2覆盖索引查询、查询分析、查询限制、全文检索" class="headerlink" title="6.2覆盖索引查询、查询分析、查询限制、全文检索"></a>6.2覆盖索引查询、查询分析、查询限制、全文检索</h2><p>1.索引存在于RAM中，从索引中获取数据比通过扫描文档读取数据要快得多<br>很少对集合进行读取操作，建议不使用索引<br>2.$\color{red}所有索引字段是一个子文档$<br>3.db.xxx.ensureIndex()<br>4.db.xxx.ensureIndex().explain()<br>5.db.xxx.ensureIndex().hint()<br>6.$search</p>
+<pre><code>现有例子
+{
+   &quot;_id&quot;: ObjectId(&quot;53402597d852426020000002&quot;),
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;name&quot;: &quot;zhangsan&quot;,
+   &quot;tags&quot;: [
+      &quot;music&quot;,
+      &quot;cricket&quot;,
+      &quot;blogs&quot;
+   ],
+   &quot;address&quot;: {
+      &quot;city&quot;: &quot;Los Angeles&quot;,
+      &quot;state&quot;: &quot;California&quot;,
+      &quot;pincode&quot;: &quot;123&quot;
+   },
+   &quot;commit&quot;:&quot;This ia a commint&quot;
+}
+
+
+1.创建索引（0不显示，1显示）
+&gt;db.users.ensureIndex({gender:1,name:1})
+2.通过索引查找
+&gt;db.users.find({gender:&quot;male&quot;},{name:1,_id:0})
+3.查询分析
+&gt;db.users.find({gender:&quot;male&quot;},{name:1,_id:0}).explain()
+&gt;db.users.find({gender:&quot;male&quot;},{name:1,_id:0}).hint()  
+
+
+1.索引数组字段，加引号（tags是数组）
+&gt;db.users.ensureIndex({&quot;tags&quot;:1})
+2.通过索引查找包含的字段的文档
+&gt;db.users.find({tags:&quot;cricket&quot;})
+
+
+1.索引子文档字段，加引号（address是子文档对象）
+&gt;db.users.ensureIndex({&quot;address.city&quot;:1,&quot;address.state&quot;:1,&quot;address.pincode&quot;:1})
+2.通过索引查找
+&gt;db.users.find({&quot;address.city&quot;:&quot;Los Angeles&quot;})  
+&gt;db.users.find({&quot;address.city&quot;:&quot;Los Angeles&quot;,&quot;address.state&quot;:&quot;California&quot;,&quot;address.pincode&quot;:&quot;123&quot;})</code></pre><pre><code>1.全文检索，加引号（a是commit的自定义别名,加引号）
+&gt;db.users.ensureIndex({&quot;commit&quot;:&quot;a&quot;})
+2.查找包含特定的内容
+&gt;db.users.find({$a:{$search:&quot;This&quot;}})
+3.删除全文索引(先查找全文索引名，再删除)
+&gt;db.users.getIndexes()
+&gt;db.posts.dropIndex(&quot;a&quot;)</code></pre><pre><code>查询限制
+1.正则表达式及非操作符，如 $nin, $not, 等。
+2.算术运算符，如 $mod等。
+3.$where 子句</code></pre><h2 id="7-聚合"><a href="#7-聚合" class="headerlink" title="7.聚合"></a>7.聚合</h2><p>用于处理数据(诸如统计平均值,求和等)，并返回计算后的数据结果</p>
 <ul>
 <li>db.stu.aggregate(AGGREGATE_OPERATION)</li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams">聚合框架常用操作：<br><span class="hljs-meta"><span class="hljs-meta-keyword">$match</span>      过滤数据，只输出符合条件的文档。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$limit</span>      限制返回的文档数。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$skip</span>       跳过指定数量的文档，并返回余下的文档。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$project</span>    是否显示文档结构。重命名、增加、删除域、创建计算结果、嵌套文档</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$unwind</span>     文档中某一个数组类型字段拆分成多条，每条包含数组中的一个值。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$group</span>      文档分组，用于统计结果。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$sort</span>       文档排序后输出。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword"><code class="language-hljs gams">聚合框架常用操作：<br><span class="hljs-meta"><span class="hljs-meta-keyword">$match</span>      过滤数据，只输出符合条件的文档。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$limit</span>      限制返回的文档数。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$skip</span>       跳过指定数量的文档，并返回余下的文档。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$project</span>    是否显示文档结构。重命名、增加、删除域、创建计算结果、嵌套文档</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$unwind</span>     文档中某一个数组类型字段拆分成多条，每条包含数组中的一个值。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$group</span>      文档分组，用于统计结果。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$sort</span>       文档排序后输出。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$geoNear</span>    输出接近某一地理位置的有序文档。</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>聚合框架常用操作：
+$match      过滤数据，只输出符合条件的文档。
+$limit      限制返回的文档数。
+$skip       跳过指定数量的文档，并返回余下的文档。
+$project    是否显示文档结构。重命名、增加、删除域、创建计算结果、嵌套文档
+$unwind     文档中某一个数组类型字段拆分成多条，每条包含数组中的一个值。
+$group      文档分组，用于统计结果。
+$sort       文档排序后输出。
+$geoNear    输出接近某一地理位置的有序文档。</code></pre><pre><code>$group实例
+聚合表达式
+$sum      计算总和。
+$avg      计算平均值。
 
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$group</span>实例</span><br>聚合表达式<br><span class="hljs-meta"><span class="hljs-meta-keyword">$sum</span>      计算总和。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$avg</span>      计算平均值。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$min</span>      获取集合中所有文档对应值得最小值。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$max</span>      获取集合中所有文档对应值得最大值。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$push</span>     在结果文档中插入值到一个数组中，若重复会再创建。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$pushAll</span>  同$push,只是一次可以追加多个值到一个数组字段内。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$pop</span>      在结果文档中删除数组的第一个或最后一个元素。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$addToSet</span> 在结果文档中插入值到一个数组中，若重复不会再创建。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$first</span>    根据资源文档的排序获取第一个文档数据。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$last</span>     根据资源文档的排序获取最后一个文档数据。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$rename</span>   修改字段名称</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$bit</span>      位操作，integer类型</span><br><br>例：<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,url:&#123;<span class="hljs-symbol">$</span>push:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;])<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,first_url:&#123;<span class="hljs-symbol">$</span>first:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,last_url:&#123;<span class="hljs-symbol">$</span>last:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;])<br><br>&#123; <span class="hljs-symbol">$</span>push : &#123; field : value &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pushAll : &#123; field : value_array &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pull : &#123; field : _value &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pop : &#123; field : <span class="hljs-number">1</span> &#125; &#125;<br><br>&#123; <span class="hljs-symbol">$</span>rename : &#123; old_field_name : new_field_name &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>bit : &#123; field : &#123;<span class="hljs-keyword">and</span> : <span class="hljs-number"><code class="language-hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$group</span>实例</span><br>聚合表达式<br><span class="hljs-meta"><span class="hljs-meta-keyword">$sum</span>      计算总和。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$avg</span>      计算平均值。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$min</span>      获取集合中所有文档对应值得最小值。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$max</span>      获取集合中所有文档对应值得最大值。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$push</span>     在结果文档中插入值到一个数组中，若重复会再创建。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$pushAll</span>  同$push,只是一次可以追加多个值到一个数组字段内。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$pop</span>      在结果文档中删除数组的第一个或最后一个元素。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$addToSet</span> 在结果文档中插入值到一个数组中，若重复不会再创建。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$first</span>    根据资源文档的排序获取第一个文档数据。</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$last</span>     根据资源文档的排序获取最后一个文档数据。</span><br><br><span class="hljs-meta"><span class="hljs-meta-keyword">$rename</span>   修改字段名称</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$bit</span>      位操作，integer类型</span><br><br>例：<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,url:&#123;<span class="hljs-symbol">$</span>push:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;])<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,first_url:&#123;<span class="hljs-symbol">$</span>first:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;<br>db.stu.aggregate([&#123;<span class="hljs-symbol">$</span>group:&#123;_id:<span class="hljs-string">"$by_user"</span>,last_url:&#123;<span class="hljs-symbol">$</span>last:<span class="hljs-string">"$url"</span>&#125;&#125;&#125;])<br><br>&#123; <span class="hljs-symbol">$</span>push : &#123; field : value &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pushAll : &#123; field : value_array &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pull : &#123; field : _value &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>pop : &#123; field : <span class="hljs-number">1</span> &#125; &#125;<br><br>&#123; <span class="hljs-symbol">$</span>rename : &#123; old_field_name : new_field_name &#125; &#125;<br>&#123; <span class="hljs-symbol">$</span>bit : &#123; field : &#123;<span class="hljs-keyword">and</span> : <span class="hljs-number">5</span>&#125;&#125;&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+$min      获取集合中所有文档对应值得最小值。
+$max      获取集合中所有文档对应值得最大值。
 
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs yaml"><span class="hljs-string">$project实例</span><br><span class="hljs-number">0</span><span class="hljs-string">显示，1不显示，默认情况下_id字段是被包含的，想不包含的话_id</span> <span class="hljs-string">:</span> <span class="hljs-number">0</span><br><span class="hljs-string">db.stu.aggregate(</span><br>    <span class="hljs-string">&#123;</span><br>      <span class="hljs-string">$project</span> <span class="hljs-string">:</span> <span class="hljs-string">&#123;</span><br>        <span class="hljs-attr">title :</span> <span class="hljs-number">1</span> <span class="hljs-string">,</span><br>        <span class="hljs-attr">author :</span> <span class="hljs-number">1</span> <span class="hljs-string">,</span><br>      <span class="hljs-string">&#125;</span><br>    <span class="hljs-string">&#125;</span><br> <span class="hljs-string"><code class="language-hljs yaml"><span class="hljs-string">$project实例</span><br><span class="hljs-number">0</span><span class="hljs-string">显示，1不显示，默认情况下_id字段是被包含的，想不包含的话_id</span> <span class="hljs-string">:</span> <span class="hljs-number">0</span><br><span class="hljs-string">db.stu.aggregate(</span><br>    <span class="hljs-string">&#123;</span><br>      <span class="hljs-string">$project</span> <span class="hljs-string">:</span> <span class="hljs-string">&#123;</span><br>        <span class="hljs-attr">title :</span> <span class="hljs-number">1</span> <span class="hljs-string">,</span><br>        <span class="hljs-attr">author :</span> <span class="hljs-number">1</span> <span class="hljs-string">,</span><br>      <span class="hljs-string">&#125;</span><br>    <span class="hljs-string">&#125;</span><br> <span class="hljs-string">);</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+$push     在结果文档中插入值到一个数组中，若重复会再创建。
+$pushAll  同$push,只是一次可以追加多个值到一个数组字段内。
+$pop      在结果文档中删除数组的第一个或最后一个元素。
+$addToSet 在结果文档中插入值到一个数组中，若重复不会再创建。
 
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$match</span>实例</span><br>db.articles.aggregate( [<br>   &#123; <span class="hljs-symbol">$</span>match : &#123; score : &#123; <span class="hljs-symbol">$</span><span class="hljs-keyword">gt</span> : <span class="hljs-number">70</span>, <span class="hljs-symbol">$</span>lte : <span class="hljs-number">90</span> &#125; &#125; &#125;,<br>   &#123; <span class="hljs-symbol">$</span>group: &#123; _id: null, count: &#123; <span class="hljs-symbol">$</span><span class="hljs-keyword">sum</span>: <span class="hljs-number"><code class="language-hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$match</span>实例</span><br>db.articles.aggregate( [<br>   &#123; <span class="hljs-symbol">$</span>match : &#123; score : &#123; <span class="hljs-symbol">$</span><span class="hljs-keyword">gt</span> : <span class="hljs-number">70</span>, <span class="hljs-symbol">$</span>lte : <span class="hljs-number">90</span> &#125; &#125; &#125;,<br>   &#123; <span class="hljs-symbol">$</span>group: &#123; _id: null, count: &#123; <span class="hljs-symbol">$</span><span class="hljs-keyword">sum</span>: <span class="hljs-number">1</span> &#125; &#125; &#125;<br>                    ] );<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+$first    根据资源文档的排序获取第一个文档数据。
+$last     根据资源文档的排序获取最后一个文档数据。
 
-<h2 id="8-一对一、一对多、多对多的联系"><a href="#8-一对一、一对多、多对多的联系" class="headerlink" title="8.一对一、一对多、多对多的联系"></a>8.一对一、一对多、多对多的联系</h2><h3 id="8-1-ObjectId"><a href="#8-1-ObjectId" class="headerlink" title="8.1 ObjectId"></a>8.1 ObjectId</h3><ul>
+$rename   修改字段名称
+$bit      位操作，integer类型
+
+例：
+db.stu.aggregate([{$group:{_id:&quot;$by_user&quot;,url:{$push:&quot;$url&quot;}}}])
+db.stu.aggregate([{$group:{_id:&quot;$by_user&quot;,first_url:{$first:&quot;$url&quot;}}}
+db.stu.aggregate([{$group:{_id:&quot;$by_user&quot;,last_url:{$last:&quot;$url&quot;}}}])
+
+{ $push : { field : value } }
+{ $pushAll : { field : value_array } }
+{ $pull : { field : _value } }
+{ $pop : { field : 1 } }
+
+{ $rename : { old_field_name : new_field_name } }
+{ $bit : { field : {and : 5}}}</code></pre><pre><code>$project实例
+0显示，1不显示，默认情况下_id字段是被包含的，想不包含的话_id : 0
+db.stu.aggregate(
+    {
+      $project : {
+        title : 1 ,
+        author : 1 ,
+      }
+    }
+ );</code></pre><pre><code>$match实例
+db.articles.aggregate( [
+   { $match : { score : { $gt : 70, $lte : 90 } } },
+   { $group: { _id: null, count: { $sum: 1 } } }
+                    ] );</code></pre><h2 id="8-一对一、一对多、多对多的联系"><a href="#8-一对一、一对多、多对多的联系" class="headerlink" title="8.一对一、一对多、多对多的联系"></a>8.一对一、一对多、多对多的联系</h2><h3 id="8-1-ObjectId"><a href="#8-1-ObjectId" class="headerlink" title="8.1 ObjectId"></a>8.1 ObjectId</h3><ul>
 <li>ObjectId 是一个12字节 BSON 类型数据<ul>
 <li>前4个字节：时间戳</li>
 <li>紧接的3个字节：机器标识码</li>
@@ -987,22 +1349,131 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs isbl"><span class="hljs-number">1</span>.创建新的<span class="hljs-variable">ObjectId</span><br>&gt;<span class="hljs-variable">newObjectId</span> = <span class="hljs-function"><span class="hljs-title">ObjectId</span>()</span><br><br><span class="hljs-number">2</span>.获取文档的创建时间<br>&gt;<span class="hljs-function"><span class="hljs-title">ObjectId</span>(<span class="hljs-string">"xxxxxxxxxxxxxxxxxxxxx"</span>).getTimestamp()</span><br><br><span class="hljs-number">3</span>.ObjectId 转换为字符串<br>&gt;<span class="hljs-variable">new</span> <span class="hljs-function"><span class="hljs-title"><code class="language-hljs isbl"><span class="hljs-number">1</span>.创建新的<span class="hljs-variable">ObjectId</span><br>&gt;<span class="hljs-variable">newObjectId</span> = <span class="hljs-function"><span class="hljs-title">ObjectId</span>()</span><br><br><span class="hljs-number">2</span>.获取文档的创建时间<br>&gt;<span class="hljs-function"><span class="hljs-title">ObjectId</span>(<span class="hljs-string">"xxxxxxxxxxxxxxxxxxxxx"</span>).getTimestamp()</span><br><br><span class="hljs-number">3</span>.ObjectId 转换为字符串<br>&gt;<span class="hljs-variable">new</span> <span class="hljs-function"><span class="hljs-title">ObjectId</span>().str</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>1.创建新的ObjectId
+&gt;newObjectId = ObjectId()
 
-<h3 id="8-2-指定的序列会自动增长-1-并返回最新序列值"><a href="#8-2-指定的序列会自动增长-1-并返回最新序列值" class="headerlink" title="8.2 指定的序列会自动增长 1 并返回最新序列值"></a>8.2 指定的序列会自动增长 1 并返回最新序列值</h3><p>（最好不要对_id调用这个函数）</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql"><span class="hljs-number">1.</span>自己创建自增函数<br>&gt;<span class="hljs-keyword">function</span> Autoincrement(sequenceName)&#123;<br>   var sequenceDocument = db.counters.findAndModify(<br>      &#123;<br>         query:&#123;_id: sequenceName &#125;,<br>         <span class="hljs-keyword">update</span>: &#123;$inc:&#123;sequence_value:<span class="hljs-number">1</span>&#125;&#125;,<br>         "new":<span class="hljs-keyword">true</span><br>      &#125;);<br>   <span class="hljs-keyword">return</span> sequenceDocument.sequence_value;<br>&#125;<br><br><span class="hljs-number">2.</span>调用自增函数<br>&gt;db.<span class="hljs-keyword">user</span>.<span class="hljs-keyword">insert</span>(&#123;<br>   "userid":Autoincrement("userid"),<br>   "name":"zhangsan"&#125;)<br>&gt;db.<span class="hljs-keyword">user</span>.<span class="hljs-keyword">insert</span>(&#123;<br>   "userid":Autoincrement("userid"),<br>   "name":"lisi"&#125;)<br><br><span class="hljs-number">3.</span>读取文档<br>&gt;db.<span class="hljs-keyword">user</span>.find()<br>输出：<br>&#123; "_id" : ObjectId(xxxxxxx), "userid" : <span class="hljs-number">1</span>, "name" : "zhangsan"&#125;<br>&#123; "_id" : ObjectId(xxxxxxx), "userid" : <span class="hljs-number"><code class="language-hljs pgsql"><span class="hljs-number">1.</span>自己创建自增函数<br>&gt;<span class="hljs-keyword">function</span> Autoincrement(sequenceName)&#123;<br>   var sequenceDocument = db.counters.findAndModify(<br>      &#123;<br>         query:&#123;_id: sequenceName &#125;,<br>         <span class="hljs-keyword">update</span>: &#123;$inc:&#123;sequence_value:<span class="hljs-number">1</span>&#125;&#125;,<br>         "new":<span class="hljs-keyword">true</span><br>      &#125;);<br>   <span class="hljs-keyword">return</span> sequenceDocument.sequence_value;<br>&#125;<br><br><span class="hljs-number">2.</span>调用自增函数<br>&gt;db.<span class="hljs-keyword">user</span>.<span class="hljs-keyword">insert</span>(&#123;<br>   "userid":Autoincrement("userid"),<br>   "name":"zhangsan"&#125;)<br>&gt;db.<span class="hljs-keyword">user</span>.<span class="hljs-keyword">insert</span>(&#123;<br>   "userid":Autoincrement("userid"),<br>   "name":"lisi"&#125;)<br><br><span class="hljs-number">3.</span>读取文档<br>&gt;db.<span class="hljs-keyword">user</span>.find()<br>输出：<br>&#123; "_id" : ObjectId(xxxxxxx), "userid" : <span class="hljs-number">1</span>, "name" : "zhangsan"&#125;<br>&#123; "_id" : ObjectId(xxxxxxx), "userid" : <span class="hljs-number">2</span>, "name" : "lisi"&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+2.获取文档的创建时间
+&gt;ObjectId(&quot;xxxxxxxxxxxxxxxxxxxxx&quot;).getTimestamp()
+
+3.ObjectId 转换为字符串
+&gt;new ObjectId().str</code></pre><h3 id="8-2-指定的序列会自动增长-1-并返回最新序列值"><a href="#8-2-指定的序列会自动增长-1-并返回最新序列值" class="headerlink" title="8.2 指定的序列会自动增长 1 并返回最新序列值"></a>8.2 指定的序列会自动增长 1 并返回最新序列值</h3><p>（最好不要对_id调用这个函数）</p>
+<pre><code>1.自己创建自增函数
+&gt;function Autoincrement(sequenceName){
+   var sequenceDocument = db.counters.findAndModify(
+      {
+         query:{_id: sequenceName },
+         update: {$inc:{sequence_value:1}},
+         &quot;new&quot;:true
+      });
+   return sequenceDocument.sequence_value;
+}
+
+2.调用自增函数
+&gt;db.user.insert({
+   &quot;userid&quot;:Autoincrement(&quot;userid&quot;),
+   &quot;name&quot;:&quot;zhangsan&quot;})
+&gt;db.user.insert({
+   &quot;userid&quot;:Autoincrement(&quot;userid&quot;),
+   &quot;name&quot;:&quot;lisi&quot;})
+
+3.读取文档
+&gt;db.user.find()
+输出：
+{ &quot;_id&quot; : ObjectId(xxxxxxx), &quot;userid&quot; : 1, &quot;name&quot; : &quot;zhangsan&quot;}
+{ &quot;_id&quot; : ObjectId(xxxxxxx), &quot;userid&quot; : 2, &quot;name&quot; : &quot;lisi&quot;}</code></pre><p>1.一对一：如夫妻</p>
+<pre><code>wifeAndHusband集合
+
+db.wifeAndHusband.insert([
+  {
+    name:&quot;男1&quot;
+    wife:{
+      name:&quot;女1&quot;
+      }
+  },
+  {
+    name:&quot;男2&quot;
+    wife:{
+      name:&quot;女2&quot;
+      }
+  },
+]);</code></pre><p>2.$\color{red}一对多（相当于mysql的外键、多表查询）:如文章和评论$</p>
+<pre><code>article集合（文章）
+db.article.insert([
+  {
+    article:&quot;a&quot;
+  },
+  {
+    article:&quot;b&quot;
+  }
+]);
+
+假设find（）后,id为12个标准字节
+{&quot;_id&quot;:ObjectId(&quot;xxxxxxxxxxx1&quot;),&quot;article&quot;:&quot;a&quot;}
+{&quot;_id&quot;:ObjectId(&quot;xxxxxxxxxxx2&quot;),&quot;article&quot;:&quot;b&quot;}
 
 
-<p>1.一对一：如夫妻</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs less"><span class="hljs-selector-tag">wifeAndHusband</span>集合<br><br><span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.wifeAndHusband</span><span class="hljs-selector-class">.insert</span>([<br>  &#123;<br>    <span class="hljs-attribute">name</span>:<span class="hljs-string">"男1"</span><br>    <span class="hljs-attribute">wife</span>:&#123;<br>      <span class="hljs-attribute">name</span>:<span class="hljs-string">"女1"</span><br>      &#125;<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attribute">name</span>:<span class="hljs-string">"男2"</span><br>    <span class="hljs-attribute">wife</span>:&#123;<br>      <span class="hljs-attribute">name</span>:<span class="hljs-string"><code class="language-hljs less"><span class="hljs-selector-tag">wifeAndHusband</span>集合<br><br><span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.wifeAndHusband</span><span class="hljs-selector-class">.insert</span>([<br>  &#123;<br>    <span class="hljs-attribute">name</span>:<span class="hljs-string">"男1"</span><br>    <span class="hljs-attribute">wife</span>:&#123;<br>      <span class="hljs-attribute">name</span>:<span class="hljs-string">"女1"</span><br>      &#125;<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attribute">name</span>:<span class="hljs-string">"男2"</span><br>    <span class="hljs-attribute">wife</span>:&#123;<br>      <span class="hljs-attribute">name</span>:<span class="hljs-string">"女2"</span><br>      &#125;<br>  &#125;,<br>]);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+comment集合（评论）
+db.comment.insert([
+  list:[&quot;评论1&quot;,&quot;评论2&quot;,&quot;评论3&quot;]
+  article_id:ObjectId(&quot;xxxxxxxxxxx1&quot;)
+]);
+db.comment.insert([
+  list:[&quot;评论4&quot;,&quot;评论5&quot;]
+  article_id:ObjectId(&quot;xxxxxxxxxxx1&quot;)
+]);
+db.comment.insert([
+  list:[&quot;评论1&quot;,&quot;评论2&quot;,&quot;评论3&quot;]
+  article_id:ObjectId(&quot;xxxxxxxxxxx2&quot;)
+]);
 
-<p>2.$\color{red}一对多（相当于mysql的外键、多表查询）:如文章和评论$</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sqf">article集合（文章）<br>db.article.insert([<br>  &#123;<br>    article:<span class="hljs-string">"a"</span><br>  &#125;,<br>  &#123;<br>    article:<span class="hljs-string">"b"</span><br>  &#125;<br>]);<br><br>假设<span class="hljs-built_in">find</span>（）后,id为<span class="hljs-number">12</span>个标准字节<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<span class="hljs-string">"article"</span>:<span class="hljs-string">"a"</span>&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<span class="hljs-string">"article"</span>:<span class="hljs-string">"b"</span>&#125;<br><br><br><span class="hljs-built_in">comment</span>集合（评论）<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论1"</span>,<span class="hljs-string">"评论2"</span>,<span class="hljs-string">"评论3"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>)<br>]);<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论4"</span>,<span class="hljs-string">"评论5"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>)<br>]);<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论1"</span>,<span class="hljs-string">"评论2"</span>,<span class="hljs-string">"评论3"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>)<br>]);<br><br>此时两表已关联<br>先查找文章a(一篇)的评论的所有<span class="hljs-variable">_id</span>：<br>var article = db.article.findOne(&#123;article:<span class="hljs-string">"a"</span>&#125;).<span class="hljs-variable">_id</span>;<br>再查找所有与文章a的<span class="hljs-variable">_id</span>有关的评论：<br>db.<span class="hljs-built_in">comment</span>.<span class="hljs-built_in"><code class="language-hljs sqf">article集合（文章）<br>db.article.insert([<br>  &#123;<br>    article:<span class="hljs-string">"a"</span><br>  &#125;,<br>  &#123;<br>    article:<span class="hljs-string">"b"</span><br>  &#125;<br>]);<br><br>假设<span class="hljs-built_in">find</span>（）后,id为<span class="hljs-number">12</span>个标准字节<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<span class="hljs-string">"article"</span>:<span class="hljs-string">"a"</span>&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<span class="hljs-string">"article"</span>:<span class="hljs-string">"b"</span>&#125;<br><br><br><span class="hljs-built_in">comment</span>集合（评论）<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论1"</span>,<span class="hljs-string">"评论2"</span>,<span class="hljs-string">"评论3"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>)<br>]);<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论4"</span>,<span class="hljs-string">"评论5"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>)<br>]);<br>db.<span class="hljs-built_in">comment</span>.insert([<br>  <span class="hljs-built_in">list</span>:[<span class="hljs-string">"评论1"</span>,<span class="hljs-string">"评论2"</span>,<span class="hljs-string">"评论3"</span>]<br>  article_id:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>)<br>]);<br><br>此时两表已关联<br>先查找文章a(一篇)的评论的所有<span class="hljs-variable">_id</span>：<br>var article = db.article.findOne(&#123;article:<span class="hljs-string">"a"</span>&#125;).<span class="hljs-variable">_id</span>;<br>再查找所有与文章a的<span class="hljs-variable">_id</span>有关的评论：<br>db.<span class="hljs-built_in">comment</span>.<span class="hljs-built_in">find</span>(&#123;article_id:article&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+此时两表已关联
+先查找文章a(一篇)的评论的所有_id：
+var article = db.article.findOne({article:&quot;a&quot;})._id;
+再查找所有与文章a的_id有关的评论：
+db.comment.find({article_id:article});</code></pre><p>3.$\color{red}多对多（相当于mysql的外键、多表查询）:如老师和学生$<br>把_id变成一个数组</p>
+<pre><code>teachers集合
+db.teachers.insert([
+  {teachername:&quot;老师1&quot;},
+  {teachername:&quot;老师2&quot;},
+  {teachername:&quot;老师3&quot;},
+]);
 
-<p>3.$\color{red}多对多（相当于mysql的外键、多表查询）:如老师和学生$<br>把_id变成一个数组</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs dts">teachers集合<br>db.teachers.insert([<br>  &#123;teachername:<span class="hljs-string">"老师1"</span>&#125;,<br>  &#123;teachername:<span class="hljs-string">"老师2"</span>&#125;,<br>  &#123;teachername:<span class="hljs-string">"老师3"</span>&#125;,<br>]);<br><br>假设find（）后,id为<span class="hljs-number">12</span>个标准字节<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师1"</span>&#125;&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师2"</span>&#125;&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师2"</span>&#125;&#125;<br><br>students集合<br>db.students.insert([<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生1"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>)<br>    ]<br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生2"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>)<br>    ]<br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生3"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>)<br>    ]<br>  &#125;,<br>]);<br><br><br>此时两表已关联<br>先查找老师<span class="hljs-number">1</span>(一个)的所有_id：<br>var teacher = db.teachers.findOne(&#123;teachername:<span class="hljs-string">"老师1"</span>&#125;)._id;<br>再查找所有与老师<span class="hljs-number"><code class="language-hljs dts">teachers集合<br>db.teachers.insert([<br>  &#123;teachername:<span class="hljs-string">"老师1"</span>&#125;,<br>  &#123;teachername:<span class="hljs-string">"老师2"</span>&#125;,<br>  &#123;teachername:<span class="hljs-string">"老师3"</span>&#125;,<br>]);<br><br>假设find（）后,id为<span class="hljs-number">12</span>个标准字节<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师1"</span>&#125;&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师2"</span>&#125;&#125;<br>&#123;<span class="hljs-string">"_id"</span>:ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>),<span class="hljs-string">"teachername"</span>:<span class="hljs-string">"老师2"</span>&#125;&#125;<br><br>students集合<br>db.students.insert([<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生1"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>)<br>    ]<br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生2"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx1"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>)<br>    ]<br>  &#125;,<br>  &#123;<br><span class="hljs-symbol">    stuname:</span><span class="hljs-string">"学生3"</span>，<br><span class="hljs-symbol">    teacher_id:</span>[<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx2"</span>),<br>      ObjectId(<span class="hljs-string">"xxxxxxxxxxx3"</span>)<br>    ]<br>  &#125;,<br>]);<br><br><br>此时两表已关联<br>先查找老师<span class="hljs-number">1</span>(一个)的所有_id：<br>var teacher = db.teachers.findOne(&#123;teachername:<span class="hljs-string">"老师1"</span>&#125;)._id;<br>再查找所有与老师<span class="hljs-number">1</span>的_id有关的学生：<br>db.students.find(&#123;teacher_id:teacher&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+假设find（）后,id为12个标准字节
+{&quot;_id&quot;:ObjectId(&quot;xxxxxxxxxxx1&quot;),&quot;teachername&quot;:&quot;老师1&quot;}}
+{&quot;_id&quot;:ObjectId(&quot;xxxxxxxxxxx2&quot;),&quot;teachername&quot;:&quot;老师2&quot;}}
+{&quot;_id&quot;:ObjectId(&quot;xxxxxxxxxxx3&quot;),&quot;teachername&quot;:&quot;老师2&quot;}}
 
-<h2 id="9-多表查询深入"><a href="#9-多表查询深入" class="headerlink" title="9.多表查询深入"></a>9.多表查询深入</h2><p>第13课</p>
+students集合
+db.students.insert([
+  {
+    stuname:&quot;学生1&quot;，
+    teacher_id:[
+      ObjectId(&quot;xxxxxxxxxxx1&quot;),
+      ObjectId(&quot;xxxxxxxxxxx2&quot;)
+    ]
+  },
+  {
+    stuname:&quot;学生2&quot;，
+    teacher_id:[
+      ObjectId(&quot;xxxxxxxxxxx1&quot;),
+      ObjectId(&quot;xxxxxxxxxxx3&quot;)
+    ]
+  },
+  {
+    stuname:&quot;学生3&quot;，
+    teacher_id:[
+      ObjectId(&quot;xxxxxxxxxxx2&quot;),
+      ObjectId(&quot;xxxxxxxxxxx3&quot;)
+    ]
+  },
+]);
+
+
+此时两表已关联
+先查找老师1(一个)的所有_id：
+var teacher = db.teachers.findOne({teachername:&quot;老师1&quot;})._id;
+再查找所有与老师1的_id有关的学生：
+db.students.find({teacher_id:teacher});</code></pre><h2 id="9-多表查询深入"><a href="#9-多表查询深入" class="headerlink" title="9.多表查询深入"></a>9.多表查询深入</h2><p>第13课</p>
 
             </div>
             <hr/>
@@ -1821,7 +2292,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

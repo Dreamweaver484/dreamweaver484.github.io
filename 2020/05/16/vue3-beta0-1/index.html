@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    721
+                    650
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -797,8 +797,11 @@
 <li><code>vue ui</code>【启动】</li>
 <li><h2 id="vue3新特性"><a href="#vue3新特性" class="headerlink" title="vue3新特性"></a>vue3新特性</h2><h3 id="main-js的变动"><a href="#main-js的变动" class="headerlink" title="main.js的变动"></a>main.js的变动</h3></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs js"><span class="hljs-keyword">import</span> &#123; createApp &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span><br><br><span class="hljs-comment">//把app的容器挂载到App</span><br>createApp(App).mount(<span class="hljs-string"><code class="language-hljs js"><span class="hljs-keyword">import</span> &#123; createApp &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span><br><br><span class="hljs-comment">//把app的容器挂载到App</span><br>createApp(App).mount(<span class="hljs-string">'#app'</span>)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
 
+<span class="token comment" spellcheck="true">//把app的容器挂载到App</span>
+<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
 <li>添加axios依赖<ul>
 <li><code>vue add axios</code></li>
@@ -806,10 +809,72 @@
 </li>
 </ul>
 <p>App.vue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vue"><code class="language-hljs vue"><template><br>  <div id&#x3D;"app"><br>    <HelloWorld &#x2F;><br>  <&#x2F;div><br><&#x2F;template><br><br><script><br>import HelloWorld from '.&#x2F;components&#x2F;HelloWorld.vue'<br><br>export default &#123;<br>  name: 'App',<br>  components: &#123;<br>    HelloWorld<br>  &#125;<br>&#125;<br><&#x2F;script><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue"><code class="language-vue"><template>
+  <div id="app">
+    <HelloWorld />
+  </div>
+</template>
 
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+</script><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>HelloWorld.vue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vue"><code class="language-hljs vue"><template><br>  <div class&#x3D;"hello"><br>    <h1>名字：&#123;&#123; state.name &#125;&#125; tel:&#123;&#123; state.tel &#125;&#125;<&#x2F;h1><br>      <table  border&#x3D;"1"><br>        <tr><br>          <th>名字<&#x2F;th><br>          <th>邮件<&#x2F;th><br>        <&#x2F;tr><br>        <div v-for&#x3D;"(user, index) in state.users" :key&#x3D;"index"><br>          <tr><br>            <td>&#123;&#123; user.name &#125;&#125;<&#x2F;td><br>            <td>&#123;&#123; user.email &#125;&#125;<&#x2F;td><br>          <&#x2F;tr><br>        <&#x2F;div><br>      <&#x2F;table><br>      <button @click&#x3D;"fetchData()">获取数据<&#x2F;button><br>  <&#x2F;div><br><&#x2F;template><br><br><script><br>import &#123; reactive, computed, onMounted &#125; from 'vue'<br>import axios from 'axios'<br><br>export default &#123;<br>  setup () &#123;<br>    const state &#x3D; reactive(&#123;<br>      name: 'Lewis',<br>      tel: '1234',<br>      users: []<br>    &#125;)<br><br>    onMounted(() &#x3D;> &#123;<br>      &#x2F;&#x2F; fetchData()<br>    &#125;)<br><br>    function fetchData () &#123;<br>      axios.get('https:&#x2F;&#x2F;jsonplaceholder.typicode.com&#x2F;users').then((res) &#x3D;> &#123;<br>        console.log(res.data)<br>        state.users &#x3D; res.data<br>      &#125;)<br>    &#125;<br>    return &#123;<br>      state,<br>      computed,<br>      fetchData<br>    &#125;<br>  &#125;<br>&#125;<br><&#x2F;script><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue"><code class="language-vue"><template>
+  <div class="hello">
+    <h1>名字：{{ state.name }} tel:{{ state.tel }}</h1>
+      <table  border="1">
+        <tr>
+          <th>名字</th>
+          <th>邮件</th>
+        </tr>
+        <div v-for="(user, index) in state.users" :key="index">
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </div>
+      </table>
+      <button @click="fetchData()">获取数据</button>
+  </div>
+</template>
+
+<script>
+import { reactive, computed, onMounted } from 'vue'
+import axios from 'axios'
+
+export default {
+  setup () {
+    const state = reactive({
+      name: 'Lewis',
+      tel: '1234',
+      users: []
+    })
+
+    onMounted(() => {
+      // fetchData()
+    })
+
+    function fetchData () {
+      axios.get('https://jsonplaceholder.typicode.com/users').then((res) => {
+        console.log(res.data)
+        state.users = res.data
+      })
+    }
+    return {
+      state,
+      computed,
+      fetchData
+    }
+  }
+}
+</script><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1628,7 +1693,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

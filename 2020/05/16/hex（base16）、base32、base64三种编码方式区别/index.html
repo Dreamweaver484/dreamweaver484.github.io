@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    356
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -677,8 +677,39 @@
 <h2 id="base32"><a href="#base32" class="headerlink" title="base32"></a>base32</h2><p>1.使用32个可见字符来表示一个二进制数组，编码后数据大小变成原来的8/5<br>2.5个字符用8个可见字符表示,不足8个字符，将用=来补充</p>
 <h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>1.使用64个可见字符来表示一个二进制数组，编码后数据大小变成原来的4/3<br>2.3个字符用4个可见字符来表示</p>
 <p>测试：</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs reasonml">@Test<br>public void test<span class="hljs-literal">()</span>&#123;<br>    String data = <span class="hljs-string">"测试编码内容"</span> ;<br>    byte<span class="hljs-literal">[]</span> <span class="hljs-built_in">bytes</span> = data.get<span class="hljs-constructor">Bytes()</span> ;<br>    <span class="hljs-comment">//测试hex</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        long start = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> ;<br>        String encryStr = <span class="hljs-string">""</span> ;<br>        String decryStr = <span class="hljs-string">""</span> ;<br><br>        for(<span class="hljs-built_in">int</span> i= <span class="hljs-number">0</span> ; i &lt; <span class="hljs-number">10000</span> ; i++) &#123;<br>            encryStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Hex</span>.</span></span>encode<span class="hljs-constructor">HexString(<span class="hljs-params">bytes</span>)</span> ;<br>            decryStr = <span class="hljs-keyword">new</span> <span class="hljs-constructor">String(Hex.<span class="hljs-params">decodeHex</span>(<span class="hljs-params">encryStr</span>.<span class="hljs-params">toCharArray</span>()</span>)) ;<br>        &#125;<br>        print(<span class="hljs-string">"Hex:"</span>  + (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> - start ) + <span class="hljs-string">" ms "</span> +  encryStr  + <span class="hljs-string">" | "</span> + decryStr) ;<br>    &#125; catch (Exception e) &#123;<br>        e.print<span class="hljs-constructor">StackTrace()</span>;<br>    &#125;<br>    <span class="hljs-comment">//测试base64</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        long start = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> ;<br>        String encryStr = <span class="hljs-string">""</span> ;<br>        String decryStr = <span class="hljs-string">""</span> ;<br><br>        for(<span class="hljs-built_in">int</span> i= <span class="hljs-number">0</span> ; i &lt; <span class="hljs-number">10000</span> ; i++) &#123;<br>            encryStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Base64</span>.</span></span>encode<span class="hljs-constructor">Base64String(<span class="hljs-params">bytes</span>)</span> ;<br>            decryStr = <span class="hljs-keyword">new</span> <span class="hljs-constructor">String(Base64.<span class="hljs-params">decodeBase64</span>(<span class="hljs-params">encryStr</span>.<span class="hljs-params">getBytes</span>()</span>) );<br>        &#125;<br>        print(<span class="hljs-string">"base64: "</span> + (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> - start ) + <span class="hljs-string">" ms "</span> +  encryStr  + <span class="hljs-string">" | "</span> + decryStr) ;<br>        &#125; catch (Exception e) &#123;<br>            e.print<span class="hljs-constructor"><code class="language-hljs reasonml">@Test<br>public void test<span class="hljs-literal">()</span>&#123;<br>    String data = <span class="hljs-string">"测试编码内容"</span> ;<br>    byte<span class="hljs-literal">[]</span> <span class="hljs-built_in">bytes</span> = data.get<span class="hljs-constructor">Bytes()</span> ;<br>    <span class="hljs-comment">//测试hex</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        long start = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> ;<br>        String encryStr = <span class="hljs-string">""</span> ;<br>        String decryStr = <span class="hljs-string">""</span> ;<br><br>        for(<span class="hljs-built_in">int</span> i= <span class="hljs-number">0</span> ; i &lt; <span class="hljs-number">10000</span> ; i++) &#123;<br>            encryStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Hex</span>.</span></span>encode<span class="hljs-constructor">HexString(<span class="hljs-params">bytes</span>)</span> ;<br>            decryStr = <span class="hljs-keyword">new</span> <span class="hljs-constructor">String(Hex.<span class="hljs-params">decodeHex</span>(<span class="hljs-params">encryStr</span>.<span class="hljs-params">toCharArray</span>()</span>)) ;<br>        &#125;<br>        print(<span class="hljs-string">"Hex:"</span>  + (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> - start ) + <span class="hljs-string">" ms "</span> +  encryStr  + <span class="hljs-string">" | "</span> + decryStr) ;<br>    &#125; catch (Exception e) &#123;<br>        e.print<span class="hljs-constructor">StackTrace()</span>;<br>    &#125;<br>    <span class="hljs-comment">//测试base64</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        long start = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> ;<br>        String encryStr = <span class="hljs-string">""</span> ;<br>        String decryStr = <span class="hljs-string">""</span> ;<br><br>        for(<span class="hljs-built_in">int</span> i= <span class="hljs-number">0</span> ; i &lt; <span class="hljs-number">10000</span> ; i++) &#123;<br>            encryStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Base64</span>.</span></span>encode<span class="hljs-constructor">Base64String(<span class="hljs-params">bytes</span>)</span> ;<br>            decryStr = <span class="hljs-keyword">new</span> <span class="hljs-constructor">String(Base64.<span class="hljs-params">decodeBase64</span>(<span class="hljs-params">encryStr</span>.<span class="hljs-params">getBytes</span>()</span>) );<br>        &#125;<br>        print(<span class="hljs-string">"base64: "</span> + (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span> - start ) + <span class="hljs-string">" ms "</span> +  encryStr  + <span class="hljs-string">" | "</span> + decryStr) ;<br>        &#125; catch (Exception e) &#123;<br>            e.print<span class="hljs-constructor">StackTrace()</span>;<br>        &#125;<br>    &#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>结论：<br>hex编码速度快，体积大；base64编码速度慢，体积小</p>
+<pre><code>@Test
+public void test(){
+    String data = &quot;测试编码内容&quot; ;
+    byte[] bytes = data.getBytes() ;
+    //测试hex
+    try {
+        long start = System.currentTimeMillis() ;
+        String encryStr = &quot;&quot; ;
+        String decryStr = &quot;&quot; ;
+
+        for(int i= 0 ; i &lt; 10000 ; i++) {
+            encryStr = Hex.encodeHexString(bytes) ;
+            decryStr = new String(Hex.decodeHex(encryStr.toCharArray())) ;
+        }
+        print(&quot;Hex:&quot;  + (System.currentTimeMillis() - start ) + &quot; ms &quot; +  encryStr  + &quot; | &quot; + decryStr) ;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    //测试base64
+    try {
+        long start = System.currentTimeMillis() ;
+        String encryStr = &quot;&quot; ;
+        String decryStr = &quot;&quot; ;
+
+        for(int i= 0 ; i &lt; 10000 ; i++) {
+            encryStr = Base64.encodeBase64String(bytes) ;
+            decryStr = new String(Base64.decodeBase64(encryStr.getBytes()) );
+        }
+        print(&quot;base64: &quot; + (System.currentTimeMillis() - start ) + &quot; ms &quot; +  encryStr  + &quot; | &quot; + decryStr) ;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }</code></pre><p>结论：<br>hex编码速度快，体积大；base64编码速度慢，体积小</p>
 
             </div>
             <hr/>
@@ -1505,7 +1536,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

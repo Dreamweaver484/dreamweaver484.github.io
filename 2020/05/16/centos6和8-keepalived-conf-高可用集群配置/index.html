@@ -653,14 +653,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    955
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -677,23 +677,397 @@
             <div id="articleContent">
                 <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/105576919" target="_blank" rel="noopener">centos6和8—keepalived.conf+高可用集群配置</a></p>
 <p>keepalived.conf【centos8】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">! Configuration File for keepalived<br><br>global_defs &#123;			<br>   notification_email &#123;<br>     acassen@firewall.loc<br>     failover@firewall.loc<br>     sysadmin@firewall.loc<br>   &#125;<br>   notification_email_from Alexandre.Cassen@firewall.loc<br>   smtp_server 192.168.200.1<br>   smtp_connect_timeout 30<br>   router_id LVS_DEVEL<br>   vrrp_skip_check_adv_addr<br>   vrrp_strict<br>   vrrp_garp_interval 0<br>   vrrp_gna_interval 0<br>&#125;<br><br>vrrp_instance VI_1 &#123;<br>    state MASTER<br>    interface eth0<br>    virtual_router_id 51<br>    priority 100<br>    advert_int 1<br>    authentication &#123;<br>        auth_type PASS<br>        auth_pass 1111<br>    &#125;<br>    virtual_ipaddress &#123;<br>        192.168.200.16<br>        192.168.200.17<br>        192.168.200.18<br>    &#125;<br>&#125;<br><br>virtual_server 192.168.200.100 443 &#123;<br>    delay_loop 6<br>    lb_algo rr<br>    lb_kind NAT<br>    persistence_timeout 50<br>    protocol TCP<br><br>    real_server 192.168.201.100 443 &#123;<br>        weight 1<br>        SSL_GET &#123;<br>            url &#123;<br>              path &#x2F;<br>              digest ff20ad2481f97b1754ef3e12ecd3a9cc<br>            &#125;<br>            url &#123;<br>              path &#x2F;mrtg&#x2F;<br>              digest 9b3a0c85a887a256d6939da88aabd8cd<br>            &#125;<br>            connect_timeout 3<br>            retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><br>virtual_server 10.10.10.2 1358 &#123;<br>    delay_loop 6<br>    lb_algo rr<br>    lb_kind NAT<br>    persistence_timeout 50<br>    protocol TCP<br><br>    sorry_server 192.168.200.200 1358<br><br>    real_server 192.168.200.2 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123;<br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br><br>    real_server 192.168.200.3 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123;<br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334c<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334c<br>            &#125;<br>            connect_timeout 3<br>            retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><br>virtual_server 10.10.10.3 1358 &#123;<br>    delay_loop 3<br>    lb_algo rr<br>    lb_kind NAT<br>    persistence_timeout 50<br>    protocol TCP<br><br>    real_server 192.168.200.4 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123;<br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br><br>    real_server 192.168.200.5 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123;<br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123;<br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">! Configuration File for keepalived
 
+global_defs {            
+   notification_email {
+     acassen@firewall.loc
+     failover@firewall.loc
+     sysadmin@firewall.loc
+   }
+   notification_email_from Alexandre.Cassen@firewall.loc
+   smtp_server 192.168.200.1
+   smtp_connect_timeout 30
+   router_id LVS_DEVEL
+   vrrp_skip_check_adv_addr
+   vrrp_strict
+   vrrp_garp_interval 0
+   vrrp_gna_interval 0
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.200.16
+        192.168.200.17
+        192.168.200.18
+    }
+}
+
+virtual_server 192.168.200.100 443 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+
+    real_server 192.168.201.100 443 {
+        weight 1
+        SSL_GET {
+            url {
+              path /
+              digest ff20ad2481f97b1754ef3e12ecd3a9cc
+            }
+            url {
+              path /mrtg/
+              digest 9b3a0c85a887a256d6939da88aabd8cd
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 3
+        }
+    }
+}
+
+virtual_server 10.10.10.2 1358 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+
+    sorry_server 192.168.200.200 1358
+
+    real_server 192.168.200.2 1358 {
+        weight 1
+        HTTP_GET {
+            url {
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 3
+        }
+    }
+
+    real_server 192.168.200.3 1358 {
+        weight 1
+        HTTP_GET {
+            url {
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            url {
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 3
+        }
+    }
+}
+
+virtual_server 10.10.10.3 1358 {
+    delay_loop 3
+    lb_algo rr
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+
+    real_server 192.168.200.4 1358 {
+        weight 1
+        HTTP_GET {
+            url {
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 3
+        }
+    }
+
+    real_server 192.168.200.5 1358 {
+        weight 1
+        HTTP_GET {
+            url {
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url {
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            retry 3
+            delay_before_retry 3
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>keepalived.conf【centos6】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">! Configuration File for keepalived<br><br>global_defs &#123;<br>   notification_email &#123;<br>     acassen@firewall.loc<br>     failover@firewall.loc<br>     sysadmin@firewall.loc<br>   &#125;<br>   notification_email_from Alexandre.Cassen@firewall.loc<br>   smtp_server 192.168.200.1<br>   smtp_connect_timeout 30<br>   router_id LVS_DEVEL<br>&#125;<br><br>vrrp_instance VI_1 &#123;<br>    state MASTER<br>    interface eth0<br>    virtual_router_id 51<br>    priority 100<br>    advert_int 1<br>    authentication &#123;<br>        auth_type PASS<br>        auth_pass 1111<br>    &#125;<br>    virtual_ipaddress &#123;<br>        192.168.200.16<br>        192.168.200.17<br>        192.168.200.18<br>    &#125;<br>&#125;<br><br>virtual_server 192.168.200.100 443 &#123;<br>    delay_loop 6<br>    lb_algo rr<br>    lb_kind NAT<br>    nat_mask 255.255.255.0<br>    persistence_timeout 50<br>    protocol TCP<br><br>    real_server 192.168.201.100 443 &#123;<br>        weight 1<br>        SSL_GET &#123;<br>            url &#123;<br>              path &#x2F;<br>              digest ff20ad2481f97b1754ef3e12ecd3a9cc<br>            &#125;<br>            url &#123;<br>              path &#x2F;mrtg&#x2F;<br>              digest 9b3a0c85a887a256d6939da88aabd8cd<br>            &#125;<br>            connect_timeout 3<br>            nb_get_retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><br>virtual_server 10.10.10.2 1358 &#123;<br>    delay_loop 6<br>    lb_algo rr <br>    lb_kind NAT<br>    persistence_timeout 50<br>    protocol TCP<br><br>    sorry_server 192.168.200.200 1358<br><br>    real_server 192.168.200.2 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123; <br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            nb_get_retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br><br>    real_server 192.168.200.3 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123; <br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334c<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334c<br>            &#125;<br>            connect_timeout 3<br>            nb_get_retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><br>virtual_server 10.10.10.3 1358 &#123;<br>    delay_loop 3<br>    lb_algo rr <br>    lb_kind NAT<br>    nat_mask 255.255.255.0<br>    persistence_timeout 50<br>    protocol TCP<br><br>    real_server 192.168.200.4 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123; <br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            nb_get_retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br><br>    real_server 192.168.200.5 1358 &#123;<br>        weight 1<br>        HTTP_GET &#123;<br>            url &#123; <br>              path &#x2F;testurl&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl2&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            url &#123; <br>              path &#x2F;testurl3&#x2F;test.jsp<br>              digest 640205b7b0fc66c1ea91c463fac6334d<br>            &#125;<br>            connect_timeout 3<br>            nb_get_retry 3<br>            delay_before_retry 3<br>        &#125;<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">! Configuration File for keepalived
 
+global_defs {
+   notification_email {
+     acassen@firewall.loc
+     failover@firewall.loc
+     sysadmin@firewall.loc
+   }
+   notification_email_from Alexandre.Cassen@firewall.loc
+   smtp_server 192.168.200.1
+   smtp_connect_timeout 30
+   router_id LVS_DEVEL
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.200.16
+        192.168.200.17
+        192.168.200.18
+    }
+}
+
+virtual_server 192.168.200.100 443 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind NAT
+    nat_mask 255.255.255.0
+    persistence_timeout 50
+    protocol TCP
+
+    real_server 192.168.201.100 443 {
+        weight 1
+        SSL_GET {
+            url {
+              path /
+              digest ff20ad2481f97b1754ef3e12ecd3a9cc
+            }
+            url {
+              path /mrtg/
+              digest 9b3a0c85a887a256d6939da88aabd8cd
+            }
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+}
+
+virtual_server 10.10.10.2 1358 {
+    delay_loop 6
+    lb_algo rr 
+    lb_kind NAT
+    persistence_timeout 50
+    protocol TCP
+
+    sorry_server 192.168.200.200 1358
+
+    real_server 192.168.200.2 1358 {
+        weight 1
+        HTTP_GET {
+            url { 
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+
+    real_server 192.168.200.3 1358 {
+        weight 1
+        HTTP_GET {
+            url { 
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            url { 
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334c
+            }
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+}
+
+virtual_server 10.10.10.3 1358 {
+    delay_loop 3
+    lb_algo rr 
+    lb_kind NAT
+    nat_mask 255.255.255.0
+    persistence_timeout 50
+    protocol TCP
+
+    real_server 192.168.200.4 1358 {
+        weight 1
+        HTTP_GET {
+            url { 
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+
+    real_server 192.168.200.5 1358 {
+        weight 1
+        HTTP_GET {
+            url { 
+              path /testurl/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl2/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            url { 
+              path /testurl3/test.jsp
+              digest 640205b7b0fc66c1ea91c463fac6334d
+            }
+            connect_timeout 3
+            nb_get_retry 3
+            delay_before_retry 3
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="两个高可用集群centos6和8"><a href="#两个高可用集群centos6和8" class="headerlink" title="两个高可用集群centos6和8"></a>两个高可用集群centos6和8</h2><ul>
 <li>centos8主服务器/etc/keepalived/keepalived.conf</li>
 </ul>
 <p>keepalived.conf【8】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">global_defs &#123;                 #全局定义<br><br>    notification_email &#123;<br>        acassen@firewall.loc<br>        failover@firewall.loc<br>        sysadmin@firewall.loc<br>    &#125;<br><br>    notification_email_from Alexandre.Cassen@firewall.loc<br>    smtp_server 192.168.xxx.xxx  #当前虚拟机ip<br>    smtp_connect_timeout 30<br>    router_id LVS_DEVEL<br>&#125;<br><br>vrrp_script chk_http_port &#123;     #自定义的检测脚本<br>    script "&#x2F;usr&#x2F;local&#x2F;src&#x2F;nginx_check.sh"  #脚本路径<br>    interval 2                  #（检测脚本执行的间隔）<br>    weight 2<br>&#125;<br><br>vrrp_instance VI_1 &#123;<br>    state MASTER         #  MASTER 是主服务器<br>    interface eth0       #  主服务器的网卡eth0<br>    virtual_router_id 51 # 主、备机的 virtual_router_id 必须相同<br>    priority 100         # 主、备机取不同的优先级，主机值较大，备份机值较小<br>    advert_int 1<br><br>    authentication &#123;<br>        auth_type PASS<br>        auth_pass 1111<br>    &#125;<br>    virtual_ipaddress &#123;<br>        192.168.xxx.50          # VRRP H 虚拟地址<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">global_defs {                 #全局定义
 
+    notification_email {
+        acassen@firewall.loc
+        failover@firewall.loc
+        sysadmin@firewall.loc
+    }
+
+    notification_email_from Alexandre.Cassen@firewall.loc
+    smtp_server 192.168.xxx.xxx  #当前虚拟机ip
+    smtp_connect_timeout 30
+    router_id LVS_DEVEL
+}
+
+vrrp_script chk_http_port {     #自定义的检测脚本
+    script "/usr/local/src/nginx_check.sh"  #脚本路径
+    interval 2                  #（检测脚本执行的间隔）
+    weight 2
+}
+
+vrrp_instance VI_1 {
+    state MASTER         #  MASTER 是主服务器
+    interface eth0       #  主服务器的网卡eth0
+    virtual_router_id 51 # 主、备机的 virtual_router_id 必须相同
+    priority 100         # 主、备机取不同的优先级，主机值较大，备份机值较小
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.xxx.50          # VRRP H 虚拟地址
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>centos6从服务器/etc/keepalived/keepalived.conf</li>
 </ul>
 <p>keepalived.conf【6】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf">global_defs &#123;                 #全局定义<br><br>    notification_email &#123;<br>        acassen@firewall.loc<br>        failover@firewall.loc<br>        sysadmin@firewall.loc<br>    &#125;<br><br>    notification_email_from Alexandre.Cassen@firewall.loc<br>    smtp_server 192.168.xxx.xxx   #当前虚拟机ip<br>    smtp_connect_timeout 30<br>    router_id LVS_DEVEL<br>&#125;<br><br>vrrp_script chk_http_port &#123;     #自定义的检测脚本<br>    script "&#x2F;usr&#x2F;local&#x2F;src&#x2F;nginx_check.sh"  #脚本路径<br>    interval 2                  #（检测脚本执行的间隔）<br>    weight 2<br>&#125;<br><br>vrrp_instance VI_1 &#123;<br>    state BACKUP         #  BACKUP 是从服务器<br>    interface eth0       #  主服务器的网卡eth0<br>    virtual_router_id 51 # 主、备机的 virtual_router_id 必须相同<br>    priority 90         # 主、备机取不同的优先级，主机值较大，备份机值较小<br>    advert_int 1<br><br>    authentication &#123;<br>        auth_type PASS<br>        auth_pass 1111<br>    &#125;<br>    virtual_ipaddress &#123;<br>        192.168.xxx.50          # VRRP H 虚拟地址<br>    &#125;<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf">global_defs {                 #全局定义
 
+    notification_email {
+        acassen@firewall.loc
+        failover@firewall.loc
+        sysadmin@firewall.loc
+    }
+
+    notification_email_from Alexandre.Cassen@firewall.loc
+    smtp_server 192.168.xxx.xxx   #当前虚拟机ip
+    smtp_connect_timeout 30
+    router_id LVS_DEVEL
+}
+
+vrrp_script chk_http_port {     #自定义的检测脚本
+    script "/usr/local/src/nginx_check.sh"  #脚本路径
+    interval 2                  #（检测脚本执行的间隔）
+    weight 2
+}
+
+vrrp_instance VI_1 {
+    state BACKUP         #  BACKUP 是从服务器
+    interface eth0       #  主服务器的网卡eth0
+    virtual_router_id 51 # 主、备机的 virtual_router_id 必须相同
+    priority 90         # 主、备机取不同的优先级，主机值较大，备份机值较小
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+    virtual_ipaddress {
+        192.168.xxx.50          # VRRP H 虚拟地址
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>添加自定义的检测脚本<ul>
 <li>路径：<code>/usr/local/src/nginx_check.sh</code></li>
@@ -701,7 +1075,15 @@
 </li>
 </ul>
 <p>nginx_check.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sh"><span class="hljs-meta">#!/bin/bash</span><br>A=`ps -C nginx –no-header |wc -l`<br><span class="hljs-keyword">if</span> [ <span class="hljs-variable">$A</span> -eq 0 ];<span class="hljs-keyword">then</span><br> /usr/<span class="hljs-built_in">local</span>/nginx/sbin/nginx<br> sleep 2<br> <span class="hljs-keyword">if</span> [ `ps -C nginx --no-header |wc -l` -eq 0 ];<span class="hljs-keyword">then</span><br> killall keepalived<br> <span class="hljs-keyword">fi</span><br><span class="hljs-keyword"><code class="language-hljs sh"><span class="hljs-meta">#!/bin/bash</span><br>A=`ps -C nginx –no-header |wc -l`<br><span class="hljs-keyword">if</span> [ <span class="hljs-variable">$A</span> -eq 0 ];<span class="hljs-keyword">then</span><br> /usr/<span class="hljs-built_in">local</span>/nginx/sbin/nginx<br> sleep 2<br> <span class="hljs-keyword">if</span> [ `ps -C nginx --no-header |wc -l` -eq 0 ];<span class="hljs-keyword">then</span><br> killall keepalived<br> <span class="hljs-keyword">fi</span><br><span class="hljs-keyword">fi</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-sh"><code class="language-sh">#!/bin/bash
+A=`ps -C nginx –no-header |wc -l`
+if [ $A -eq 0 ];then
+ /usr/local/nginx/sbin/nginx
+ sleep 2
+ if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then
+ killall keepalived
+ fi
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1524,7 +1906,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

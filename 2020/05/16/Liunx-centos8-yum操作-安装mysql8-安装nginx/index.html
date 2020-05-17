@@ -649,14 +649,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    966
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -796,14 +796,15 @@
 <li><code>systemctl stop firewalld</code></li>
 <li><code>systemctl disable firewalld</code> 【永久关闭防火墙】</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">[root@www ~]# systemct1 disable firewalld<br>Removed &#x2F;etc&#x2F; systemd&#x2F; system&#x2F; multi-user. target . wants&#x2F; firewalld. service .<br>Removed &#x2F; etc&#x2F; systemd&#x2F; system&#x2F; dbus- org. fedoraproject . FirewallD1. service.<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">[root@www ~]# systemct1 disable firewalld
+Removed /etc/ systemd/ system/ multi-user. target . wants/ firewalld. service .
+Removed / etc/ systemd/ system/ dbus- org. fedoraproject . FirewallD1. service.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>设置mysql开机自启</p>
 <ul>
 <li><code>systemctl enable mysqld</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">[ root@www ~]# systemctl enable mysqld<br>Created symlink &#x2F; etc&#x2F; sy stemd&#x2F; system&#x2F; multi user .target wants&#x2F;mysq1d. service +&#x2F;usr&#x2F; 1ib&#x2F; systemd &#x2F; system&#x2F; mysqld. service .<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">[ root@www ~]# systemctl enable mysqld
+Created symlink / etc/ sy stemd/ system/ multi user .target wants/mysq1d. service +/usr/ 1ib/ systemd / system/ mysqld. service .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><p>安装</p>
 <ul>
 <li><code>yum install nginx -y</code></li>
@@ -837,7 +838,95 @@
 <li><code>cat nginx.conf</code></li>
 </ul>
 <p>nginx.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs conf"><code class="language-hljs conf"># For more information on configuration, see:<br>#   * Official English Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;<br>#   * Official Russian Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;ru&#x2F;docs&#x2F;<br><br>user nginx;<br>worker_processes auto;<br>error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;<br>pid &#x2F;run&#x2F;nginx.pid;<br><br># Load dynamic modules. See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;nginx&#x2F;README.dynamic.<br>include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;<br><br>events &#123;<br>    worker_connections 1024;<br>&#125;<br><br>http &#123;<br>    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '<br>                      '$status $body_bytes_sent "$http_referer" '<br>                      '"$http_user_agent" "$http_x_forwarded_for"';<br><br>    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;<br><br>    sendfile            on;<br>    tcp_nopush          on;<br>    tcp_nodelay         on;<br>    keepalive_timeout   65;<br>    types_hash_max_size 2048;<br><br>    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;<br>    default_type        application&#x2F;octet-stream;<br><br>    # Load modular configuration files from the &#x2F;etc&#x2F;nginx&#x2F;conf.d directory.<br>    # See http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;ngx_core_module.html#include<br>    # for more information.<br>    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;<br><br>    server &#123;<br>        listen       80 default_server;<br>        listen       [::]:80 default_server;<br>        server_name  _;<br>        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;<br><br>        # Load configuration files for the default server block.<br>        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;<br><br>        location &#x2F; &#123;<br>        &#125;<br><br>        error_page 404 &#x2F;404.html;<br>            location &#x3D; &#x2F;40x.html &#123;<br>        &#125;<br><br>        error_page 500 502 503 504 &#x2F;50x.html;<br>            location &#x3D; &#x2F;50x.html &#123;<br>        &#125;<br>    &#125;<br><br># Settings for a TLS enabled server.<br>#<br>#    server &#123;<br>#        listen       443 ssl http2 default_server;<br>#        listen       [::]:443 ssl http2 default_server;<br>#        server_name  _;<br>#        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;<br>#<br>#        ssl_certificate "&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;server.crt";<br>#        ssl_certificate_key "&#x2F;etc&#x2F;pki&#x2F;nginx&#x2F;private&#x2F;server.key";<br>#        ssl_session_cache shared:SSL:1m;<br>#        ssl_session_timeout  10m;<br>#        ssl_ciphers PROFILE&#x3D;SYSTEM;<br>#        ssl_prefer_server_ciphers on;<br>#<br>#        # Load configuration files for the default server block.<br>#        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;<br>#<br>#        location &#x2F; &#123;<br>#        &#125;<br>#<br>#        error_page 404 &#x2F;404.html;<br>#            location &#x3D; &#x2F;40x.html &#123;<br>#        &#125;<br>#<br>#        error_page 500 502 503 504 &#x2F;50x.html;<br>#            location &#x3D; &#x2F;50x.html &#123;<br>#        &#125;<br>#    &#125;<br><br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf"><code class="language-conf"># For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / {
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+
+# Settings for a TLS enabled server.
+#
+#    server {
+#        listen       443 ssl http2 default_server;
+#        listen       [::]:443 ssl http2 default_server;
+#        server_name  _;
+#        root         /usr/share/nginx/html;
+#
+#        ssl_certificate "/etc/pki/nginx/server.crt";
+#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
+#        ssl_session_cache shared:SSL:1m;
+#        ssl_session_timeout  10m;
+#        ssl_ciphers PROFILE=SYSTEM;
+#        ssl_prefer_server_ciphers on;
+#
+#        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        location / {
+#        }
+#
+#        error_page 404 /404.html;
+#            location = /40x.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#            location = /50x.html {
+#        }
+#    }
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1664,7 +1753,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

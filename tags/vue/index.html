@@ -493,18 +493,12 @@
 
             <div class="description center-align">
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['记住：唯一的限制是你的想象力。','If one does not know he wants to which port, then any wind is favorable.'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 75,
-                        showCursor: true
-                    });
-                </script>
+                    <!-- 原来没添加动态诗词前 -->
+                    <!-- 介绍 -->
+
+                    <!-- 原现在没添加动态诗词后 -->
+                    <span id="jinrishici-sentence">正在加载今日诗词....</span>
+
                 
             </div>
         </div>
@@ -514,7 +508,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -579,20 +573,20 @@
                 </a>
                 
                 
-                <a href="/tags/nodejs/" title="nodejs: 3">
+                <a href="/tags/vue/" title="vue: 10">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="nodejs" style="background-color: #F8F9F9;">nodejs
-                        <span class="tag-length">3</span>
+                             chip-active "
+                            data-tagname="vue" style="background-color: #F8F9F9;">vue
+                        <span class="tag-length">10</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/nginx/" title="nginx: 2">
+                <a href="/tags/nodejs/" title="nodejs: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="nginx" style="background-color: #82E0AA;">nginx
-                        <span class="tag-length">2</span>
+                            data-tagname="nodejs" style="background-color: #82E0AA;">nodejs
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -606,38 +600,11 @@
                 </a>
                 
                 
-                <a href="/tags/vue/" title="vue: 10">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="vue" style="background-color: #A3E4D7;">vue
-                        <span class="tag-length">10</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E7%BC%96%E7%A0%81/" title="编码: 1">
+                <a href="/tags/nginx/" title="nginx: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="编码" style="background-color: #85C1E9;">编码
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/cookies/" title="cookies: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="cookies" style="background-color: #F8C471;">cookies
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/session/" title="session: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="session" style="background-color: #F9E79F;">session
-                        <span class="tag-length">1</span>
+                            data-tagname="nginx" style="background-color: #A3E4D7;">nginx
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -645,7 +612,7 @@
                 <a href="/tags/es6/" title="es6: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="es6" style="background-color: #A3E4D7;">es6
+                            data-tagname="es6" style="background-color: #85C1E9;">es6
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -656,6 +623,33 @@
                              chip-default "
                             data-tagname="mysql" style="background-color: #F8C471;">mysql
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/cookies/" title="cookies: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="cookies" style="background-color: #F9E79F;">cookies
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/session/" title="session: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="session" style="background-color: #F5EEF8;">session
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%BC%96%E7%A0%81/" title="编码: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="编码" style="background-color: #E8F8F5;">编码
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -1049,7 +1043,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

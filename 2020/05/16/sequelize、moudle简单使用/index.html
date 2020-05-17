@@ -653,14 +653,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    592
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    12 分
                 </div>
                 
 
@@ -678,23 +678,200 @@
                 <p>CSDN文章链接：<a href="https://blog.csdn.net/qq_45062586/article/details/104836214" target="_blank" rel="noopener">sequelize、moudle简单使用</a></p>
 <h1 id="MySQL-Node-js驱动程序"><a href="#MySQL-Node-js驱动程序" class="headerlink" title="MySQL Node.js驱动程序"></a>MySQL Node.js驱动程序</h1><h2 id="1-Node-js程序访问MySQL数据库"><a href="#1-Node-js程序访问MySQL数据库" class="headerlink" title="1.Node.js程序访问MySQL数据库"></a>1.Node.js程序访问MySQL数据库</h2><p>添加依赖包：<br>1.<strong>npm i mysql2</strong><br>2.<strong>npm i sequelize</strong>  </p>
 <p>ORM、ODM区别：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs angelscript">ODM对象数据模型、ORM对象关系模型<br>ODM / ORM 能将网站中的数据表示为 JavaScript 对象，然后将它们映射到底层数据库<br><span class="hljs-number">1.</span>ODM 通常慢一些，因为在对象和数据库格式之间存在一层用于映射的翻译代码<br><span class="hljs-number"><code class="language-hljs angelscript">ODM对象数据模型、ORM对象关系模型<br>ODM / ORM 能将网站中的数据表示为 JavaScript 对象，然后将它们映射到底层数据库<br><span class="hljs-number">1.</span>ODM 通常慢一些，因为在对象和数据库格式之间存在一层用于映射的翻译代码<br><span class="hljs-number">2.</span>ORM 可以继续用 JavaScript 对象的思维而不用转向数据库语义的思维。 在（同一个或不同网站）使用不同数据库时尤为明显<br><br>Sequelize是一款基于Nodejs功能强大的异步ORM框架<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>ODM对象数据模型、ORM对象关系模型
+ODM / ORM 能将网站中的数据表示为 JavaScript 对象，然后将它们映射到底层数据库
+1.ODM 通常慢一些，因为在对象和数据库格式之间存在一层用于映射的翻译代码
+2.ORM 可以继续用 JavaScript 对象的思维而不用转向数据库语义的思维。 在（同一个或不同网站）使用不同数据库时尤为明显
 
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs asciidoc">mysql&gt; select * from pets;<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>| id | name   | birth      |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>|  1 | Gaffey | 2007-07-07 |<br>|  2 | Odie   | 2008-08-08 |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>2 rows in set (0.00 sec)<br><br>每一行可以用一个JavaScript对象<br>第一行：JSON表示<br>&#123;<br><span class="hljs-code">    "id": 1,</span><br><span class="hljs-code">    "name": "Gaffey",</span><br><span class="hljs-code">    "birth": "2007-07-07"</span><br>&#125;<br><br>用Sequelize查询pets表：(复杂)<br>Pet.findAll()<br><span class="hljs-code">   .then(function (pets) &#123;</span><br><span class="hljs-code">       for (let pet in pets) &#123;</span><br><span class="hljs-code">           console.log(`$&#123;pet.id&#125;: $&#123;pet.name&#125;`);</span><br><span class="hljs-code">       &#125;</span><br><span class="hljs-code">   &#125;)</span><br><span class="hljs-code">   .catch(function (err) &#123;</span><br><span class="hljs-code">       // error</span><br><span class="hljs-code"><code class="language-hljs asciidoc">mysql&gt; select * from pets;<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>| id | name   | birth      |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>|  1 | Gaffey | 2007-07-07 |<br>|  2 | Odie   | 2008-08-08 |<br><span class="hljs-code">+----+</span>--------<span class="hljs-code">+------------+</span><br>2 rows in set (0.00 sec)<br><br>每一行可以用一个JavaScript对象<br>第一行：JSON表示<br>&#123;<br><span class="hljs-code">    "id": 1,</span><br><span class="hljs-code">    "name": "Gaffey",</span><br><span class="hljs-code">    "birth": "2007-07-07"</span><br>&#125;<br><br>用Sequelize查询pets表：(复杂)<br>Pet.findAll()<br><span class="hljs-code">   .then(function (pets) &#123;</span><br><span class="hljs-code">       for (let pet in pets) &#123;</span><br><span class="hljs-code">           console.log(`$&#123;pet.id&#125;: $&#123;pet.name&#125;`);</span><br><span class="hljs-code">       &#125;</span><br><span class="hljs-code">   &#125;)</span><br><span class="hljs-code">   .catch(function (err) &#123;</span><br><span class="hljs-code">       // error</span><br><span class="hljs-code">   &#125;);</span><br><br>注：<br>then()和catch()分别异步响应成功和失败<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+Sequelize是一款基于Nodejs功能强大的异步ORM框架</code></pre><pre><code>mysql&gt; select * from pets;
++----+--------+------------+
+| id | name   | birth      |
++----+--------+------------+
+|  1 | Gaffey | 2007-07-07 |
+|  2 | Odie   | 2008-08-08 |
++----+--------+------------+
+2 rows in set (0.00 sec)
 
-<p>在koa的async异步函数中直接写await访问数据库<br>ES7的await来调用任何一个Promise对象：（简单）</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs clojure">(<span class="hljs-name">async</span> () =&gt; &#123;<br>    var pets = await Pet.findAll()<span class="hljs-comment">;</span><br>&#125;)()<span class="hljs-comment"><code class="language-hljs clojure">(<span class="hljs-name">async</span> () =&gt; &#123;<br>    var pets = await Pet.findAll()<span class="hljs-comment">;</span><br>&#125;)()<span class="hljs-comment">;</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+每一行可以用一个JavaScript对象
+第一行：JSON表示
+{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Gaffey&quot;,
+    &quot;birth&quot;: &quot;2007-07-07&quot;
+}
 
-<p>实例：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs 1c">hnode-MySQL/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- init.txt             &lt;-- 初始化SQL命令<br><span class="hljs-string">|</span><br>+- config.js            &lt;-- MySQL配置文件<br><span class="hljs-string"><code class="language-hljs 1c">hnode-MySQL/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- init.txt             &lt;-- 初始化SQL命令<br><span class="hljs-string">|</span><br>+- config.js            &lt;-- MySQL配置文件<br><span class="hljs-string">|</span><br>+- app.js               <-- 使用koa的js<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+用Sequelize查询pets表：(复杂)
+Pet.findAll()
+   .then(function (pets) {
+       for (let pet in pets) {
+           console.log(`${pet.id}: ${pet.name}`);
+       }
+   })
+   .catch(function (err) {
+       // error
+   });
 
-<p>config.js </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs java"><span class="hljs-comment">//数据库连接配置文件</span><br><span class="hljs-keyword">var</span> config = &#123;<br>    database: <span class="hljs-string">'node_test'</span>,<br>    username: <span class="hljs-string">'root'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: <span class="hljs-number">3307</span><br>&#125;;<br><br><span class="hljs-comment">//暴露接口</span><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-comment">//数据库连接配置文件</span><br><span class="hljs-keyword">var</span> config = &#123;<br>    database: <span class="hljs-string">'node_test'</span>,<br>    username: <span class="hljs-string">'root'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: <span class="hljs-number">3307</span><br>&#125;;<br><br><span class="hljs-comment">//暴露接口</span><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+注：
+then()和catch()分别异步响应成功和失败</code></pre><p>在koa的async异步函数中直接写await访问数据库<br>ES7的await来调用任何一个Promise对象：（简单）</p>
+<pre><code>(async () =&gt; {
+    var pets = await Pet.findAll();
+})();</code></pre><p>实例：</p>
+<pre><code>hnode-MySQL/
+|
++- .vscode/
+|  |
+|  +- launch.json       &lt;-- VSCode 配置文件
+|
++- package.json         &lt;-- 项目描述文件
+|
++- node_modules/        &lt;-- npm安装的所有依赖包
+|
++- init.txt             &lt;-- 初始化SQL命令
+|
++- config.js            &lt;-- MySQL配置文件
+|
++- app.js               &lt;-- 使用koa的js</code></pre><p>config.js </p>
+<pre><code>//数据库连接配置文件
+var config = {
+    database: &#39;node_test&#39;,
+    username: &#39;root&#39;,
+    password: &#39;123456&#39;,
+    host: &#39;localhost&#39;,
+    port: 3307
+};
 
-<p>app.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><br><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><br><span class="hljs-comment">//config.js的自定义依赖包</span><br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-comment">//创建一个sequelize对象实例：</span><br><span class="hljs-comment">//单个进程连接到数据库，则应仅创建一个Sequelize实例</span><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    <span class="hljs-comment">//连接数据库语言</span><br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    pool: &#123;<br>        <span class="hljs-comment">//连接池中的最大、小连接数</span><br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        <span class="hljs-comment">//连接释放之前可以空闲的最长时间（以毫秒为单位）</span><br>        idle: <span class="hljs-number">30000</span><br>    &#125;<br>&#125;);<br><span class="hljs-comment">//测试连接是否正常</span><br>sequelize<br>  .authenticate()<br>  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Connection has been established successfully.'</span>);<br>  &#125;)<br>  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Unable to connect to the database:'</span>, err);<br>  &#125;);<br><br>  <br><span class="hljs-comment">//Model模型Pet，告诉Sequelize如何映射数据库表</span><br><span class="hljs-comment">//第一个参数传入默认的表名pets</span><br><span class="hljs-comment">//第二个参数指定(列名:数据类型)，如果是主键，指定true</span><br><span class="hljs-comment">//第三个参数是额外的配置，传入&#123; timestamps: false &#125;</span><br><span class="hljs-comment">//是为了关闭Sequelize的自动添加timestamp的功能。</span><br><br><span class="hljs-comment">//sequelize 连接表的时候，会默认给你传进去的表名加上s, </span><br><span class="hljs-comment">//所以需要手动配置参数 freezeTableName: true</span><br><span class="hljs-keyword">var</span> Pet = sequelize.define(<span class="hljs-string">'pets'</span>, <br>    &#123;<br>    id: &#123;<span class="hljs-attr">type</span>: Sequelize.STRING(<span class="hljs-number">50</span>),<span class="hljs-attr">primaryKey</span>: <span class="hljs-literal">true</span>&#125;,<br>    name: Sequelize.STRING(<span class="hljs-number">100</span>),<br>    gender: Sequelize.BOOLEAN,<br>    birth: Sequelize.STRING(<span class="hljs-number">10</span>),<br>    createdAt: Sequelize.BIGINT,<br>    updatedAt: Sequelize.BIGINT,<br>    version: Sequelize.BIGINT<br>    &#125;, <br>    &#123;<br>        timestamps: <span class="hljs-literal">false</span><br>    &#125;);<br><br><span class="hljs-comment">//日期对象</span><br><span class="hljs-keyword">var</span> now = <span class="hljs-built_in">Date</span>.now();<br><br><span class="hljs-comment">//往数据库添加数据（Promise方式）</span><br><span class="hljs-comment">//then()和catch()分别异步响应成功和失败</span><br>Pet.create(&#123;<br>    id: <span class="hljs-string">'g-'</span> + now,<br>    name: <span class="hljs-string">'cat'</span>,<br>    gender: <span class="hljs-literal">false</span>,<br>    birth: <span class="hljs-string">'2020-01-01'</span>,<br>    createdAt: now,<br>    updatedAt: now,<br>    version: <span class="hljs-number">0</span><br>&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created.'</span> + <span class="hljs-built_in">JSON</span>.stringify(p));<br>&#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'failed: '</span> + err);<br>&#125;);<br><br><span class="hljs-comment">//往数据库添加数据(await方式)</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> dog = <span class="hljs-keyword">await</span> Pet.create(&#123;<br>        id: <span class="hljs-string">'d-'</span> + now,<br>        name: <span class="hljs-string">'dog'</span>,<br>        gender: <span class="hljs-literal">false</span>,<br>        birth: <span class="hljs-string">'2020-01-02'</span>,<br>        createdAt: now,<br>        updatedAt: now,<br>        version: <span class="hljs-number">0</span><br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created: '</span> + <span class="hljs-built_in">JSON</span>.stringify(dog));<br>&#125;)();<br><br><span class="hljs-comment">//查询数据</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> pets = <span class="hljs-keyword">await</span> Pet.findAll(&#123;<br>        where: &#123;<br>            name: <span class="hljs-string">'dog'</span><br>        &#125;<br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`find <span class="hljs-subst">$&#123;pets.length&#125;</span> pets:`</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">of</span> pets) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(p));<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'update pet...'</span>);<br>        <span class="hljs-comment">//更新数据</span><br>        p.gender = <span class="hljs-literal">true</span>;<br>        p.updatedAt = <span class="hljs-built_in">Date</span>.now();<br>        p.version ++;<br>        <span class="hljs-keyword">await</span> p.save();<br>        <span class="hljs-comment">//删除数据</span><br>        <span class="hljs-keyword">if</span> (p.version === <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">await</span> p.destroy();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;p.name&#125;</span> was destroyed.`</span>);<br>        &#125;<br>    &#125;<br>&#125;)();<br><br><br><span class="hljs-comment">// 单独更新数据，await p.save();保存</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     p.gender = true;</span><br><span class="hljs-comment">//     p.updatedAt = Date.now();</span><br><span class="hljs-comment">//     p.version ++;</span><br><span class="hljs-comment">//     await p.save();</span><br><span class="hljs-comment">// &#125;)();</span><br><br><br><br><span class="hljs-comment">// 单独删除数据，await p.destroy();销毁</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     await p.destroy();</span><br><span class="hljs-comment"><code class="language-hljs javascript"><br><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><br><span class="hljs-comment">//config.js的自定义依赖包</span><br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-comment">//创建一个sequelize对象实例：</span><br><span class="hljs-comment">//单个进程连接到数据库，则应仅创建一个Sequelize实例</span><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    <span class="hljs-comment">//连接数据库语言</span><br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    pool: &#123;<br>        <span class="hljs-comment">//连接池中的最大、小连接数</span><br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        <span class="hljs-comment">//连接释放之前可以空闲的最长时间（以毫秒为单位）</span><br>        idle: <span class="hljs-number">30000</span><br>    &#125;<br>&#125;);<br><span class="hljs-comment">//测试连接是否正常</span><br>sequelize<br>  .authenticate()<br>  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Connection has been established successfully.'</span>);<br>  &#125;)<br>  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Unable to connect to the database:'</span>, err);<br>  &#125;);<br><br>  <br><span class="hljs-comment">//Model模型Pet，告诉Sequelize如何映射数据库表</span><br><span class="hljs-comment">//第一个参数传入默认的表名pets</span><br><span class="hljs-comment">//第二个参数指定(列名:数据类型)，如果是主键，指定true</span><br><span class="hljs-comment">//第三个参数是额外的配置，传入&#123; timestamps: false &#125;</span><br><span class="hljs-comment">//是为了关闭Sequelize的自动添加timestamp的功能。</span><br><br><span class="hljs-comment">//sequelize 连接表的时候，会默认给你传进去的表名加上s, </span><br><span class="hljs-comment">//所以需要手动配置参数 freezeTableName: true</span><br><span class="hljs-keyword">var</span> Pet = sequelize.define(<span class="hljs-string">'pets'</span>, <br>    &#123;<br>    id: &#123;<span class="hljs-attr">type</span>: Sequelize.STRING(<span class="hljs-number">50</span>),<span class="hljs-attr">primaryKey</span>: <span class="hljs-literal">true</span>&#125;,<br>    name: Sequelize.STRING(<span class="hljs-number">100</span>),<br>    gender: Sequelize.BOOLEAN,<br>    birth: Sequelize.STRING(<span class="hljs-number">10</span>),<br>    createdAt: Sequelize.BIGINT,<br>    updatedAt: Sequelize.BIGINT,<br>    version: Sequelize.BIGINT<br>    &#125;, <br>    &#123;<br>        timestamps: <span class="hljs-literal">false</span><br>    &#125;);<br><br><span class="hljs-comment">//日期对象</span><br><span class="hljs-keyword">var</span> now = <span class="hljs-built_in">Date</span>.now();<br><br><span class="hljs-comment">//往数据库添加数据（Promise方式）</span><br><span class="hljs-comment">//then()和catch()分别异步响应成功和失败</span><br>Pet.create(&#123;<br>    id: <span class="hljs-string">'g-'</span> + now,<br>    name: <span class="hljs-string">'cat'</span>,<br>    gender: <span class="hljs-literal">false</span>,<br>    birth: <span class="hljs-string">'2020-01-01'</span>,<br>    createdAt: now,<br>    updatedAt: now,<br>    version: <span class="hljs-number">0</span><br>&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created.'</span> + <span class="hljs-built_in">JSON</span>.stringify(p));<br>&#125;).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'failed: '</span> + err);<br>&#125;);<br><br><span class="hljs-comment">//往数据库添加数据(await方式)</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> dog = <span class="hljs-keyword">await</span> Pet.create(&#123;<br>        id: <span class="hljs-string">'d-'</span> + now,<br>        name: <span class="hljs-string">'dog'</span>,<br>        gender: <span class="hljs-literal">false</span>,<br>        birth: <span class="hljs-string">'2020-01-02'</span>,<br>        createdAt: now,<br>        updatedAt: now,<br>        version: <span class="hljs-number">0</span><br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'created: '</span> + <span class="hljs-built_in">JSON</span>.stringify(dog));<br>&#125;)();<br><br><span class="hljs-comment">//查询数据</span><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">var</span> pets = <span class="hljs-keyword">await</span> Pet.findAll(&#123;<br>        where: &#123;<br>            name: <span class="hljs-string">'dog'</span><br>        &#125;<br>    &#125;);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`find <span class="hljs-subst">$&#123;pets.length&#125;</span> pets:`</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">of</span> pets) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(p));<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'update pet...'</span>);<br>        <span class="hljs-comment">//更新数据</span><br>        p.gender = <span class="hljs-literal">true</span>;<br>        p.updatedAt = <span class="hljs-built_in">Date</span>.now();<br>        p.version ++;<br>        <span class="hljs-keyword">await</span> p.save();<br>        <span class="hljs-comment">//删除数据</span><br>        <span class="hljs-keyword">if</span> (p.version === <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">await</span> p.destroy();<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;p.name&#125;</span> was destroyed.`</span>);<br>        &#125;<br>    &#125;<br>&#125;)();<br><br><br><span class="hljs-comment">// 单独更新数据，await p.save();保存</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     p.gender = true;</span><br><span class="hljs-comment">//     p.updatedAt = Date.now();</span><br><span class="hljs-comment">//     p.version ++;</span><br><span class="hljs-comment">//     await p.save();</span><br><span class="hljs-comment">// &#125;)();</span><br><br><br><br><span class="hljs-comment">// 单独删除数据，await p.destroy();销毁</span><br><span class="hljs-comment">// (async () =&gt; &#123;</span><br><span class="hljs-comment">//     var p = await queryFromSomewhere();</span><br><span class="hljs-comment">//     await p.destroy();</span><br><span class="hljs-comment">// &#125;)();</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+//暴露接口
+module.exports = config;
+</code></pre><p>app.js</p>
+<pre><code>
+const Sequelize = require(&#39;sequelize&#39;);
 
-<h2 id="2-使用module"><a href="#2-使用module" class="headerlink" title="2.使用module"></a>2.使用module</h2><p>一个大型Web App通常都有几十个映射表，一个映射表就是一个Model。<br>Model存放的文件夹必须在models</p>
+//config.js的自定义依赖包
+const config = require(&#39;./config&#39;);
+
+console.log(&#39;init sequelize...&#39;);
+
+//创建一个sequelize对象实例：
+//单个进程连接到数据库，则应仅创建一个Sequelize实例
+var sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    //连接数据库语言
+    dialect: &#39;mysql&#39;,
+    pool: {
+        //连接池中的最大、小连接数
+        max: 5,
+        min: 0,
+        //连接释放之前可以空闲的最长时间（以毫秒为单位）
+        idle: 30000
+    }
+});
+//测试连接是否正常
+sequelize
+  .authenticate()
+  .then(() =&gt; {
+    console.log(&#39;Connection has been established successfully.&#39;);
+  })
+  .catch(err =&gt; {
+    console.error(&#39;Unable to connect to the database:&#39;, err);
+  });
+
+
+//Model模型Pet，告诉Sequelize如何映射数据库表
+//第一个参数传入默认的表名pets
+//第二个参数指定(列名:数据类型)，如果是主键，指定true
+//第三个参数是额外的配置，传入{ timestamps: false }
+//是为了关闭Sequelize的自动添加timestamp的功能。
+
+//sequelize 连接表的时候，会默认给你传进去的表名加上s, 
+//所以需要手动配置参数 freezeTableName: true
+var Pet = sequelize.define(&#39;pets&#39;, 
+    {
+    id: {type: Sequelize.STRING(50),primaryKey: true},
+    name: Sequelize.STRING(100),
+    gender: Sequelize.BOOLEAN,
+    birth: Sequelize.STRING(10),
+    createdAt: Sequelize.BIGINT,
+    updatedAt: Sequelize.BIGINT,
+    version: Sequelize.BIGINT
+    }, 
+    {
+        timestamps: false
+    });
+
+//日期对象
+var now = Date.now();
+
+//往数据库添加数据（Promise方式）
+//then()和catch()分别异步响应成功和失败
+Pet.create({
+    id: &#39;g-&#39; + now,
+    name: &#39;cat&#39;,
+    gender: false,
+    birth: &#39;2020-01-01&#39;,
+    createdAt: now,
+    updatedAt: now,
+    version: 0
+}).then(function (p) {
+    console.log(&#39;created.&#39; + JSON.stringify(p));
+}).catch(function (err) {
+    console.log(&#39;failed: &#39; + err);
+});
+
+//往数据库添加数据(await方式)
+(async () =&gt; {
+    var dog = await Pet.create({
+        id: &#39;d-&#39; + now,
+        name: &#39;dog&#39;,
+        gender: false,
+        birth: &#39;2020-01-02&#39;,
+        createdAt: now,
+        updatedAt: now,
+        version: 0
+    });
+    console.log(&#39;created: &#39; + JSON.stringify(dog));
+})();
+
+//查询数据
+(async () =&gt; {
+    var pets = await Pet.findAll({
+        where: {
+            name: &#39;dog&#39;
+        }
+    });
+    console.log(`find ${pets.length} pets:`);
+    for (let p of pets) {
+        console.log(JSON.stringify(p));
+        console.log(&#39;update pet...&#39;);
+        //更新数据
+        p.gender = true;
+        p.updatedAt = Date.now();
+        p.version ++;
+        await p.save();
+        //删除数据
+        if (p.version === 3) {
+            await p.destroy();
+            console.log(`${p.name} was destroyed.`);
+        }
+    }
+})();
+
+
+// 单独更新数据，await p.save();保存
+// (async () =&gt; {
+//     var p = await queryFromSomewhere();
+//     p.gender = true;
+//     p.updatedAt = Date.now();
+//     p.version ++;
+//     await p.save();
+// })();
+
+
+
+// 单独删除数据，await p.destroy();销毁
+// (async () =&gt; {
+//     var p = await queryFromSomewhere();
+//     await p.destroy();
+// })();</code></pre><h2 id="2-使用module"><a href="#2-使用module" class="headerlink" title="2.使用module"></a>2.使用module</h2><p>一个大型Web App通常都有几十个映射表，一个映射表就是一个Model。<br>Model存放的文件夹必须在models</p>
 <p>每个Model必须遵守一套规范</p>
 <p>1.统一主键，名称必须是id，类型必须是STRING(50)；<br>2.所有字段默认为NOT NULL，除非显式指定；<br>3.统一timestamp机制，每个Model必须有<strong>createdAt、updatedAt和version</strong>，分别记录<strong>创建时间、修改时间和版本号</strong>。  </p>
 <ul>
@@ -702,9 +879,36 @@
 <li>version每次修改时自增。</li>
 </ul>
 <p>目录：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs 1c">model-sequelize/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- models/              &lt;-- 存放所有Model<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- Pet.js            &lt;-- Pet</span><br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- User.js           &lt;-- User</span><br><span class="hljs-string">|</span><br>+- config.js            &lt;-- 配置文件入口<br><span class="hljs-string">|</span><br>+- config-default.js    &lt;-- 默认配置文件<br><span class="hljs-string">|</span><br>+- config-test.js       &lt;-- 测试配置文件<br><span class="hljs-string">|</span><br>+- db.js                &lt;-- 定义Model<br><span class="hljs-string">|</span><br>+- model.js             &lt;-- 导入Model<br><span class="hljs-string">|</span><br>+- init-db.js           &lt;-- 初始化数据库<br><span class="hljs-string"><code class="language-hljs 1c">model-sequelize/<br><span class="hljs-string">|</span><br>+- .vscode/<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- launch.json       &lt;-- VSCode 配置文件</span><br><span class="hljs-string">|</span><br>+- package.json         &lt;-- 项目描述文件<br><span class="hljs-string">|</span><br>+- node_modules/        &lt;-- npm安装的所有依赖包<br><span class="hljs-string">|</span><br>+- models/              &lt;-- 存放所有Model<br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- Pet.js            &lt;-- Pet</span><br><span class="hljs-string">|  |</span><br><span class="hljs-string">|  +- User.js           &lt;-- User</span><br><span class="hljs-string">|</span><br>+- config.js            &lt;-- 配置文件入口<br><span class="hljs-string">|</span><br>+- config-default.js    &lt;-- 默认配置文件<br><span class="hljs-string">|</span><br>+- config-test.js       &lt;-- 测试配置文件<br><span class="hljs-string">|</span><br>+- db.js                &lt;-- 定义Model<br><span class="hljs-string">|</span><br>+- model.js             &lt;-- 导入Model<br><span class="hljs-string">|</span><br>+- init-db.js           &lt;-- 初始化数据库<br><span class="hljs-string">|</span><br>+- app.js               <-- 业务代码<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>注：<br>1.<strong>npm i fs</strong><br>2.<strong>npm i sequelize</strong><br>3.<strong>npm i node-uuid</strong>(db.js中定义model使用)<br>4.<strong>npm i mysql2</strong></p>
+<pre><code>model-sequelize/
+|
++- .vscode/
+|  |
+|  +- launch.json       &lt;-- VSCode 配置文件
+|
++- package.json         &lt;-- 项目描述文件
+|
++- node_modules/        &lt;-- npm安装的所有依赖包
+|
++- models/              &lt;-- 存放所有Model
+|  |
+|  +- Pet.js            &lt;-- Pet
+|  |
+|  +- User.js           &lt;-- User
+|
++- config.js            &lt;-- 配置文件入口
+|
++- config-default.js    &lt;-- 默认配置文件
+|
++- config-test.js       &lt;-- 测试配置文件
+|
++- db.js                &lt;-- 定义Model
+|
++- model.js             &lt;-- 导入Model
+|
++- init-db.js           &lt;-- 初始化数据库
+|
++- app.js               &lt;-- 业务代码
+</code></pre><p>注：<br>1.<strong>npm i fs</strong><br>2.<strong>npm i sequelize</strong><br>3.<strong>npm i node-uuid</strong>(db.js中定义model使用)<br>4.<strong>npm i mysql2</strong></p>
 <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>实现不同环境读取不同的配置文件</p>
 <ul>
 <li>先读取config-default.js；</li>
@@ -713,36 +917,264 @@
 </ul>
 <p>1.开发环境下，团队统一使用默认的配置config-default.js；<br>2.生产环境下，部署到服务器时，配置好config-override.js；<br>3.测试环境下，统一使用config-test.js，测试数据库可以反复清空，不会影响开发。  </p>
 <p>config-default.js(第一步，$\color{red}连接数据库$)<br>1.开发环境下默认的配置</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'default'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'default'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>var config = {
+    dialect: &#39;mysql&#39;,
+    database: &#39;default&#39;,
+    username: &#39;Lewis&#39;,
+    password: &#39;123456&#39;,
+    host: &#39;localhost&#39;,
+    port: 3307
+};
+module.exports = config;</code></pre><p>config-override.js（第二步，$\color{red}连接数据库$）<br>2.生产环境下，部署到服务器配置</p>
+<pre><code>var config = {
+    database: &#39;override&#39;,
+    username: &#39;Lewis&#39;,
+    password: &#39;123456&#39;,
+    host: &#39;192.168.1.199&#39;,
+    port: 3307
+};
+module.exports = config;</code></pre><p>config-test.js（第三步，$\color{red}连接数据库$）<br>3.应用测试环境的配置：</p>
+<pre><code>var config = {
+    dialect: &#39;mysql&#39;,
+    database: &#39;nodetest&#39;,
+    username: &#39;Lewis&#39;,
+    password: &#39;123456&#39;,
+    host: &#39;localhost&#39;,
+    port: 3307
+};
+module.exports = config;</code></pre><p>config.js（判断环境）<br>实现不同环境读取不同的配置文件</p>
+<pre><code>// 配置文件导入集合
+const defaultConfig = &#39;./config-default.js&#39;;
+const overrideConfig = &#39;./config-override.js&#39;;
+const testConfig = &#39;./config-test.js&#39;;
 
-<p>config-override.js（第二步，$\color{red}连接数据库$）<br>2.生产环境下，部署到服务器配置</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    database: <span class="hljs-string">'override'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    database: <span class="hljs-string">'override'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'192.168.1.199'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+const fs = require(&#39;fs&#39;);
 
-<p>config-test.js（第三步，$\color{red}连接数据库$）<br>3.应用测试环境的配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'nodetest'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string"><code class="language-hljs routeros">var<span class="hljs-built_in"> config </span>= &#123;<br>    dialect: <span class="hljs-string">'mysql'</span>,<br>    database: <span class="hljs-string">'nodetest'</span>,<br>    username: <span class="hljs-string">'Lewis'</span>,<br>    password: <span class="hljs-string">'123456'</span>,<br>    host: <span class="hljs-string">'localhost'</span>,<br>    port: 3307<br>&#125;;<br>module.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+var config = null;
 
-<p>config.js（判断环境）<br>实现不同环境读取不同的配置文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-comment">// 配置文件导入集合</span><br><span class="hljs-keyword">const</span> defaultConfig = <span class="hljs-string">'./config-default.js'</span>;<br><span class="hljs-keyword">const</span> overrideConfig = <span class="hljs-string">'./config-override.js'</span>;<br><span class="hljs-keyword">const</span> testConfig = <span class="hljs-string">'./config-test.js'</span>;<br><br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> config = <span class="hljs-literal">null</span>;<br><br><span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">'test'</span>) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;testConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(testConfig);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;defaultConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(defaultConfig);<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">if</span> (fs.statSync(overrideConfig).isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>...`</span>);<br>            config = <span class="hljs-built_in">Object</span>.assign(config, <span class="hljs-built_in">require</span>(overrideConfig));<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Cannot load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>.`</span>);<br>    &#125;<br>&#125;<br><span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-comment">// 配置文件导入集合</span><br><span class="hljs-keyword">const</span> defaultConfig = <span class="hljs-string">'./config-default.js'</span>;<br><span class="hljs-keyword">const</span> overrideConfig = <span class="hljs-string">'./config-override.js'</span>;<br><span class="hljs-keyword">const</span> testConfig = <span class="hljs-string">'./config-test.js'</span>;<br><br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> config = <span class="hljs-literal">null</span>;<br><br><span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">'test'</span>) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;testConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(testConfig);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;defaultConfig&#125;</span>...`</span>);<br>    config = <span class="hljs-built_in">require</span>(defaultConfig);<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">if</span> (fs.statSync(overrideConfig).isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>...`</span>);<br>            config = <span class="hljs-built_in">Object</span>.assign(config, <span class="hljs-built_in">require</span>(overrideConfig));<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Cannot load <span class="hljs-subst">$&#123;overrideConfig&#125;</span>.`</span>);<br>    &#125;<br>&#125;<br><span class="hljs-built_in">module</span>.exports = config;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+if (process.env.NODE_ENV === &#39;test&#39;) {
+    console.log(`Load ${testConfig}...`);
+    config = require(testConfig);
+} else {
+    console.log(`Load ${defaultConfig}...`);
+    config = require(defaultConfig);
+    try {
+        if (fs.statSync(overrideConfig).isFile()) {
+            console.log(`Load ${overrideConfig}...`);
+            config = Object.assign(config, require(overrideConfig));
+        }
+    } catch (err) {
+        console.log(`Cannot load ${overrideConfig}.`);
+    }
+}
+module.exports = config;</code></pre><h3 id="第二步（定义Model、写Model、判断环境使用Model）"><a href="#第二步（定义Model、写Model、判断环境使用Model）" class="headerlink" title="第二步（定义Model、写Model、判断环境使用Model）"></a>第二步（定义Model、写Model、判断环境使用Model）</h3><p>db.js(定义Model，数据库连接池)</p>
+<pre><code>const Sequelize = require(&#39;sequelize&#39;);
+const uuid = require(&#39;node-uuid&#39;);
+const config = require(&#39;./config&#39;);
 
-<h3 id="第二步（定义Model、写Model、判断环境使用Model）"><a href="#第二步（定义Model、写Model、判断环境使用Model）" class="headerlink" title="第二步（定义Model、写Model、判断环境使用Model）"></a>第二步（定义Model、写Model、判断环境使用Model）</h3><p>db.js(定义Model，数据库连接池)</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs typescript"><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><span class="hljs-keyword">const</span> uuid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-uuid'</span>);<br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateId</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> uuid.v4();<br>&#125;<br><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    dialect: config.dialect,<br>    pool: &#123;<br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        idle: <span class="hljs-number">10000</span><br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">const</span> ID_TYPE = Sequelize.STRING(<span class="hljs-number">50</span>);<br><br><span class="hljs-comment">//defineModel强制实现上述规则</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineModel</span>(<span class="hljs-params">name, attributes</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> attrs = &#123;&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> attributes) &#123;<br>        <span class="hljs-keyword">let</span> value = attributes[key];<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">'object'</span> &amp;&amp; value[<span class="hljs-string">'type'</span>]) &#123;<br>            value.allowNull = value.allowNull || <span class="hljs-literal">false</span>;<br>            attrs[key] = value;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            attrs[key] = &#123;<br>                <span class="hljs-keyword">type</span>: value,<br>                allowNull: <span class="hljs-literal">false</span><br>            &#125;;<br>        &#125;<br>    &#125;<br>    attrs.id = &#123;<br>        <span class="hljs-keyword">type</span>: ID_TYPE,<br>        primaryKey: <span class="hljs-literal">true</span><br>    &#125;;<br>    attrs.createdAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.updatedAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.version = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'model defined for table: '</span> + name + <span class="hljs-string">'\n'</span> + <span class="hljs-built_in">JSON</span>.stringify(attrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">k, v</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (k === <span class="hljs-string">'type'</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> Sequelize) &#123;<br>                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'ABSTRACT'</span> || key === <span class="hljs-string">'NUMBER'</span>) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-keyword">let</span> dbType = Sequelize[key];<br>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> dbType === <span class="hljs-string">'function'</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> dbType) &#123;<br>                        <span class="hljs-keyword">if</span> (v._length) &#123;<br>                            <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;dbType.key&#125;</span>(<span class="hljs-subst">$&#123;v._length&#125;</span>)`</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                    <span class="hljs-keyword">if</span> (v === dbType) &#123;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> v;<br>    &#125;, <span class="hljs-string">'  '</span>));<br>    <span class="hljs-keyword">return</span> sequelize.define(name, attrs, &#123;<br>        tableName: name,<br>        timestamps: <span class="hljs-literal">false</span>,<br>        hooks: &#123;<br>            beforeValidate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();<br>                <span class="hljs-keyword">if</span> (obj.isNewRecord) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will create entity...'</span> + obj);<br>                    <span class="hljs-keyword">if</span> (!obj.id) &#123;<br>                        obj.id = generateId();<br>                    &#125;<br>                    obj.createdAt = now;<br>                    obj.updatedAt = now;<br>                    obj.version = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will update entity...'</span>);<br>                    obj.updatedAt = now;<br>                    obj.version++;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;);<br>&#125;<br><br><span class="hljs-keyword">const</span> TYPES = [<span class="hljs-string">'STRING'</span>, <span class="hljs-string">'INTEGER'</span>, <span class="hljs-string">'BIGINT'</span>, <span class="hljs-string">'TEXT'</span>, <span class="hljs-string">'DOUBLE'</span>, <span class="hljs-string">'DATEONLY'</span>, <span class="hljs-string">'BOOLEAN'</span>];<br><br><span class="hljs-keyword">var</span> exp = &#123;<br>    defineModel: defineModel,<br>    sync: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// only allow create ddl in non-production environment:</span><br>        <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'production'</span>) &#123;<br>            sequelize.sync(&#123; force: <span class="hljs-literal">true</span> &#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Cannot sync() when NODE_ENV is set to \'production\'.'</span>);<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">type</span> of TYPES) &#123;<br>    exp[<span class="hljs-keyword">type</span>] = Sequelize[<span class="hljs-keyword">type</span>];<br>&#125;<br><br>exp.ID = ID_TYPE;<br>exp.generateId = generateId;<br><br><span class="hljs-built_in"><code class="language-hljs typescript"><span class="hljs-keyword">const</span> Sequelize = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sequelize'</span>);<br><span class="hljs-keyword">const</span> uuid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-uuid'</span>);<br><span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'init sequelize...'</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateId</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> uuid.v4();<br>&#125;<br><br><span class="hljs-keyword">var</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;<br>    host: config.host,<br>    dialect: config.dialect,<br>    pool: &#123;<br>        max: <span class="hljs-number">5</span>,<br>        min: <span class="hljs-number">0</span>,<br>        idle: <span class="hljs-number">10000</span><br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">const</span> ID_TYPE = Sequelize.STRING(<span class="hljs-number">50</span>);<br><br><span class="hljs-comment">//defineModel强制实现上述规则</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineModel</span>(<span class="hljs-params">name, attributes</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> attrs = &#123;&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> attributes) &#123;<br>        <span class="hljs-keyword">let</span> value = attributes[key];<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> value === <span class="hljs-string">'object'</span> &amp;&amp; value[<span class="hljs-string">'type'</span>]) &#123;<br>            value.allowNull = value.allowNull || <span class="hljs-literal">false</span>;<br>            attrs[key] = value;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            attrs[key] = &#123;<br>                <span class="hljs-keyword">type</span>: value,<br>                allowNull: <span class="hljs-literal">false</span><br>            &#125;;<br>        &#125;<br>    &#125;<br>    attrs.id = &#123;<br>        <span class="hljs-keyword">type</span>: ID_TYPE,<br>        primaryKey: <span class="hljs-literal">true</span><br>    &#125;;<br>    attrs.createdAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.updatedAt = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    attrs.version = &#123;<br>        <span class="hljs-keyword">type</span>: Sequelize.BIGINT,<br>        allowNull: <span class="hljs-literal">false</span><br>    &#125;;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'model defined for table: '</span> + name + <span class="hljs-string">'\n'</span> + <span class="hljs-built_in">JSON</span>.stringify(attrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">k, v</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (k === <span class="hljs-string">'type'</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> Sequelize) &#123;<br>                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">'ABSTRACT'</span> || key === <span class="hljs-string">'NUMBER'</span>) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-keyword">let</span> dbType = Sequelize[key];<br>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> dbType === <span class="hljs-string">'function'</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> dbType) &#123;<br>                        <span class="hljs-keyword">if</span> (v._length) &#123;<br>                            <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;dbType.key&#125;</span>(<span class="hljs-subst">$&#123;v._length&#125;</span>)`</span>;<br>                        &#125;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                    <span class="hljs-keyword">if</span> (v === dbType) &#123;<br>                        <span class="hljs-keyword">return</span> dbType.key;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> v;<br>    &#125;, <span class="hljs-string">'  '</span>));<br>    <span class="hljs-keyword">return</span> sequelize.define(name, attrs, &#123;<br>        tableName: name,<br>        timestamps: <span class="hljs-literal">false</span>,<br>        hooks: &#123;<br>            beforeValidate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>&#123;<br>                <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();<br>                <span class="hljs-keyword">if</span> (obj.isNewRecord) &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will create entity...'</span> + obj);<br>                    <span class="hljs-keyword">if</span> (!obj.id) &#123;<br>                        obj.id = generateId();<br>                    &#125;<br>                    obj.createdAt = now;<br>                    obj.updatedAt = now;<br>                    obj.version = <span class="hljs-number">0</span>;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'will update entity...'</span>);<br>                    obj.updatedAt = now;<br>                    obj.version++;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;);<br>&#125;<br><br><span class="hljs-keyword">const</span> TYPES = [<span class="hljs-string">'STRING'</span>, <span class="hljs-string">'INTEGER'</span>, <span class="hljs-string">'BIGINT'</span>, <span class="hljs-string">'TEXT'</span>, <span class="hljs-string">'DOUBLE'</span>, <span class="hljs-string">'DATEONLY'</span>, <span class="hljs-string">'BOOLEAN'</span>];<br><br><span class="hljs-keyword">var</span> exp = &#123;<br>    defineModel: defineModel,<br>    sync: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// only allow create ddl in non-production environment:</span><br>        <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">'production'</span>) &#123;<br>            sequelize.sync(&#123; force: <span class="hljs-literal">true</span> &#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Cannot sync() when NODE_ENV is set to \'production\'.'</span>);<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">type</span> of TYPES) &#123;<br>    exp[<span class="hljs-keyword">type</span>] = Sequelize[<span class="hljs-keyword">type</span>];<br>&#125;<br><br>exp.ID = ID_TYPE;<br>exp.generateId = generateId;<br><br><span class="hljs-built_in">module</span>.exports = exp;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+console.log(&#39;init sequelize...&#39;);
 
-<p>models/Pet.js（Model文件1,创建数据表结构，$\color{red}表名必须多一个s$）</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('pets', &#123;<br>    ownerId: <span class="hljs-keyword">db</span>.ID,<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN,<br>    birth: <span class="hljs-keyword">db</span>.<span class="hljs-built_in"><code class="language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('pets', &#123;<br>    ownerId: <span class="hljs-keyword">db</span>.ID,<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN,<br>    birth: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(10),<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+function generateId() {
+    return uuid.v4();
+}
 
-<p>models/User.js（Model文件2，创建数据表结构,$\color{red}表名必须多一个s$）</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br><span class="hljs-comment">//User具有email、passwd、name和gender这4个业务字段</span><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('users', &#123;<br>    email: &#123;<br>        <span class="hljs-keyword">type</span>: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>        unique: true<br>    &#125;,<br>    passwd: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword"><code class="language-hljs stata"><span class="hljs-comment">//导入上一层文件夹中的db.js的定义Model文件</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">db</span> = require('../<span class="hljs-keyword">db</span>');<br><br><span class="hljs-comment">//User具有email、passwd、name和gender这4个业务字段</span><br>module.exports = <span class="hljs-keyword">db</span>.defineModel('users', &#123;<br>    email: &#123;<br>        <span class="hljs-keyword">type</span>: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>        unique: true<br>    &#125;,<br>    passwd: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    name: <span class="hljs-keyword">db</span>.<span class="hljs-built_in">STRING</span>(100),<br>    gender: <span class="hljs-keyword">db</span>.BOOLEAN<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+var sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    dialect: config.dialect,
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    }
+});
 
-<p>model.js（合并，自动扫描并导入所有Model）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">//导入当前文件夹中的db.js</span><br><span class="hljs-keyword">const</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./db'</span>);<br><br><span class="hljs-keyword">let</span> files = fs.readdirSync(__dirname + <span class="hljs-string">'/models'</span>);<br><br><span class="hljs-keyword">let</span> js_files = files.filter(<span class="hljs-function">(<span class="hljs-params">f</span>)=&gt;</span>&#123;<br>    <span class="hljs-keyword">return</span> f.endsWith(<span class="hljs-string">'.js'</span>);<br>&#125;, files);<br><br><span class="hljs-built_in">module</span>.exports = &#123;&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> f <span class="hljs-keyword">of</span> js_files) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`import model from file <span class="hljs-subst">$&#123;f&#125;</span>...`</span>);<br>    <span class="hljs-keyword">let</span> name = f.substring(<span class="hljs-number">0</span>, f.length - <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">module</span>.exports[name] = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">'/models/'</span> + f);<br>&#125;<br><br><span class="hljs-built_in">module</span>.exports.sync = <span class="hljs-function"><span class="hljs-params"><code class="language-hljs javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">//导入当前文件夹中的db.js</span><br><span class="hljs-keyword">const</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./db'</span>);<br><br><span class="hljs-keyword">let</span> files = fs.readdirSync(__dirname + <span class="hljs-string">'/models'</span>);<br><br><span class="hljs-keyword">let</span> js_files = files.filter(<span class="hljs-function">(<span class="hljs-params">f</span>)=&gt;</span>&#123;<br>    <span class="hljs-keyword">return</span> f.endsWith(<span class="hljs-string">'.js'</span>);<br>&#125;, files);<br><br><span class="hljs-built_in">module</span>.exports = &#123;&#125;;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> f <span class="hljs-keyword">of</span> js_files) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`import model from file <span class="hljs-subst">$&#123;f&#125;</span>...`</span>);<br>    <span class="hljs-keyword">let</span> name = f.substring(<span class="hljs-number">0</span>, f.length - <span class="hljs-number">3</span>);<br>    <span class="hljs-built_in">module</span>.exports[name] = <span class="hljs-built_in">require</span>(__dirname + <span class="hljs-string">'/models/'</span> + f);<br>&#125;<br><br><span class="hljs-built_in">module</span>.exports.sync = <span class="hljs-function"><span class="hljs-params">()</span> =></span> &#123;<br>    db.sync();<br>&#125;;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+const ID_TYPE = Sequelize.STRING(50);
 
-<p>init-db.js（测试时，用model.sync();方法自动创建出表结构）</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs awk">require(<span class="hljs-string">'babel-core/register'</span>)(&#123;<br>    presets: [<span class="hljs-string">'stage-3'</span>]<br>&#125;);<br><span class="hljs-regexp">//</span>导入当前文件夹中的model.js导入所有Modelde<br>const model = require(<span class="hljs-string">'./model.js'</span>);<br><br>model.sync();<br><br>console.log(<span class="hljs-string">'init db ok.'</span>);<br><span class="hljs-regexp">//</span>process.<span class="hljs-keyword">exit</span>(<span class="hljs-number"><code class="language-hljs awk">require(<span class="hljs-string">'babel-core/register'</span>)(&#123;<br>    presets: [<span class="hljs-string">'stage-3'</span>]<br>&#125;);<br><span class="hljs-regexp">//</span>导入当前文件夹中的model.js导入所有Modelde<br>const model = require(<span class="hljs-string">'./model.js'</span>);<br><br>model.sync();<br><br>console.log(<span class="hljs-string">'init db ok.'</span>);<br><span class="hljs-regexp">//</span>process.<span class="hljs-keyword">exit</span>(<span class="hljs-number">0</span>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+//defineModel强制实现上述规则
+function defineModel(name, attributes) {
+    var attrs = {};
+    for (let key in attributes) {
+        let value = attributes[key];
+        if (typeof value === &#39;object&#39; &amp;&amp; value[&#39;type&#39;]) {
+            value.allowNull = value.allowNull || false;
+            attrs[key] = value;
+        } else {
+            attrs[key] = {
+                type: value,
+                allowNull: false
+            };
+        }
+    }
+    attrs.id = {
+        type: ID_TYPE,
+        primaryKey: true
+    };
+    attrs.createdAt = {
+        type: Sequelize.BIGINT,
+        allowNull: false
+    };
+    attrs.updatedAt = {
+        type: Sequelize.BIGINT,
+        allowNull: false
+    };
+    attrs.version = {
+        type: Sequelize.BIGINT,
+        allowNull: false
+    };
+    console.log(&#39;model defined for table: &#39; + name + &#39;\n&#39; + JSON.stringify(attrs, function (k, v) {
+        if (k === &#39;type&#39;) {
+            for (let key in Sequelize) {
+                if (key === &#39;ABSTRACT&#39; || key === &#39;NUMBER&#39;) {
+                    continue;
+                }
+                let dbType = Sequelize[key];
+                if (typeof dbType === &#39;function&#39;) {
+                    if (v instanceof dbType) {
+                        if (v._length) {
+                            return `${dbType.key}(${v._length})`;
+                        }
+                        return dbType.key;
+                    }
+                    if (v === dbType) {
+                        return dbType.key;
+                    }
+                }
+            }
+        }
+        return v;
+    }, &#39;  &#39;));
+    return sequelize.define(name, attrs, {
+        tableName: name,
+        timestamps: false,
+        hooks: {
+            beforeValidate: function (obj) {
+                let now = Date.now();
+                if (obj.isNewRecord) {
+                    console.log(&#39;will create entity...&#39; + obj);
+                    if (!obj.id) {
+                        obj.id = generateId();
+                    }
+                    obj.createdAt = now;
+                    obj.updatedAt = now;
+                    obj.version = 0;
+                } else {
+                    console.log(&#39;will update entity...&#39;);
+                    obj.updatedAt = now;
+                    obj.version++;
+                }
+            }
+        }
+    });
+}
 
-<h3 id="最后一步：数据库数据表更改插入数据"><a href="#最后一步：数据库数据表更改插入数据" class="headerlink" title="最后一步：数据库数据表更改插入数据"></a>最后一步：数据库数据表更改插入数据</h3><p>app.js</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs pgsql">const model = require(<span class="hljs-string">'./model'</span>);<br><br>let<br>    Pet = model.Pet,<br>    <span class="hljs-keyword">User</span> = model.<span class="hljs-keyword">User</span>;<br><br>(async () =&gt; &#123;<br>    var <span class="hljs-keyword">user</span> = await <span class="hljs-keyword">User</span>.<span class="hljs-keyword">create</span>(&#123;<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'John'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        email: <span class="hljs-string">'john-'</span> + <span class="hljs-type">Date</span>.now() + <span class="hljs-string">'@garfield.pet'</span>,<br>        passwd: <span class="hljs-string">'hahaha'</span><br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(<span class="hljs-keyword">user</span>));<br><br>    var cat = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Garfield'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2007-07-07'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(cat));<br><br>    var dog = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Odie'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2008-08-08'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type"><code class="language-hljs pgsql">const model = require(<span class="hljs-string">'./model'</span>);<br><br>let<br>    Pet = model.Pet,<br>    <span class="hljs-keyword">User</span> = model.<span class="hljs-keyword">User</span>;<br><br>(async () =&gt; &#123;<br>    var <span class="hljs-keyword">user</span> = await <span class="hljs-keyword">User</span>.<span class="hljs-keyword">create</span>(&#123;<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'John'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        email: <span class="hljs-string">'john-'</span> + <span class="hljs-type">Date</span>.now() + <span class="hljs-string">'@garfield.pet'</span>,<br>        passwd: <span class="hljs-string">'hahaha'</span><br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(<span class="hljs-keyword">user</span>));<br><br>    var cat = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Garfield'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2007-07-07'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(cat));<br><br>    var dog = await Pet.<span class="hljs-keyword">create</span>(&#123;<br>        ownerId: <span class="hljs-keyword">user</span>.id,<br>        <span class="hljs-type">name</span>: <span class="hljs-string">'Odie'</span>,<br>        gender: <span class="hljs-keyword">false</span>,<br>        birth: <span class="hljs-string">'2008-08-08'</span>,<br>    &#125;);<br>    console.log(<span class="hljs-string">'created: '</span> + <span class="hljs-type">JSON</span>.stringify(dog));<br>&#125;)();<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+const TYPES = [&#39;STRING&#39;, &#39;INTEGER&#39;, &#39;BIGINT&#39;, &#39;TEXT&#39;, &#39;DOUBLE&#39;, &#39;DATEONLY&#39;, &#39;BOOLEAN&#39;];
 
-<p>注：<br>学习廖大文章，小改<br>我第一步就没有实现，mysql连不上node，心态崩了~~</p>
+var exp = {
+    defineModel: defineModel,
+    sync: () =&gt; {
+        // only allow create ddl in non-production environment:
+        if (process.env.NODE_ENV !== &#39;production&#39;) {
+            sequelize.sync({ force: true });
+        } else {
+            throw new Error(&#39;Cannot sync() when NODE_ENV is set to \&#39;production\&#39;.&#39;);
+        }
+    }
+};
+
+for (let type of TYPES) {
+    exp[type] = Sequelize[type];
+}
+
+exp.ID = ID_TYPE;
+exp.generateId = generateId;
+
+module.exports = exp;</code></pre><p>models/Pet.js（Model文件1,创建数据表结构，$\color{red}表名必须多一个s$）</p>
+<pre><code>//导入上一层文件夹中的db.js的定义Model文件
+const db = require(&#39;../db&#39;);
+
+module.exports = db.defineModel(&#39;pets&#39;, {
+    ownerId: db.ID,
+    name: db.STRING(100),
+    gender: db.BOOLEAN,
+    birth: db.STRING(10),
+});
+</code></pre><p>models/User.js（Model文件2，创建数据表结构,$\color{red}表名必须多一个s$）</p>
+<pre><code>//导入上一层文件夹中的db.js的定义Model文件
+const db = require(&#39;../db&#39;);
+
+//User具有email、passwd、name和gender这4个业务字段
+module.exports = db.defineModel(&#39;users&#39;, {
+    email: {
+        type: db.STRING(100),
+        unique: true
+    },
+    passwd: db.STRING(100),
+    name: db.STRING(100),
+    gender: db.BOOLEAN
+});</code></pre><p>model.js（合并，自动扫描并导入所有Model）</p>
+<pre><code>const fs = require(&#39;fs&#39;);
+//导入当前文件夹中的db.js
+const db = require(&#39;./db&#39;);
+
+let files = fs.readdirSync(__dirname + &#39;/models&#39;);
+
+let js_files = files.filter((f)=&gt;{
+    return f.endsWith(&#39;.js&#39;);
+}, files);
+
+module.exports = {};
+
+for (let f of js_files) {
+    console.log(`import model from file ${f}...`);
+    let name = f.substring(0, f.length - 3);
+    module.exports[name] = require(__dirname + &#39;/models/&#39; + f);
+}
+
+module.exports.sync = () =&gt; {
+    db.sync();
+};</code></pre><p>init-db.js（测试时，用model.sync();方法自动创建出表结构）</p>
+<pre><code>require(&#39;babel-core/register&#39;)({
+    presets: [&#39;stage-3&#39;]
+});
+//导入当前文件夹中的model.js导入所有Modelde
+const model = require(&#39;./model.js&#39;);
+
+model.sync();
+
+console.log(&#39;init db ok.&#39;);
+//process.exit(0);</code></pre><h3 id="最后一步：数据库数据表更改插入数据"><a href="#最后一步：数据库数据表更改插入数据" class="headerlink" title="最后一步：数据库数据表更改插入数据"></a>最后一步：数据库数据表更改插入数据</h3><p>app.js</p>
+<pre><code>const model = require(&#39;./model&#39;);
+
+let
+    Pet = model.Pet,
+    User = model.User;
+
+(async () =&gt; {
+    var user = await User.create({
+        name: &#39;John&#39;,
+        gender: false,
+        email: &#39;john-&#39; + Date.now() + &#39;@garfield.pet&#39;,
+        passwd: &#39;hahaha&#39;
+    });
+    console.log(&#39;created: &#39; + JSON.stringify(user));
+
+    var cat = await Pet.create({
+        ownerId: user.id,
+        name: &#39;Garfield&#39;,
+        gender: false,
+        birth: &#39;2007-07-07&#39;,
+    });
+    console.log(&#39;created: &#39; + JSON.stringify(cat));
+
+    var dog = await Pet.create({
+        ownerId: user.id,
+        name: &#39;Odie&#39;,
+        gender: false,
+        birth: &#39;2008-08-08&#39;,
+    });
+    console.log(&#39;created: &#39; + JSON.stringify(dog));
+})();
+</code></pre><p>注：<br>学习廖大文章，小改<br>我第一步就没有实现，mysql连不上node，心态崩了~~</p>
 
             </div>
             <hr/>
@@ -1569,7 +2001,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

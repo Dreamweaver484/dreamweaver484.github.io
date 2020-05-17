@@ -500,18 +500,12 @@
 
             <div class="description center-align">
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['记住：唯一的限制是你的想象力。','If one does not know he wants to which port, then any wind is favorable.'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 75,
-                        showCursor: true
-                    });
-                </script>
+                    <!-- 原来没添加动态诗词前 -->
+                    <!-- 介绍 -->
+
+                    <!-- 原现在没添加动态诗词后 -->
+                    <span id="jinrishici-sentence">正在加载今日诗词....</span>
+
                 
             </div>
         </div>
@@ -521,7 +515,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
 
@@ -759,7 +753,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Linux","value":7},{"name":"设计模式","value":2},{"name":"Liunx","value":2},{"name":"MongoDB","value":2},{"name":"编码","value":1},{"name":"cookies、session","value":1},{"name":"es6","value":1},{"name":"mysql","value":1},{"name":"nodejs","value":2},{"name":"vue","value":9},{"name":"webpack","value":1},{"name":"渗透","value":1}],
+                data: [{"name":"Linux","value":7},{"name":"设计模式","value":2},{"name":"MongoDB","value":2},{"name":"Liunx","value":2},{"name":"es6","value":1},{"name":"mysql","value":1},{"name":"cookies、session","value":1},{"name":"编码","value":1},{"name":"nodejs","value":2},{"name":"vue","value":9},{"name":"webpack","value":1},{"name":"渗透","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -783,7 +777,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["vue","centos8","centos6","nodejs","nginx","MongoDB","mysql","webpack","Linux","centos"]
+                data: ["vue","centos8","centos6","nodejs","MongoDB","nginx","mysql","webpack","Linux","centos"]
             }
         ],
         yAxis: [
@@ -992,14 +986,10 @@
             
             
             
+            
+            
             <a href="/tags/nodejs/">
                 <span class="chip center-align waves-effect waves-light chip-default">nodejs</span>
-            </a>
-            
-            
-            
-            <a href="/tags/nginx/">
-                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
             </a>
             
             
@@ -1010,10 +1000,20 @@
             
             
             
+            <a href="/tags/nginx/">
+                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
+            </a>
             
             
-            <a href="/tags/%E7%BC%96%E7%A0%81/">
-                <span class="chip center-align waves-effect waves-light chip-default">编码</span>
+            
+            <a href="/tags/es6/">
+                <span class="chip center-align waves-effect waves-light chip-default">es6</span>
+            </a>
+            
+            
+            
+            <a href="/tags/mysql/">
+                <span class="chip center-align waves-effect waves-light chip-default">mysql</span>
             </a>
             
             
@@ -1030,14 +1030,8 @@
             
             
             
-            <a href="/tags/es6/">
-                <span class="chip center-align waves-effect waves-light chip-default">es6</span>
-            </a>
-            
-            
-            
-            <a href="/tags/mysql/">
-                <span class="chip center-align waves-effect waves-light chip-default">mysql</span>
+            <a href="/tags/%E7%BC%96%E7%A0%81/">
+                <span class="chip center-align waves-effect waves-light chip-default">编码</span>
             </a>
             
             
@@ -1124,7 +1118,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

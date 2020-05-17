@@ -657,7 +657,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    617
+                    491
                 </div>
                 
 
@@ -727,8 +727,25 @@
 </li>
 </ul>
 <p>这个是挂载共享文件夹的脚本名字任意 这里命名为mount</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sh">这是bash脚本的头 必须要添加 应该是为了设置defaults的值 否则不成功<br><span class="hljs-meta">#! /bin/sh</span><br><span class="hljs-comment">### BEGIN INIT INFO</span><br><span class="hljs-comment"># Provides: OnceDoc</span><br><span class="hljs-comment"># Required-Start: $network $remote_fs $local_fs</span><br><span class="hljs-comment"># Required-Stop: $network $remote_fs $local_fs</span><br><span class="hljs-comment"># Default-Start: 2 3 4 5</span><br><span class="hljs-comment"># Default-Stop: 0 1 6</span><br><span class="hljs-comment"># Short-Description: start and stop node</span><br><span class="hljs-comment"># Description: OnceDoc</span><br><span class="hljs-comment">### END INIT INFO</span><br>vmware-hgfsclient | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> folder; <span class="hljs-keyword">do</span><br>  vmwpath=<span class="hljs-string">"/mnt/hgfs/<span class="hljs-variable">$&#123;folder&#125;</span>"</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"[i] Mounting <span class="hljs-variable">$&#123;folder&#125;</span>   (<span class="hljs-variable">$&#123;vmwpath&#125;</span>)"</span><br>  mkdir -p <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span><br>  umount -f <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span> 2&gt;/dev/null<br>  vmhgfs-fuse -o allow_other -o auto_unmount <span class="hljs-string">".host:/<span class="hljs-variable">$&#123;folder&#125;</span>"</span> <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span><br><span class="hljs-keyword"><code class="language-hljs sh">这是bash脚本的头 必须要添加 应该是为了设置defaults的值 否则不成功<br><span class="hljs-meta">#! /bin/sh</span><br><span class="hljs-comment">### BEGIN INIT INFO</span><br><span class="hljs-comment"># Provides: OnceDoc</span><br><span class="hljs-comment"># Required-Start: $network $remote_fs $local_fs</span><br><span class="hljs-comment"># Required-Stop: $network $remote_fs $local_fs</span><br><span class="hljs-comment"># Default-Start: 2 3 4 5</span><br><span class="hljs-comment"># Default-Stop: 0 1 6</span><br><span class="hljs-comment"># Short-Description: start and stop node</span><br><span class="hljs-comment"># Description: OnceDoc</span><br><span class="hljs-comment">### END INIT INFO</span><br>vmware-hgfsclient | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> folder; <span class="hljs-keyword">do</span><br>  vmwpath=<span class="hljs-string">"/mnt/hgfs/<span class="hljs-variable">$&#123;folder&#125;</span>"</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"[i] Mounting <span class="hljs-variable">$&#123;folder&#125;</span>   (<span class="hljs-variable">$&#123;vmwpath&#125;</span>)"</span><br>  mkdir -p <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span><br>  umount -f <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span> 2&gt;/dev/null<br>  vmhgfs-fuse -o allow_other -o auto_unmount <span class="hljs-string">".host:/<span class="hljs-variable">$&#123;folder&#125;</span>"</span> <span class="hljs-string">"<span class="hljs-variable">$&#123;vmwpath&#125;</span>"</span><br><span class="hljs-keyword">done</span><br>sleep 2s<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-sh"><code class="language-sh">这是bash脚本的头 必须要添加 应该是为了设置defaults的值 否则不成功
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides: OnceDoc
+# Required-Start: $network $remote_fs $local_fs
+# Required-Stop: $network $remote_fs $local_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop node
+# Description: OnceDoc
+### END INIT INFO
+vmware-hgfsclient | while read folder; do
+  vmwpath="/mnt/hgfs/${folder}"
+  echo "[i] Mounting ${folder}   (${vmwpath})"
+  mkdir -p "${vmwpath}"
+  umount -f "${vmwpath}" 2>/dev/null
+  vmhgfs-fuse -o allow_other -o auto_unmount ".host:/${folder}" "${vmwpath}"
+done
+sleep 2s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="使用自启动命令"><a href="#使用自启动命令" class="headerlink" title="使用自启动命令"></a>使用自启动命令</h2><ul>
 <li>1、添加开机自启项【xxx服务名】<ul>
 <li>update-rc.d xxx defaults 99<ul>
@@ -1576,7 +1593,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

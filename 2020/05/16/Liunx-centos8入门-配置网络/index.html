@@ -880,8 +880,16 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)<br>数字    说明                                            权限<br>0       没有任何权限                                     ---<br>1       执行权限                                        --x<br>2       写入权限                                        -w-<br>3       执行权限和写入权限：1 (执行) + 2 (写入) &#x3D; 3       -wx<br>4       读取权限                                        r--<br>5       读取和执行权限：4 (读取) + 1 (执行) &#x3D; 5          r-x<br>6       读取和写入权限：4 (读取) + 2 (写入) &#x3D; 6          rw-<br>7       所有权限: 4 (读取) + 2 (写入) + 1 (执行) &#x3D; 7     rwx<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)
+数字    说明                                            权限
+0       没有任何权限                                     ---
+1       执行权限                                        --x
+2       写入权限                                        -w-
+3       执行权限和写入权限：1 (执行) + 2 (写入) = 3       -wx
+4       读取权限                                        r--
+5       读取和执行权限：4 (读取) + 1 (执行) = 5          r-x
+6       读取和写入权限：4 (读取) + 2 (写入) = 6          rw-
+7       所有权限: 4 (读取) + 2 (写入) + 1 (执行) = 7     rwx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>更改文件属性【加上-R的参数，那么该目录下的所有文件的属组都会更改】</p>
 <p>1、chgrp：更改文件属组</p>
 <ul>
@@ -1041,8 +1049,30 @@
 </li>
 </ul>
 <p>测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">[oracle@Linux]$ touch f1          #创建测试文件f1<br>[oracle@Linux]$ ln f1 f2          #创建f1的一个硬连接文件f2<br>[oracle@Linux]$ ln -s f1 f3       #创建f1的一个符号连接文件f3<br>[oracle@Linux]$ ls -li            # -i参数显示文件的inode节点信息<br>total 0<br>9797648 -rw-r--r--  2 oracle oinstall 0 Apr 21 08:11 f1<br>9797648 -rw-r--r--  2 oracle oinstall 0 Apr 21 08:11 f2<br>9797649 lrwxrwxrwx  1 oracle oinstall 2 Apr 21 08:11 f3 -> f1<br><br>#在f1文件输入内容<br>[oracle@Linux]$ echo "I am f1 file" >>f1<br><br>#查看f1<br>[oracle@Linux]$ cat f1<br>I am f1 file<br><br>#删除f1后<br>[oracle@Linux]$ rm -f f1<br><br>#查看f2,f3<br>[oracle@Linux]$ cat f2<br>I am f1 file<br>[oracle@Linux]$ cat f3<br>cat: f3: No such file or directory<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">[oracle@Linux]$ touch f1          #创建测试文件f1
+[oracle@Linux]$ ln f1 f2          #创建f1的一个硬连接文件f2
+[oracle@Linux]$ ln -s f1 f3       #创建f1的一个符号连接文件f3
+[oracle@Linux]$ ls -li            # -i参数显示文件的inode节点信息
+total 0
+9797648 -rw-r--r--  2 oracle oinstall 0 Apr 21 08:11 f1
+9797648 -rw-r--r--  2 oracle oinstall 0 Apr 21 08:11 f2
+9797649 lrwxrwxrwx  1 oracle oinstall 2 Apr 21 08:11 f3 -> f1
 
+#在f1文件输入内容
+[oracle@Linux]$ echo "I am f1 file" >>f1
+
+#查看f1
+[oracle@Linux]$ cat f1
+I am f1 file
+
+#删除f1后
+[oracle@Linux]$ rm -f f1
+
+#查看f2,f3
+[oracle@Linux]$ cat f2
+I am f1 file
+[oracle@Linux]$ cat f3
+cat: f3: No such file or directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>第一列是inode节点</li>
 <li>原文件 <code>f1</code> 与硬连接文件 <code>f2</code> 的 <strong>inode节点相同</strong>，均为 9797648。</li>
@@ -1134,8 +1164,8 @@
 <li><code>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</code></li>
 <li>大多都是伪用户</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash<br>···<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">root:x:0:0:root:/root:/bin/bash
+···<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>二、<code>cat /etc/shadow</code></p>
 <ul>
 <li><code>登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</code></li>
@@ -1146,8 +1176,11 @@
 <li><code>组名:口令:组标识号:组内用户列表</code></li>
 <li>用户组的所有信息</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">root:x:0:<br>bin:x:1:bin,daemon<br>daemon:x:2:bin,daemon<br>sys:x:3:bin,adm<br>···<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">root:x:0:
+bin:x:1:bin,daemon
+daemon:x:2:bin,daemon
+sys:x:3:bin,adm
+···<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="超级用户root"><a href="#超级用户root" class="headerlink" title="超级用户root"></a>超级用户root</h2><p>切换到超级用户</p>
 <ul>
 <li><code>sudo su</code></li>
@@ -1221,8 +1254,11 @@
 <ul>
 <li><code>ip link show</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000<br>    link&#x2F;loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000<br>    link&#x2F;ether 这里是你的MAC地址 brd ff:ff:ff:ff:ff:ff<br>···<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 这里是你的MAC地址 brd ff:ff:ff:ff:ff:ff
+···<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2、选择第二个ens160网络接口，进入网络配置文件目录</p>
 <ul>
 <li><code>cd  /etc/sysconfig/network-scripts/</code></li>
@@ -1231,8 +1267,25 @@
 <ul>
 <li><code>vi ifcfg-ens160</code></li>
 </ul>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs vim">···<br>BROWSER_ONLY=<span class="hljs-keyword">no</span><br>BOOTPROTO=static<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=<span class="hljs-keyword">no</span><br>IPV6INIT=yes<br>IPV6_AUTOCONF=yes<br>IPV6_DEFROUTE=yes<br>IPV6_FAILURE_FATAL=<span class="hljs-keyword">no</span><br>IPV6_ADDR_GEN_MODE=stable-privacy<br>NAME=ens160<br>UUID=你自己的UUID<br>DEVICE=ens160<br>ONBOOT=yes<br>IPADDR=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.60</span><br>PREFIX=<span class="hljs-number">24</span><br>GATEWAY=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.2</span><br>DNS1=<span class="hljs-number">8.8</span>.<span class="hljs-number">8.8</span><br>DNS2=<span class="hljs-number">8.8</span>.<span class="hljs-number"><code class="language-hljs vim">···<br>BROWSER_ONLY=<span class="hljs-keyword">no</span><br>BOOTPROTO=static<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=<span class="hljs-keyword">no</span><br>IPV6INIT=yes<br>IPV6_AUTOCONF=yes<br>IPV6_DEFROUTE=yes<br>IPV6_FAILURE_FATAL=<span class="hljs-keyword">no</span><br>IPV6_ADDR_GEN_MODE=stable-privacy<br>NAME=ens160<br>UUID=你自己的UUID<br>DEVICE=ens160<br>ONBOOT=yes<br>IPADDR=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.60</span><br>PREFIX=<span class="hljs-number">24</span><br>GATEWAY=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.2</span><br>DNS1=<span class="hljs-number">8.8</span>.<span class="hljs-number">8.8</span><br>DNS2=<span class="hljs-number">8.8</span>.<span class="hljs-number">4.4</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-vim"><code class="language-vim">···
+BROWSER_ONLY<span class="token operator">=</span>no
+BOOTPROTO<span class="token operator">=</span>static
+DEFROUTE<span class="token operator">=</span>yes
+IPV4_FAILURE_FATAL<span class="token operator">=</span>no
+IPV6INIT<span class="token operator">=</span>yes
+IPV6_AUTOCONF<span class="token operator">=</span>yes
+IPV6_DEFROUTE<span class="token operator">=</span>yes
+IPV6_FAILURE_FATAL<span class="token operator">=</span>no
+IPV6_ADDR_GEN_MODE<span class="token operator">=</span>stable<span class="token operator">-</span>privacy
+NAME<span class="token operator">=</span>ens160
+UUID<span class="token operator">=</span>你自己的UUID
+DEVICE<span class="token operator">=</span>ens160
+ONBOOT<span class="token operator">=</span>yes
+IPADDR<span class="token operator">=</span><span class="token number">192.168</span><span class="token operator">.</span><span class="token number">1.60</span>
+PREFIX<span class="token operator">=</span><span class="token number">24</span>
+GATEWAY<span class="token operator">=</span><span class="token number">192.168</span><span class="token operator">.</span><span class="token number">1.2</span>
+DNS1<span class="token operator">=</span><span class="token number">8.8</span><span class="token operator">.</span><span class="token number">8.8</span>
+DNS2<span class="token operator">=</span><span class="token number">8.8</span><span class="token operator">.</span><span class="token number">4.4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>4、重新加载网络配置</p>
 <p>方式一：【一步到位，后面不用】</p>
 <ul>
@@ -2146,7 +2199,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

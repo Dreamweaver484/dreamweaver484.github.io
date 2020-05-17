@@ -653,7 +653,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    468
+                    460
                 </div>
                 
 
@@ -685,8 +685,23 @@
 <li>在CentOs7中，输入 <code>ip addr</code></li>
 </ul>
 <p>以下为CentOs6输出，我把IP地址用xxx替代</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">eth0    Link encap:Ethernet  HWaddr 00:0C:29:12:3E:2D  <br>        inet addr:xxx.xxx.xxx.xxx  Bcast:xxx.xxx.xxxxxx  Mask:255.255.255.0<br>        inet6 addr:xxxx::xxx:xxxx:xxxx:xxxx&#x2F;64 Scope:Link<br>        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1<br>        RX packets:10885 errors:0 dropped:0 overruns:0 frame:0<br>        TX packets:5127 errors:0 dropped:0 overruns:0 carrier:0<br>        collisions:0 txqueuelen:1000<br>        RX bytes:15058180 (14.3 MiB)  TX bytes:338736 (330.7 KiB)<br><br>lo      Link encap:Local Loopback  <br>        inet addr:127.0.0.1  Mask:255.0.0.0<br>        inet6 addr: ::1&#x2F;128 Scope:Host<br>        UP LOOPBACK RUNNING  MTU:16436  Metric:1<br>        RX packets:10 errors:0 dropped:0 overruns:0 frame:0<br>        TX packets:10 errors:0 dropped:0 overruns:0 carrier:0<br>        collisions:0 txqueuelen:0<br>        RX bytes:582 (582.0 b)  TX bytes:582 (582.0 b)<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">eth0    Link encap:Ethernet  HWaddr 00:0C:29:12:3E:2D  
+        inet addr:xxx.xxx.xxx.xxx  Bcast:xxx.xxx.xxxxxx  Mask:255.255.255.0
+        inet6 addr:xxxx::xxx:xxxx:xxxx:xxxx/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:10885 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:5127 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:15058180 (14.3 MiB)  TX bytes:338736 (330.7 KiB)
 
+lo      Link encap:Local Loopback  
+        inet addr:127.0.0.1  Mask:255.0.0.0
+        inet6 addr: ::1/128 Scope:Host
+        UP LOOPBACK RUNNING  MTU:16436  Metric:1
+        RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:0
+        RX bytes:582 (582.0 b)  TX bytes:582 (582.0 b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>再在Linux中输入</p>
 <ul>
 <li><code>which ssh</code> 查看是否安装有 openssh-server 服务</li>
@@ -706,8 +721,11 @@
 <li>密码：xxx</li>
 </ul>
 <p>连接结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">Connecting to xxx. xxx.xxx.xxx:xx...<br>Connection established .<br>To escape to local shell, press' Ctrl +Alt+ ] ' .<br><br>&#x2F;usr&#x2F; bin&#x2F;xauth: creating new authority file &#x2F;home&#x2F;xxx&#x2F; .Xauthority<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">Connecting to xxx. xxx.xxx.xxx:xx...
+Connection established .
+To escape to local shell, press' Ctrl +Alt+ ] ' .
 
+/usr/ bin/xauth: creating new authority file /home/xxx/ .Xauthority<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="在cmd中建立连接"><a href="#在cmd中建立连接" class="headerlink" title="在cmd中建立连接"></a>在cmd中建立连接</h2><ul>
 <li>直接输入<ul>
 <li><code>ssh xxx@ xxx. xxx.xxx.xxx:xx</code></li>
@@ -1547,7 +1565,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

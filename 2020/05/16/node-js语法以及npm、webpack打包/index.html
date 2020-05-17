@@ -657,14 +657,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    14 分
                 </div>
                 
 
@@ -699,16 +699,45 @@
 <h3 id="9-将我们的脚本作为入口起点"><a href="#9-将我们的脚本作为入口起点" class="headerlink" title="9.将我们的脚本作为入口起点"></a>9.将我们的脚本作为入口起点</h3><p>npx webpack<br>然后输出为 main.js</p>
 <h3 id="10-删除"><a href="#10-删除" class="headerlink" title="10.删除"></a>10.删除</h3><p>1.删除全局webpack-cli<br>npm uninstall -g webpack-cli<br>2.删除全局webpack<br>npm uninstall -g webpack<br>3.删除本地（局部）webpack-cli<br>npm uninstall webpack-cli<br>4.删除本地webpack<br>npm un webpack<br>5.检查webpack残余文件<br>rm -rf node_modules package-lock.json package.json  </p>
 <hr>
-<h3 id="1-创建package-json文件"><a href="#1-创建package-json文件" class="headerlink" title="1.创建package.json文件"></a>1.创建package.json文件</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs stata"><span class="hljs-comment">//1.手动输  </span><br>npm init  <br><span class="hljs-comment">//2.自动建立package.json(-y 的含义:在init的时候省去了敲回车的步骤，少用)  </span><br>npm init -y<br>会出现warn警告1：<br><span class="hljs-keyword">No</span> description: 这个警告是说这个项目的描述为空<br>会出现warn警告2：<br><span class="hljs-keyword">No</span> repository field：这个警告就是说git仓库字段没有设置<br>可以添加<br>&#123;<br>    ....<br>    <span class="hljs-string">"scripts"</span>: &#123;<br>        <span class="hljs-string">"test"</span>: <span class="hljs-string">"echo \"</span><span class="hljs-keyword">Error</span>: <span class="hljs-keyword">no</span> <span class="hljs-keyword">test</span> specified\<span class="hljs-string">" &amp;&amp; exit 1"</span><br>      &#125;,<br>     <span class="hljs-string">"private"</span>: true, #加这个声明私有<br>    <span class="hljs-string">"author"</span>: <span class="hljs-string"><code class="language-hljs stata"><span class="hljs-comment">//1.手动输  </span><br>npm init  <br><span class="hljs-comment">//2.自动建立package.json(-y 的含义:在init的时候省去了敲回车的步骤，少用)  </span><br>npm init -y<br>会出现warn警告1：<br><span class="hljs-keyword">No</span> description: 这个警告是说这个项目的描述为空<br>会出现warn警告2：<br><span class="hljs-keyword">No</span> repository field：这个警告就是说git仓库字段没有设置<br>可以添加<br>&#123;<br>    ....<br>    <span class="hljs-string">"scripts"</span>: &#123;<br>        <span class="hljs-string">"test"</span>: <span class="hljs-string">"echo \"</span><span class="hljs-keyword">Error</span>: <span class="hljs-keyword">no</span> <span class="hljs-keyword">test</span> specified\<span class="hljs-string">" &amp;&amp; exit 1"</span><br>      &#125;,<br>     <span class="hljs-string">"private"</span>: true, #加这个声明私有<br>    <span class="hljs-string">"author"</span>: <span class="hljs-string">"xxxx"</span>,<br>    ....<br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>Package.json属性说明:位于 node_modules/express/package.json 内容</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs properties"><span class="hljs-attr">name</span>            <span class="hljs-string">包名。</span><br><span class="hljs-attr">version</span>         <span class="hljs-string">包的版本号。</span><br><span class="hljs-attr">description</span>     <span class="hljs-string">包的描述。</span><br><span class="hljs-attr">homepage</span>        <span class="hljs-string">包的官网 url 。</span><br><span class="hljs-attr">author</span>          <span class="hljs-string">包的作者姓名。</span><br><span class="hljs-attr">contributors</span>    <span class="hljs-string">包的其他贡献者姓名。</span><br><span class="hljs-attr">dependencies</span>    <span class="hljs-string">依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module目录下。</span><br><span class="hljs-attr">repository</span>      <span class="hljs-string">包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</span><br><span class="hljs-attr">main</span>            <span class="hljs-string">指定了程序的主入口文件，require('moduleName') 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。</span><br><span class="hljs-attr">keywords</span>        <span class="hljs-string"><code class="language-hljs properties"><span class="hljs-attr">name</span>            <span class="hljs-string">包名。</span><br><span class="hljs-attr">version</span>         <span class="hljs-string">包的版本号。</span><br><span class="hljs-attr">description</span>     <span class="hljs-string">包的描述。</span><br><span class="hljs-attr">homepage</span>        <span class="hljs-string">包的官网 url 。</span><br><span class="hljs-attr">author</span>          <span class="hljs-string">包的作者姓名。</span><br><span class="hljs-attr">contributors</span>    <span class="hljs-string">包的其他贡献者姓名。</span><br><span class="hljs-attr">dependencies</span>    <span class="hljs-string">依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module目录下。</span><br><span class="hljs-attr">repository</span>      <span class="hljs-string">包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</span><br><span class="hljs-attr">main</span>            <span class="hljs-string">指定了程序的主入口文件，require('moduleName') 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。</span><br><span class="hljs-attr">keywords</span>        <span class="hljs-string">关键字</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h3 id="2-安装模块【可以通过-require-来引入本地安装的包】"><a href="#2-安装模块【可以通过-require-来引入本地安装的包】" class="headerlink" title="2.安装模块【可以通过 require() 来引入本地安装的包】"></a>2.安装模块【可以通过 require() 来引入本地安装的包】</h3><p>npm install &lt;Module Name模块名&gt;      (本地安装)<br>npm install &lt;Module Name模块名&gt;  -g  (全局安装)<br>//express 包就放在了工程目录下的 node_modules 目录中<br>安装：npm install express<br>调用：var express = require(‘express’);  </p>
+<h3 id="1-创建package-json文件"><a href="#1-创建package-json文件" class="headerlink" title="1.创建package.json文件"></a>1.创建package.json文件</h3><pre><code>//1.手动输  
+npm init  
+//2.自动建立package.json(-y 的含义:在init的时候省去了敲回车的步骤，少用)  
+npm init -y
+会出现warn警告1：
+No description: 这个警告是说这个项目的描述为空
+会出现warn警告2：
+No repository field：这个警告就是说git仓库字段没有设置
+可以添加
+{
+    ....
+    &quot;scripts&quot;: {
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+      },
+     &quot;private&quot;: true, #加这个声明私有
+    &quot;author&quot;: &quot;xxxx&quot;,
+    ....
+}</code></pre><p>Package.json属性说明:位于 node_modules/express/package.json 内容</p>
+<pre><code>name            包名。
+version         包的版本号。
+description     包的描述。
+homepage        包的官网 url 。
+author          包的作者姓名。
+contributors    包的其他贡献者姓名。
+dependencies    依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module目录下。
+repository      包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
+main            指定了程序的主入口文件，require(&#39;moduleName&#39;) 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。
+keywords        关键字</code></pre><h3 id="2-安装模块【可以通过-require-来引入本地安装的包】"><a href="#2-安装模块【可以通过-require-来引入本地安装的包】" class="headerlink" title="2.安装模块【可以通过 require() 来引入本地安装的包】"></a>2.安装模块【可以通过 require() 来引入本地安装的包】</h3><p>npm install &lt;Module Name模块名&gt;      (本地安装)<br>npm install &lt;Module Name模块名&gt;  -g  (全局安装)<br>//express 包就放在了工程目录下的 node_modules 目录中<br>安装：npm install express<br>调用：var express = require(‘express’);  </p>
 <p>注：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs sql">我自己在项目的本地总共安装了这些<br>npm <span class="hljs-keyword">install</span> express             //路由、<span class="hljs-keyword">HTTP</span>帮助程序（重定向，缓存等）<br>npm <span class="hljs-keyword">install</span> fs                  		//文件<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">http</span>               	 	//开发<span class="hljs-keyword">HTTP</span>服务器程序<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">url</span>                		 //解析<span class="hljs-keyword">URL</span><br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">path</span>                	//处理本地文件目录<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">http</span>-<span class="hljs-keyword">server</span><br>npm <span class="hljs-keyword">install</span> crypto              	//提供通用的加密和哈希算法<br>npm <span class="hljs-keyword">install</span> stream              //提供的仅在服务区端可用的模块,支持“流”这种数据结构<br>npm <span class="hljs-keyword"><code class="language-hljs sql">我自己在项目的本地总共安装了这些<br>npm <span class="hljs-keyword">install</span> express             //路由、<span class="hljs-keyword">HTTP</span>帮助程序（重定向，缓存等）<br>npm <span class="hljs-keyword">install</span> fs                  		//文件<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">http</span>               	 	//开发<span class="hljs-keyword">HTTP</span>服务器程序<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">url</span>                		 //解析<span class="hljs-keyword">URL</span><br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">path</span>                	//处理本地文件目录<br>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">http</span>-<span class="hljs-keyword">server</span><br>npm <span class="hljs-keyword">install</span> crypto              	//提供通用的加密和哈希算法<br>npm <span class="hljs-keyword">install</span> stream              //提供的仅在服务区端可用的模块,支持“流”这种数据结构<br>npm <span class="hljs-keyword">install</span> steam<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h3 id="3-查看、卸载、更新、搜索模块"><a href="#3-查看、卸载、更新、搜索模块" class="headerlink" title="3.查看、卸载、更新、搜索模块"></a>3.查看、卸载、更新、搜索模块</h3><p>（以express模块举例）<br>查看所有全局安装的模块：<br>npm list -g<br>查看某个模块的版本号：<br>npm list express<br>卸载模块<br>npm uninstall express<br>卸载后，你可以到 /node_modules/ 目录下查看包是否还存在<br>npm ls<br>更新模块<br>npm update express<br>搜索模块<br>npm search express<br>启动模块<br>npm start  xxx<br>停止模块<br>npm stop  xxx  </p>
+<pre><code>我自己在项目的本地总共安装了这些
+npm install express             //路由、HTTP帮助程序（重定向，缓存等）
+npm install fs                          //文件
+npm install http                        //开发HTTP服务器程序
+npm install url                         //解析URL
+npm install path                    //处理本地文件目录
+npm install http-server
+npm install crypto                  //提供通用的加密和哈希算法
+npm install stream              //提供的仅在服务区端可用的模块,支持“流”这种数据结构
+npm install steam</code></pre><h3 id="3-查看、卸载、更新、搜索模块"><a href="#3-查看、卸载、更新、搜索模块" class="headerlink" title="3.查看、卸载、更新、搜索模块"></a>3.查看、卸载、更新、搜索模块</h3><p>（以express模块举例）<br>查看所有全局安装的模块：<br>npm list -g<br>查看某个模块的版本号：<br>npm list express<br>卸载模块<br>npm uninstall express<br>卸载后，你可以到 /node_modules/ 目录下查看包是否还存在<br>npm ls<br>更新模块<br>npm update express<br>搜索模块<br>npm search express<br>启动模块<br>npm start  xxx<br>停止模块<br>npm stop  xxx  </p>
 <h3 id="创建自己的模块"><a href="#创建自己的模块" class="headerlink" title="创建自己的模块"></a>创建自己的模块</h3><p>在 npm 资源库中注册用户（使用邮箱注册）<br>npm adduser<br>发布模块<br>npm publish<br>然后就可以安装自己的模块<br>npm install xxxxx</p>
 <h3 id="3-创建-Node-js-应用"><a href="#3-创建-Node-js-应用" class="headerlink" title="3.创建 Node.js 应用"></a>3.创建 Node.js 应用</h3><ul>
 <li>引入 required 模块，将实例化的 HTTP 赋值给变量 http  <blockquote>
@@ -725,20 +754,26 @@
 </li>
 </ul>
 <p>如下：<br>server.js  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br>http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/plain'</span>&#125;);<br>    response.end(<span class="hljs-string">'Hello World\n'</span>);<br>&#125;).listen(<span class="hljs-number">8888</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br>http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/plain'</span>&#125;);<br>    response.end(<span class="hljs-string">'Hello World\n'</span>);<br>&#125;).listen(<span class="hljs-number">8888</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server running at http://127.0.0.1:8888/'</span>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h2 id="4-node-命令"><a href="#4-node-命令" class="headerlink" title="4. node 命令"></a>4. node 命令</h2><p>node server.js<br>再打开<a href="http://127.0.0.1:8888/，即可看到Hello" target="_blank" rel="noopener">http://127.0.0.1:8888/，即可看到Hello</a> World</p>
+<pre><code>var http = require(&#39;http&#39;);
+http.createServer(function (request, response) {
+    response.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+    response.end(&#39;Hello World\n&#39;);
+}).listen(8888);
+console.log(&#39;Server running at http://127.0.0.1:8888/&#39;);</code></pre><h2 id="4-node-命令"><a href="#4-node-命令" class="headerlink" title="4. node 命令"></a>4. node 命令</h2><p>node server.js<br>再打开<a href="http://127.0.0.1:8888/，即可看到Hello" target="_blank" rel="noopener">http://127.0.0.1:8888/，即可看到Hello</a> World</p>
 <hr>
 <h2 id="Node-js-REPL-交互式解释器"><a href="#Node-js-REPL-交互式解释器" class="headerlink" title="Node.js REPL(交互式解释器)"></a>Node.js REPL(交互式解释器)</h2><p>1.启动 Node 的终端<br>node  </p>
 <p>2.使用 var 关键字的变量可以使用 console.log() 来输出变量  </p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs crmsh">$ <span class="hljs-keyword">node</span><span class="hljs-title"></span><br><span class="hljs-title">&gt; x</span> = <span class="hljs-number">10</span><br><span class="hljs-number">10</span><br>&gt; var y = <span class="hljs-number"><code class="language-hljs crmsh">$ <span class="hljs-keyword">node</span><span class="hljs-title"></span><br><span class="hljs-title">&gt; x</span> = <span class="hljs-number">10</span><br><span class="hljs-number">10</span><br>&gt; var y = <span class="hljs-number">10</span><br>undefined<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>3.使用下划线(_)获取上一个表达式的运算结果</p>
-<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs gml">&gt; <span class="hljs-symbol">x</span> + <span class="hljs-symbol">y</span><br><span class="hljs-number">30</span><br>&gt; <span class="hljs-keyword">var</span> sum = _<br><span class="hljs-literal"><code class="language-hljs gml">&gt; <span class="hljs-symbol">x</span> + <span class="hljs-symbol">y</span><br><span class="hljs-number">30</span><br>&gt; <span class="hljs-keyword">var</span> sum = _<br><span class="hljs-literal">undefined</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs crmsh">ctrl + c                退出当前终端。<br>ctrl + c 按下两次        退出 <span class="hljs-keyword">Node</span> <span class="hljs-title">REPL</span>。<br>ctrl + d                退出 <span class="hljs-keyword">Node</span> <span class="hljs-title"><code class="language-hljs crmsh">ctrl + c                退出当前终端。<br>ctrl + c 按下两次        退出 <span class="hljs-keyword">Node</span> <span class="hljs-title">REPL</span>。<br>ctrl + d                退出 <span class="hljs-keyword">Node</span> <span class="hljs-title">REPL</span>.<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>回调函数callbak一般作为函数的最后一个参数出现<br>function foo1(name, age, callback) { }<br>function foo2(value, callback1, callback2) { }</p>
+<pre><code>$ node
+&gt; x = 10
+10
+&gt; var y = 10
+undefined</code></pre><p>3.使用下划线(_)获取上一个表达式的运算结果</p>
+<pre><code>&gt; x + y
+30
+&gt; var sum = _
+undefined</code></pre><pre><code>ctrl + c                退出当前终端。
+ctrl + c 按下两次        退出 Node REPL。
+ctrl + d                退出 Node REPL.</code></pre><h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>回调函数callbak一般作为函数的最后一个参数出现<br>function foo1(name, age, callback) { }<br>function foo2(value, callback1, callback2) { }</p>
 <h2 id="基本模块"><a href="#基本模块" class="headerlink" title="基本模块"></a>基本模块</h2><p><strong>在Node环境中，一个.js文件就称之为一个模块</strong></p>
 <h3 id="color-red-1-自定义模块"><a href="#color-red-1-自定义模块" class="headerlink" title="$\color{red}1.自定义模块$"></a>$\color{red}1.自定义模块$</h3><ul>
 <li>一个模块想要对外暴露变量（函数也是变量）<br> module.exports = variable;</li>
@@ -750,23 +785,43 @@
 </ul>
 <p>实例：</p>
 <p>hello.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> s = <span class="hljs-string">'Hello'</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(s + <span class="hljs-string">', '</span> + name + <span class="hljs-string">'!'</span>);<br>&#125;<br><span class="hljs-built_in">module</span>.exports = greet;   <span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> s = <span class="hljs-string">'Hello'</span>;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(s + <span class="hljs-string">', '</span> + name + <span class="hljs-string">'!'</span>);<br>&#125;<br><span class="hljs-built_in">module</span>.exports = greet;   <span class="hljs-comment">//对外暴露变量(greet函数名)</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>main.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-comment">// 引入hello模块,引入的模块作为变量保存在greet变量中</span><br><span class="hljs-keyword">var</span> greet = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./hello'</span>);  <br><span class="hljs-keyword">var</span> s = <span class="hljs-string">'world'</span>;<br>greet(s); <span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-comment">// 引入hello模块,引入的模块作为变量保存在greet变量中</span><br><span class="hljs-keyword">var</span> greet = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./hello'</span>);  <br><span class="hljs-keyword">var</span> s = <span class="hljs-string">'world'</span>;<br>greet(s); <span class="hljs-comment">// s使用hello.js内的函数，输出Hello, world!</span><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<h3 id="color-red-2-fs模块"><a href="#color-red-2-fs模块" class="headerlink" title="$\color{red}2.fs模块$"></a>$\color{red}2.fs模块$</h3><p>fs模块就是文件系统模块，负责读写文件。同时提供了异步和同步的方法</p>
+<pre><code>&#39;use strict&#39;;
+var s = &#39;Hello&#39;;
+function greet(name) {
+    console.log(s + &#39;, &#39; + name + &#39;!&#39;);
+}
+module.exports = greet;   //对外暴露变量(greet函数名)</code></pre><p>main.js</p>
+<pre><code>&#39;use strict&#39;;
+// 引入hello模块,引入的模块作为变量保存在greet变量中
+var greet = require(&#39;./hello&#39;);  
+var s = &#39;world&#39;;
+greet(s); // s使用hello.js内的函数，输出Hello, world!</code></pre><h3 id="color-red-2-fs模块"><a href="#color-red-2-fs模块" class="headerlink" title="$\color{red}2.fs模块$"></a>$\color{red}2.fs模块$</h3><p>fs模块就是文件系统模块，负责读写文件。同时提供了异步和同步的方法</p>
 <p>1.异步读文本文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;               <span class="hljs-comment">//js的严格模式</span><br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.readFile(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;               <span class="hljs-comment">//js的严格模式</span><br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.readFile(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(data);<br>    &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>注：</p>
+<pre><code>&#39;use strict&#39;;               //js的严格模式
+var fs = require(&#39;fs&#39;);
+fs.readFile(&#39;sample.txt&#39;, &#39;utf-8&#39;, function (err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});</code></pre><p>注：</p>
 <ul>
 <li>sample.txt文件必须在当前目录下，且文件编码为utf-8</li>
 <li>当正常读取时，err参数为null，data参数为读取到的String</li>
 <li>当读取发生错误时，err参数代表一个错误对象，data为undefined</li>
 </ul>
 <p>2.异步读二进制文件（图片）  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.readFile(<span class="hljs-string">'sample.png'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(data);<br>        <span class="hljs-built_in">console</span>.log(data.length + <span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.readFile(<span class="hljs-string">'sample.png'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(data);<br>        <span class="hljs-built_in">console</span>.log(data.length + <span class="hljs-string">' bytes'</span>);<br>    &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>注：</p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
+fs.readFile(&#39;sample.png&#39;, function (err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+        console.log(data.length + &#39; bytes&#39;);
+    }
+});</code></pre><p>注：</p>
 <ul>
 <li>回调函数的data参数将返回一个Buffer对象，是一个包含零个或任意个字节的数组（注意和Array不同）</li>
 <li>Buffer对象转换成String<blockquote>
@@ -779,21 +834,50 @@
 </li>
 </ul>
 <p>3.同步读文件(少用)<br>多了一个Sync后缀，并且不接收回调函数，函数直接返回结果</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">var</span> data = fs.readFileSync(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>    <span class="hljs-built_in">console</span>.log(data);<br>&#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>    <span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">var</span> data = fs.readFileSync(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>    <span class="hljs-built_in">console</span>.log(data);<br>&#125; <span class="hljs-keyword">catch</span> (err) &#123;<br>    <span class="hljs-comment">// 出错了</span><br>&#125;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>4.异步写文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">var</span> data = <span class="hljs-string">'Hello, Node.js'</span>;<br>fs.writeFile(<span class="hljs-string">'output.txt'</span>, data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-keyword">var</span> data = <span class="hljs-string">'Hello, Node.js'</span>;<br>fs.writeFile(<span class="hljs-string">'output.txt'</span>, data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ok.'</span>);<br>    &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>注：  </p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
+try {
+    var data = fs.readFileSync(&#39;sample.txt&#39;, &#39;utf-8&#39;);
+    console.log(data);
+} catch (err) {
+    // 出错了
+}</code></pre><p>4.异步写文件</p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
+var data = &#39;Hello, Node.js&#39;;
+fs.writeFile(&#39;output.txt&#39;, data, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(&#39;ok.&#39;);
+    }
+});</code></pre><p>注：  </p>
 <ul>
 <li>参数依次为文件名、数据和回调函数</li>
 <li>回调函数由于只关心成功与否，因此只需要一个err参数</li>
 </ul>
 <p>5.异步写文件（忽略）</p>
 <p>6.获取文件大小，创建时间等信息</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.stat(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, stat</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 是否是文件:</span><br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isFile: '</span> + stat.isFile());<br>        <span class="hljs-comment">// 是否是目录:</span><br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isDirectory: '</span> + stat.isDirectory());<br>        <span class="hljs-keyword">if</span> (stat.isFile()) &#123;<br>            <span class="hljs-comment">// 文件大小:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'size: '</span> + stat.size);<br>            <span class="hljs-comment">// 创建时间, Date对象:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'birth time: '</span> + stat.birthtime);<br>            <span class="hljs-comment">// 修改时间, Date对象:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br>fs.stat(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, stat</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (err) &#123;<br>        <span class="hljs-built_in">console</span>.log(err);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">// 是否是文件:</span><br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isFile: '</span> + stat.isFile());<br>        <span class="hljs-comment">// 是否是目录:</span><br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isDirectory: '</span> + stat.isDirectory());<br>        <span class="hljs-keyword">if</span> (stat.isFile()) &#123;<br>            <span class="hljs-comment">// 文件大小:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'size: '</span> + stat.size);<br>            <span class="hljs-comment">// 创建时间, Date对象:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'birth time: '</span> + stat.birthtime);<br>            <span class="hljs-comment">// 修改时间, Date对象:</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'modified time: '</span> + stat.mtime);<br>        &#125;<br>    &#125;<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>注：使用fs.stat()，它返回一个Stat对象，能告诉我们文件或目录的详细信息</p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
+fs.stat(&#39;sample.txt&#39;, function (err, stat) {
+    if (err) {
+        console.log(err);
+    } else {
+        // 是否是文件:
+        console.log(&#39;isFile: &#39; + stat.isFile());
+        // 是否是目录:
+        console.log(&#39;isDirectory: &#39; + stat.isDirectory());
+        if (stat.isFile()) {
+            // 文件大小:
+            console.log(&#39;size: &#39; + stat.size);
+            // 创建时间, Date对象:
+            console.log(&#39;birth time: &#39; + stat.birthtime);
+            // 修改时间, Date对象:
+            console.log(&#39;modified time: &#39; + stat.mtime);
+        }
+    }
+});</code></pre><p>注：使用fs.stat()，它返回一个Stat对象，能告诉我们文件或目录的详细信息</p>
 <h3 id="color-red-3-stream模块（主要是fs模块）"><a href="#color-red-3-stream模块（主要是fs模块）" class="headerlink" title="$\color{red}3.stream模块（主要是fs模块）$"></a>$\color{red}3.stream模块（主要是fs模块）$</h3><p>标准输出流（stdout）。<br>流的特点是数据是有序的，而且必须<strong>依次读取，或者依次写入</strong>，不能像Array那样随机定位.<br>流也是一个对象</p>
 <ul>
 <li>data事件表示流的数据已经可以读取<ul>
@@ -807,32 +891,102 @@
 <li>一个Readable流和一个Writable流串起来后，所有的数据自动从Readable流进入Writable流，这种操作为<strong>pipe()方法</strong></li>
 </ul>
 <p>1.文件流读取文本</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">// 打开一个流:</span><br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>rs.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'DATA:'</span>)<br>    <span class="hljs-built_in">console</span>.log(chunk);<br>&#125;);<br>rs.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'END'</span>);<br>&#125;);<br>rs.on(<span class="hljs-string">'error'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><span class="hljs-comment">// 打开一个流:</span><br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">'sample.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>rs.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'DATA:'</span>)<br>    <span class="hljs-built_in">console</span>.log(chunk);<br>&#125;);<br>rs.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'END'</span>);<br>&#125;);<br>rs.on(<span class="hljs-string">'error'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ERROR: '</span> + err);<br>&#125;);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
+// 打开一个流:
+var rs = fs.createReadStream(&#39;sample.txt&#39;, &#39;utf-8&#39;);
+rs.on(&#39;data&#39;, function (chunk) {
+    console.log(&#39;DATA:&#39;)
+    console.log(chunk);
+});
+rs.on(&#39;end&#39;, function () {
+    console.log(&#39;END&#39;);
+});
+rs.on(&#39;error&#39;, function (err) {
+    console.log(&#39;ERROR: &#39; + err);
+});</code></pre><p>2.文件流写入文本，不断调用write()方法，最后以end()结束</p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
 
-<p>2.文件流写入文本，不断调用write()方法，最后以end()结束</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> ws1 = fs.createWriteStream(<span class="hljs-string">'output1.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>ws1.write(<span class="hljs-string">'使用Stream写入文本数据...\n'</span>);<br>ws1.write(<span class="hljs-string">'END.'</span>);<br>ws1.end();<br><br><span class="hljs-keyword">var</span> ws2 = fs.createWriteStream(<span class="hljs-string">'output2.txt'</span>);<br>ws2.write(<span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">'使用Stream写入二进制数据...\n'</span>, <span class="hljs-string">'utf-8'</span>));<br>ws2.write(<span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">'END.'</span>, <span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> ws1 = fs.createWriteStream(<span class="hljs-string">'output1.txt'</span>, <span class="hljs-string">'utf-8'</span>);<br>ws1.write(<span class="hljs-string">'使用Stream写入文本数据...\n'</span>);<br>ws1.write(<span class="hljs-string">'END.'</span>);<br>ws1.end();<br><br><span class="hljs-keyword">var</span> ws2 = fs.createWriteStream(<span class="hljs-string">'output2.txt'</span>);<br>ws2.write(<span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">'使用Stream写入二进制数据...\n'</span>, <span class="hljs-string">'utf-8'</span>));<br>ws2.write(<span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">'END.'</span>, <span class="hljs-string">'utf-8'</span>));<br>ws2.end();<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+var ws1 = fs.createWriteStream(&#39;output1.txt&#39;, &#39;utf-8&#39;);
+ws1.write(&#39;使用Stream写入文本数据...\n&#39;);
+ws1.write(&#39;END.&#39;);
+ws1.end();
 
-<p>3.读取源文件的所有数据都自动写入到目标文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">'sample.txt'</span>);<br><span class="hljs-keyword">var</span> ws = fs.createWriteStream(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);<br><br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">'sample.txt'</span>);<br><span class="hljs-keyword">var</span> ws = fs.createWriteStream(<span class="hljs-string">'copied.txt'</span>);<br><br>rs.pipe(ws);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+var ws2 = fs.createWriteStream(&#39;output2.txt&#39;);
+ws2.write(new Buffer(&#39;使用Stream写入二进制数据...\n&#39;, &#39;utf-8&#39;));
+ws2.write(new Buffer(&#39;END.&#39;, &#39;utf-8&#39;));
+ws2.end();</code></pre><p>3.读取源文件的所有数据都自动写入到目标文件</p>
+<pre><code>&#39;use strict&#39;;
+var fs = require(&#39;fs&#39;);
 
-<h3 id="color-red-4-http模块（包含path、url模块）"><a href="#color-red-4-http模块（包含path、url模块）" class="headerlink" title="$\color{red}4.http模块（包含path、url模块）$"></a>$\color{red}4.http模块（包含path、url模块）$</h3><p>提供的request和response对象</p>
+var rs = fs.createReadStream(&#39;sample.txt&#39;);
+var ws = fs.createWriteStream(&#39;copied.txt&#39;);
+
+rs.pipe(ws);</code></pre><h3 id="color-red-4-http模块（包含path、url模块）"><a href="#color-red-4-http模块（包含path、url模块）" class="headerlink" title="$\color{red}4.http模块（包含path、url模块）$"></a>$\color{red}4.http模块（包含path、url模块）$</h3><p>提供的request和response对象</p>
 <ul>
 <li>request对象封装了HTTP请求，调用request对象属性和方法可以拿到所有HTTP请求信息</li>
 <li>response对象封装了HTTP响应，操作response对象方法，可以把HTTP响应返回给浏览器</li>
 </ul>
 <p>1.Web程序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript">hello.js<br><br><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br><span class="hljs-comment">// 创建http server，并传入回调函数:</span><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    <span class="hljs-comment">// 回调函数接收request和response对象,</span><br>    <span class="hljs-comment">// 获得HTTP请求的method和url:</span><br>    <span class="hljs-built_in">console</span>.log(request.method + <span class="hljs-string">': '</span> + request.url);<br>    <span class="hljs-comment">// 将HTTP响应200写入response, 同时设置Content-Type: text/html:</span><br>    response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/html'</span>&#125;);<br>    <span class="hljs-comment">// 将HTTP响应的HTML内容写入response:</span><br>    response.end(<span class="hljs-string">'&lt;h1&gt;Hello world!&lt;/h1&gt;'</span>);<br>&#125;);<br>server.listen(<span class="hljs-number">8080</span>);           <span class="hljs-comment">// 让服务器监听8080端口:</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript">hello.js<br><br><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br><span class="hljs-comment">// 创建http server，并传入回调函数:</span><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    <span class="hljs-comment">// 回调函数接收request和response对象,</span><br>    <span class="hljs-comment">// 获得HTTP请求的method和url:</span><br>    <span class="hljs-built_in">console</span>.log(request.method + <span class="hljs-string">': '</span> + request.url);<br>    <span class="hljs-comment">// 将HTTP响应200写入response, 同时设置Content-Type: text/html:</span><br>    response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/html'</span>&#125;);<br>    <span class="hljs-comment">// 将HTTP响应的HTML内容写入response:</span><br>    response.end(<span class="hljs-string">'&lt;h1&gt;Hello world!&lt;/h1&gt;'</span>);<br>&#125;);<br>server.listen(<span class="hljs-number">8080</span>);           <span class="hljs-comment">// 让服务器监听8080端口:</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server is running at http://127.0.0.1:8080/'</span>);<br><br>再node hello.js 输出<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre><code>hello.js
 
-<p>2.文件服务器(url和path模块)</p>
+&#39;use strict&#39;;
+var http = require(&#39;http&#39;);
+// 创建http server，并传入回调函数:
+var server = http.createServer(function (request, response) {
+    // 回调函数接收request和response对象,
+    // 获得HTTP请求的method和url:
+    console.log(request.method + &#39;: &#39; + request.url);
+    // 将HTTP响应200写入response, 同时设置Content-Type: text/html:
+    response.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;});
+    // 将HTTP响应的HTML内容写入response:
+    response.end(&#39;&lt;h1&gt;Hello world!&lt;/h1&gt;&#39;);
+});
+server.listen(8080);           // 让服务器监听8080端口:
+console.log(&#39;Server is running at http://127.0.0.1:8080/&#39;);
+
+再node hello.js 输出
+</code></pre><p>2.文件服务器(url和path模块)</p>
 <p>将一个字符串解析为一个Url对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>);<br><span class="hljs-built_in">console</span>.log(url.parse(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>);<br><span class="hljs-built_in">console</span>.log(url.parse(<span class="hljs-string">'http://user:pass@host.com:8080/path/to/file?query=string#hash'</span>));<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>构造目录：<br>这样，我们就不关心怎么拼接路径了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);<br><span class="hljs-keyword">var</span> workDir = path.resolve(<span class="hljs-string">'.'</span>); <span class="hljs-comment">// 解析当前目录:为'/Users/michael'</span><br><span class="hljs-comment">// 组合完整文件路径:当前目录+'pub'+'index.html':为'/Users/michael/pub/index.html'</span><br><span class="hljs-keyword">var</span> filePath = path.join(workDir, <span class="hljs-string">'pub'</span>, <span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);<br><span class="hljs-keyword">var</span> workDir = path.resolve(<span class="hljs-string">'.'</span>); <span class="hljs-comment">// 解析当前目录:为'/Users/michael'</span><br><span class="hljs-comment">// 组合完整文件路径:当前目录+'pub'+'index.html':为'/Users/michael/pub/index.html'</span><br><span class="hljs-keyword">var</span> filePath = path.join(workDir, <span class="hljs-string">'pub'</span>, <span class="hljs-string">'index.html'</span>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
-<p>实现一个文件服务器：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span><br>    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>),<br>    url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>),<br>    path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>),<br>    http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br><span class="hljs-comment">// 从命令行参数获取root目录，默认是当前目录:</span><br><span class="hljs-keyword">var</span> root = path.resolve(process.argv[<span class="hljs-number">2</span>] || <span class="hljs-string">'.'</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'静态根目录: '</span> + root);<br><span class="hljs-comment">// 创建服务器:</span><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    <span class="hljs-comment">// 获得URL的path，类似 '/css/bootstrap.css':</span><br>    <span class="hljs-keyword">var</span> pathname = url.parse(request.url).pathname;<br>    <span class="hljs-comment">// 获得对应的本地文件路径，类似 '/srv/www/css/bootstrap.css':</span><br>    <span class="hljs-keyword">var</span> filepath = path.join(root, pathname);<br>    <span class="hljs-comment">// 获取文件状态:</span><br>    fs.stat(filepath, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, stats</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (!err &amp;&amp; stats.isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'200 '</span> + request.url);              <span class="hljs-comment">// 没有出错并且文件存在:</span><br>            response.writeHead(<span class="hljs-number">200</span>);                        <span class="hljs-comment">// 发送200响应:</span><br>            fs.createReadStream(filepath).pipe(response);   <span class="hljs-comment">// 将文件流导向response:</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'404 '</span> + request.url);              <span class="hljs-comment">// 出错了或者文件不存在:</span><br>            response.writeHead(<span class="hljs-number">404</span>);                        <span class="hljs-comment">// 发送404响应:</span><br>            response.end(<span class="hljs-string">'404 Not Found'</span>);<br>        &#125;<br>    &#125;);<br>&#125;);<br>server.listen(<span class="hljs-number">8080</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-meta">'use strict'</span>;<br><span class="hljs-keyword">var</span><br>    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>),<br>    url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>),<br>    path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>),<br>    http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);<br><span class="hljs-comment">// 从命令行参数获取root目录，默认是当前目录:</span><br><span class="hljs-keyword">var</span> root = path.resolve(process.argv[<span class="hljs-number">2</span>] || <span class="hljs-string">'.'</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'静态根目录: '</span> + root);<br><span class="hljs-comment">// 创建服务器:</span><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, response</span>) </span>&#123;<br>    <span class="hljs-comment">// 获得URL的path，类似 '/css/bootstrap.css':</span><br>    <span class="hljs-keyword">var</span> pathname = url.parse(request.url).pathname;<br>    <span class="hljs-comment">// 获得对应的本地文件路径，类似 '/srv/www/css/bootstrap.css':</span><br>    <span class="hljs-keyword">var</span> filepath = path.join(root, pathname);<br>    <span class="hljs-comment">// 获取文件状态:</span><br>    fs.stat(filepath, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, stats</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (!err &amp;&amp; stats.isFile()) &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'200 '</span> + request.url);              <span class="hljs-comment">// 没有出错并且文件存在:</span><br>            response.writeHead(<span class="hljs-number">200</span>);                        <span class="hljs-comment">// 发送200响应:</span><br>            fs.createReadStream(filepath).pipe(response);   <span class="hljs-comment">// 将文件流导向response:</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'404 '</span> + request.url);              <span class="hljs-comment">// 出错了或者文件不存在:</span><br>            response.writeHead(<span class="hljs-number">404</span>);                        <span class="hljs-comment">// 发送404响应:</span><br>            response.end(<span class="hljs-string">'404 Not Found'</span>);<br>        &#125;<br>    &#125;);<br>&#125;);<br>server.listen(<span class="hljs-number">8080</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server is running at http://127.0.0.1:8080/'</span>);<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-<p>注：运行node file_server.js /path/to/dir，把/path/to/dir改成你本地的一个有效的目录，然后在浏览器中输入<a href="http://localhost:8080/index.html，只要当前目录下存在文件index.html，服务器就可以把文件内容发送给浏览器。" target="_blank" rel="noopener">http://localhost:8080/index.html，只要当前目录下存在文件index.html，服务器就可以把文件内容发送给浏览器。</a></p>
+<pre><code>&#39;use strict&#39;;
+var url = require(&#39;url&#39;);
+console.log(url.parse(&#39;http://user:pass@host.com:8080/path/to/file?query=string#hash&#39;));</code></pre><p>构造目录：<br>这样，我们就不关心怎么拼接路径了</p>
+<pre><code>&#39;use strict&#39;;
+var path = require(&#39;path&#39;);
+var workDir = path.resolve(&#39;.&#39;); // 解析当前目录:为&#39;/Users/michael&#39;
+// 组合完整文件路径:当前目录+&#39;pub&#39;+&#39;index.html&#39;:为&#39;/Users/michael/pub/index.html&#39;
+var filePath = path.join(workDir, &#39;pub&#39;, &#39;index.html&#39;);</code></pre><p>实现一个文件服务器：</p>
+<pre><code>&#39;use strict&#39;;
+var
+    fs = require(&#39;fs&#39;),
+    url = require(&#39;url&#39;),
+    path = require(&#39;path&#39;),
+    http = require(&#39;http&#39;);
+// 从命令行参数获取root目录，默认是当前目录:
+var root = path.resolve(process.argv[2] || &#39;.&#39;);
+console.log(&#39;静态根目录: &#39; + root);
+// 创建服务器:
+var server = http.createServer(function (request, response) {
+    // 获得URL的path，类似 &#39;/css/bootstrap.css&#39;:
+    var pathname = url.parse(request.url).pathname;
+    // 获得对应的本地文件路径，类似 &#39;/srv/www/css/bootstrap.css&#39;:
+    var filepath = path.join(root, pathname);
+    // 获取文件状态:
+    fs.stat(filepath, function (err, stats) {
+        if (!err &amp;&amp; stats.isFile()) {
+            console.log(&#39;200 &#39; + request.url);              // 没有出错并且文件存在:
+            response.writeHead(200);                        // 发送200响应:
+            fs.createReadStream(filepath).pipe(response);   // 将文件流导向response:
+        } else {
+            console.log(&#39;404 &#39; + request.url);              // 出错了或者文件不存在:
+            response.writeHead(404);                        // 发送404响应:
+            response.end(&#39;404 Not Found&#39;);
+        }
+    });
+});
+server.listen(8080);
+console.log(&#39;Server is running at http://127.0.0.1:8080/&#39;);</code></pre><p>注：运行node file_server.js /path/to/dir，把/path/to/dir改成你本地的一个有效的目录，然后在浏览器中输入<a href="http://localhost:8080/index.html，只要当前目录下存在文件index.html，服务器就可以把文件内容发送给浏览器。" target="_blank" rel="noopener">http://localhost:8080/index.html，只要当前目录下存在文件index.html，服务器就可以把文件内容发送给浏览器。</a></p>
 <h3 id="color-red-5-crypto模块"><a href="#color-red-5-crypto模块" class="headerlink" title="$\color{red}5.crypto模块$"></a>$\color{red}5.crypto模块$</h3><p>。。。。</p>
 <hr>
 <p>这是我的学习笔记，待续（详见廖雪峰的官方网站）</p>
@@ -1662,7 +1816,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

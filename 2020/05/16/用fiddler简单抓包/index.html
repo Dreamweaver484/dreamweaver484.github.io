@@ -649,7 +649,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.3k
                 </div>
                 
 
@@ -844,8 +844,40 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">HTTP&#x2F;1.1 403 Forbidden<br>Server: nginx&#x2F;1.9.15<br>Date: Sat, 18 Apr 2020 11:32:55 GMT<br>Content-Type: text&#x2F;html<br>Connection: close<br>Content-Length: 169<br><br><html><br><head><title>403 Forbidden<&#x2F;title><&#x2F;head><br><body bgcolor&#x3D;"white"><br><center><h1>403 Forbidden<&#x2F;h1><&#x2F;center><br><hr><center>nginx&#x2F;1.9.15<&#x2F;center><br><&#x2F;body><br><&#x2F;html><br><br>改成：<br><br>HTTP&#x2F;1.1 403 Forbidden<br>Server: nginx&#x2F;1.9.15<br>Date: Sat, 18 Apr 2020 11:32:55 GMT<br>Content-Type: text&#x2F;html<br>Connection: close<br>Content-Length: 169<br><br><html><br><head><title>403 Forbidden这就是个错误<&#x2F;title><&#x2F;head><br><body bgcolor&#x3D;"white"><br><center><h1>403 Forbidden<&#x2F;h1><&#x2F;center><br><hr><center>nginx&#x2F;9.9.9<&#x2F;center><br><&#x2F;body><br><&#x2F;html><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">HTTP/1.1 403 Forbidden
+Server: nginx/1.9.15
+Date: Sat, 18 Apr 2020 11:32:55 GMT
+Content-Type: text/html
+Connection: close
+Content-Length: 169
 
+<html>
+<head><title>403 Forbidden</title><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="welcome" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body bgcolor="white">
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/1.9.15</center>
+</body>
+</html>
+
+改成：
+
+HTTP/1.1 403 Forbidden
+Server: nginx/1.9.15
+Date: Sat, 18 Apr 2020 11:32:55 GMT
+Content-Type: text/html
+Connection: close
+Content-Length: 169
+
+<html>
+<head><title>403 Forbidden这就是个错误</title></head>
+<body bgcolor="white">
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/9.9.9</center>
+</body>
+</html>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="实例2【响应报文的修改】"><a href="#实例2【响应报文的修改】" class="headerlink" title="实例2【响应报文的修改】"></a>实例2【响应报文的修改】</h3><ul>
 <li>1、进入<code>https://t.qianzhan.com/caijing/detail/200418-4a7c3321.html</code>，显示的是页面</li>
 <li>2、中断所有的会话<ul>
@@ -868,8 +900,115 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">HTTP&#x2F;1.1 200 OK<br>Date: Sat, 18 Apr 2020 12:05:28 GMT<br>Content-Type: text&#x2F;html; charset&#x3D;utf-8<br>Content-Length: 62409<br>Connection: keep-alive<br>Server: nginx<br>Cache-Control: private<br>Last-Modified: Sat, 18 Apr 2020 12:00:00 GMT<br>X-NWS-UUID-VERIFY: cbe94da3f4fec551e970bbf78f743f8b<br>Vary: Accept-Encoding<br>X-NWS-LOG-UUID: 707fa9f9-af2f-4b06-9b04-065632bfc552<br>X-Daa-Tunnel: hop_count&#x3D;3<br>X-Cache-Lookup: Hit From Upstream<br>X-Cache-Lookup: Hit From Inner Cluster<br>X-Cache-Lookup: Hit From Upstream<br><br><br><br><!DOCTYPE html PUBLIC "-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN" "http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd"><br><html xmlns&#x3D;"http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml" xml:lang&#x3D;"en"><br><head><br>    <meta http-equiv&#x3D;"Content-Type" content&#x3D;"text&#x2F;html; charset&#x3D;utf-8" &#x2F;><br>    <meta name&#x3D;"applicable-device" content&#x3D;"pc" &#x2F;><br>    <title>张文宏：中国做的是饱和式的诊断，世界上很多国家还做不到_产经_前瞻经济学人<&#x2F;title><br>    <meta name&#x3D;"Keywords" content&#x3D;"张文宏,饱和式诊断" &#x2F;><br>    <meta name&#x3D;"Description" content&#x3D;"4月18日，中国和新加坡医疗专家就新冠疫情交流防疫经验，上海市新冠肺炎医疗救治专家组组长张文宏表示，中国做的是饱和式的诊断，世界上很多国家还做不到的。" &#x2F;><br>    <link rel&#x3D;"apple-touch-icon-precomposed" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;img&#x2F;apple-touch-icon.png" &#x2F;><br>    <link rel&#x3D;"stylesheet" type&#x3D;"text&#x2F;css" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;2017&#x2F;css&#x2F;common.css?v&#x3D;20190930" &#x2F;><br>    <link rel&#x3D;"stylesheet" type&#x3D;"text&#x2F;css" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;2017&#x2F;css&#x2F;art.css?v&#x3D;20190113" &#x2F;><br>    <script type&#x3D;"text&#x2F;javascript" src&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;scripts&#x2F;jquery-1.8.2.min.2017.js?v&#x3D;20170401" charset&#x3D;"UTF-8"><&#x2F;script><br><br>    <meta name&#x3D;"mobile-agent" content&#x3D;"format&#x3D;xhtml;url&#x3D;&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1" &#x2F;><br>    <link rel&#x3D;"alternate" media&#x3D;"only screen and(max-width: 760px)" href&#x3D;"&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1" &#x2F;><br>    <script type&#x3D;"text&#x2F;javascript"><br>        if (top.location !&#x3D; self.location) &#123;<br>            top.location &#x3D; self.location.href;<br>        &#125;<br>        if (window.location.href.indexOf("?from&#x3D;xw") > 0) &#123;<br>            sDialog.setCookie('computer', '1', 30, '.qianzhan.com');<br>        &#125;<br>        if (&#x2F;AppleWebKit.*Mobile&#x2F;i.test(navigator.userAgent) || (&#x2F;MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE&#x2F;.test(navigator.userAgent))) &#123;<br>            var computer &#x3D; sDialog.getCookie('computer');<br>            if (computer!&#x3D;"1") &#123;<br>                try &#123;<br>                    if (&#x2F;Android|Windows Phone|webOS|iPhone|iPod|BlackBerry&#x2F;i.test(navigator.userAgent)) &#123;<br>                        window.location.href &#x3D; '&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1';<br>                    &#125;<br>                &#125; catch (e) &#123; &#125;<br>            &#125;<br>        &#125;<br>    <&#x2F;script><br><&#x2F;head><br><br><br>改成：<br><br>HTTP&#x2F;1.1 200 OK<br>Date: Sat, 18 Apr 2020 12:05:28 GMT<br>Content-Type: text&#x2F;html; charset&#x3D;utf-8<br>Content-Length: 62409<br>Connection: keep-alive<br>Server: nginx<br>Cache-Control: private<br>Last-Modified: Sat, 18 Apr 2020 12:00:00 GMT<br>X-NWS-UUID-VERIFY: cbe94da3f4fec551e970bbf78f743f8b<br>Vary: Accept-Encoding<br>X-NWS-LOG-UUID: 707fa9f9-af2f-4b06-9b04-065632bfc552<br>X-Daa-Tunnel: hop_count&#x3D;3<br>X-Cache-Lookup: Hit From Upstream<br>X-Cache-Lookup: Hit From Inner Cluster<br>X-Cache-Lookup: Hit From Upstream<br><br><br><br><!DOCTYPE html PUBLIC "-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN" "http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd"><br><html xmlns&#x3D;"http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml" xml:lang&#x3D;"en"><br><head><br>    <meta http-equiv&#x3D;"Content-Type" content&#x3D;"text&#x2F;html; charset&#x3D;utf-8" &#x2F;><br>    <meta name&#x3D;"applicable-device" content&#x3D;"pc" &#x2F;><br>    <title>张文宏：对对对<&#x2F;title><br>    <meta name&#x3D;"Keywords" content&#x3D;"张文宏,饱和式诊断" &#x2F;><br>    <meta name&#x3D;"Description" content&#x3D;"4月18日，中国和新加坡医疗专家就新冠疫情交流防疫经验，上海市新冠肺炎医疗救治专家组组长张文宏表示，中国做的是饱和式的诊断，世界上很多国家还做不到的。" &#x2F;><br>    <link rel&#x3D;"apple-touch-icon-precomposed" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;img&#x2F;apple-touch-icon.png" &#x2F;><br>    <link rel&#x3D;"stylesheet" type&#x3D;"text&#x2F;css" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;2017&#x2F;css&#x2F;common.css?v&#x3D;20190930" &#x2F;><br>    <link rel&#x3D;"stylesheet" type&#x3D;"text&#x2F;css" href&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;2017&#x2F;css&#x2F;art.css?v&#x3D;20190113" &#x2F;><br>    <script type&#x3D;"text&#x2F;javascript" src&#x3D;"https:&#x2F;&#x2F;img1.qianzhan.com&#x2F;scripts&#x2F;jquery-1.8.2.min.2017.js?v&#x3D;20170401" charset&#x3D;"UTF-8"><&#x2F;script><br><br>    <meta name&#x3D;"mobile-agent" content&#x3D;"format&#x3D;xhtml;url&#x3D;&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1" &#x2F;><br>    <link rel&#x3D;"alternate" media&#x3D;"only screen and(max-width: 760px)" href&#x3D;"&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1" &#x2F;><br>    <script type&#x3D;"text&#x2F;javascript"><br>        if (top.location !&#x3D; self.location) &#123;<br>            top.location &#x3D; self.location.href;<br>        &#125;<br>        if (window.location.href.indexOf("?from&#x3D;xw") > 0) &#123;<br>            sDialog.setCookie('computer', '1', 30, '.qianzhan.com');<br>        &#125;<br>        if (&#x2F;AppleWebKit.*Mobile&#x2F;i.test(navigator.userAgent) || (&#x2F;MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE&#x2F;.test(navigator.userAgent))) &#123;<br>            var computer &#x3D; sDialog.getCookie('computer');<br>            if (computer!&#x3D;"1") &#123;<br>                try &#123;<br>                    if (&#x2F;Android|Windows Phone|webOS|iPhone|iPod|BlackBerry&#x2F;i.test(navigator.userAgent)) &#123;<br>                        window.location.href &#x3D; '&#x2F;&#x2F;xw.qianzhan.com&#x2F;t&#x2F;detail&#x2F;556&#x2F;200418-4a7c3321.html?r&#x3D;1';<br>                    &#125;<br>                &#125; catch (e) &#123; &#125;<br>            &#125;<br>        &#125;<br>    <&#x2F;script><br><&#x2F;head><br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt"><code class="language-txt">HTTP/1.1 200 OK
+Date: Sat, 18 Apr 2020 12:05:28 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 62409
+Connection: keep-alive
+Server: nginx
+Cache-Control: private
+Last-Modified: Sat, 18 Apr 2020 12:00:00 GMT
+X-NWS-UUID-VERIFY: cbe94da3f4fec551e970bbf78f743f8b
+Vary: Accept-Encoding
+X-NWS-LOG-UUID: 707fa9f9-af2f-4b06-9b04-065632bfc552
+X-Daa-Tunnel: hop_count=3
+X-Cache-Lookup: Hit From Upstream
+X-Cache-Lookup: Hit From Inner Cluster
+X-Cache-Lookup: Hit From Upstream
 
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="applicable-device" content="pc" />
+    <title>张文宏：中国做的是饱和式的诊断，世界上很多国家还做不到_产经_前瞻经济学人</title>
+    <meta name="Keywords" content="张文宏,饱和式诊断" />
+    <meta name="Description" content="4月18日，中国和新加坡医疗专家就新冠疫情交流防疫经验，上海市新冠肺炎医疗救治专家组组长张文宏表示，中国做的是饱和式的诊断，世界上很多国家还做不到的。" />
+    <link rel="apple-touch-icon-precomposed" href="https://img1.qianzhan.com/img/apple-touch-icon.png" />
+    <link rel="stylesheet" type="text/css" href="https://img1.qianzhan.com/2017/css/common.css?v=20190930" />
+    <link rel="stylesheet" type="text/css" href="https://img1.qianzhan.com/2017/css/art.css?v=20190113" />
+    <script type="text/javascript" src="https://img1.qianzhan.com/scripts/jquery-1.8.2.min.2017.js?v=20170401" charset="UTF-8"></script>
+
+    <meta name="mobile-agent" content="format=xhtml;url=//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1" />
+    <link rel="alternate" media="only screen and(max-width: 760px)" href="//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1" />
+    <script type="text/javascript">
+        if (top.location != self.location) {
+            top.location = self.location.href;
+        }
+        if (window.location.href.indexOf("?from=xw") > 0) {
+            sDialog.setCookie('computer', '1', 30, '.qianzhan.com');
+        }
+        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            var computer = sDialog.getCookie('computer');
+            if (computer!="1") {
+                try {
+                    if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                        window.location.href = '//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1';
+                    }
+                } catch (e) { }
+            }
+        }
+    </script>
+</head>
+
+
+改成：
+
+HTTP/1.1 200 OK
+Date: Sat, 18 Apr 2020 12:05:28 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 62409
+Connection: keep-alive
+Server: nginx
+Cache-Control: private
+Last-Modified: Sat, 18 Apr 2020 12:00:00 GMT
+X-NWS-UUID-VERIFY: cbe94da3f4fec551e970bbf78f743f8b
+Vary: Accept-Encoding
+X-NWS-LOG-UUID: 707fa9f9-af2f-4b06-9b04-065632bfc552
+X-Daa-Tunnel: hop_count=3
+X-Cache-Lookup: Hit From Upstream
+X-Cache-Lookup: Hit From Inner Cluster
+X-Cache-Lookup: Hit From Upstream
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="applicable-device" content="pc" />
+    <title>张文宏：对对对</title>
+    <meta name="Keywords" content="张文宏,饱和式诊断" />
+    <meta name="Description" content="4月18日，中国和新加坡医疗专家就新冠疫情交流防疫经验，上海市新冠肺炎医疗救治专家组组长张文宏表示，中国做的是饱和式的诊断，世界上很多国家还做不到的。" />
+    <link rel="apple-touch-icon-precomposed" href="https://img1.qianzhan.com/img/apple-touch-icon.png" />
+    <link rel="stylesheet" type="text/css" href="https://img1.qianzhan.com/2017/css/common.css?v=20190930" />
+    <link rel="stylesheet" type="text/css" href="https://img1.qianzhan.com/2017/css/art.css?v=20190113" />
+    <script type="text/javascript" src="https://img1.qianzhan.com/scripts/jquery-1.8.2.min.2017.js?v=20170401" charset="UTF-8"></script>
+
+    <meta name="mobile-agent" content="format=xhtml;url=//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1" />
+    <link rel="alternate" media="only screen and(max-width: 760px)" href="//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1" />
+    <script type="text/javascript">
+        if (top.location != self.location) {
+            top.location = self.location.href;
+        }
+        if (window.location.href.indexOf("?from=xw") > 0) {
+            sDialog.setCookie('computer', '1', 30, '.qianzhan.com');
+        }
+        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            var computer = sDialog.getCookie('computer');
+            if (computer!="1") {
+                try {
+                    if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                        window.location.href = '//xw.qianzhan.com/t/detail/556/200418-4a7c3321.html?r=1';
+                    }
+                } catch (e) { }
+            }
+        }
+    </script>
+</head>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="创建AutoResponder规则"><a href="#创建AutoResponder规则" class="headerlink" title="创建AutoResponder规则"></a>创建AutoResponder规则</h2><p>允许你从本地返回文件，而不用将http request 发送到服务器上</p>
 <ul>
 <li>1、打开百度，把logo图片保存到本地，并且对图片做些修改。</li>
@@ -929,8 +1068,8 @@
 </li>
 </ul>
 <p>规则实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs txt"><code class="language-hljs txt">- EXACT:http:&#x2F;&#x2F;www.baidu.com<br>- regex:(?inx).+\.jpg$  #匹配以jpg结尾的字符串<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-txt"><code class="language-txt">- EXACT:http://www.baidu.com
+- regex:(?inx).+\.jpg$  #匹配以jpg结尾的字符串<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="实例1【更改图片】"><a href="#实例1【更改图片】" class="headerlink" title="实例1【更改图片】"></a>实例1【更改图片】</h3><ul>
 <li>1、进入<code>https://t.qianzhan.com/caijing/detail/200418-4a7c3321.html</code>，显示的是页面</li>
 <li>2、找到显示图片的会话<ul>
@@ -1798,7 +1937,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             

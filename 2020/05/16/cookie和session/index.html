@@ -715,16 +715,16 @@
 </li>
 </ul>
 <p>app.js</p>
-<pre class="line-numbers language-js"><span class="comment"><code class="language-js"><span class="comment">// 导入express-session模块</span>
-<span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);
-<span class="comment">// 配置session</span>
-app.use(session({
-  secret: <span class="string">'secret key'</span>,
-  saveUninitialized: <span class="literal">false</span>,
-  cookie: {
-    maxAge: <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>
-  }
-}));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 导入express-session模块</span>
+<span class="token keyword">const</span> session <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express-session'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 配置session</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">session</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  secret<span class="token punctuation">:</span> <span class="token string">'secret key'</span><span class="token punctuation">,</span>
+  saveUninitialized<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  cookie<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    maxAge<span class="token punctuation">:</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1551,7 +1551,7 @@ gitment.render('gitment-content');
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">96.7k</span>&nbsp;字
+                class="white-color">69.3k</span>&nbsp;字
             
             
             
