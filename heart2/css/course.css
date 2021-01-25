@@ -1,0 +1,27 @@
+.thumbnail {
+    margin-bottom: 0px;
+}
+
+.words {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "宋体";
+    color: #b44f4f;
+    line-height: 40px;
+    max-width: 1150px;
+}
+
+.panel-default {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.panel-body {
+    background: #ffdada36;
+}
+
+.panel-default>.panel-heading {
+    color: #b44f4f;
+    background-color: #ebccd1;
+    border-color: #ebccd1;
+}

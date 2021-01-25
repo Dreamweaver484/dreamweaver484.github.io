@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>故事小屋</title>
+	<link rel="icon" href="img/爱心.png" type="image/x-icon" />
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/shubiaoaixin.js"></script>
+	<link href="css/header.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+</head>
+<script type="text/javascript">
+	//得到时间并写入div
+	function getDate() {
+		var date1 = '2020/11/13 00:00:00';  //开始时间
+		var date2 = new Date();    			//结束时间
+		var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数
+		//------------------------------
+		//计算出相差天数
+		var days = Math.floor((date3 / (24 * 3600 * 1000)) + 1)
+		//计算出小时数
+		//var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+		//var hours=Math.floor(leave1/(3600*1000))
+		//计算相差分钟数
+		//var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数
+		//var minutes=Math.floor(leave2/(60*1000))
+		//计算相差秒数
+		//var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+		//var seconds=Math.round(leave3/1000)
+		//获取当前时间
+		// var date = new Date();
+		//  //格式化为本地时间格式
+		//  var date1 = date.toLocaleString();
+		//获取div
+		var div1 = document.getElementById("times");
+		//将时间写入div
+		div1.innerHTML = "♥甜甜的恋爱第" + days + "天♥";
+	}
+	//使用定时器每秒向div写入当前时间
+	setInterval("getDate()", 1000);
+</script>
+
+<body>
+	<!-- header -->
+	<div class="header">
+		<!-- 左边 -->
+		<a href="index.html">
+			<div class="logo">
+				<span style="font-size: 20px;font-weight: 550;">Sweetheart to u</span>
+				<img src="img/爱心.png" width="15px">
+			</div>
+		</a>
+		<!-- 中间 -->
+		<div class="header_right">
+			<ul>
+				<a href="index.html">
+					<li style="color: red">首页</li>
+				</a>
+				<a href="photo.html">
+					<li>照片墙</li>
+				</a>
+				<a href="course.html">
+					<li>历程</li>
+				</a>
+				<a href="myheart.html">
+					<li>日记</li>
+				</a>
+			</ul>
+		</div>
+		<!-- 右边 -->
+		<div style="float: right;margin-top:18px;margin-right: 60px;">
+			<a href="js.html">
+				<img src="img/爱心.png" width="30px">
+			</a>
+		</div>
+	</div>
+
+	<div class="middle">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<!-- 轮播指示点 -->
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner container-fluid" role="listbox">
+				<!-- 三张轮播图 -->
+				<div class="item active">
+					<img src="img/banner01.jpg">
+				</div>
+				<div class="item">
+					<img src="img/banner02.jpg">
+				</div>
+				<div class="item">
+					<img src="img/banner03.jpg">
+				</div>
+			</div>
+			<!-- 左边的往左翻 -->
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<!-- 右边的往左翻 -->
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+	<!-- ——love you so much——  的上半部分显示 -->
+	<div class="fenge">——<span style="margin-left: 15px;margin-right: 15px;margin-bottom: 15px;">love</span>——</div>
+
+	<div class="maodian">
+		<!-- 用js实现插入 甜甜的恋爱第xxx天 显示 -->
+		<div id="times"></div>
+		<!-- 跳转本页相册的内容 -->
+		<a href="#相册">
+			<div class="wenzi_b">
+				<img src="img/相册.png">
+				<span>我们的相册</span>
+				<div class="wenzi_font">每次看这里，</div>
+				<div class="wenzi_font">嘴角总是不自觉的往上扬</div>
+			</div>
+		</a>
+		<!-- 跳转本页历程的内容 -->
+		<a href="#历程">
+			<div class="wenzi_a">
+				<img src="img/历程.png">
+				<span>我们的历程</span>
+				<div class="wenzi_font">我希望陪伴是你，</div>
+				<div class="wenzi_font">结果依旧是你</div>
+			</div>
+		</a>
+		<!-- 跳转本页文字的内容 -->
+		<a href="#文字">
+			<div class="wenzi">
+				<img src="img/文字.png">
+				<span>我想说</span>
+				<div class="wenzi_font">眼里都是你，</div>
+				<div class="wenzi_font"></div>字字句句都是我爱你
+			</div>
+	</div>
+	</a>
+	</div>
+	<!-- ——love you so much——  的上半部分显示 -->
+	<div class="fenge">——<span style="margin-left: 15px;margin-right: 15px;">you so much</span>——</div>
+
+	<div class="note">
+		<!-- 模块一:历程 -->
+		<div class="model">
+			<a name="相册">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">我们的相册<a href="course.html" style="margin-left: 1120px;">more</a></h3>
+					</div>
+					<div class="panel-body" style="margin-left: 50px;">
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/1.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/2.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/3.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- 模块二:相册 -->
+		<div class="model">
+			<a name="历程">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">我们的历程<a href="photo.html" style="margin-left: 1120px;">more</a>
+						</h3>
+					</div>
+					<div class="panel-body" style="margin-left: 50px;">
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/1.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/2.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+						<div class="img_body">
+							<div class="img_bodyup"><img src="img/3.jpg" class="img_size"></div>
+							<span style="margin-left: 170px; color: #eb91a0;">2020/12/20 xxxxx</span>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+		<!-- 模块三:文字 -->
+		<div class="model">
+			<a name="文字">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">我想说<a href="myheart.html" style="margin-left: 1120px;">more</a></h3>
+					</div>
+					<div class="panel-body" style="margin-left: 120px;">
+						<span style="color:#E7C3C3;">如果爱一个人是想融进对方的血肉里，那么我爱你。</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>

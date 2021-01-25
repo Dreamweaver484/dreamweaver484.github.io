@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照片小屋</title>
+	<link rel="icon" href="img/爱心.png" type="image/x-icon" />
+	<link href="css/photo.css" rel="stylesheet">
+	<script src="js/shubiaoaixin.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/header.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- header -->
+	<div class="header">
+		<!-- 左边 -->
+		<a href="index.html">
+			<div class="logo">
+				<span style="font-size: 20px;font-weight: 550;">Sweetheart to u</span>
+				<img src="img/爱心.png" width="15px">
+			</div>
+		</a>
+		<!-- 中间 -->
+		<div class="header_right">
+			<ul>
+				<a href="index.html">
+					<li>首页</li>
+				</a>
+				<a href="photo.html">
+					<li style="color: red">照片墙</li>
+				</a>
+				<a href="course.html">
+					<li>历程</li>
+				</a>
+				<a href="myheart.html">
+					<li>日记</li>
+				</a>
+			</ul>
+		</div>
+		<!-- 右边 -->
+		<div style="float: right;margin-top:18px;margin-right: 60px;">
+			<a href="js.html">
+				<img src="img/爱心.png" width="30px">
+			</a>
+		</div>
+	</div>
+
+	<div id="div_pic" class="div_pic">
+		<!--1--><img class="p" src="img/1.jpg">
+		<!--2--><img class="p" src="img/2.jpg">
+		<!--3--><img class="p" src="img/3.jpg">
+		<!--4--><img class="p" src="img/4.jpg">
+		<!--5--><img class="p" src="img/5.jpg">
+		<!--1--><img class="p" src="img/6.jpg">
+		<!--2--><img class="p" src="img/1.jpg">
+		<!--3--><img class="p" src="img/2.jpg">
+		<!--4--><img class="p" src="img/3.jpg">
+		<!--5--><img class="p" src="img/4.jpg">
+		<!--1--><img class="p" src="img/5.jpg">
+		<!--2--><img class="p" src="img/6.jpg">
+		<!--3--><img class="p" src="img/1.jpg">
+		<!--4--><img class="p" src="img/2.jpg">
+		<!--5--><img class="p" src="img/3.jpg">
+
+	</div>
+	<script>
+		var div = document.getElementById("div_pic");
+		var img = div.getElementsByTagName("img");
+		console.log(img.length)
+		// p1-p15
+		for (const key in img) {
+			if (Object.hasOwnProperty.call(img, key)) {
+				const el = img[key];
+				el.setAttribute("class", `p p${Math.ceil(Math.random()*10)}`);
+			}
+		}
+	</script>
+</body>
+
+</html>

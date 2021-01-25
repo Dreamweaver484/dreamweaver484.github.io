@@ -1,0 +1,86 @@
+.middle {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.fenge {
+  text-align: center;
+  color: #dca7a7;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.maodian {
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  background: #fbf7f6;
+  font-size: 20px;
+  color: #e7c3c3;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+#times {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.wenzi {
+  float: left;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+.wenzi_a {
+  float: left;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+.wenzi_b {
+  margin-left: 185px;
+  float: left;
+  margin-top: 30px;
+}
+
+.wenzi_font {
+  font-size: 17px;
+  max-width: 200px;
+}
+
+.maodian a {
+  color: #e7c3c3;
+}
+
+.note {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.note a {
+  margin-top: 50px;
+}
+
+.model {
+  margin-bottom: 100px;
+}
+
+.img_size {
+  width: 300px;
+  margin-left: 70px;
+  height: 225px;
+}
+
+.img_body {
+  float: left;
+}
+
+.img_bodyup {
+  margin-bottom: 15px;
+}
